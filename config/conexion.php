@@ -3,11 +3,18 @@ class Conectar
 {
     protected $dbh;
     
-    include_once(parametros);
+   
     
     protected function Conexion()
     {
         try {
+            
+            $host="localhost";
+$port=3306;
+$socket="";
+$user="root";
+$password="";
+$dbname="ArkgamesBD";
             
             $cadena="mysql:host={$host};port={$port};dbname={$dbname}";
             $conectar = $this->dbh = new PDO($cadena,  $user, $password); 
