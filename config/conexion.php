@@ -2,11 +2,15 @@
 class Conectar
 {
     protected $dbh;
-
+    
+    include_once(parametros);
+    
     protected function Conexion()
     {
         try {
-            $conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=ArkgamesBD", "root", ""); //Agregar contrasenia al final
+            
+            $cadena="mysql:host={$host};port={$port};dbname={$dbname}";
+            $conectar = $this->dbh = new PDO($cadena,  $user, $password); 
             return $conectar;
 
         }
