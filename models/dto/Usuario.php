@@ -1,31 +1,35 @@
 <?php
 
  class Usuario
-{
+{ 
     public int $Id;
-    public  ?string $NickName;
-    public  ?string $Email;
+    public int $IdRol;
+    public int $IdServidor;
+    public ?string $NickName;
+    public ?string $Email;
     public ?string $NombreCompleto;
-    private  $PasswordSALT;
-    private  $PasswordHASH;
-    public bool $Activo;
-    public int $UsuarioCreacion;
+    public ?string $Genero;
+    public $FechaNacimiento;
+    private $PasswordHASH;
+    public bool $Activo; 
     public int $UsuarioActualizacion;
-    public   $FechaCreacion;
-    public   $FechaActualizacion;
+    public $FechaCreacion;
+    public $FechaActualizacion;
 
     public function __construct($Valor_UsuarioDTO)
     {
        
         if (isset($Valor_UsuarioDTO)){
             $this->Id=$Valor_UsuarioDTO['Id'];
+            $this->IdRol=$Valor_UsuarioDTO['IdRol'];
+            $this->IdServidor=$Valor_UsuarioDTO['IdServidor'];
             $this->NickName=$Valor_UsuarioDTO['NickName'];
             $this->Email=$Valor_UsuarioDTO['Email'];
-            $this->NombreCompleto=$Valor_UsuarioDTO['NombreCompleto'];
-            $this->PasswordSALT=$Valor_UsuarioDTO['PasswordSALT'];
+            $this->Genero=$Valor_UsuarioDTO['Genero'];
+            $this->FechaNacimiento=$Valor_UsuarioDTO['FechaNacimiento'];
+            $this->NombreCompleto=$Valor_UsuarioDTO['NombreCompleto']; 
             $this->PasswordHASH=$Valor_UsuarioDTO['PasswordHASH'];
-            $this->Activo=$Valor_UsuarioDTO['Activo'];
-            $this->UsuarioCreacion=$Valor_UsuarioDTO['UsuarioCreacion'];
+            $this->Activo=$Valor_UsuarioDTO['Activo']; 
             $this->UsuarioActualizacion=$Valor_UsuarioDTO['UsuarioActualizacion'];
             $this->FechaCreacion=$Valor_UsuarioDTO['FechaCreacion'];
             $this->FechaActualizacion=$Valor_UsuarioDTO['FechaActualizacion'];
@@ -33,4 +37,5 @@
     }
 
 }
+ 
 ?>

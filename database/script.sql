@@ -209,18 +209,64 @@ VALUES
     1
   );
 UNLOCK TABLES;
-
-/*TABLA SOPORTE --- ESPINOZA IVAN*/
-CREATE TABLE `soporte` ( `id_solicitud` INT(10) NOT NULL AUTO_INCREMENT , 
-`usuario` VARCHAR(20) NOT NULL , 
-`email` VARCHAR(30) NOT NULL , 
-`telefono` VARCHAR(10) NOT NULL , 
-`servicio` VARCHAR(20) NOT NULL , 
-`producto` VARCHAR(20) NOT NULL , 
-`descripcion_problema` VARCHAR(100) NOT NULL , 
-PRIMARY KEY (`id_solicitud`)) ENGINE = InnoDB;
-
-INSERT INTO `soporte` 
-(`id_solicitud`, `usuario`, `email`, `telefono`, `servicio`, `producto`, `descripcion_problema`) 
-VALUES ('1', 'IvanEspiM', 'ivanespinoza2499@gmail.com', '0928346534', 'Pagos', 'Apex Legends', 'Videojuego no recibido luego de pago.'),
-('2', 'DanielR', 'dani98@gmail.com', '0928346412', 'Cuentas', 'Fall Guys', 'Contrasenia perdida de cuenta en Fall Guys.');
+  /*TABLA SOPORTE --- ESPINOZA IVAN*/
+  CREATE TABLE `soporte` (
+    `id_solicitud` INT(10) NOT NULL AUTO_INCREMENT,
+    `usuario` VARCHAR(20) NOT NULL,
+    `email` VARCHAR(30) NOT NULL,
+    `telefono` VARCHAR(10) NOT NULL,
+    `servicio` VARCHAR(20) NOT NULL,
+    `producto` VARCHAR(20) NOT NULL,
+    `descripcion_problema` VARCHAR(100) NOT NULL,
+    PRIMARY KEY (`id_solicitud`)
+  ) ENGINE = InnoDB;
+INSERT INTO
+  `soporte` (
+    `id_solicitud`,
+    `usuario`,
+    `email`,
+    `telefono`,
+    `servicio`,
+    `producto`,
+    `descripcion_problema`
+  )
+VALUES
+  (
+    '1',
+    'IvanEspiM',
+    'ivanespinoza2499@gmail.com',
+    '0928346534',
+    'Pagos',
+    'Apex Legends',
+    'Videojuego no recibido luego de pago.'
+  ),
+  (
+    '2',
+    'DanielR',
+    'dani98@gmail.com',
+    '0928346412',
+    'Cuentas',
+    'Fall Guys',
+    'Contrasenia perdida de cuenta en Fall Guys.'
+  );
+  /* TABLA USUARIOS
+   * -- RAFAEL LARREA
+   * -- @Rafael1108
+  */
+  DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE `usuarios` (
+    `Id` bigint unsigned NOT NULL AUTO_INCREMENT,
+    `IdRol` enum('0', '1', '2') NOT NULL COMMENT 'Tipos de Roles (0=> Invitado, 1=>Administrador, 2=>Jugador)',
+    `IdServidor` int NOT NULL DEFAULT 0,
+    `NickName` varchar(15) NOT NULL,
+    `Email` varchar(25) DEFAULT '',
+    `NombreCompleto` varchar(30) NOT NULL,
+    `Sexo` varchar(1) NOT NULL DEFAULT 'N',
+    `FechaNacimiento` timestamp NOT NULL,
+    `PasswordHASH` blob NOT NULL,
+    `Activo` tinyint(1) NOT NULL DEFAULT 1,
+    `UsuarioActualizacion` bigint unsigned NOT NULL DEFAULT 0,
+    `FechaCreacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `FechaActualizacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`Id`)
+  ) ENGINE = InnoDB AUTO_INCREMENT = 3 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci
