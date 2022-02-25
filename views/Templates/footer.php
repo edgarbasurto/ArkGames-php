@@ -15,4 +15,4 @@
         </ul>
         <address>Guayaquil, Ecuador </address>
         <p id="derechos_reserv">Derechos Reservados &copy; 2021-2022</p>
-    </footer>
+</footer>

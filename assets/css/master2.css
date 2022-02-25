@@ -125,6 +125,8 @@ footer {
   padding-bottom: 10px;
   width: 100%;
   bottom: 0;
+  position: relative;
+  clear: both;
 }
 .footer_social {
   display: table;

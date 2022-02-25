@@ -1,3 +1,6 @@
+<?php
+    ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,8 +15,8 @@
             .contenedor-table{
                 margin-left: 20px;
             }
-            footer{
-                position: absolute;
+            .contenedor-table{
+                height: 75vh;
             }
             table {
                 border: #b2b2b2 1px solid;
@@ -22,21 +25,29 @@
             td, th {
                 border: black 1px solid;
                 padding: 10px;
-            }</style>
+            }
+            .btnAgregar{
+                background-color: #b2b2b2;
+                width: 60px;
+                text-align: center;
+                margin-top: 10px;
+            }
+            </style>
     </head>
     <body>
+        <header>
+            <?php
+            require_once '../Templates/menu.php';
+            ?>
+        </header>
         <?php
-        require_once '../Templates/menu.php';
-        require_once '../../config/conexionPDO.php';
-
-
+        include_once '../../config/conexionPDO.php';
         $sql = "select * from suscripcion ";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         ?>
-
         <div class="contenedor-table">
-            <h1>Noticias</h1>
+            <h2>Consultar Suscripciones a Newsletter</h2>
             <table>
                 <thead>
                     <tr>
@@ -69,10 +80,13 @@
                     <?php } ?>
                 </tbody>
             </table>
-            <a href="agregar_noticias.php">Agregar</a>
+            <div class='btnAgregar'>
+                <a href="frm_BernalHelen.php">Agregar</a>
+            </div>
         </div>
         <?php
-            include_once '../Templates/footer.php'
+            include '../Templates/footer.php'
         ?>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </body>
 </html>

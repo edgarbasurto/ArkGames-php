@@ -1,5 +1,6 @@
 <?php
 require_once '../../config/conexion.php';
+require_once '../../models/dto/Producto.php';
 class ProductosDAO {
     private $con;
     
@@ -17,7 +18,11 @@ class ProductosDAO {
         //recuperacion de resultados
         $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // retorna datos para el controlador
-        return $productos;
+        $ObjReturn = array();
+        foreach ($productos  as $producto) {
+          $ObjReturn[] = new Producto($producto);
+        }
+        return $ObjReturn;
         
     }   
     

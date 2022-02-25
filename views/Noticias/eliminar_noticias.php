@@ -57,10 +57,13 @@
         </style>
     </head>
     <body>
-
+        <header>
+            <?php
+                require_once '../Templates/menu.php';
+            ?>
+        </header>
+        
         <?php
-        include_once '../Templates/menu.php';
-
         require_once '../../config/conexionPDO.php';
         if (!empty($_GET['id'])) 
         {
@@ -125,7 +128,7 @@
                             <div class="grupo_datos">
                                 <label>¿Desea unirse a nuestro servidor de Discord?</label> <br>
                                 <div>
-                                    <input class="formItem discord" type="radio" name="rdbdiscord" disabled value="Sí" <?php echo ($fila['discord']== 'Sí') ?  "checked" : "" ;  ?>/>Sí <br>
+                                    <input class="formItem discord" type="radio" name="rdbdiscord" disabled value="Sí" <?php echo ($fila['discord']== 'Si') ?  "checked" : "" ;  ?>/>Sí <br>
                                     <input class="formItem discord" type="radio" name="rdbdiscord" disabled value="No" <?php echo ($fila['discord']== 'No') ?  "checked" : "" ;  ?>/>No <br>
                                 </div>
                             </div>
@@ -147,7 +150,7 @@
             $stmt->execute($data);
 
             if ($stmt->rowCount() > 0) {// rowCount() permite conocer el numero de filas afectadas
-                header("location:listar_noticias.php");
+                echo '<script>window.location="listar_noticias.php"</script>';
             } else {
                 echo 'NO se pudo eliminar el registro';
             }
@@ -155,9 +158,10 @@
         ?>
         <!-------------------------------------------------FOOTER---------------------------------------->
         <?php
-            include_once '../Templates/footer.php'
+            require_once '../Templates/footer.php';
         ?>
         <!----------------------------------------------------------------------------------------------->
         <!--<script type="text/javascript" src="../../assets/js/Validacion_Noticias.js"></script>-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </body>
 </html>
