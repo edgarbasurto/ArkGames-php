@@ -42,10 +42,17 @@
                             Noticias
                         </a>
                         <ul class="dropdown-menu">
+<<<<<<< HEAD
                             <li><a class="dropdown-item" href="../Noticias/listar_noticias.php">Presentar</a></li>
                             <li><a class="dropdown-item" href="../Noticias/frm_BernalHelen.php">Agregar</a></li>
                             <li><a class="dropdown-item" href="../Noticias/listar_noticias.php">Editar</a></li>
                             <li><a class="dropdown-item" href="../Noticias/listar_noticias.php">Eliminar</a></li>
+=======
+                          <li><a class="dropdown-item" href="../Noticias/listar_noticias.php">Presentar</a></li>
+                          <li><a class="dropdown-item" href="../Noticias/frm_BernalHelen.php">Agregar</a></li>
+                          <li><a class="dropdown-item" href="../Noticias/listar_noticias.php">Editar</a></li>
+                          <li><a class="dropdown-item" href="../Noticias/listar_noticias.php">Eliminar</a></li>
+>>>>>>> d2382596531ebd3bb87ff232cc7ca5dc994703d3
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

@@ -87,30 +87,32 @@
                         <div class="grupo_datos">
                             <label>Tipo de correo que deseo leer:</label> <br>
                             <?php
-                                $temas_array = explode(", ", $fila['temas']);
-                                foreach ($temas_array as $tema) 
+                                $temas = ["Novedades", "Eventos", "Descuentos", "Torneos","Análisis","Trucos"];
+                                //$temas_devueltos = explode(", ", $fila['temas']);
+                                foreach ($temas as $tema) 
                                 {
-                                    $checked = "";
-                                    if(str_contains($fila['temas'], $tema)){
-                                    $checked = "checked";
-                                    }
+                                    $checked = (str_contains($fila['temas'], $tema)) ? "checked":"";
                                     echo '<input class="formItem tema" type="checkbox" name="chkbtema[]" value= '.$tema.' 
-                                    '.$checked.'/> '.$tema.'<br>';   
+                                    '.$checked.'/> '.$tema.'<br>'; 
+                                    ?>
+                                    <?php
+                                    
                                 }
                             ?>
                         </div>
                         <div class="grupo_datos">
                             <label>Sección:</label> <br>
                             <?php
-                                $disps_array = explode(", ", $fila['dispositivos']);
-                                foreach ($disps_array as $dispositivo) 
+                                $dispositivos = ["PC", "PS2 - PS3 - PS4 - PS5", "XBox", "Wii","Android"];
+                                //$temas_devueltos = explode(", ", $fila['temas']);
+                                foreach ($dispositivos as $dispositivo) 
                                 {
-                                    $checked = "";
-                                    if(str_contains($fila['dispositivos'], $dispositivo)){
-                                        $checked = "checked";
-                                    }
-                                    echo '<input class="formItem dispositivo" type="checkbox" name="chkbdispositivo[]" value= '.$dispositivo.' 
-                                    '.$checked.'/> '.$dispositivo.'<br>';   
+                                    $checked = (str_contains($fila['dispositivos'], $dispositivo)) ? "checked":"";
+                                    echo '<input class="formItem tema" type="checkbox" name="chkbtema[]" value= '.$dispositivo.' 
+                                    '.$checked.'/> '.$dispositivo.'<br>'; 
+                                    ?>
+                                    <?php
+                                    
                                 }
                             ?>
                         </div>
