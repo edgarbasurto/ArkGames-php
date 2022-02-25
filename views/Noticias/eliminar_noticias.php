@@ -59,79 +59,81 @@
     <body>
 
         <?php
-        include_once '../templates/menu.php';
+        include_once '../Templates/menu.php';
 
-       require_once '../assets/config/conexionPDO.php';
-
-        if (!empty($_GET['id'])) {
+        require_once '../../config/conexionPDO.php';
+        if (!empty($_GET['id'])) 
+        {
             $data = ['id' => htmlentities($_GET['id'])];
             $sql = "select * from suscripcion where id_suscripcion = :id";
             $stmt = $pdo->prepare($sql);
             $stmt->execute($data);
 
             $filas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($filas as $fila) {
+            foreach ($filas as $fila) 
+            {
                 ?>
-                <div>
-                    <form id="form_suscripcion" method="post">
-                        <div class="grupo_datos">
-                            <label for="id">ID:</label>
-                            <input id="id" class="formItem" type="number" name="txtid" readonly style="width: 50px;"/> <br>
-                        </div>
-                        <div class="grupo_datos">
-                            <label for="email">Correo electrónico:</label>
-                            <input id="email" class="formItem" type="email" name="txtemail" value="<?php echo $fila['email'] ?>"/> <br>
-                        </div>
-                        <div class="grupo_datos">
-                            <label>Tipo de correo que deseo leer:</label><br>
-                            <div>
-                                <input class="formItem tema" type="checkbox" name="chkbtema[]" value="<?php echo $fila['temas'] ?>" 
-                        checked="<?php echo ($fila['temas']==1)?'checked':'' ?>"/> Novedades <br>
-                                <input class="formItem tema" type="checkbox" name="chkbtema[]" value="<?php echo $fila['temas'] ?>" 
-                        checked="<?php echo ($fila['temas']==1)?'checked':'' ?>"/> Eventos <br>
-                                <input class="formItem tema" type="checkbox" name="chkbtema[]" value="<?php echo $fila['temas'] ?>" 
-                        checked="<?php echo ($fila['temas']==1)?'checked':'' ?>"/> Descuentos <br>
-                                <input class="formItem tema" type="checkbox" name="chkbtema[]" value="<?php echo $fila['temas'] ?>" 
-                        checked="<?php echo ($fila['temas']==1)?'checked':'' ?>"/> Torneos <br>
-                                <input class="formItem tema" type="checkbox" name="chkbtema[]" value="<?php echo $fila['temas'] ?>" 
-                        checked="<?php echo ($fila['temas']==1)?'checked':'' ?>"/> Análisis <br>
-                                <input class="formItem tema" type="checkbox" name="chkbtema[]" value="<?php echo $fila['temas'] ?>" 
-                        checked="<?php echo ($fila['temas']==1)?'checked':'' ?>"/> Trucos <br>
+                <div class="contenedor-formulario">
+                    <div>
+                    <h3 style="padding-left: 10px;">Eliminar Suscripción</h3>
+                        <form id="form_suscripcion" method="post">
+                            <div class="grupo_datos">
+                                <label for="id">ID:</label>
+                                <input id="id" class="formItem" type="number" name="txtid" readonly style="width: 50px;" value="<?php echo $fila['id_suscripcion'] ?>"/> <br>
                             </div>
-                        </div>
-                        <div class="grupo_datos">
-                            <label>Sección:</label> <br>
-                            <div>
-                                <input class="formItem dispositivo" type="checkbox" name="chkbdispositivo[]" value="<?php echo $fila['dispositivos'] ?>" 
-                        checked="<?php echo ($fila['dispositivos']==1)?'checked':'' ?>"/> PC <br>
-                                <input class="formItem dispositivo" type="checkbox" name="chkbdispositivo[]" value="<?php echo $fila['dispositivos'] ?>" 
-                        checked="<?php echo ($fila['dispositivos']==1)?'checked':'' ?>"/> PS2 - PS3 - PS4 - PS5 <br>
-                                <input class="formItem dispositivo" type="checkbox" name="chkbdispositivo[]" value="<?php echo $fila['dispositivos'] ?>" 
-                        checked="<?php echo ($fila['dispositivos']==1)?'checked':'' ?>"/> XBox <br>
-                                <input class="formItem dispositivo" type="checkbox" name="chkbdispositivo[]" value="<?php echo $fila['dispositivos'] ?>" 
-                        checked="<?php echo ($fila['dispositivos']==1)?'checked':'' ?>"/> Wii <br>
-                                <input class="formItem dispositivo" type="checkbox" name="chkbdispositivo[]" value="<?php echo $fila['dispositivos'] ?>" 
-                        checked="<?php echo ($fila['dispositivos']==1)?'checked':'' ?>"/> Android <br>
+                            <div class="grupo_datos">
+                                <label for="email">Correo electrónico:</label>
+                                <input id="email" class="formItem" type="email" name="txtemail" readonly value="<?php echo $fila['email'] ?>"/> <br>
                             </div>
-                        </div>
-                        <div class="grupo_datos">
-                            <label>¿Cada cuánto desea recibir nuestros correos?</label> <br>
-                            <div>
-                                <input class="formItem frecuencia" type="radio" name="rdbfrecuencia" value="diario" />Diario <br>
-                                <input class="formItem frecuencia" type="radio" name="rdbfrecuencia" value="semanal">Semanal(Las noticias más detacadas, todos los sábados)<br>
+                            <div class="grupo_datos">
+                                <label>Tipo de correo que deseo leer:</label> <br>
+                                <?php
+                                    $temas_array = explode(", ", $fila['temas']);
+                                    foreach ($temas_array as $tema) 
+                                    {
+                                        $checked = "";
+                                        if(str_contains($fila['temas'], $tema)){
+                                          $checked = "checked";
+                                        }
+                                        echo '<input class="formItem tema" type="checkbox" name="chkbtema[]" disabled value= '.$tema.' 
+                                        '.$checked.'/> '.$tema.'<br>';   
+                                    }
+                                ?>
                             </div>
-                        </div>
-                        <div class="grupo_datos">
-                            <label>¿Desea unirse a nuestro servidor de Discord?</label> <br>
-                            <div>
-                                <input class="formItem discord" type="radio" name="rdbdiscord" value="Sí" />Sí <br>
-                                <input class="formItem discord" type="radio" name="rdbdiscord" value="No" />No <br>
+                            <div class="grupo_datos">
+                                <label>Sección:</label> <br>
+                                <?php
+                                    $disps_array = explode(", ", $fila['dispositivos']);
+                                    foreach ($disps_array as $dispositivo) 
+                                    {
+                                        $checked = "";
+                                        if(str_contains($fila['dispositivos'], $dispositivo)){
+                                            $checked = "checked";
+                                        }
+                                        echo '<input class="formItem dispositivo" type="checkbox" name="chkbdispositivo[]" disabled value= '.$dispositivo.' 
+                                        '.$checked.'/> '.$dispositivo.'<br>';   
+                                    }
+                                ?>
                             </div>
-                        </div>
-                        <div class="grupo_datos">
-                            <input id="btnListo" type="submit" value="Eliminar" />
-                        </div>
-                    </form>
+                            <div class="grupo_datos">
+                                <label>¿Cada cuánto desea recibir nuestros correos?</label> <br>
+                                <div>
+                                    <input class="formItem frecuencia" type="radio" name="rdbfrecuencia" disabled value="diario" <?php echo ($fila['frecuencia']== 'diario') ?  "checked" : "" ;  ?>/>Diario <br>
+                                    <input class="formItem frecuencia" type="radio" name="rdbfrecuencia" disabled value="semanal" <?php echo ($fila['frecuencia']== 'semanal') ?  "checked" : "" ;  ?>>Semanal(Las noticias más detacadas, todos los sábados)<br>
+                                </div>
+                            </div>
+                            <div class="grupo_datos">
+                                <label>¿Desea unirse a nuestro servidor de Discord?</label> <br>
+                                <div>
+                                    <input class="formItem discord" type="radio" name="rdbdiscord" disabled value="Sí" <?php echo ($fila['discord']== 'Sí') ?  "checked" : "" ;  ?>/>Sí <br>
+                                    <input class="formItem discord" type="radio" name="rdbdiscord" disabled value="No" <?php echo ($fila['discord']== 'No') ?  "checked" : "" ;  ?>/>No <br>
+                                </div>
+                            </div>
+                            <div class="grupo_datos">
+                                <input id="btnListo" type="submit" value="Eliminar" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             <?php
             }
@@ -140,7 +142,7 @@
         <?php
         if (isset($_POST['txtid'])) {
             $data = ['id' => htmlentities($_POST['txtid'])];
-            $sql = "delete from suscrpcion where id_suscripcion = :id";
+            $sql = "delete from suscripcion where id_suscripcion = :id";
             $stmt = $pdo->prepare($sql);
             $stmt->execute($data);
 
@@ -151,7 +153,11 @@
             }
         }
         ?>
-
-
+        <!-------------------------------------------------FOOTER---------------------------------------->
+        <?php
+            include_once '../Templates/footer.php'
+        ?>
+        <!----------------------------------------------------------------------------------------------->
+        <!--<script type="text/javascript" src="../../assets/js/Validacion_Noticias.js"></script>-->
     </body>
 </html>
