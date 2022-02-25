@@ -1,7 +1,6 @@
 <?php
 class Conexion
 {
-
     public static function getConexion()
     {
         $host = "localhost";
@@ -11,11 +10,9 @@ class Conexion
         $dbname = "ArkgamesBD"; //NOMBRE DEL ESQUEMA DE LA BASE DE DATOS
         $conectar = null;
         $cadena = "mysql:host={$host};port={$port};dbname={$dbname}";
-        
+
         try {
-            
             $conectar = new PDO($cadena, $database_username, $database_password);
-           
         } catch (Exception $e) {
             print "¡Error BD!: " . $e->getMessage() . "<br/>";
             print_r("ERROR DE CONEXION");
@@ -24,8 +21,7 @@ class Conexion
         return $conectar;
     }
 
-    public function set_names()
-    {
-        return $this->dbh->query("SET NAMES 'utf8'");
-    }
+   
+
 }
+?>
