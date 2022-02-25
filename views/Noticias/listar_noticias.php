@@ -12,15 +12,15 @@
             }</style>
     </head>
     <body>
-        <h1>Usuarios</h1>
+        <h1>Noticias</h1>
 
         <?php
         include_once '../templates/header.php';
 
-       require_once '../conexion.php';
+        require_once '../../config/conexion.php';
 
 
-        $sql = "select * from usuarios ";
+        $sql = "select * from suscripcion ";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         ?>
@@ -30,11 +30,11 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>USUARIO</th>
-                        <th>NOMBRE</th>
-                        <th>APELLIDOS</th>
-                        <th>EMAIL</th>
-                        <th>ACCIONES</th>
+                        <th>Email</th>
+                        <th>Temas</th>
+                        <th>Dispositivos</th>
+                        <th>Frecuencia</th>
+                        <th>Discord</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,9 +43,9 @@
                     foreach ($filas as $fila) {
                         ?>
                         <tr>
-                            <td><?php echo $fila['id'] ?></td>
-                            <td><?php echo $fila['username'] ?></td>
-                            <td><?php echo $fila['nombre'] ?></td>
+                            <td><?php echo $fila['id_suscripcion'] ?></td>
+                            <td><?php echo $fila['email'] ?></td>
+                            <td><?php echo $fila['id_'] ?></td>
                             <td><?php echo $fila['apellidos'] ?></td>
                             <td><?php echo $fila['email'] ?></td>
                             <td>
