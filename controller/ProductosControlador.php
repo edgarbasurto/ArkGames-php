@@ -16,6 +16,6 @@ class ProductosControlador
         $resultados = $this->modelo->listar();
 
         //llamo a la vista
-        require_once 'vista/productos/productos.list.php';
+        require_once '../views/Catalogo/BasurtoEdgar.php';
     }
 }
