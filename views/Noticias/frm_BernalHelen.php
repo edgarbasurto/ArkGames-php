@@ -21,7 +21,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 20px;
+            margin: 100px 20px;
             padding: 10px;
             width: 100%;
         }
@@ -68,6 +68,7 @@
     include_once '../Templates/header.php'
     ?>
     <!------------------------------------------------------------------------------------------>
+    
     <div class="suscripcion">
         <div>
             <h3 style="padding-left: 10px;">Suscripción a nuestra newsletter</h3>
@@ -124,7 +125,7 @@
     include_once '../Templates/footer.php'
     ?>
     <!----------------------------------------------------------------------------------------------->
-    <script type="text/javascript" src="../../assets/js/Validacion.js"></script>  
+    <script type="text/javascript" src="../../assets/js/Validacion.js"></script>
 </body>
 
 </html>
