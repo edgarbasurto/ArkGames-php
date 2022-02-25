@@ -12,15 +12,9 @@ DROP TABLE IF EXISTS suscripcion;
 CREATE TABLE `suscripcion` (
   `id_suscripcion` int NOT NULL AUTO_INCREMENT,
   `email` varchar(50) NOT NULL,
-  `id_susc_tema` int NOT NULL,
-  `id_susc_disp` int NOT NULL,
   `frecuencia` varchar(10) NOT NULL,
   `discord` varchar(2) NOT NULL,
-  PRIMARY KEY (`id_suscripcion`),
-  KEY `id_tema` (`id_tema`),
-  KEY `id_dispositivo` (`id_dispositivo`),
-  CONSTRAINT `suscripcion_ibfk_1` FOREIGN KEY (`id_susc_tema`) REFERENCES `suscripcion_tema` (`id_susc_tema`),
-  CONSTRAINT `suscripcion_ibfk_2` FOREIGN KEY (`id_susc_disp`) REFERENCES `suscripcion_disp` (`id_susc_disp`)
+  PRIMARY KEY (`id_suscripcion`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
 DROP TABLE IF EXISTS tema;
 CREATE TABLE `tema` (
@@ -48,9 +42,9 @@ CREATE TABLE `suscripcion_disp` (
   `id_susc_disp` int NOT NULL AUTO_INCREMENT,
   `id_suscripcion` int NOT NULL,
   `id_dispositivo` int NOT NULL,
-  PRIMARY KEY (`id_susc_tema`),
-  CONSTRAINT `susc_tema_ibfk_1` FOREIGN KEY (`id_suscripcion`) REFERENCES `suscripcion` (`id_suscripcion`),
-  CONSTRAINT `susc_tema_ibfk_2` FOREIGN KEY (`id_dispositivo`) REFERENCES `dispositivo` (`id_dispositivo`)
+  PRIMARY KEY (`id_susc_disp`),
+  CONSTRAINT `susc_disp_ibfk_1` FOREIGN KEY (`id_suscripcion`) REFERENCES `suscripcion` (`id_suscripcion`),
+  CONSTRAINT `susc_disp_ibfk_2` FOREIGN KEY (`id_dispositivo`) REFERENCES `dispositivo` (`id_dispositivo`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
 INSERT INTO
   tema(id_tema, nombre_tema)
