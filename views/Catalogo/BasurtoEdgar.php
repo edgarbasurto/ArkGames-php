@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="../../assets/css/master.css" />
     <link rel="stylesheet" href="../../assets/css/BasurtoEdgar.css" />
     <link rel="icon" href="../../assets/img/logo.svg">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    -->
 
     <title>Catálogo - ArkGames</title>
 </head>
@@ -28,30 +29,47 @@
             <div class="top">
                 <h1 class="title">Catálogo de ArkGames</h1>
                 <div>
-                    <a class="btnCompra" href="frm_BasurtoEdgar.html">Confirmar compra</a>
+                    <a class="btnCompra" href="frm_BasurtoEdgar.php">Confirmar compra</a>
                 </div>
             </div>
 
             <div class="cuadricula-juegos">
+                <?php
+                foreach ($productos as $producto) {
+                ?>
 
-
-                <div class="cuadricula" id="1">
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/Hitman3_poster.jpg" alt="Hitman3">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>Hitman 3</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$35,00</em></span>
-                            <span class="precio2"><b>$30,00</b></span>
+                    <div class="cuadricula" id="1">
+                        <div class="imagen-card">
+                            <img class="img-cuadricula" src="../../assets/img/Hitman3_poster.jpg" alt="Hitman3">
                         </div>
-                        <a class="icon-buy" href="frm_BasurtoEdgar.html"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
+
+                        <div class="informacion">
+                            <h2>Hitman 3</h2>
+                            <p class="descripcion">Aventura</p>
+                        </div>
+                        <div class="footer-box">
+                            <div class="box-precio">
+                                <span class="precio1"><em>$35,00</em></span>
+                                <span class="precio2"><b>$30,00</b></span>
+                            </div>
+                            <a class="icon-buy" href="frm_BasurtoEdgar.html"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
+                        </div>
                     </div>
-                </div>
+
+                    <tr>
+                        <td><?php echo $fila['id'] ?></td>
+                        <td><?php echo $fila['username'] ?></td>
+                        <td><?php echo $fila['nombre'] ?></td>
+                        <td><?php echo $fila['apellidos'] ?></td>
+                        <td><?php echo $fila['email'] ?></td>
+                        <td>
+                            <a href="editar.php?id=<?php echo $fila['id'] ?>">Editar</a>
+                            <a href="eliminar.php?id=<?php echo $fila['id'] ?>">Eliminar</a>
+                        </td>
+                    </tr>
+                <?php } ?>
+
+
 
                 <div class="cuadricula" id="2">
 
