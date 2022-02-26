@@ -56,7 +56,7 @@
                             Soporte
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Presentar</a></li>
+                          <li><a class="dropdown-item" href="../Soporte/presentar_solicitud.php">Presentar</a></li>
                           <li><a class="dropdown-item" href="#">Agregar</a></li>
                           <li><a class="dropdown-item" href="#">Editar</a></li>
                           <li><a class="dropdown-item" href="#">Eliminar</a></li>
