@@ -26,7 +26,7 @@ body {
   margin: 100px 0px 0px 0px;
   padding: 0px;
   /*font-family: 'Open Sans', sans-serif;*/
-  background-color: rgb(104, 99, 99);
+  background-color: rgb(104, 99, 99) !important;
   background-color: linear-gradient(
     131deg,
     rgba(104, 99, 99, 1) 0%,
@@ -104,6 +104,9 @@ nav ul li a img {
   padding: 20px;
   height: 20px;
   padding: 6px;
+}
+.contenedor-table {
+  margin-top: 100px;
 }
 /*******************************************/
 

@@ -11,7 +11,7 @@ class Conectar
             $port = 3306;
             $user = "root"; //USURIO DE ACCESO A LA BASE DE DATOS
             $password = ""; //CONTRASENIA DE ACCESO A LA BASE DE DATOS
-            $dbname = "ArkgamesBD"; //NOMBRE DEL ESQUEMA DE LA BASE DE DATOS
+            $dbname = "arkgamesbd"; //NOMBRE DEL ESQUEMA DE LA BASE DE DATOS
 
             $cadena = "mysql:host={$host};port={$port};dbname={$dbname}";
             $conectar = $this->dbh = new PDO($cadena,  $user, $password);
