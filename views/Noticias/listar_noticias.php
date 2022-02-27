@@ -15,8 +15,8 @@
             .contenedor-table{
                 margin-left: 20px;
             }
-            footer{
-                position: absolute;
+            .contenedor-table{
+                height: 75vh;
             }
             table {
                 border: #b2b2b2 1px solid;
@@ -25,7 +25,14 @@
             td, th {
                 border: black 1px solid;
                 padding: 10px;
-            }</style>
+            }
+            .btnAgregar{
+                background-color: #b2b2b2;
+                width: 60px;
+                text-align: center;
+                margin-top: 10px;
+            }
+            </style>
     </head>
     <body>
         <header>
@@ -73,7 +80,9 @@
                     <?php } ?>
                 </tbody>
             </table>
-            <a href="frm_BernalHelen.php">Agregar</a>
+            <div class='btnAgregar'>
+                <a href="frm_BernalHelen.php">Agregar</a>
+            </div>
         </div>
         <?php
             include '../Templates/footer.php'
