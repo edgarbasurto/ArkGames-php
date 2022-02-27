@@ -1,5 +1,5 @@
-<div class="table-responsive">
-    <table class="table table-striped table-bordered table-hover" width="100%" cellspacing="0">
+<div>
+    <table class="table table-striped table-dark table-bordered table-hover" width="100%" cellspacing="0">
 
         <thead class="table-light">
             <th scope="col">Id</th>
@@ -25,15 +25,13 @@
                     <td><?php echo $producto->Nombre ?></td>
                     <td><?php echo $producto->Precio ?></td>
                     <td><?php echo $producto->Categoria->Nombre_categoria ?></td>
-                    <td><a href="editar.php?id=<?php echo $producto->Id_producto ?>">Editar</a>
-                        <a href="eliminar.php?id=<?php echo $producto->Id_producto ?>">Eliminar</a>
+                    <td><a href="editar.php?id=<?php echo $producto->Id_producto ?>"class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="eliminar.php?id=<?php echo $producto->Id_producto ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                     </td>
 
                 </tr>
-            <?php
-            }
-            ?>
+            <?php } ?>
         </tbody>
     </table>
-
+    <script src="https://kit.fontawesome.com/2008d37923.js" crossorigin="anonymous"></script>
 </div>

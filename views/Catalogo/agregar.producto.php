@@ -31,6 +31,13 @@
             vertical-align: -.125em;
             fill: currentColor;
         }
+
+        .panelFormulario {
+            padding: 20px 10%;
+            margin: 50px 5%;
+            background: darkcyan;
+            border-radius: 10px;
+        }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
@@ -74,72 +81,57 @@
 
 
 
-    <main class="contenedor">
-
-        <div class="bloque-izq">
+    <div class="panelFormulario">
 
 
-            <div class="top">
-                <h1 class="title">Catálogo de ArkGames</h1>
-                <div>
-                    <a class="btnCompra" href="agregar.producto.php">Agregar nuevo</a>
+        <h1 class="title">Agregar Producto</h1>
+
+
+        <div>
+            <form method="post" action="../../controller/ProductosControlador.php">
+                <!-- <label>ID</label>
+                <input type="number" name="txtid"> -->
+
+
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Nombre:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="txtnombre">
+                    </div>
                 </div>
-            </div>
 
-            <?php
-            require_once '../Catalogo/listar.tabla.php'
-            ?>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Precio:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="txtdireccion">
+                    </div>
+                </div>
 
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Añadir imagen:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="archivo" id="archivo" type="file" />
+                    </div>
+                </div>
+
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">Categoría:</label>
+                    <div class="col-sm-10">
+                        <select name="select">
+                            <option value="value1">Value 1</option>
+                            <option value="value2">Value 2</option>
+                            <option value="value3">Value 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <input class="btn btn-primary mb-3" type="submit" value="Agregar">
+            </form>
         </div>
 
-
-
-        <!-- <div class="bloque-derecha">
-            <aside>
-                <div class="titulo">
-                    <h3>Más contenido:</h3>
-                </div>
-                <section>
-                    <h2>Noticias</h2>
-                    <blockquote>
-                        <p>En esta seccion podrás encontrar noticias relacionadas con juegos...</p>
-                    </blockquote>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/CaPZqDiYHaw" title="YouTube video player" allow="accelerometer; autoplay;
-                     clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </section>
-
-                <section>
-                    <h2>Ofertas</h2>
-                    <blockquote>
-                        <p>Aprovecha nuestras ofertas en los lanzamientos de juegos del 2022...</p>
-                    </blockquote>
-
-                </section>
-
-                <section>
-                    <h2>Deportes</h2>
-                    <blockquote>
-                        <p>Juegos relacionados con los deportes (futbol, racing, beisbol, etc.)...</p>
-                    </blockquote>
-
-                </section>
-
-                <section>
-                    <h2>Aventura</h2>
-                    <blockquote>
-                        <p>Juegos relacionado con la aventura y la acción</p>
-                    </blockquote>
-
-                </section>
-            </aside>
-        </div> -->
-
-
-
-
-    </main>
-
-
+    </div>
     <!-------------------------------------------------FOOTER---------------------------------------->
 
 
