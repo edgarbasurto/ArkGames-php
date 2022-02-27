@@ -1,7 +1,7 @@
 <div class="container-menu">
     <!-- BARRA NAVEGACIÓN -->
     <section>
-        <h3 class="text-center" style="color: var(--bs-white);">Menu CRUD</h3>
+        <!--<h3 class="text-center" style="color: var(--bs-white);">Menu CRUD</h3>-->
         <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
                 <img src="../../assets/img/logo-icon-text.svg" id="logo_page" alt="ArkGames - Menu CRUD" />
@@ -75,6 +75,5 @@
                 </ul>
             </div>
         </nav>
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    </section>  
 </div>

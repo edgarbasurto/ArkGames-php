@@ -26,36 +26,35 @@ function validar(event){
     //validacion de varios checkbox tema
     sel = false;
    
-    /*for (let i = 0; i < checkboxTema.length; i++) {
+    for (let i = 0; i < checkboxTema.length; i++) {
         if (checkboxTema[i].checked) {
             sel = true;
-            if (checkboxTema[i].value === '2') {
-                alert("Ha seleccionado el segundo checkbox");
-            }
             break;
         }
-    }*/
-    if (!sel) {
-        resultado = false;
-        mensaje("Debe seleccionar al menos un tema de su preferencia", checkboxTema[0]);
+        else{
+            sel=false;
+        }
     }
+    if (!sel) {
+        mensaje("Debe seleccionar al menos un tema de su preferencia", checkboxTema[0]);
+    } 
     
     //validacion de varios checkbox dispositivo
     sel = false;
        
-    /*for (let i = 0; i < checkboxDispositivo.length; i++) {
+    for (let i = 0; i < checkboxDispositivo.length; i++) {
         if (checkboxDispositivo[i].checked) {
             sel = true;
-            if (checkboxDispositivo[i].value === '2') {
-                alert("Ha seleccionado el segundo checkbox");
-            }
             break;
         }
-    }*/
-    if (!sel) {
-        resultado = false;
-        mensaje("Debe seleccionar un dispositivo tecnológico de su preferencia", checkboxDispositivo[0]);
+        else
+        {
+            sel=false;
+        }
     }
+    if (!sel) {
+        mensaje("Debe seleccionar un dispositivo tecnológico de su preferencia", checkboxDispositivo[0]);
+    }   
     
     //validacion radio button frecuencia
     var sel = false;

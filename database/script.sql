@@ -16,7 +16,7 @@ CREATE TABLE `suscripcion` (
   `temas` varchar(200) NOT NULL,
   `dispositivos` varchar(200) NOT NULL,
   `frecuencia` varchar(10) NOT NULL,
-  `discord` varchar(10) NOT NULL,
+  `discord` varchar(2) NOT NULL,
   PRIMARY KEY (`id_suscripcion`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
 INSERT INTO
@@ -34,7 +34,7 @@ VALUES
     'Eventos, Descuentos, Análisis',
     'PS2 - PS3 - PS4 - PS5',
     'semanal',
-    'S&iacute;'
+    'Si;'
   ),
   (
     'julieta@gmail.com',
@@ -48,21 +48,21 @@ VALUES
     'Eventos, Descuentos, Torneos',
     'PC, XBox, Android',
     'diario',
-    'S&iacute;'
+    'Si;'
   ),
   (
     'isa@gmail.com',
     'Novedades, Descuentos',
     'XBox, Wii',
     'semanal',
-    'S&iacute;'
+    'Si;'
   ),
   (
     'helen@gmail.com',
     'Eventos, Torneos',
     'PC, PS2 - PS3 - PS4 - PS5',
     'semanal',
-    'S&iacute;'
+    'Si;'
   );
 -- TABLA DE CATEGORIAS DE JUEGOS
   -- EDGAR BASURTO
