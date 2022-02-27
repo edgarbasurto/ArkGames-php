@@ -8,8 +8,8 @@ function validar(event){
     var txtEmail = document.getElementById("email");
     var checkboxTema = document.querySelectorAll(".tema");
     var checkboxDispositivo = document.querySelectorAll(".dispositivo");
-    var radiobDiscord = document.getElementsByName("discord");
-    var radiobfrecuencia = document.getElementsByName("frecuencia");
+    var radiobDiscord = document.getElementsByName("rdbdiscord");
+    var radiobfrecuencia = document.getElementsByName("rdbfrecuencia");
     var correo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     
     limpiarMensajes();
@@ -26,7 +26,7 @@ function validar(event){
     //validacion de varios checkbox tema
     sel = false;
    
-    for (let i = 0; i < checkboxTema.length; i++) {
+    /*for (let i = 0; i < checkboxTema.length; i++) {
         if (checkboxTema[i].checked) {
             sel = true;
             if (checkboxTema[i].value === '2') {
@@ -34,7 +34,7 @@ function validar(event){
             }
             break;
         }
-    }
+    }*/
     if (!sel) {
         resultado = false;
         mensaje("Debe seleccionar al menos un tema de su preferencia", checkboxTema[0]);
@@ -43,7 +43,7 @@ function validar(event){
     //validacion de varios checkbox dispositivo
     sel = false;
        
-    for (let i = 0; i < checkboxDispositivo.length; i++) {
+    /*for (let i = 0; i < checkboxDispositivo.length; i++) {
         if (checkboxDispositivo[i].checked) {
             sel = true;
             if (checkboxDispositivo[i].value === '2') {
@@ -51,7 +51,7 @@ function validar(event){
             }
             break;
         }
-    }
+    }*/
     if (!sel) {
         resultado = false;
         mensaje("Debe seleccionar un dispositivo tecnológico de su preferencia", checkboxDispositivo[0]);
@@ -69,7 +69,7 @@ function validar(event){
     }
     if (!sel) {
         resultado = false;
-        mensaje("Debe seleccionar si desea unirse al canal", radiobfrecuencia[0]);
+        mensaje("Debe seleccionar la frecuencia", radiobfrecuencia[0]);
     }   
 
     //validacion radio button discord

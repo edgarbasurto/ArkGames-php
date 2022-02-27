@@ -11,7 +11,12 @@
   /*height: auto;*/
 }
 
-header {
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.container-menu {
   width: 100%;
   display: table;
   background-color: #1c1c1c;
@@ -105,8 +110,10 @@ nav ul li a img {
   height: 20px;
   padding: 6px;
 }
-.contenedor-table {
+.contenedor-table,
+.contenedor-formulario {
   margin-top: 100px;
+  margin-bottom: 25px;
 }
 /*******************************************/
 
@@ -117,6 +124,7 @@ footer {
   color: white;
   padding-bottom: 10px;
   width: 100%;
+  bottom: 0;
 }
 .footer_social {
   display: table;

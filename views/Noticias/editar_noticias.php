@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../../assets/css/master2.css" />
 <?php
-include_once '../templates/header.php';
+include_once '../templates/menu.php';
 
  require_once '../conexion.php';
 
@@ -59,4 +59,8 @@ if (!empty($_POST['txtid']) && !empty($_POST['txtusuario']) && !empty($_POST['tx
         header("location:presentar.php");
     }
 }
+/*<div class="grupo_datos">
+<label for="id">ID:</label>
+<input id="id" class="formItem" type="number" name="txtid" readonly style="width: 50px;"/> <br>
+</div>*/
 ?>
