@@ -76,7 +76,13 @@ LOCK TABLES `categorias` WRITE;
 INSERT INTO
   `categorias`
 VALUES
-  (1, 'Acción'),(2, 'Arcade/aventura'),(3, 'Deportivo'),(4, 'Estrategia'),(5, 'Simulación'),(6, 'Juegos de mesa/cartas'),(7, 'Juegos musicales');
+  (1, 'Acción'),
+  (2, 'Arcade/aventura'),
+  (3, 'Deportivo'),
+  (4, 'Estrategia'),
+  (5, 'Simulación'),
+  (6, 'Juegos de mesa/cartas'),
+  (7, 'Juegos musicales');
 UNLOCK TABLES;
 -- TABLA DE PRODUCTOS
   -- EDGAR BASURTO
