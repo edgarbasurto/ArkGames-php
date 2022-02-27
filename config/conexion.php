@@ -1,4 +1,4 @@
-<?php
+<?php 
 class Conectar
 {
     protected $dbh;
@@ -9,7 +9,7 @@ class Conectar
 
             $host = "localhost";
             $port = 3306;
-            $user = "root"; //USURIO DE ACCESO A LA BASE DE DATOS
+            $user = "root"; //USUARIO DE ACCESO A LA BASE DE DATOS
             $password = ""; //CONTRASENIA DE ACCESO A LA BASE DE DATOS
             $dbname = "ArkgamesBD"; //NOMBRE DEL ESQUEMA DE LA BASE DE DATOS
 
@@ -28,3 +28,4 @@ class Conectar
         return $this->dbh->query("SET NAMES 'utf8'");
     }
 }
+?>

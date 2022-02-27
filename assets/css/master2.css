@@ -11,7 +11,12 @@
   /*height: auto;*/
 }
 
-header {
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.container-menu {
   width: 100%;
   display: table;
   background-color: #1c1c1c;
@@ -26,7 +31,7 @@ body {
   margin: 100px 0px 0px 0px;
   padding: 0px;
   /*font-family: 'Open Sans', sans-serif;*/
-  background-color: rgb(104, 99, 99);
+  background-color: rgb(104, 99, 99) !important;
   background-color: linear-gradient(
     131deg,
     rgba(104, 99, 99, 1) 0%,
@@ -105,6 +110,11 @@ nav ul li a img {
   height: 20px;
   padding: 6px;
 }
+.contenedor-table,
+.contenedor-formulario {
+  margin-top: 100px;
+  margin-bottom: 25px;
+}
 /*******************************************/
 
 /*Footer*/
@@ -114,6 +124,7 @@ footer {
   color: white;
   padding-bottom: 10px;
   width: 100%;
+  bottom: 0;
 }
 .footer_social {
   display: table;

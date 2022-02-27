@@ -1,4 +1,4 @@
-<header class="container-fluid">
+<div class="container-menu">
     <!-- BARRA NAVEGACIÓN -->
     <section>
 		<nav class="navbar navbar-expand-md">
@@ -44,10 +44,10 @@
                             Noticias
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Presentar</a></li>
-                          <li><a class="dropdown-item" href="#">Agregar</a></li>
-                          <li><a class="dropdown-item" href="#">Editar</a></li>
-                          <li><a class="dropdown-item" href="#">Eliminar</a></li>
+                          <li><a class="dropdown-item" href="../Noticias/listar_noticias.php">Presentar</a></li>
+                          <li><a class="dropdown-item" href="../Noticias/frm_BernalHelen.php">Agregar</a></li>
+                          <li><a class="dropdown-item" href="../Noticias/editar_noticias.php">Editar</a></li>
+                          <li><a class="dropdown-item" href="../Noticias/eliminar_noticias.php">Eliminar</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -56,7 +56,7 @@
                             Soporte
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Presentar</a></li>
+                          <li><a class="dropdown-item" href="../Soporte/presentar_solicitud.php">Presentar</a></li>
                           <li><a class="dropdown-item" href="#">Agregar</a></li>
                           <li><a class="dropdown-item" href="#">Editar</a></li>
                           <li><a class="dropdown-item" href="#">Eliminar</a></li>
@@ -79,4 +79,4 @@
 		</nav>
 	</section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-</header>
+</div>
