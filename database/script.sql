@@ -15,6 +15,45 @@ CREATE TABLE `suscripcion` (
   `temas` varchar(200) NOT NULL,
   `dispositivos` varchar(200) NOT NULL,
   `frecuencia` varchar(10) NOT NULL,
-  `discord` varchar(2) NOT NULL,
+  `discord` varchar(10) NOT NULL,
   PRIMARY KEY (`id_suscripcion`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
+INSERT INTO
+  suscripcion(email, temas, dispositivos, frecuencia, discord)
+VALUES
+  ('sara@gmail.com', 'Eventos', 'PC', 'diario', 'No'),
+  (
+    'jose@gmail.com',
+    'Eventos, Descuentos, Análisis',
+    'PS2 - PS3 - PS4 - PS5',
+    'semanal',
+    'S&iacute;'
+  ),
+  (
+    'julieta@gmail.com',
+    'Torneos, Trucos',
+    'XBox, Wii',
+    'semanal',
+    'No'
+  ),
+  (
+    'yuya@hotmail.com',
+    'Eventos, Descuentos, Torneos',
+    'PC, XBox, Android',
+    'diario',
+    'S&iacute;'
+  ),
+  (
+    'isa@gmail.com',
+    'Novedades, Descuentos',
+    'XBox, Wii',
+    'semanal',
+    'S&iacute;'
+  ),
+  (
+    'helen@gmail.com',
+    'Eventos, Torneos',
+    'PC, PS2 - PS3 - PS4 - PS5',
+    'semanal',
+    'S&iacute;'
+  );

@@ -143,7 +143,6 @@
 
             if ($stmt->rowCount() > 0) {// rowCount() permite conocer el numero de filas afectadas
                 header("location:listar_noticias.php");
-                
             }
         }    
     ?>
