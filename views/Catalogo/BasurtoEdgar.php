@@ -34,6 +34,7 @@
             </div>
 
             <div class="cuadricula-juegos">
+                
                 <?php
                 foreach ($productos as $producto) {
                 ?>
