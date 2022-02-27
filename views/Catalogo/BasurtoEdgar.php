@@ -17,13 +17,13 @@
 <body>
     <!-------------------------------------------------MENU---------------------------------------->
     <?php
-    include_once '../Templates/navBar.php';
-    require_once 'config/conexion.php';
-
-    $sql = "select * from productos p, categorias c where p.id_categoria = c.id_categoria and prod_estado=1";
-    // $sql = "select * from usuarios ";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
+    include_once '../Templates/navBar.php'
+    // require_once '../../config/Conexion.php';
+    
+    // $sql = "select * from productos p, categorias c where p.id_categoria = c.id_categoria and prod_estado=1";
+    // // $sql = "select * from usuarios ";
+    // $stmt = $pdo->prepare($sql);
+    // $stmt->execute();
 
     ?>
     <!------------------------------------------------------------------------------------------>
@@ -43,7 +43,7 @@
             <div class="cuadricula-juegos">
                 
                 <?php
-                 $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                //  $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($productos as $producto) {
                 ?>
 
@@ -137,7 +137,7 @@
     ?>
     <!----------------------------------------------------------------------------------------------->
 
-    <script type="text/javascript" src="../../assets/js/BasurtoEdgar.js"></script>
+    <!-- <script type="text/javascript" src="../../assets/js/BasurtoEdgar.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 
 </body>
