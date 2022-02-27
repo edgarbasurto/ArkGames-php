@@ -4,26 +4,34 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>CRUD</title>
-        <style>table {
+        <style>
+            .contenedor-table{
+                margin-left: 20px;
+            }
+            footer{
+                position: absolute;
+            }
+            table {
                 border: #b2b2b2 1px solid;
+                background-color: #b2b2b2;
             }
             td, th {
-                border: #b2b2b2 1px solid;
+                border: black 1px solid;
+                padding: 10px;
             }</style>
     </head>
-    <body>
+    <body>        
         <h1>Soporte</h1>
 
         <?php
-        
-       require_once '../../config/conexion.php';
+       require_once '../../config/conexionPDO.php';
 
         $sql = "select * from soporte ";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         ?>
 
-        <div>
+        <div class="contenedor-table">
             <table>
                 <thead>
                     <tr>
@@ -59,7 +67,6 @@
             </table>
             <a href="agregar.php">Agregar</a>
         </div>
-
     </body>
 </html>
 

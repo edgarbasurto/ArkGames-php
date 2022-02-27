@@ -1,4 +1,4 @@
-/*!40101 SET NAMES utf8 */;
+﻿/*!40101 SET NAMES utf8 */;
 /*!40014 SET FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET SQL_NOTES=0 */;
@@ -209,3 +209,18 @@ VALUES
     1
   );
 UNLOCK TABLES;
+
+/*TABLA SOPORTE --- ESPINOZA IVAN*/
+CREATE TABLE `soporte` ( `id_solicitud` INT(10) NOT NULL AUTO_INCREMENT , 
+`usuario` VARCHAR(20) NOT NULL , 
+`email` VARCHAR(30) NOT NULL , 
+`telefono` VARCHAR(10) NOT NULL , 
+`servicio` VARCHAR(20) NOT NULL , 
+`producto` VARCHAR(20) NOT NULL , 
+`descripcion_problema` VARCHAR(100) NOT NULL , 
+PRIMARY KEY (`id_solicitud`)) ENGINE = InnoDB;
+
+INSERT INTO `soporte` 
+(`id_solicitud`, `usuario`, `email`, `telefono`, `servicio`, `producto`, `descripcion_problema`) 
+VALUES ('1', 'IvanEspiM', 'ivanespinoza2499@gmail.com', '0928346534', 'Pagos', 'Apex Legends', 'Videojuego no recibido luego de pago.'),
+('2', 'DanielR', 'dani98@gmail.com', '0928346412', 'Cuentas', 'Fall Guys', 'Contrasenia perdida de cuenta en Fall Guys.');
