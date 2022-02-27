@@ -1,15 +1,17 @@
 <?php
 require_once '../models/dao/ProductosDAO.php';
-
-class ProductosControlador{
+class ProductosControlador
+{
     private $modelo;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->modelo = new ProductosDAO();
     }
 
     // funciones del controlador
-    public function index() {
+    public function index()
+    {
         // llamar al modelo
         $resultados = $this->modelo->listar();
 

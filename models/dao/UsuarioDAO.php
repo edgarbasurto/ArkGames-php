@@ -1,23 +1,33 @@
 <?php
+
 require_once '../../config/conexion.php';
-class ProductosDAO {
+require_once '../../models/dto/Usuario.php';
+class UsuarioDAO {
     private $con;
     
     public function __construct() {
-        $this->con= Conexion::getConexion();
+       $this->con= Conexion::getConexion();
     }
             
     public function listar(){
+ 
         // sql de la sentencia
-        $sql = "select * from productos p, categorias c where p.id_categoria = c.id_categoria and prod_estado=1";
+        $sql = "select * from usuarios where Activo=1";
        //preparacion de la sentencia
-        $stmt = $this->con->prepare($sql);
+       $stmt = $this->con->prepare($sql);
         //ejecucion de la sentencia
         $stmt->execute();
         //recuperacion de resultados
-        $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        
         // retorna datos para el controlador
-        return $productos;
+        $ObjReturn = Array();
+        foreach($usuarios  as $usuario)
+        {
+          $ObjReturn[] = new Usuario($usuario);
+      }
+      return $ObjReturn;
         
     }   
     

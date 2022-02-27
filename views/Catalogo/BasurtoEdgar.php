@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="description" content="Catalogo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="videojuegos,catalogo,juegos" />
     <link rel="stylesheet" href="../../assets/css/master.css" />
     <link rel="stylesheet" href="../../assets/css/BasurtoEdgar.css" />

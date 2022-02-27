@@ -1,3 +1,6 @@
+ 
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -21,8 +24,48 @@
     ?>
     <!------------------------------------------------------------------------------------------>
 
+    <div class=" card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h6 class="m-0 font-weight-bold text-primary">Categorías</h6>
+            <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" id="mediumButton" data-target="#mediumModal" data-attr="categorias/create" title="Crear Nueva Categoría"><i class="fas fa-plus-circle fa-sm text-white-50"></i> Nueva Categoría</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table   class="table table-striped table-bordered table-hover" width="100%" cellspacing="0">
+               
+  <thead class="table-light">
+  <th scope="col">Id</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Email</th>
+  </thead>
+  <tbody>
+  <?php
+require_once '../../controller/UsuariosController.php';
 
+$cont = new UsuarioController();
+$lista=$cont->index();
 
+foreach($lista as $registro)
+{
+    ?>
+    <tr>
+<th scope="row"><?php echo $registro->Id?></th>
+<td><?php echo $registro->NickName?></td>
+<td><?php echo $registro->NombreCompleto?></td>
+<td><?php echo $registro->Email?></td>
+</tr>
+<?php
+}
+?>
+  </tbody>
+</table>
+
+        </div>
+    </div>
+</div>
 
 
 
