@@ -1,5 +1,5 @@
 <?php
-require_once 'config/Conexion.php';
+require_once '../../config/Conexion.php';
 class ProductosDAO {
     private $con;
 
@@ -9,7 +9,7 @@ class ProductosDAO {
 
     public function listar() {
         // sql de la sentencia
-        $sql = "select * from productos p, categorias c where p.id_categoria = c.id_categoria and prod_estado=1";
+        $sql = "SELECT * FROM productos p, categorias c WHERE p.id_categoria = c.id_categoria AND prod_estado=1";
         //preparacion de la sentencia
         $stmt = $this->con->prepare($sql);
         //ejecucion de la sentencia
