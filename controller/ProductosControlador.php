@@ -1,5 +1,5 @@
 <?php
-require_once 'models/dao/ProductosDAO.php';
+require_once '../models/dao/ProductosDAO.php';
 
 class ProductosControlador{
     private $modelo;
@@ -14,6 +14,6 @@ class ProductosControlador{
         $resultados = $this->modelo->listar();
 
         //llamo a la vista
-        require_once 'views/Catalogo/BasurtoEdgar.php';
+        require_once '../views/Catalogo/BasurtoEdgar.php';
     }
 }
