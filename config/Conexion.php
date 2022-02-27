@@ -1,7 +1,6 @@
 <?php
 class Conexion
 {
-
     public static function getConexion()
     {
         $host = "localhost";

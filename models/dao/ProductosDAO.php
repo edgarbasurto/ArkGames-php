@@ -1,16 +1,16 @@
 <?php
-require_once '../../config/conexion.php';
+require_once 'config/Conexion.php';
 class ProductosDAO {
     private $con;
-    
+
     public function __construct() {
-        $this->con= Conexion::getConexion();
+        $this->con = Conexion::getConexion();
     }
-            
-    public function listar(){
+
+    public function listar() {
         // sql de la sentencia
         $sql = "select * from productos p, categorias c where p.id_categoria = c.id_categoria and prod_estado=1";
-       //preparacion de la sentencia
+        //preparacion de la sentencia
         $stmt = $this->con->prepare($sql);
         //ejecucion de la sentencia
         $stmt->execute();
@@ -18,22 +18,21 @@ class ProductosDAO {
         $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // retorna datos para el controlador
         return $productos;
-        
-    }   
-    
-    public function insertar(){
-        
     }
-    
-     public function actualizar(){
-        
+
+    public function insertar()
+    {
     }
-    
-      public function eliminar(){
-        
+
+    public function actualizar()
+    {
     }
-    
-      public function buscar($parametro){
-        
+
+    public function eliminar()
+    {
+    }
+
+    public function buscar($parametro)
+    {
     }
 }
