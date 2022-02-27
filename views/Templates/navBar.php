@@ -1,6 +1,6 @@
 <header>
     <section>
-        <img src="../../assets/img/logo-icon-text.svg" id="logo_page" alt="ArkGames" />
+        <img src="../../assets/img/logo-icon-text.svg" id="logo_page" alt="ArkGames - CRUD" />
         <nav>
             <ul>
                 <li><a href="../../index.html"><img src="../../assets/img/home-solid.svg" alt="Home" class="menu_icon">

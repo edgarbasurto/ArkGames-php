@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="../../assets/css/master.css" />
     <link rel="stylesheet" href="../../assets/css/BasurtoEdgar.css" />
     <link rel="icon" href="../../assets/img/logo.svg">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    -->
 
     <title>Catálogo - ArkGames</title>
 </head>
@@ -28,309 +29,38 @@
             <div class="top">
                 <h1 class="title">Catálogo de ArkGames</h1>
                 <div>
-                    <a class="btnCompra" href="frm_BasurtoEdgar.html">Confirmar compra</a>
+                    <a class="btnCompra" href="frm_BasurtoEdgar.php">Confirmar compra</a>
                 </div>
             </div>
 
             <div class="cuadricula-juegos">
+                
+                <?php
+                foreach ($productos as $producto) {
+                ?>
 
-
-                <div class="cuadricula" id="1">
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/Hitman3_poster.jpg" alt="Hitman3">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>Hitman 3</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$35,00</em></span>
-                            <span class="precio2"><b>$30,00</b></span>
+                    <div class="cuadricula" id="<?php echo $producto['id_producto'] ?>">
+                        <div class="imagen-card">
+                            <img class="img-cuadricula" src="<?php echo $producto['url_imagen'] ?>" alt="<?php echo $producto['nombre'] ?>">
                         </div>
-                        <a class="icon-buy" href="frm_BasurtoEdgar.html"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
 
-                <div class="cuadricula" id="2">
-
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/fornite_poster.jpg" alt="Fornite">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>Fornite</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
-
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$25,00</em></span>
-                            <span class="precio2"><b>$19,99</b></span>
+                        <div class="informacion">
+                            <h2><?php echo $producto['nombre'] ?></h2>
+                            <p class="descripcion"><?php echo $producto['nombre_categoria'] ?></p>
                         </div>
-                        <a class="a-icon-buy" href="frm_BasurtoEdgar.html"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
-
-                <div class="cuadricula" id="3">
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/returnal_poster.jpeg" alt="Returnal">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>Returnal</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
-
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$65,00</em></span>
-                            <span class="precio2"><b>$43,50</b></span>
+                        <div class="footer-box">
+                            <div class="box-precio">
+                                
+                                <span class="precio2"><b><?php echo $producto['precio'] ?></b></span>
+                            </div>
+                            <a class="icon-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
+                            <a href="editar.php?id=<?php echo $producto['id_producto'] ?>">Editar</a>
+                            <a href="eliminar.php?id=<?php echo $producto['id_producto'] ?>">Eliminar</a>
                         </div>
-                        <a class="a-icon-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
-
-                <div class="cuadricula" id="4">
-
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/posters/TheMedium_poster.jpg" alt="TheMedium_poster">
                     </div>
 
-                    <div class="informacion">
-                        <h2>The Medium</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
+                <?php } ?>
 
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$15,00</em></span>
-                            <span class="precio2"><b>$12,99</b></span>
-                        </div>
-                        <a class="a-con-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
-
-                <div class="cuadricula" id="5">
-
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/posters/Back4Blood_poster.jpg" alt="Black 4 blood">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>Black 4 Blood</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
-
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$35,00</em></span>
-                            <span class="precio2"><b>$30,00</b></span>
-                        </div>
-                        <a class="a-con-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
-
-                <div class="cuadricula" id="6">
-
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/posters/Deathloop_poster.jpg" alt="Deathloop_poster">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>Deathloop</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
-
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$35,00</em></span>
-                            <span class="precio2"><b>$30,00</b></span>
-                        </div>
-                        <a class="a-con-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
-
-                <div class="cuadricula" id="7">
-
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/posters/FIFA_22_Poster.jpg" alt="FIFA_22_Poster">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>FIFA 22</h2>
-                        <p class="descripcion">Deportes</p>
-                    </div>
-
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$35,00</em></span>
-                            <span class="precio2"><b>$30,00</b></span>
-                        </div>
-                        <a class="a-con-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
-
-                <div class="cuadricula" id="8">
-
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/posters/Forza-Horizon-poster.jpg" alt="Forza-Horizon-poster">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>Forza Horizon</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
-
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$35,00</em></span>
-                            <span class="precio2"><b>$30,00</b></span>
-                        </div>
-                        <a class="a-con-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
-
-                <div class="cuadricula" id="9">
-
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/posters/GuardiansoftheGalaxy_poster.jpg" alt="GuardiansoftheGalaxy_poster">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>Guardians of the Galaxy</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
-
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$35,00</em></span>
-                            <span class="precio2"><b>$30,00</b></span>
-                        </div>
-                        <a class="a-con-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
-
-                <div class="cuadricula" id="10">
-
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/posters/halo-infinite_poster.jpg" alt="halo-infinite_poster">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>Halo infinite</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
-
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$35,00</em></span>
-                            <span class="precio2"><b>$30,00</b></span>
-                        </div>
-                        <a class="a-con-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
-
-                <div class="cuadricula" id="11">
-
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/posters/ItTakesTwo_poster.jpg" alt="ItTakesTwo_poster">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>It Takes Two</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
-
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$35,00</em></span>
-                            <span class="precio2"><b>$30,00</b></span>
-                        </div>
-                        <a class="a-con-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
-
-                <div class="cuadricula" id="12">
-
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/posters/KenaBridgeOfSpirits_poster.jpg" alt="KenaBridgeOfSpirits_poster">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>Kena</h2>
-                        <p class="descripcion">Bridge of Spirits</p>
-                    </div>
-
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$35,00</em></span>
-                            <span class="precio2"><b>$30,00</b></span>
-                        </div>
-                        <a class="a-con-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
-
-                <div class="cuadricula" id="13">
-
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/posters/LittleNightmares2_poster.jpg" alt="LittleNightmares2_poster">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>Little Nightmares 2</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
-
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$35,00</em></span>
-                            <span class="precio2"><b>$30,00</b></span>
-                        </div>
-                        <a class="a-con-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
-
-                <div class="cuadricula" id="14">
-
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/posters/Psychonauts2_poster.jpg" alt="Psychonauts2_poster">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>Psychonauts 2</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
-
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$35,00</em></span>
-                            <span class="precio2"><b>$30,00</b></span>
-                        </div>
-                        <a class="a-con-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
-
-                <div class="cuadricula" id="15">
-
-                    <div class="imagen-card">
-                        <img class="img-cuadricula" src="../../assets/img/posters/ResidentEvilVillage_poster.jpg" alt="ResidentEvilVillage_poster">
-                    </div>
-
-                    <div class="informacion">
-                        <h2>Resident Evil Village</h2>
-                        <p class="descripcion">Aventura</p>
-                    </div>
-
-                    <div class="footer-box">
-                        <div class="box-precio">
-                            <span class="precio1"><em>$35,00</em></span>
-                            <span class="precio2"><b>$30,00</b></span>
-                        </div>
-                        <a class="a-con-buy" href="#"><img class="icon-buy" src="../../assets/img/cart_icon.svg" alt="icono de compra"></a>
-                    </div>
-                </div>
 
                 <div class="paginador" id="paginador">
                     <label>Registros por pagina:</label>
