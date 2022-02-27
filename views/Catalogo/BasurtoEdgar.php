@@ -45,7 +45,7 @@
 
                         <div class="informacion">
                             <h2><?php echo $producto['nombre'] ?></h2>
-                            <p class="descripcion"><?php echo $producto['categoria'] ?></p>
+                            <p class="descripcion"><?php echo $producto['nombre_categoria'] ?></p>
                         </div>
                         <div class="footer-box">
                             <div class="box-precio">
