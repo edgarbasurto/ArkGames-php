@@ -33,9 +33,8 @@
         }
 
         .panelFormulario {
-            padding: 20px 10%;
-            margin: 50px 5%;
-            background: darkcyan;
+            padding: 20px 5%;
+            margin: 50px auto;
             border-radius: 10px;
         }
     </style>
@@ -81,63 +80,68 @@
 
 
 
-    <div class="panelFormulario">
+    <div class="container-sm bg-light panelFormulario border">
 
 
-        <h1 class="title">Agregar Producto</h1>
+        <h2 class="title mb-4">Agregar Producto</h2>
 
 
         <div>
             <form method="post" action="../../controller/ProductosControlador.php">
-                <!-- <label>ID</label>
-                <input type="number" name="txtid"> -->
+
+                <div class="row mb-4">
+                    <div class="col-sm-8">
+
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label col-form-label-sm">Nombre:</label>
+                            <div class="col-sm-9">
+                                <input class="form-control form-control-sm" type="text" name="txtNombre">
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label col-form-label-sm">Precio:</label>
+                            <div class="col-sm-9">
+                                <input class="form-control form-control-sm" type="number" placeholder="0.0" step="0.01" min="0" max="1000" name="txtPrecio">
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label col-form-label-sm">Añadir imagen:</label>
+                            <div class="col-sm-9">
+                                <input class="form-control form-control-sm" name="archivo" id="archivo" type="file" />
+                            </div>
+                        </div>
 
 
 
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">Nombre:</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" name="txtnombre">
+                        <div class="mb-3 row">
+                            <label class="col-sm-3 col-form-label col-form-label-sm">Categoría:</label>
+                            <div class="col-sm-9">
+                                <select class="form-select form-select-sm" name="selectCategoria" required>
+                                    <option disabled selected> --Seleccione una categoria-- </option>
+                                    <?php
+                                    require_once '../../controller/CategoriasController.php';
+
+                                    $cont = new CategoriasController();
+                                    $lista = $cont->index();
+
+                                    foreach ($lista as $categoria) {
+                                    ?>
+                                        <option value="<?php echo $categoria->Id_categoria ?>"><?php echo $categoria->Nombre_categoria ?></option>
+
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 border rounded">
+                        <div>VISTA PREVIA</div>
                     </div>
                 </div>
-
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">Precio:</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text" name="txtdireccion">
-                    </div>
+                <div class="d-grid gap-2 col-3 mx-auto">
+                    <button class="btn btn-primary mb-4" type="submit">Agregar</button>
                 </div>
-
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">Añadir imagen:</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" name="archivo" id="archivo" type="file" />
-                    </div>
-                </div>
-
-
-
-                <div class="mb-3 row">
-                    <label class="col-sm-2 col-form-label">Categoría:</label>
-                    <div class="col-sm-10">
-                        <select name="categoria" required>
-                            <option disabled selected>  --Seleccione una categoria--  </option>
-                            <?php
-                            require_once '../../controller/CategoriasController.php';
-
-                            $cont = new CategoriasController();
-                            $lista = $cont->index();
-
-                            foreach ($lista as $categoria) {
-                            ?>
-                                <option value="<?php echo $categoria->Id_categoria ?>"><?php echo $categoria->Nombre_categoria ?></option>
-                                
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
-
-                <input class="btn btn-primary mb-3" type="submit" value="Agregar">
             </form>
         </div>
 
