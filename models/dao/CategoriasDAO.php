@@ -1,7 +1,7 @@
 <?php
 require_once '../../config/conexion.php';
-require_once '../../models/dto/Producto.php';
-class ProductosDAO {
+require_once '../../models/dto/Categoria.php';
+class CategoriasDAO {
     private $con;
     
     public function __construct() {
@@ -10,17 +10,19 @@ class ProductosDAO {
             
     public function listar(){
         // sql de la sentencia
-        $sql = "SELECT * FROM productos p, categorias c WHERE p.id_categoria = c.id_categoria AND prod_estado=1";
+        $sql = "SELECT * FROM categorias";
        //preparacion de la sentencia
         $stmt = $this->con->prepare($sql);
         //ejecucion de la sentencia
         $stmt->execute();
         //recuperacion de resultados
-        $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // retorna datos para el controlador
         $ObjReturn = array();
-        foreach ($productos  as $producto) {
-          $ObjReturn[] = new Producto($producto);
+        foreach ($categorias  as $categoria) {
+            $id_cat = $categoria['id_categoria'];
+            $nom_cat = $categoria['nombre_categoria'];
+          $ObjReturn[] = new Categoria($id_cat,$nom_cat);
         }
         return $ObjReturn;
         

@@ -116,13 +116,23 @@
                 </div>
 
 
+
                 <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">Categoría:</label>
                     <div class="col-sm-10">
-                        <select name="select">
-                            <option value="value1">Value 1</option>
-                            <option value="value2">Value 2</option>
-                            <option value="value3">Value 3</option>
+                        <select name="categoria" required>
+                            <option disabled selected>  --Seleccione una categoria--  </option>
+                            <?php
+                            require_once '../../controller/CategoriasController.php';
+
+                            $cont = new CategoriasController();
+                            $lista = $cont->index();
+
+                            foreach ($lista as $categoria) {
+                            ?>
+                                <option value="<?php echo $categoria->Id_categoria ?>"><?php echo $categoria->Nombre_categoria ?></option>
+                                
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
