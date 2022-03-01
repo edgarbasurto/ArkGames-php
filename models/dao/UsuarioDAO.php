@@ -14,40 +14,56 @@ class UsuarioDAO
 
   public function All()
   {
-    return $this->sqlQuery("select * from usuarios where Activo=1");
+    return $this->sqlQuery("SELECT * FROM usuarios WHERE Activo=1");
   }
 
   public function GetById(int $Value)
   {
     return
-      $this->sqlQuery("select * from usuarios where Activo=1 and Id=" . $Value);
+      $this->sqlQuery("SELECT * FROM usuarios WHERE Activo=1 AND Id=" . $Value);
   }
 
   public function GetByNickName(?String $Value)
   {
 
     return
-      $this->sqlQuery("select * from usuarios where Activo=1 & NickName like '%" . $Value . "'%");
+      $this->sqlQuery("SELECT * FROM usuarios WHERE Activo=1 & NickName LIKE '%" . $Value . "'%");
   }
 
   public function Delete(int $Id)
   {
-    $sql = "update usuarios set Activo=0 where Id=" . $Id;
+    $sql = "UPDATE usuarios SET Activo=0 WHERE Id=" . $Id;
     //preparacion de la sentencia
     $stmt = $this->con->prepare($sql);
     //ejecucion de la sentencia
     $stmt->execute();
-    //recuperacion de resultados
-    $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // retorna datos para el controlador
-    $ObjReturn = array();
-    foreach ($usuarios  as $usuario) {
-      $ObjReturn[] = new Usuario($usuario);
-    }
-    return $ObjReturn;
   }
 
+  public function Insert(Usuario $Obj)
+  {
+    $pwd = $Obj->getPassword();
+    $sql = "INSERT INTO usuarios (IdRol, IdServidor, NickName, Email, NombreCompleto, Genero, FechaNacimiento, PasswordHASH, Activo, UsuarioActualizacion, FechaCreacion, FechaActualizacion) VALUES
+            ('$Obj->IdRol',$Obj->IdServidor,'$Obj->NickName','$Obj->Email','$Obj->NombreCompleto','$Obj->Genero','$Obj->FechaNacimiento', _binary '$pwd', 1, 0, NOW(), NOW())";
+
+    //preparacion de la sentencia
+    $stmt = $this->con->prepare($sql);
+    //ejecucion de la sentencia
+    $stmt->execute();
+  }
+  public function Update(Usuario $Obj)
+  {
+
+    $sql = "INSERT INTO USUARIOS (IdRol, IdServidor, NickName, Email, NombreCompleto, Genero, FechaNacimiento, PasswordHASH, Activo, UsuarioActualizacion, FechaCreacion, FechaActualizacion) VALUES
+            ('" . $Obj->IdRol . "'," . $Obj->IdServidor . ", '. $Obj->NickName .', '. $Obj->Email .','. $Obj->NombreCompleto .','. $Obj->Genero .','. $Obj->FechaNacimiento .', _binary '. $Obj->getPassword().', 1, 0, NOW(), NOW())";
+
+    echo $sql;
+    //preparacion de la sentencia
+    //$stmt = $this->con->prepare($sql);
+    //ejecucion de la sentencia
+    //$stmt->execute();
+    //recuperacion de resultados
+
+  }
   function sqlQuery(?String $sql)
   {
     //preparacion de la sentencia
@@ -60,7 +76,9 @@ class UsuarioDAO
     // retorna datos para el controlador
     $ObjReturn = array();
     foreach ($usuarios  as $usuario) {
-      $ObjReturn[] = new Usuario($usuario);
+      $ObjUsuario = new Usuario();
+      $ObjUsuario->SetValorDTO($usuario);
+      $ObjReturn[] = $ObjUsuario;
     }
     return $ObjReturn;
   }

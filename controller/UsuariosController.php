@@ -49,7 +49,32 @@ class UsuarioController
 
    public function save(int $Id, $post)
    {
-      echo "llego 2" . $Id;
-      print_r($post);
+      if (isset($Id, $post)) {
+
+         $usuario = new Usuario();
+         $usuario->Id = $Id;
+         $usuario->IdRol = $post['IdRol'];
+         $usuario->IdServidor = 1;
+         $usuario->NickName = $post['Usuario'];
+         $usuario->Email = $post['Email'];
+         $usuario->Genero = $post['Genero'];
+         $usuario->FechaNacimiento = $post['FechaNacimiento'];
+         $usuario->NombreCompleto = $post['Nombre'];
+         $usuario->setPassword($post['Password']);
+         $usuario->Activo = true;
+         $usuario->UsuarioActualizacion = 0;
+
+         if ($Id == -1) {
+            //crear nuevo registro;
+            $this->modelo->Insert($usuario);
+            $this->index();
+         } else {
+            //actualiza registro;
+            $this->modelo->Update($usuario);
+            $this->index();
+         }
+      } else {
+         $this->index();
+      }
    }
 }
