@@ -19,5 +19,10 @@ class ProductosControlador
         // require_once '../views/Catalogo/BasurtoEdgar.php';
     }
 
+    public function delete(int $Id)
+   {
+      return $this->modelo->eliminar($Id);
     
+   }
+
 }

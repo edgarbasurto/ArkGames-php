@@ -8,7 +8,7 @@ require_once '../../models/dto/Categoria.php';
     public ?string $Nombre = "";
     public ?float $Precio = 0.0;
     public ?string $Url_imagen = "";
-    public $Categoria;
+    public Categoria $Categoria;
     public int $Prod_estado = 1;
 
     public function __construct($Valor_ProductoDTO)

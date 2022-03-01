@@ -5,7 +5,7 @@
 <meta name="keywords" content="videojuegos,catalogo,juegos" />
 <meta name="description" content="Catalogo" />
 
-<style>
+<!-- <style>
     @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
 
     .bd-placeholder-img {
@@ -32,8 +32,8 @@
         margin: 50px auto;
         border-radius: 10px;
     }
-</style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</style> -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> -->
 
 <title>Catálogo - ArkGames</title>
 </head>
@@ -47,9 +47,6 @@
 
     require_once '../Templates/navBarBootstrap.php'
     ?>
-
-
-
 
     <!------------------------------------------------------------------------------------------>
 
@@ -123,17 +120,11 @@
     </main>
     <!-------------------------------------------------FOOTER---------------------------------------->
 
-
     <?php
     require_once '../Templates/footerBootstrap.php'
     ?>
 
-
     <!----------------------------------------------------------------------------------------------->
-
-
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 
 </body>
 

@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="col text-end">
                                         <a href="editar.php?id=<?php echo $producto->Id_producto ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="eliminar.php?id=<?php echo $producto->Id_producto ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="../../controller/ProductosControlador.php?op=delete(<?php echo $producto->Id_producto ?>)" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                 </div>
                                 
