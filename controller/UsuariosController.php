@@ -46,4 +46,10 @@ class UsuarioController
       $this->modelo->Delete($Id);
       $this->index();
    }
+
+   public function save(int $Id, $post)
+   {
+      echo "llego 2" . $Id;
+      print_r($post);
+   }
 }

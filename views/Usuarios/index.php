@@ -17,6 +17,11 @@ if (isset($_GET['userm'])) {
             $id =   $_GET['id'];
             $cont->del($id);
             break;
+        case "sav":
+            $id =   $_GET['id'];
+            $post = $_POST;
+            $cont->save($id, $post);
+            break;
         default:
             $cont->index();
             break;
