@@ -7,21 +7,19 @@
       <meta name="description" content=" " />
       <meta name="keywords" content=" " />
       <link rel="shortcut icon" href="../../assets/img/logo.svg">
-
-      <link rel="stylesheet" href="../../assets/css/master2.css" />
+      <link rel="stylesheet" href="../../assets/css/masterBoostrap.css" />
       <!-- Bootstrap -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <!-- fontawesome iconos -->
       <script src="https://kit.fontawesome.com/2008d37923.js" crossorigin="anonymous"></script>
+
       <title>Demostración Métodos CRUD - USUARIO</title>
 
   </head>
 
   <body>
       <!-------------------------------------------------Menu---------------------------------------->
-      <?php
-        include_once '../Templates/menu.php'
-        ?>
+      <?php require_once '../Templates/navBarBoostrap.php' ?>
       <!------------------------------------------------------------------------------------------>
       <main class="contenedor" style="margin: 150px 50px 10px 50px">
 
@@ -78,7 +76,7 @@
 
       <!-------------------------------------------------Footer---------------------------------------->
       <?php
-        include_once '../Templates/footer.php'
+        require_once '../Templates/footerBoostrap.php'
         ?>
       <!------------------------------------------------------------------------------------------>
   </body>
