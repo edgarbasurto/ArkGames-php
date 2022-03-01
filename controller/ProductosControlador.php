@@ -18,4 +18,6 @@ class ProductosControlador
         //llamo a la vista
         // require_once '../views/Catalogo/BasurtoEdgar.php';
     }
+
+    
 }

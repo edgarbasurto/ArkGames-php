@@ -1,5 +1,5 @@
 var paginas = document.getElementById('numpagina');
-var cuadriculas = document.querySelectorAll('.cuadricula');
+var cuadriculas = document.querySelectorAll('.col-lg-4');
 var select = document.getElementById('cantreg');
 var selectedOption = select.options[select.selectedIndex].text;
 var selectedPage = paginas.options[paginas.selectedIndex].text;
