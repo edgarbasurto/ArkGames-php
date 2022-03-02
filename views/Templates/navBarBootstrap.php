@@ -42,7 +42,7 @@
                          Tienda</a>
                  </li>
                  <li class="nav-item mx-0 mx-lg-1">
-                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="../Noticias/BernalHelen.php">
+                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="../Noticias/listar_suscripcion.php">
                          <svg class="bi d-inline-block align-text-top mx-auto mb-1" width="24" height="24">
                              <use xlink:href="#table" />
                          </svg>

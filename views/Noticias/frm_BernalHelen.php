@@ -1,8 +1,4 @@
-<?php
-    ob_start();
-?>
-<!DOCTYPE html>
-<html lang="es">
+<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,7 +60,7 @@
     <body>
         <!-------------------------------------------------MENU---------------------------------------->
         <?php
-            include_once '../Templates/menu.php';
+            require_once '../Templates/navBarBootstrap.php'
         ?>
         <!------------------------------------------------------------------------------------------>
         
@@ -145,13 +141,13 @@
 
                 if ($stmt->rowCount() > 0) {// rowCount() permite conocer el numero de filas afectadas
                     //header('location:listar_noticias.php');
-                    echo '<script>window.location="listar_noticias.php"</script>';
+                    echo '<script>window.location="listar_suscripcion.php"</script>';
                 }
             }    
         ?>
         <!-------------------------------------------------FOOTER---------------------------------------->
         <?php
-        include_once '../Templates/footer.php'
+            require_once '../Templates/footerBootstrap.php'
         ?>
         <!----------------------------------------------------------------------------------------------->
         <script type="text/javascript" src="../../assets/js/Validacion_Noticias.js"></script>

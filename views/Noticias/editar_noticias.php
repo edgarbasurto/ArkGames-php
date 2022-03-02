@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
+<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,9 +57,9 @@
     </head>
     <body>
         <header>
-            <?php
-                require_once '../Templates/menu.php';
-                ?>
+        <?php
+            require_once '../Templates/navBarBootstrap.php'
+        ?>
         </header>
     
         <?php
@@ -198,15 +197,15 @@
             $stmt->execute($data);
 
             if ($stmt->rowCount() > 0) {// rowCount() permite conocer el numero de filas afectadas
-                echo '<script>window.location="listar_noticias.php"</script>';
+                echo '<script>window.location="listar_suscripcion.php"</script>';
             } else {
-                echo 'NO se pudo eliminar el registro';
+                echo 'NO se pudo editar el registro';
             }
         }
     ?>
     <!-------------------------------------------------FOOTER---------------------------------------->
     <?php
-        require_once '../Templates/footer.php'
+        require_once '../Templates/footerBootstrap.php'
     ?>
         <!----------------------------------------------------------------------------------------------->
         <!--<script type="text/javascript" src="../../assets/js/Validacion_Noticias.js"></script>-->
