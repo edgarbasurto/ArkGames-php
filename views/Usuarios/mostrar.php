@@ -15,7 +15,7 @@
                     <h4 class="fw-bold" style="margin-top:.5rem">ID#<?php echo $registro->Id . " - " .  $registro->NombreCompleto ?> </h4>
                 </div>
                 <div class="col text-end">
-                    <a href="" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+                    <a href="../../views/Usuarios/index.php?userm=upd&id=<?php echo $registro->Id ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirm"><i class="fas fa-trash-alt"></i> Eliminar</button>
                 </div>
             </div>

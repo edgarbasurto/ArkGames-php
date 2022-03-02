@@ -53,16 +53,12 @@ class UsuarioDAO
   public function Update(Usuario $Obj)
   {
 
-    $sql = "INSERT INTO USUARIOS (IdRol, IdServidor, NickName, Email, NombreCompleto, Genero, FechaNacimiento, PasswordHASH, Activo, UsuarioActualizacion, FechaCreacion, FechaActualizacion) VALUES
-            ('" . $Obj->IdRol . "'," . $Obj->IdServidor . ", '. $Obj->NickName .', '. $Obj->Email .','. $Obj->NombreCompleto .','. $Obj->Genero .','. $Obj->FechaNacimiento .', _binary '. $Obj->getPassword().', 1, 0, NOW(), NOW())";
+    $sql = "UPDATE usuarios SET IdRol='$Obj->IdRol', IdServidor=$Obj->IdServidor, Email='$Obj->Email', NombreCompleto='$Obj->NombreCompleto', Genero='$Obj->Genero', FechaNacimiento ='$Obj->FechaNacimiento', UsuarioActualizacion=0, FechaActualizacion=NOW() WHERE Id=$Obj->Id";
 
-    echo $sql;
     //preparacion de la sentencia
-    //$stmt = $this->con->prepare($sql);
+    $stmt = $this->con->prepare($sql);
     //ejecucion de la sentencia
-    //$stmt->execute();
-    //recuperacion de resultados
-
+    $stmt->execute();
   }
   function sqlQuery(?String $sql)
   {

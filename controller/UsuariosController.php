@@ -55,20 +55,23 @@ class UsuarioController
          $usuario->Id = $Id;
          $usuario->IdRol = $post['IdRol'];
          $usuario->IdServidor = 1;
-         $usuario->NickName = $post['Usuario'];
          $usuario->Email = $post['Email'];
          $usuario->Genero = $post['Genero'];
          $usuario->FechaNacimiento = $post['FechaNacimiento'];
          $usuario->NombreCompleto = $post['Nombre'];
-         $usuario->setPassword($post['Password']);
          $usuario->Activo = true;
          $usuario->UsuarioActualizacion = 0;
 
          if ($Id == -1) {
+            $usuario->NickName = $post['Usuario'];
+            $usuario->setPassword($post['Password']);
+
             //crear nuevo registro;
             $this->modelo->Insert($usuario);
             $this->index();
          } else {
+            $usuario->IdServidor = $post['Servidor'];
+
             //actualiza registro;
             $this->modelo->Update($usuario);
             $this->index();

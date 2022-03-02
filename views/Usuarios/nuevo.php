@@ -146,27 +146,6 @@ require_once '../../views/Templates/HeadBootstrap.php'
     </main>
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="deleteConfirm" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <i class="fa-solid fa-circle-info"></i>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body fw-bold align-middle text-center">
-
-                    <h3>Desea Eliminar?</h3>
-                    <h5>ID#<?php echo $registro->Id . " - " .  $registro->NombreCompleto ?> </h5>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-right-from-bracket"></i> Salir</button>
-                    <a href="../../views/Usuarios/index.php?userm=del&id=<?php echo $registro->Id ?>" class="btn btn-primary"><i class="fa-solid fa-circle-check"></i> Si</a>
-                </div>
-            </div>
-        </div>
-    </div>
     <script>
         var today = new Date();
         var dd = today.getDate();
