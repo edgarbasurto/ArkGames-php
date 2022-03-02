@@ -27,7 +27,7 @@
             </div>
 
 
-            <form method="post" action="../../views/Catalogo/Productos?accion=guardar" enctype="multipart/form-data">
+            <form method="post" action="index.php?c=productos&a=guardar" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="row px-4">
                         <div class="col-sm-6 px-5">
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-end">
-                    <a href="index.php?c=productos&a=guardar" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+                    <a href="index.php" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
                     <button class="btn btn-primary my-3" type="submit" value="guardar">Guardar</button>
                 </div>
             </form>

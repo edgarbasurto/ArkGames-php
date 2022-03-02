@@ -70,7 +70,7 @@
                                     <td><?php echo $producto->categoria->nombre_categoria ?></td>
                                     <td>
                                         <a href="editar.php?id=<?php echo $producto->Id_producto ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="../../controller/ProductosControlador.php?op=delete(<?php echo $producto->id_producto ?>)" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="index.php?c=productos&a=delete&id=<?php echo $producto->id_producto ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                                     </td>
 
                                 </tr>

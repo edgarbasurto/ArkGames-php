@@ -29,8 +29,25 @@ require_once '../../models/dto/Categoria.php';
             $nom_cat = $Valor_ProductoDTO['nombre_categoria'];
             $this->categoria = new Categoria($id_cat,$nom_cat);
             $this->prod_estado=$Valor_ProductoDTO['prod_estado'];
-        }
-            
+        } 
     }
+
+    public function SetCategoria(Categoria $cat) {
+        if (isset($cat)) {
+            $id_cat = $cat['id_categoria'];
+            $nom_cat = $cat['nombre_categoria'];
+            $this->categoria = new Categoria($id_cat,$nom_cat);
+        }
+    }
+
+    public function SetProducto($array) {
+        if (isset($array)) {
+            $this->id_producto=$array['id_producto'];
+            $this->nombre=$array['nombre'];
+            $this->precio=$array['precio'];
+            $this->url_imagen=$array['url_imagen'];
+            $this->prod_estado=$array['prod_estado'];
+        } 
+    }
+
 }
-?>

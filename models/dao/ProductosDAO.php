@@ -1,9 +1,8 @@
 <?php
 
-use JetBrains\PhpStorm\Internal\ReturnTypeContract;
-
 require_once '../../config/conexion.php';
 require_once '../../models/dto/Producto.php';
+require_once '../../models/dto/Categoria.php';
 
 class ProductosDAO
 {
@@ -14,7 +13,8 @@ class ProductosDAO
     $this->con = Conexion::getConexion();
   }
 
-  public function listar(){
+  public function listar()
+  {
     // sql de la sentencia
     $sql = "SELECT * FROM productos p, categorias c WHERE p.id_categoria = c.id_categoria AND prod_estado=1";
     //preparacion de la sentencia
@@ -32,7 +32,6 @@ class ProductosDAO
       $ObjReturn[] = $obj;
     }
     return $ObjReturn;
-    
   }
 
   // public function insertar(Producto $prod)
@@ -54,7 +53,7 @@ class ProductosDAO
   //   return $ObjReturn;
   // }
 
-  public function actualizar(Producto $data)
+  public function actualizar($data)
   {
     try {
       $sql = "UPDATE productos SET 
@@ -65,16 +64,16 @@ class ProductosDAO
 						prod_estado = ?,
 				    WHERE id = ?";
 
-      $this->pdo->prepare($sql)
-        ->execute(
-          array(
-            $data->Nombre,
-            $data->Precio,
-            $data->Url_imagen,
-            $data->Categoria->Id_categoria,
-            $data->Prod_estado,
-          )
-        );
+      $this->con->prepare($sql)->execute(
+        array(
+          $data->nombre,
+          $data->precio,
+          $data->url_imagen,
+          $data->categoria->id_categoria,
+          $data->prod_estado,
+          $data->id_producto
+        )
+      );
     } catch (Exception $e) {
       die($e->getMessage());
     }
@@ -82,22 +81,24 @@ class ProductosDAO
 
 
 
-  public function registrar(Producto $data)
+  public function registrar($data)
   {
     try {
       $sql = "INSERT INTO productos(nombre, precio, url_imagen, id_categoria, prod_estado) 
-       VALUES (?, ?, ?, ?, ?, ?)";
+       VALUES (?, ?, ?, ?, ?)";
 
-      $this->pdo->prepare($sql)
-        ->execute(
-          array(
-            $data->Nombre,
-            $data->Precio,
-            $data->Url_imagen,
-            $data->Categoria->Id_categoria,
-            $data->Prod_estado,
-          )
-        );
+      // $data['url_imagen'] = $this->con->quote($data['url_imagen']);
+
+      $stmt = $this->con->prepare($sql);
+      $datos = array(
+        $data['nombre'],
+        $data['precio'],
+        $data['url_imagen'],
+        $data['id_categoria'],
+        $data['prod_estado']);
+
+
+      $stmt->execute($datos);
     } catch (Exception $e) {
       die($e->getMessage());
     }
@@ -107,7 +108,7 @@ class ProductosDAO
   {
 
     try {
-      $sql = "UPDATE productos set prod_estado=0 where Id=" . $Id;
+      $sql = "UPDATE productos set prod_estado=0 where id_producto=" . $Id;
       //preparacion de la sentencia
       $stmt = $this->con->prepare($sql);
       //ejecucion de la sentencia
@@ -121,7 +122,7 @@ class ProductosDAO
   {
     try {
       $sql = "SELECT * FROM productos p, categorias c WHERE p.id_categoria = c.id_categoria AND prod_estado=1 AND id_producto = ?";
-      $stm = $this->pdo->prepare($sql);
+      $stm = $this->con->prepare($sql);
 
       $stm->execute(array($id));
       return $stm->fetch(PDO::FETCH_OBJ);
