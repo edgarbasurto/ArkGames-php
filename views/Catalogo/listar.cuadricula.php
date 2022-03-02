@@ -44,9 +44,9 @@
             <div class="card-body card-deck row">
 
                 <?php
-                require_once '../../controller/ProductosControlador.php';
+                require_once '../../controller/ProductosController.php';
 
-                $cont = new ProductosControlador();
+                $cont = new ProductosController();
                 $lista = $cont->index();
 
                 foreach ($lista as $producto) {
@@ -54,8 +54,8 @@
                     <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 my-4">
                         <div class="card shadow" id="<?php echo $producto->Id_producto ?>">
                             <div style="height: 450px; overflow: hidden;" >
-                            <img class="card-img-top" src="<?php echo $producto->Url_imagen ?>" alt="<?php echo $producto->Nombre ?>">
-                            </div>
+                            <img class="card-img-top" src="data:image/jpg;base64,<?php echo base64_encode($producto->Url_imagen) ?>" alt="<?php echo $producto->Nombre ?>">  
+                        </div>
                             <div class="card-body">
                                 <h2 class="card-title"><?php echo $producto->Nombre ?></h2>
                                 <p class="card-text text-muted"><?php echo $producto->Categoria->Nombre_categoria ?></p>

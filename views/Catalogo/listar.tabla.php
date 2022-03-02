@@ -55,17 +55,19 @@
                         </thead>
                         <tbody>
                             <?php
-                            require_once '../../controller/ProductosControlador.php';
+                            require_once '../../controller/ProductosController.php';
 
-                            $cont = new ProductosControlador();
+                            $cont = new ProductosController();
                             $lista = $cont->index();
+                           
 
                             foreach ($lista as $producto) {
                             ?>
 
                                 <tr>
                                     <th scope="row"><?php echo $producto->Id_producto ?></th>
-                                    <td><img style="height:50px" src="<?php echo $producto->Url_imagen ?>" alt="<?php echo $producto->Nombre ?>"></td>
+                                    <td><img style="height:50px" src="data:image/jpg;base64,<?php echo base64_encode($producto->Url_imagen) ?>" alt="<?php echo $producto->Nombre ?>"></td>
+                                    
                                     <td><?php echo $producto->Nombre ?></td>
                                     <td>$<?php echo $producto->Precio ?></td>
                                     <td><?php echo $producto->Categoria->Nombre_categoria ?></td>

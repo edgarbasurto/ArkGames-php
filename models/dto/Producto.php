@@ -7,11 +7,17 @@ require_once '../../models/dto/Categoria.php';
     public int $Id_producto = 0;
     public ?string $Nombre = "";
     public ?float $Precio = 0.0;
-    public ?string $Url_imagen = "";
+    public $Url_imagen = "";
     public Categoria $Categoria;
     public int $Prod_estado = 1;
 
-    public function __construct($Valor_ProductoDTO)
+    public function __construct()
+    {
+        
+    }
+
+
+    public function Set($Valor_ProductoDTO)
     {
        
         if (isset($Valor_ProductoDTO)) {
@@ -26,8 +32,5 @@ require_once '../../models/dto/Categoria.php';
         }
             
     }
-
 }
-
-
 ?>

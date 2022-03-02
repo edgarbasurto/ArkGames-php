@@ -5,36 +5,6 @@
 <meta name="keywords" content="videojuegos,catalogo,juegos" />
 <meta name="description" content="Catalogo" />
 
-<!-- <style>
-    @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
-
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
-
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-        }
-    }
-
-    .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-    }
-
-    .panelFormulario {
-        padding: 20px 5%;
-        margin: 50px auto;
-        border-radius: 10px;
-    }
-</style> -->
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> -->
-
 <title>Catálogo - ArkGames</title>
 </head>
 
@@ -50,40 +20,45 @@
 
     <!------------------------------------------------------------------------------------------>
 
-    <main class="main p-5 mx-3">
+    <main class="main p-5 mx-3 mb-2">
         <div class="card">
             <div class="card-header">
                 <h2 class="title my-2">Agregar Producto</h2>
             </div>
 
 
-            <form method="post" action="../../controller/ProductosControlador.php">
+            <form method="post" action="../../views/Catalogo/BasurtoEdgar.php?accion=g" enctype="multipart/form-data">
                 <div class="card-body">
-                    <div class="row mb-4">
-                        <div class="col-sm-8">
+                    <div class="row px-4">
+                        <div class="col-sm-8 px-5">
 
-                            <div class="mb-3 row">
+                            <input class="form-control form-control-sm" type="hidden" name="txtId" value="0">
+
+
+                            <div class="mb-4 row text-end">
                                 <label class="col-sm-3 col-form-label">Nombre:</label>
                                 <div class="col-sm-9">
                                     <input class="form-control form-control-sm" type="text" name="txtNombre">
                                 </div>
                             </div>
 
-                            <div class="mb-3 row">
+                            <div class="mb-4 row text-end">
                                 <label class="col-sm-3 col-form-label">Precio:</label>
                                 <div class="col-sm-9">
                                     <input class="form-control form-control-sm" type="number" placeholder="0.0" step="0.01" min="0" max="1000" name="txtPrecio">
                                 </div>
                             </div>
 
-                            <div class="mb-3 row">
+                            <div class="mb-4 row text-end">
                                 <label class="col-sm-3 col-form-label">Añadir imagen:</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control form-control-sm" name="archivo" id="archivo" type="file" />
+                                    <input class="form-control form-control-sm" name="archivo" id="seleccionArchivos" type="file" />
                                 </div>
+
                             </div>
 
-                            <div class="mb-3 row">
+
+                            <div class="mb-4 row text-end">
                                 <label class="col-sm-3 col-form-label">Categoría:</label>
                                 <div class="col-sm-9">
                                     <select class="form-select form-control-sm mb-3" aria-label=".form-select-sm example" name="selectCategoria" required>
@@ -103,14 +78,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 border rounded">
-                            <div>VISTA PREVIA</div>
+                        <div class="col-sm-4 px-5">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="title"> Vista previa </h5>
+                                </div>
+                                <div class="card-body text-center" style="height: 300px;">
+                                    <img style="max-height:280px; width: auto;" id="imagenPrevisualizacion">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-footer text-end">
                     <a href="../../views/Catalogo/BasurtoEdgar.php" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
-                    <button class="btn btn-primary my-3" type="submit">Agregar</button>
+                    <button class="btn btn-primary my-3" type="submit" value="guardar">Agregar</button>
                 </div>
             </form>
 
@@ -118,13 +100,16 @@
         </div>
 
     </main>
+
     <!-------------------------------------------------FOOTER---------------------------------------->
 
     <?php
-    require_once '../Templates/footerBootstrap.php'
+    require_once '../Templates/footerBootstrap.php';
     ?>
 
     <!----------------------------------------------------------------------------------------------->
+
+    <script src="../../assets/js/vistaprevia.js"></script>
 
 </body>
 
