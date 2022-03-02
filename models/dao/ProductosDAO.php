@@ -3,7 +3,8 @@
 require_once '../../config/conexion.php';
 require_once '../../models/dto/Producto.php';
 
-class ProductosDAO {
+class ProductosDAO
+{
   private $con;
 
   public function __construct()
@@ -74,7 +75,8 @@ class ProductosDAO {
         $data['precio'],
         $data['url_imagen'],
         $data['id_categoria'],
-        $data['prod_estado']);
+        $data['prod_estado']
+      );
 
 
       $stmt->execute($datos);
@@ -100,11 +102,22 @@ class ProductosDAO {
   public function obtener($id)
   {
     try {
-      $sql = "SELECT * FROM productos p, categorias c WHERE p.id_categoria = c.id_categoria AND prod_estado=1 AND id_producto = ?";
-      $stm = $this->con->prepare($sql);
+      $sql = "SELECT * FROM productos p, categorias c WHERE p.id_categoria = c.id_categoria AND prod_estado=1 AND id_producto =" . $id;
+      // echo var_dump($sql);
+      $stmt = $this->con->prepare($sql);
+      //ejecucion de la sentencia
+      $stmt->execute();
+      //recuperacion de resultados
+      $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-      $stm->execute(array($id));
-      return $stm->fetch(PDO::FETCH_OBJ);
+      //retorna datos para el controlador
+      $ObjReturn = array();
+      foreach ($productos  as $producto) {
+        $obj = new Producto();
+        $obj->Set($producto);
+        $ObjReturn[] = $obj;
+      }
+      return $ObjReturn;
     } catch (Exception $e) {
       die($e->getMessage());
     }

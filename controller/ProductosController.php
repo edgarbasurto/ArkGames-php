@@ -82,10 +82,19 @@ class ProductosController
         header('Location: index.php');
     }
 
-    public function nuevo()
-    {
-        require_once '../../models/dao/CategoriasDAO.php';
+    public function nuevo() {   
+        // echo var_dump($_REQUEST);
+        // echo var_dump($_GET);
+        // echo var_dump($_POST);
+        // $producto = $this->modelo->obtener($_REQUEST['id']);
+        // echo var_dump($producto);
 
+      
+        if(isset($_REQUEST['id'])){
+            $productos = $this->modelo->obtener($_REQUEST['id']);
+            $producto = $productos[0];
+        }
+        require_once '../../models/dao/CategoriasDAO.php';
         $con = new CategoriasDAO();
         $lista = $con->listar();
 

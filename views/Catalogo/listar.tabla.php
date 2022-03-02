@@ -29,7 +29,7 @@
                 <div class="col-6">
                     <div class="row text-end py-2">
                         <div class="col">
-                            <a class="btn btn-secondary" href="index.php?c=productos&a=index_cuadricula">
+                            <a class="btn btn-secondary" href="?c=productos&a=index_cuadricula">
                                 <i class="fa-solid fa-circle-plus"></i> Cuadricula</a>
                         </div>
                         <div class="col">
@@ -37,7 +37,7 @@
                                 <i class="fa-solid fa-circle-plus"></i> Tabla</a>
                         </div>
                         <div class="col">
-                            <a class="btn btn-primary" href="index.php?c=productos&a=nuevo">
+                            <a class="btn btn-primary" href="?c=productos&a=nuevo">
                                 <i class="fa-solid fa-circle-plus"></i> Agregar nuevo</a>
                         </div>
                     </div>
@@ -69,8 +69,8 @@
                                     <td>$<?php echo $producto->precio ?></td>
                                     <td><?php echo $producto->categoria->nombre_categoria ?></td>
                                     <td>
-                                        <a href="index.php?c=productos$a=edit&id=<?php echo $producto->id_producto ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="index.php?c=productos&a=delete&id=<?php echo $producto->id_producto ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="?c=productos&a=nuevo&id=<?php echo $producto->id_producto ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=productos&a=delete&id=<?php echo $producto->id_producto ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                                     </td>
 
                                 </tr>

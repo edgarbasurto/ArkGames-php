@@ -23,7 +23,9 @@
     <main class="main p-5 mx-3 mb-2">
         <div class="card">
             <div class="card-header">
-                <h2 class="title my-2">Agregar Producto</h2>
+                <h2 class="title my-2">
+                <?php echo $producto->id_producto != null ? 'Actualizar Registro' : 'Nuevo Registro'; ?>    
+                </h2>
             </div>
 
 
@@ -32,27 +34,27 @@
                     <div class="row px-4">
                         <div class="col-sm-6 px-5">
 
-                            <input class="form-control form-control-sm" type="hidden" name="txtId" value="0">
+                            <input class="form-control form-control-sm" type="hidden" name="txtId" value="<?php echo $producto->id_producto; ?>">
 
 
                             <div class="mb-4 row text-end">
                                 <label class="col-sm-3 col-form-label">Nombre:</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control form-control-sm" type="text" name="txtNombre">
+                                    <input required class="form-control form-control-sm" type="text" value="<?php echo $producto->nombre; ?>" name="txtNombre" placeholder="Ingrese nombre del producto" data-validacion-tipo="requerido|min:3">
                                 </div>
                             </div>
 
                             <div class="mb-4 row text-end">
                                 <label class="col-sm-3 col-form-label">Precio:</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control form-control-sm" type="number" placeholder="0.0" step="0.01" min="0" max="1000" name="txtPrecio">
+                                    <input required value="<?php echo $producto->precio; ?>" class="form-control form-control-sm" type="number" placeholder="0.0" step="0.01" min="0" max="1000" name="txtPrecio">
                                 </div>
                             </div>
 
                             <div class="mb-4 row text-end">
                                 <label class="col-sm-3 col-form-label">Añadir imagen:</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control form-control-sm" name="archivo" id="seleccionArchivos" type="file" />
+                                    <input required class="form-control form-control-sm" name="archivo" id="seleccionArchivos" type="file" />
                                 </div>
 
                             </div>
@@ -80,7 +82,7 @@
                                     <h5 class="title"> Vista previa </h5>
                                 </div>
                                 <div class="card-body text-center" style="height: 300px;">
-                                    <img style="max-height:280px; width: auto;" id="imagenPrevisualizacion">
+                                    <img style="max-height:280px; width: auto;" id="imagenPrevisualizacion" src="data:image/jpg;base64,<?php echo base64_encode($producto->url_imagen) ?>" alt="<?php echo $producto->nombre ?>">
                                 </div>
                             </div>
                         </div>
