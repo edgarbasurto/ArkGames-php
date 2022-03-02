@@ -1,326 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap");
+
+* {
+  font-family: "Source Sans 3", sans-serif;
+  text-decoration: none;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+  min-width: 0px;
+  /*height: auto;*/
+}
+
 html {
-  min-width: 500px;
-  scroll-behavior: smooth;
+  position: relative;
+  min-height: 100%;
 }
 
-h1 {
-  /*margin-left: 20px;*/
-  margin-top: 30px;
-  font-size: 1.5em;
+.container-menu {
+  width: 100%;
+  display: table;
+  background-color: #1c1c1c;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
 }
 
+/* Fuente general en el body*/
 body {
+  margin: 100px 0px 0px 0px;
+  padding: 0px;
+  /*font-family: 'Open Sans', sans-serif;*/
+  background-color: rgb(104, 99, 99) !important;
+  background-color: linear-gradient(
+    131deg,
+    rgba(104, 99, 99, 1) 0%,
+    rgba(33, 31, 31, 1) 100%
+  );
+  background-image: url("../img/fondo_Arkgames.svg");
+}
+
+section {
+  width: 100%;
+  max-width: 1343px;
+  margin: 0px auto;
+  display: table;
+  position: relative;
+}
+
+/*Estilo del Logo */
+#logo_page {
+  float: left;
+  font-size: 24px;
+  text-transform: uppercase;
+  padding: 12px 0px;
+  height: 60px;
+  /* [disabled]width: 0vmax; */
+}
+
+/* Menú Cabecera*/
+nav {
+  width: auto;
+  /*float: right;*/
+  position: relative;
+}
+
+div.container-fluid {
+  width: 50% !important;
+}
+
+.nav-item {
+  float: left;
+  margin: 10px 0;
+}
+.nav-link {
+  color: #e7e7e7 !important;
+  font-size: 18px;
+  padding: 20px 10px;
+  margin: 0 10px;
+  display: inline-block;
+  transition: all 0.5s ease 0s;
+}
+.nav-link:hover {
+  background-color: #945aaf;
+  color: white !important;
+  border-radius: 10px;
+  transition: all 0.5s ease 0s;
+}
+.nav-link:hover img {
   color: white;
+  transition: all 0.5s ease 0s;
 }
-
-h3 {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-  margin-top: 10px;
+nav ul li a img {
+  padding-right: 10px;
+  color: #ffffff;
+  transition: all 0.5s ease 0s;
 }
+/*******************************************/
 
-#titulo_categoria {
-  margin-bottom: 20px;
+/* Iconos SVG */
+.menu_icon {
+  filter: invert(80%);
+  padding-right: 2px;
+  height: 20px;
+}
+.footer_icon {
+  filter: invert(80%);
+  padding: 20px;
+  height: 20px;
+  padding: 6px;
+}
+.contenedor-table,
+.contenedor-formulario {
+  margin-top: 100px;
+  margin-bottom: 25px;
+}
+/*******************************************/
+
+/*Footer*/
+footer {
+  display: table;
+  background-color: #1c1c1c;
+  color: white;
+  padding-bottom: 10px;
+  width: 100%;
+  bottom: 0;
+  position: relative;
+  clear: both;
+}
+.footer_social {
+  display: table;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer_social li {
+  float: left;
+  /*width: 50px;
+  height: 50px;*/
+  padding: 0px 10px;
+}
+.footer_social li a {
+  transition: all 0.5s ease 0s;
+  display: table;
+  /*width: 40px;
+  height: 40px;*/
+}
+.footer_social li a:hover {
+  background-color: #1d1d1d;
+  border-radius: 3px;
+  transition: all 0.5s ease 0s;
 }
 
 address {
   text-align: center;
 }
-
-.noticias {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(1, auto);
-  margin-left: 50px;
-  grid-template-areas:
-    "previa_noticia previa_noticia aside"
-    "footer footer footer";
-}
-
-.contenedor {
-  grid-area: previa_noticia;
-  /*padding-left: 50px;*/
-}
-
-.previa_noticia {
-  width: 75%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(1, auto);
-  grid-template-areas: "img texto texto";
-  margin: 20px;
-  padding: 20px;
-  border-radius: 20px;
-  background-color: #1c1c1c;
-  color: white;
-  box-shadow: 0px 10px 10px -6px black;
-}
-
-.ver_mas {
-  font-weight: bold;
-  padding-top: 15px;
-  color: cadetblue;
-}
-
-.ver_mas:visited,
-.temas_aside:visited {
-  color: cadetblue;
-}
-.ver_mas:hover,
-.temas_aside:hover {
-  color: darkorange;
-}
-
-aside {
-  grid-area: aside;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-.aside_componente {
-  margin-top: 20px;
-  width: 30%;
-  height: 200px;
-  padding: 70px;
-  padding-bottom: 170px;
-}
-
-div[class*="nente"] {
-  border-radius: 20px;
-  box-shadow: 0px 10px 10px -6px black;
-  background-color: #1c1c1c;
-}
-
-#aside_suscribe {
-  position: relative;
-  height: 50px;
-  margin: 100px 0 0px 0;
-  padding: 20px 70px 20px 70px;
-  background-color: #945aaf;
-}
-
-#aside_suscribe p {
-  text-align: center;
-  font-size: 1.1em;
-  font-weight: bolder;
-}
-
-#aside_suscribe a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding-top: 20px;
-  width: 100%;
-  height: 80%;
-  z-index: 10;
-}
-
-#aside_suscribe:hover {
-  background-color: #31b2a0;
-}
-
-#suscribete:hover {
-  color: rgb(180, 66, 66);
-  font-weight: bold;
-}
-
-#aside_slider {
-  width: 53%;
-  height: 150px;
-  padding: 20px;
-  margin-bottom: 80px;
-}
-
-#container_slider {
-  width: 100%;
-  height: 150px;
-  overflow: hidden;
-  position: relative;
-}
-
-.slider {
-  display: flex;
-  width: 300%;
-  height: 150px;
-  margin-left: -100%;
-}
-
-.slider_section {
-  width: 100%;
-  display: flex;
-}
-
-.slider_img {
-  display: block;
-  width: 100%;
-  object-fit: cover;
-}
-
-.slider_btn {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background: rgba(28, 28, 28, 0.7);
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 25px;
-  font-weight: bold;
-  font-family: monospace;
-  text-align: center;
-  cursor: pointer;
-}
-
-.slider_btn:hover {
-  background: #fff;
-}
-
-.slider_btn--right {
-  right: 0;
-}
-
-.slider_btn--left {
-  left: 0;
-}
-
-#aside_nuevo {
-  background-color: #f9c438;
-  width: 53%;
-  height: 20px;
-  padding: 20px;
-}
-
-.titulo_nuevo {
-  font-size: 1.3vw;
-  font-weight: bold;
-  cursor: pointer;
-  color: #1c1c1c;
-}
-
-#aside_nuevo:hover {
-  background-color: #dfa70f;
-}
-
-#juego_destacado {
-  margin: 20px;
-  width: 80%;
-  visibility: hidden;
-}
-
-.image_notice {
-  max-width: 100%;
-  max-height: 80%;
-  box-shadow: 0px 10px 10px -6px black;
-  margin-top: 20px;
-  grid-area: img;
-}
-
-.bloque_texto_noticia {
-  margin-left: 20px;
-  text-align: justify;
-  grid-area: texto;
-}
-
-#flecha_arriba {
-  cursor: pointer;
-  width: 100px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 2;
-  visibility: hidden;
-}
-
-#flecha_arriba:hover,
-#flecha_arriba:focus {
-  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-  transform: translateY(-0.25em);
-}
-
 #derechos_reserv {
   text-align: center;
   font-style: italic;
 }
+/*******************************************/
 
-footer {
-  grid-area: footer;
-}
+/*
+input[type=checkbox], label{display:none;}
 
-@media screen and (max-width: 1015px) {
-  #aside_nuevo {
-    height: 40px;
-    text-align: center;
-  }
-  .titulo_nuevo {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 950px) {
-  header {
-    position: relative;
-  }
-  body {
-    margin: 0px 0px 0px 0px;
-  }
-  #logo_page {
-    padding: 12px 20px 10px;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .noticias {
-    grid-template-areas:
-      "previa_noticia previa_noticia previa_noticia"
-      "aside aside aside"
-      "footer footer footer";
-  }
-
-  aside {
-    flex-direction: row;
-    gap: 20px;
-  }
-  #aside_categorias {
-    width: 18%;
-    height: 200px;
-    padding-top: 20px;
-    padding-bottom: 80px;
-    margin-bottom: 10px;
-  }
-
-  #aside_suscribe {
-    width: 65%;
-    margin-bottom: 10px;
-  }
-
-  #aside_slider {
-    margin-bottom: 80px;
-    width: 80%;
-    height: 200px;
-  }
-
-  .slider_img,
-  .slider_section,
-  .slider,
-  #container_slider {
-    height: 200px;
-  }
-
-  #aside_nuevo {
-    margin-bottom: 10px;
-    width: 35%;
-  }
-
-  .titulo_nuevo {
-    font-size: 14px;
-    padding-left: 10px;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .previa_noticia {
-    grid-template-areas:
-      "img img img"
-      "texto texto texto";
-  }
-}
+.content{display:table; margin-bottom:60px; width:900px;}
+.content h2{font-size:18px; font-weight:500; color:#002e5b; border-bottom:1px solid #fde428; display:table; padding-bottom:10px; margin-bottom:10px;}
+.content p{font-size:14px; line-height:22px; color:#7c7c7c; text-align:justify;}
+*/
