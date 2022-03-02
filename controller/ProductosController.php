@@ -82,15 +82,27 @@ class ProductosController
         header('Location: index.php');
     }
 
-    public function nuevo() {   
+
+    public function script()
+    {
+        $resultados = $this->modelo->Listar();
+        foreach ($resultados as $producto) {
+            echo '<p>INSERT INTO productos(id_producto, nombre, precio, url_imagen, id_categoria, prod_estado) 
+            VALUES ('.$producto->id_producto.','.$producto->nombre.','.$producto->precio.','.$producto->url_imagen.', '.$producto->id_categoria.', 1)</p><br>';
+        }
+    }
+
+
+    public function nuevo()
+    {
         // echo var_dump($_REQUEST);
         // echo var_dump($_GET);
         // echo var_dump($_POST);
         // $producto = $this->modelo->obtener($_REQUEST['id']);
         // echo var_dump($producto);
 
-      
-        if(isset($_REQUEST['id'])){
+
+        if (isset($_REQUEST['id'])) {
             $productos = $this->modelo->obtener($_REQUEST['id']);
             $producto = $productos[0];
         }
