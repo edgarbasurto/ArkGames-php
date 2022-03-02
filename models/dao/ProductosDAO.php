@@ -1,4 +1,7 @@
 <?php
+
+use JetBrains\PhpStorm\Internal\ReturnTypeContract;
+
 require_once '../../config/conexion.php';
 require_once '../../models/dto/Producto.php';
 
@@ -11,8 +14,7 @@ class ProductosDAO
     $this->con = Conexion::getConexion();
   }
 
-  public function listar()
-  {
+  public function listar(){
     // sql de la sentencia
     $sql = "SELECT * FROM productos p, categorias c WHERE p.id_categoria = c.id_categoria AND prod_estado=1";
     //preparacion de la sentencia
@@ -22,7 +24,7 @@ class ProductosDAO
     //recuperacion de resultados
     $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // retorna datos para el controlador
+    //retorna datos para el controlador
     $ObjReturn = array();
     foreach ($productos  as $producto) {
       $obj = new Producto();
@@ -30,6 +32,7 @@ class ProductosDAO
       $ObjReturn[] = $obj;
     }
     return $ObjReturn;
+    
   }
 
   // public function insertar(Producto $prod)
@@ -51,7 +54,7 @@ class ProductosDAO
   //   return $ObjReturn;
   // }
 
-  public function Actualizar(Producto $data)
+  public function actualizar(Producto $data)
   {
     try {
       $sql = "UPDATE productos SET 
@@ -78,8 +81,8 @@ class ProductosDAO
   }
 
 
-  
-  public function Registrar(Producto $data)
+
+  public function registrar(Producto $data)
   {
     try {
       $sql = "INSERT INTO productos(nombre, precio, url_imagen, id_categoria, prod_estado) 
@@ -114,7 +117,16 @@ class ProductosDAO
     }
   }
 
-  public function buscar($parametro)
+  public function obtener($id)
   {
+    try {
+      $sql = "SELECT * FROM productos p, categorias c WHERE p.id_categoria = c.id_categoria AND prod_estado=1 AND id_producto = ?";
+      $stm = $this->pdo->prepare($sql);
+
+      $stm->execute(array($id));
+      return $stm->fetch(PDO::FETCH_OBJ);
+    } catch (Exception $e) {
+      die($e->getMessage());
+    }
   }
 }

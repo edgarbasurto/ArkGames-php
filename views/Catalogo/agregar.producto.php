@@ -27,10 +27,10 @@
             </div>
 
 
-            <form method="post" action="../../views/Catalogo/BasurtoEdgar.php?accion=g" enctype="multipart/form-data">
+            <form method="post" action="../../views/Catalogo/Productos?accion=guardar" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="row px-4">
-                        <div class="col-sm-8 px-5">
+                        <div class="col-sm-6 px-5">
 
                             <input class="form-control form-control-sm" type="hidden" name="txtId" value="0">
 
@@ -64,21 +64,17 @@
                                     <select class="form-select form-control-sm mb-3" aria-label=".form-select-sm example" name="selectCategoria" required>
                                         <option disabled selected> --Seleccione una categoria-- </option>
                                         <?php
-                                        require_once '../../controller/CategoriasController.php';
-
-                                        $cont = new CategoriasController();
-                                        $lista = $cont->index();
-
+                                       
                                         foreach ($lista as $categoria) {
                                         ?>
-                                            <option value="<?php echo $categoria->Id_categoria ?>"><?php echo $categoria->Nombre_categoria ?></option>
+                                            <option value="<?php echo $categoria->id_categoria ?>"><?php echo $categoria->nombre_categoria ?></option>
 
                                         <?php } ?>
                                     </select>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 px-5">
+                        <div class="col-sm-6 px-5">
                             <div class="card">
                                 <div class="card-header">
                                     <h5 class="title"> Vista previa </h5>
@@ -91,8 +87,8 @@
                     </div>
                 </div>
                 <div class="card-footer text-end">
-                    <a href="../../views/Catalogo/BasurtoEdgar.php" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
-                    <button class="btn btn-primary my-3" type="submit" value="guardar">Agregar</button>
+                    <a href="index.php?c=productos&a=guardar" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+                    <button class="btn btn-primary my-3" type="submit" value="guardar">Guardar</button>
                 </div>
             </form>
 

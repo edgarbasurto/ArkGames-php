@@ -13,9 +13,8 @@ class CategoriasController
     public function index()
     {
         // llamar al modelo
-        return $this->modelo->listar();
+        $resultados = $this->modelo->listar();
 
-        //llamo a la vista
-        // require_once '../views/Catalogo/BasurtoEdgar.php';
+        return $resultados;
     }
 }

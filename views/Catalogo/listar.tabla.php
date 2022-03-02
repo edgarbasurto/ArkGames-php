@@ -29,13 +29,16 @@
                 <div class="col-6">
                     <div class="row text-end py-2">
                         <div class="col">
-                            <a class="btn btn-secondary" href="listar.cuadricula.php"><i class="fa-solid fa-circle-plus"></i> Cuadricula</a>
+                            <a class="btn btn-secondary" href="listar.cuadricula.php">
+                                <i class="fa-solid fa-circle-plus"></i> Cuadricula</a>
                         </div>
                         <div class="col">
-                            <a class="btn btn-secondary" href="listar.tabla.php"><i class="fa-solid fa-circle-plus"></i> Tabla</a>
+                            <a class="btn btn-secondary" href="listar.tabla.php">
+                                <i class="fa-solid fa-circle-plus"></i> Tabla</a>
                         </div>
                         <div class="col">
-                            <a class="btn btn-primary" href="agregar.producto.php"><i class="fa-solid fa-circle-plus"></i> Agregar nuevo</a>
+                            <a class="btn btn-primary" href="index.php?c=productos&a=nuevo">
+                                <i class="fa-solid fa-circle-plus"></i> Agregar nuevo</a>
                         </div>
                     </div>
                 </div>
@@ -55,25 +58,19 @@
                         </thead>
                         <tbody>
                             <?php
-                            require_once '../../controller/ProductosController.php';
-
-                            $cont = new ProductosController();
-                            $lista = $cont->index();
-                           
-
-                            foreach ($lista as $producto) {
+                            foreach ($resultados as $producto) {
                             ?>
 
                                 <tr>
-                                    <th scope="row"><?php echo $producto->Id_producto ?></th>
-                                    <td><img style="height:50px" src="data:image/jpg;base64,<?php echo base64_encode($producto->Url_imagen) ?>" alt="<?php echo $producto->Nombre ?>"></td>
-                                    
-                                    <td><?php echo $producto->Nombre ?></td>
-                                    <td>$<?php echo $producto->Precio ?></td>
-                                    <td><?php echo $producto->Categoria->Nombre_categoria ?></td>
+                                    <th scope="row"><?php echo $producto->id_producto ?></th>
+                                    <td><img style="height:50px" src="data:image/jpg;base64,<?php echo base64_encode($producto->url_imagen) ?>" alt="<?php echo $producto->nombre ?>"></td>
+
+                                    <td><?php echo $producto->nombre ?></td>
+                                    <td>$<?php echo $producto->precio ?></td>
+                                    <td><?php echo $producto->categoria->nombre_categoria ?></td>
                                     <td>
                                         <a href="editar.php?id=<?php echo $producto->Id_producto ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="../../controller/ProductosControlador.php?op=delete(<?php echo $producto->Id_producto ?>)" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="../../controller/ProductosControlador.php?op=delete(<?php echo $producto->id_producto ?>)" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                                     </td>
 
                                 </tr>
