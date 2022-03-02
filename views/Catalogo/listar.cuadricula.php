@@ -29,10 +29,10 @@
                 <div class="col-6">
                     <div class="row text-end py-2">
                         <div class="col">
-                            <a class="btn btn-secondary" href="listar.cuadricula.php"><i class="fa-solid fa-circle-plus"></i> Cuadricula</a>
+                            <a class="btn btn-secondary" href="index.php?c=productos&a=index_cuadricula"><i class="fa-solid fa-circle-plus"></i> Cuadricula</a>
                         </div>
                         <div class="col">
-                            <a class="btn btn-secondary" href="listar.tabla.php"><i class="fa-solid fa-circle-plus"></i> Tabla</a>
+                            <a class="btn btn-secondary" href="index.php"><i class="fa-solid fa-circle-plus"></i> Tabla</a>
                         </div>
                         <div class="col">
                             <a class="btn btn-primary" href="agregar.producto.php"><i class="fa-solid fa-circle-plus"></i> Agregar nuevo</a>
@@ -44,34 +44,29 @@
             <div class="card-body card-deck row">
 
                 <?php
-                require_once '../../controller/ProductosController.php';
-
-                $cont = new ProductosController();
-                $lista = $cont->index();
-
-                foreach ($lista as $producto) {
+                foreach ($resultados as $producto) {
                 ?>
                     <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 my-4">
-                        <div class="card shadow" id="<?php echo $producto->Id_producto ?>">
-                            <div style="height: 450px; overflow: hidden;" >
-                            <img class="card-img-top" src="data:image/jpg;base64,<?php echo base64_encode($producto->Url_imagen) ?>" alt="<?php echo $producto->Nombre ?>">  
-                        </div>
+                        <div class="card shadow" id="<?php echo $producto->id_producto ?>">
+                            <div style="height: 450px; overflow: hidden;">
+                                <img class="card-img-top" src="data:image/jpg;base64,<?php echo base64_encode($producto->url_imagen) ?>" alt="<?php echo $producto->nombre ?>">
+                            </div>
                             <div class="card-body">
-                                <h2 class="card-title"><?php echo $producto->Nombre ?></h2>
-                                <p class="card-text text-muted"><?php echo $producto->Categoria->Nombre_categoria ?></p>
+                                <h2 class="card-title"><?php echo $producto->nombre ?></h2>
+                                <p class="card-text text-muted"><?php echo $producto->categoria->nombre_categoria ?></p>
                             </div>
 
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col">
-                                        <span class="precio2"><b>$<?php echo $producto->Precio ?></b></span>
+                                        <span class="precio2"><b>$<?php echo $producto->precio ?></b></span>
                                     </div>
                                     <div class="col text-end">
-                                        <a href="editar.php?id=<?php echo $producto->Id_producto ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="../../controller/ProductosControlador.php?op=delete(<?php echo $producto->Id_producto ?>)" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="index.php?c=productos$a=edit&id=<?php echo $producto->id_producto ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="index.php?c=productos&a=delete&id=<?php echo $producto->id_producto ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -79,23 +74,24 @@
 
                 <?php } ?>
 
-                <div class="paginador" id="paginador">
-                    <label>Registros por pagina:</label>
-                    <select name="regitrospagina" class="cantreg" id="cantreg">
-                        <option value="0">Todos</option>
-                        <option value="3">3</option>
-                        <option value="6">6</option>
-                        <option value="9">9</option>
-                    </select>
-                    <a href="javascript:void(0)" class="firstPage" id="firstPage">«</a>
-                    <a href="javascript:void(0)" class="previousPage" id="previousPage">❮</a>
-                    <select name="numpagina" class="numpagina" id="numpagina">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                    <a href="javascript:void(0)" class="nextPage" id="nextPage">❯</a>
-                    <a href="javascript:void(0)" class="lastPage" id="lastPage">»</a>
+                <div class="paginador row" id="paginador">
+                    <div class="col"><label class="col-form-label">Registros por pagina:</label></div>
+                    <div class="col"> <select name="regitrospagina" class="form-select" id="cantreg">
+                            <option value="0">Todos</option>
+                            <option value="3">3</option>
+                            <option value="6">6</option>
+                            <option value="9">9</option>
+                        </select></div>
+                    <div class="col"><a href="javascript:void(0)" class="btn btn-primary" id="firstPage">«</a></div>
+                    <div class="col"><a href="javascript:void(0)" class="btn btn-primary" id="previousPage">❮</a></div>
+                    <div class="col"><select name="numpagina" class="form-select" id="numpagina">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select></div>
+                    <div class="col"> <a href="javascript:void(0)" class="btn btn-primary" id="nextPage">❯</a></div>
+                    <div class="col"><a href="javascript:void(0)" class="btn btn-primary" id="lastPage">»</a></div>
+
                 </div>
             </div>
         </div>

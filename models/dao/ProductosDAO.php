@@ -2,10 +2,8 @@
 
 require_once '../../config/conexion.php';
 require_once '../../models/dto/Producto.php';
-require_once '../../models/dto/Categoria.php';
 
-class ProductosDAO
-{
+class ProductosDAO {
   private $con;
 
   public function __construct()
@@ -33,25 +31,6 @@ class ProductosDAO
     }
     return $ObjReturn;
   }
-
-  // public function insertar(Producto $prod)
-  // {
-
-  //   // sql de la sentencia
-  //   $sql = "INSERT INTO productos(nombre, precio, url_imagen, id_categoria, prod_estado) VALUES ($prod->Nombre, $prod->Precio, $prod->Url_imagen, $prod->Categoria, $prod->Prod_estado) ";
-  //   //preparacion de la sentencia
-  //   $stmt = $this->con->prepare($sql);
-  //   //ejecucion de la sentencia
-  //   $stmt->execute();
-  //   //recuperacion de resultados
-  //   $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  //   // retorna datos para el controlador
-  //   $ObjReturn = array();
-  //   foreach ($productos  as $producto) {
-  //     $ObjReturn[] = new Producto($producto);
-  //   }
-  //   return $ObjReturn;
-  // }
 
   public function actualizar($data)
   {
