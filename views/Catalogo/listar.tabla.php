@@ -2,9 +2,12 @@
 
 <meta name="keywords" content="videojuegos,catalogo,juegos" />
 <link rel="stylesheet" href="../../assets/css/BasurtoEdgar.css" />
+<link rel="stylesheet" href="../../assets/css/BernalHelen.css" />
+
 <meta name="description" content="Catalogo" />
 
 <title>Catálogo - ArkGames</title>
+
 </head>
 
 <body id="bodyTemp">
@@ -23,23 +26,29 @@
         <div class="container-fluid card shadow">
 
             <div class="row card-header">
-                <div class="col-6">
+                <div class="col-8">
                     <h1 class="title">Catálogo de ArkGames</h1>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                     <div class="row text-end py-2">
-                        <div class="col">
-                            <a class="btn btn-secondary" href="?c=productos&a=index_cuadricula">
-                                <i class="fa-solid fa-circle-plus"></i> Cuadricula</a>
+                        <div class="col text-center">
+                            <div class="row">
+                                <div class="col text-end">
+                                    <a class="btn btn-secondary my-auto" href="?c=productos&a=index_cuadricula">
+                                        <i class="fa-solid fa-border-all"></i></a>
+                                </div>
+
+                                <div class="col text-start">
+                                    <a class="btn btn-secondary my-auto" href="index.php">
+                                        <i class="fa-solid fa-align-justify"></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col">
-                            <a class="btn btn-secondary" href="index.php">
-                                <i class="fa-solid fa-circle-plus"></i> Tabla</a>
+                        <div class="col text-center">
+                            <a class="btn btn-primary my-auto" href="?c=productos&a=nuevo">
+                                <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
                         </div>
-                        <div class="col">
-                            <a class="btn btn-primary" href="?c=productos&a=nuevo">
-                                <i class="fa-solid fa-circle-plus"></i> Agregar nuevo</a>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -54,7 +63,7 @@
                             <th scope="col">Producto</th>
                             <th scope="col">Precio</th>
                             <th scope="col">Categoría</th>
-                            <th scope="col">-</th>
+                            <th scope="col"></th>
                         </thead>
                         <tbody>
                             <?php
@@ -69,15 +78,20 @@
                                     <td>$<?php echo $producto->precio ?></td>
                                     <td><?php echo $producto->categoria->nombre_categoria ?></td>
                                     <td>
-                                        <a href="?c=productos&a=nuevo&id=<?php echo $producto->id_producto ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=productos&a=delete&id=<?php echo $producto->id_producto ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                        <div class="row text-center">
+                                            <div class="col text-end">
+                                                <a href="?c=productos&a=nuevo&id=<?php echo $producto->id_producto ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            </div>
+                                            <div class="col text-start">
+                                                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=productos&a=delete&id=<?php echo $producto->id_producto ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                            </div>
+                                        </div>
                                     </td>
 
                                 </tr>
                             <?php } ?>
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>

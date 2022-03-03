@@ -26,20 +26,6 @@ html {
   z-index: 100;
 }
 
-/* Fuente general en el body*/
-body {
-  margin: 100px 0px 0px 0px;
-  padding: 0px;
-  /*font-family: 'Open Sans', sans-serif;*/
-  background-color: rgb(104, 99, 99) !important;
-  background-color: linear-gradient(
-    131deg,
-    rgba(104, 99, 99, 1) 0%,
-    rgba(33, 31, 31, 1) 100%
-  );
-  background-image: url("../img/fondo_Arkgames.svg");
-}
-
 section {
   width: 100%;
   max-width: 1343px;
