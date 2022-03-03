@@ -34,7 +34,7 @@ VALUES
     'Eventos, Descuentos, Análisis',
     'PS2 - PS3 - PS4 - PS5',
     'semanal',
-    'Si;'
+    'Si'
   ),
   (
     'julieta@gmail.com',
@@ -48,21 +48,21 @@ VALUES
     'Eventos, Descuentos, Torneos',
     'PC, XBox, Android',
     'diario',
-    'Si;'
+    'Si'
   ),
   (
     'isa@gmail.com',
     'Novedades, Descuentos',
     'XBox, Wii',
     'semanal',
-    'Si;'
+    'Si'
   ),
   (
     'helen@gmail.com',
     'Eventos, Torneos',
     'PC, PS2 - PS3 - PS4 - PS5',
     'semanal',
-    'Si;'
+    'Si'
   );
 -- TABLA DE CATEGORIAS DE JUEGOS
   -- EDGAR BASURTO
@@ -87,21 +87,20 @@ UNLOCK TABLES;
 -- TABLA DE PRODUCTOS
   -- EDGAR BASURTO
   DROP TABLE IF EXISTS `productos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+  /*!40101 SET @saved_cs_client     = @@character_set_client */;
+  /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `productos` (
-  `id_producto` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `precio` decimal(6,2) NOT NULL,
-  `url_imagen` longblob NOT NULL,
-  `id_categoria` int NOT NULL,
-  `prod_estado` int NOT NULL,
-  PRIMARY KEY (`id_producto`),
-  KEY `id_categoria_idx` (`id_categoria`),
-  CONSTRAINT `id_categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+    `id_producto` int NOT NULL AUTO_INCREMENT,
+    `nombre` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+    `precio` decimal(6, 2) NOT NULL,
+    `url_imagen` longblob NOT NULL,
+    `id_categoria` int NOT NULL,
+    `prod_estado` int NOT NULL,
+    PRIMARY KEY (`id_producto`),
+    KEY `id_categoria_idx` (`id_categoria`),
+    CONSTRAINT `id_categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`)
+  ) ENGINE = InnoDB AUTO_INCREMENT = 27 DEFAULT CHARSET = utf8mb3 COLLATE = utf8_spanish_ci;
 LOCK TABLES `productos` WRITE;
-
 UNLOCK TABLES;
   /*TABLA SOPORTE --- ESPINOZA IVAN*/
   CREATE TABLE `soporte` (
@@ -144,9 +143,9 @@ VALUES
     'Contrasenia perdida de cuenta en Fall Guys.'
   );
   /* TABLA USUARIOS
-   * -- RAFAEL LARREA
-   * -- @Rafael1108
-  */
+     * -- RAFAEL LARREA
+     * -- @Rafael1108
+    */
   DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
     `Id` bigint unsigned NOT NULL AUTO_INCREMENT,
