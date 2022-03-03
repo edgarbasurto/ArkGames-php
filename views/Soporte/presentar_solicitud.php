@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <?php require_once '../../views/Templates/HeadBootstrap.php' ?>
         <title>CRUD</title>
         <style>
             .contenedor-table{
@@ -20,7 +21,12 @@
                 padding: 10px;
             }</style>
     </head>
-    <body>        
+    <body> 
+    <header>
+        <?php
+        require_once '../Templates/navBarBootstrap.php'
+        ?>
+    </header>
         <h1>Soporte</h1>
 
         <?php
@@ -58,14 +64,14 @@
                             <td><?php echo $fila['servicio'] ?></td>
                             <td><?php echo $fila['descripcion_problema'] ?></td>
                             <td>
-                                <a href="editar.php?id=<?php echo $fila['id_solicitud'] ?>">Editar</a>
-                                <a href="eliminar.php?id=<?php echo $fila['id_solicitud'] ?>">Eliminar</a>
+                                <a href="editar_solicitud.php?id=<?php echo $fila['id_solicitud'] ?>">Editar</a>
+                                <a href="eliminar_solicitud.php?id=<?php echo $fila['id_solicitud'] ?>">Eliminar</a>
                             </td>
                         </tr>
                     <?php } ?>
                 </tbody>
             </table>
-            <a href="agregar.php">Agregar</a>
+            <a href="frmSoporte_EspinozaIvan.php">Agregar</a>
         </div>
     </body>
 </html>

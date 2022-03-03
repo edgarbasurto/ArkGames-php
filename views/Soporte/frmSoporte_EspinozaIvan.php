@@ -58,11 +58,6 @@
         }
     </style>
 
-    <script>
-        function inicioSesion() {
-            location.href = 'frm_LarreaRafael.php';
-        }
-    </script>
 
 </head>
 
@@ -77,9 +72,6 @@
             <form id="Soporte" method="post">
                 <fieldset>
                     <legend style="color:darkslategray; font-weight: bold;">¡Estamos aquí para ayudarte!</legend>
-                    <div>
-                        <input class="boton" type="button" value="Inicie sesión en su cuenta de ArkGames" onclick="inicioSesion()">
-                    </div>
                     <p class="frm_campos" style="text-align: center; font-size: 22px">Obtén ayuda de Soporte Técnico de ArkGames</p>
 
                     <div class="frm_campos">
@@ -165,9 +157,9 @@
             $sql = "insert into soporte(usuario, email, telefono, servicio, producto, descripcion_problema) values(:user, :email, :tel, :serv, :producto, :desc)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute($data);
-//            if ($stmt->rowCount() > 0) {// rowCount() permite conocer el numero de filas afectadas
-//                header("location:presentar_solicitud.php");
-//            }
+            if ($stmt->rowCount() > 0) {// rowCount() permite conocer el numero de filas afectadas
+                echo '<script>window.location="presentar_solicitud.php"</script>';
+            }
         }    
     ?>
     <!-------------------------------------------------FOOTER---------------------------------------->
@@ -175,7 +167,6 @@
     include_once '../Templates/footer.php'
     ?>
     <!----------------------------------------------------------------------------------------------->
-    <script type="text/javascript" src="../../assets/js/Validaciones_frmSoporte.js"> </script>
 </body>
 
 </html>
