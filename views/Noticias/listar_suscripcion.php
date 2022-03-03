@@ -7,28 +7,6 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <title>CRUD</title>
-    <style>
-        .contenedor-table{
-            margin-left: 20px;
-        }
-        .contenedor-table{
-            height: 75vh;
-        }
-        table {
-            border: #b2b2b2 1px solid;
-            background-color: #b2b2b2;
-        }
-        td, th {
-            border: black 1px solid;
-            padding: 10px;
-        }
-        .btnAgregar{
-            background-color: #b2b2b2;
-            width: 60px;
-            text-align: center;
-            margin-top: 10px;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -42,9 +20,14 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         ?>
-        <div class="contenedor-table">
-            <h2>Consultar Suscripciones a Newsletter</h2>
-            <table>
+        <div class="row m-5">
+            <div class="col-md-11">
+                <h2>Consultar Suscripciones a Newsletter</h2>
+            </div>
+            <div class='btnAgregar col-md-1'><a class="justify-content-center" href="frm_BernalHelen.php">Agregar</a></div>
+        </div>
+        <div class="table-responsive m-5">
+            <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -76,9 +59,6 @@
                     <?php } ?>
                 </tbody>
             </table>
-            <div class='btnAgregar'>
-                <a href="frm_BernalHelen.php">Agregar</a>
-            </div>
         </div>
         <?php
             require_once '../Templates/footerBootstrap.php'
