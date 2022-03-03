@@ -20,14 +20,14 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         ?>
-        <div class="row m-5">
+        <div class="row mt-5 mx-5">
             <div class="col-md-11">
                 <h2>Consultar Suscripciones a Newsletter</h2>
             </div>
-            <div class='btnAgregar col-md-1'><a class="justify-content-center" href="frm_BernalHelen.php">Agregar</a></div>
+            <div class="col-md-1"><a class="btn btn-success justify-center" href="frm_BernalHelen.php">Agregar<i class="fa-solid fa-circle-plus fa-lg p-2"></i></a></div>
         </div>
-        <div class="table-responsive m-5">
-            <table class="table table-striped table-bordered">
+        <div class="table-responsive mx-5 mt-2 mb-5">
+            <table class="table table-light table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -52,8 +52,8 @@
                             <td><?php echo $fila['frecuencia'] ?></td>
                             <td><?php echo $fila['discord'] ?></td>
                             <td>
-                                <a href="editar_noticias.php?id=<?php echo $fila['id_suscripcion'] ?>">Editar</a>
-                                <a href="eliminar_noticias.php?id=<?php echo $fila['id_suscripcion'] ?>">Eliminar</a>
+                                <a class="btn btn-primary m-2" href="editar_noticias.php?id=<?php echo $fila['id_suscripcion'] ?>"><i class="fa-solid fa-pen-to-square fa-xl"></i></a>
+                                <a class="btn btn-danger m-2" href="eliminar_noticias.php?id=<?php echo $fila['id_suscripcion'] ?>"><i class="fa-solid fa-trash-can fa-xl"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
