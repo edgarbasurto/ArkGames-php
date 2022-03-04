@@ -121,12 +121,10 @@
                                     <input class="controls_2" type="email" id="correo">
                                 </div>
                                 
-                                <div >
-                                    <label class="controls" for="asunto">Asunto: </label>
-                                    <input class="controls_2" type="text" id="asunto"><br>
-                                </div>
+                                
 
                                 <div>
+                                     <label class="controls" for="asunto">Comentario: </label>
                                     <textarea id="mensaje" name="mensaje" placeholder="Escriba aqui su comentario"  cols="70" rows="10"></textarea>
                                 </div>
                                 
