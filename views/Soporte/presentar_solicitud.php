@@ -60,8 +60,8 @@
                             <td><?php echo $fila['usuario'] ?></td>
                             <td><?php echo $fila['email'] ?></td>
                             <td><?php echo $fila['telefono'] ?></td>
-                            <td><?php echo $fila['producto'] ?></td>
                             <td><?php echo $fila['servicio'] ?></td>
+                            <td><?php echo $fila['producto'] ?></td>
                             <td><?php echo $fila['descripcion_problema'] ?></td>
                             <td>
                                 <a href="editar_solicitud.php?id=<?php echo $fila['id_solicitud'] ?>">Editar</a>
