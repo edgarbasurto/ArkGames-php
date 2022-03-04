@@ -115,7 +115,7 @@ class UsuariosController
             $usuario->IdServidor = $post['Servidor'];
 
             //actualiza registro;
-            if (!$this->modelo->Update($usuario)) {
+            if ($this->modelo->Update($usuario)) {
                $msj = $msj . ' actualizado con éxito!';
             } else {
                $msj =    $msj . ' no se pudo actualizar';

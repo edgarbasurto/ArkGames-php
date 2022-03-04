@@ -24,7 +24,7 @@ require_once '../../views/Templates/HeadBootstrap.php'
                 <form class="row g-3 needs-validation" action=" <?php echo "../../views/Usuarios/index.php?c=usuarios&a=save&id=" . $registro->Id ?>" method="POST" novalidate style="margin: 0px 80px 0px 80px">
                     <div class="col-md-5">
                         <label for="txtNombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="txtNombre" name="Nombre" aria-describedby="msjValidacion_Nombre" placeholder="Nombre completo del usuario" value="<?php echo $registro->NombreCompleto ?>" required>
+                        <input type="text" class="form-control" id="txtNombre" maxlength="80" name="Nombre" aria-describedby="msjValidacion_Nombre" placeholder="Nombre completo del usuario" value="<?php echo $registro->NombreCompleto ?>" required>
                         <div class="valid-feedback">
                             Datos correctos!
                         </div>
@@ -70,7 +70,7 @@ require_once '../../views/Templates/HeadBootstrap.php'
                         <label for="txtEmail" class="form-label">Email</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text" id="txtEmailGroup"><i class="fa-solid fa-envelope"></i></span>
-                            <input type="email" class="form-control" id="txtEmail" name="Email" value="<?php echo $registro->Email ?>" aria-describedby="txtEmailGroup msjValidacion_Email" placeholder="Dirección correo electrónico" required>
+                            <input type="email" class="form-control" id="txtEmail" maxlength="80" name="Email" value="<?php echo $registro->Email ?>" aria-describedby="txtEmailGroup msjValidacion_Email" placeholder="Dirección correo electrónico" required>
                             <div class="valid-feedback">
                                 Datos correctos!
                             </div>

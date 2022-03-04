@@ -36,9 +36,7 @@ class UsuarioDAO
     //preparacion de la sentencia
     $stmt = $this->con->prepare($sql);
     //ejecucion de la sentencia
-    $stmt->execute();
-
-    if ($stmt->rowCount() >= 1) {
+    if ($stmt->execute()) {
       return true;
     } else {
       return false;
@@ -54,8 +52,7 @@ class UsuarioDAO
     //preparacion de la sentencia
     $stmt = $this->con->prepare($sql);
     //ejecucion de la sentencia
-    $stmt->execute();
-    if ($stmt->rowCount() >= 1) {
+    if ($stmt->execute()) {
       return true;
     } else {
       return false;
@@ -69,8 +66,7 @@ class UsuarioDAO
     //preparacion de la sentencia
     $stmt = $this->con->prepare($sql);
     //ejecucion de la sentencia
-    $stmt->execute();
-    if ($stmt->rowCount() >= 1) {
+    if ($stmt->execute()) {
       return true;
     } else {
       return false;
