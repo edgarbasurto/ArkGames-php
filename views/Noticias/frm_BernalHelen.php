@@ -40,27 +40,27 @@
                                 <label class="form-label">Tipo de correo que deseo leer:</label>
                                 <div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="chkbtema[]" value="Novedades" id="Novedades">
+                                        <input class="form-check-input tema" type="checkbox" name="chkbtema[]" value="Novedades" id="Novedades">
                                         <label class="form-check-label" for="Novedades">Novedades</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="chkbtema[]" value="Eventos" id="Eventos">
+                                        <input class="form-check-input tema" type="checkbox" name="chkbtema[]" value="Eventos" id="Eventos">
                                         <label class="form-check-label" for="Eventos">Eventos</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="chkbtema[]" value="Descuentos" id="Descuentos">
+                                        <input class="form-check-input tema" type="checkbox" name="chkbtema[]" value="Descuentos" id="Descuentos">
                                         <label class="form-check-label" for="Descuentos">Descuentos</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="chkbtema[]" value="Torneos" id="Torneos">
+                                        <input class="form-check-input tema" type="checkbox" name="chkbtema[]" value="Torneos" id="Torneos">
                                         <label class="form-check-label" for="Torneos">Torneos</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="chkbtema[]" value="Análisis" id="Análisis">
+                                        <input class="form-check-input tema" type="checkbox" name="chkbtema[]" value="Análisis" id="Análisis">
                                         <label class="form-check-label" for="Análisis">Análisis</label>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="chkbtema[]" value="Trucos" id="Trucos">
+                                    <div id="tema" class="form-check">
+                                        <input class="form-check-input tema" type="checkbox" name="chkbtema[]" value="Trucos" id="Trucos">
                                         <label class="form-check-label" for="Trucos">Trucos</label>
                                     </div>
                                 </div>
@@ -69,23 +69,23 @@
                                 <label class="form-label">Sección:</label> <br>
                                 <div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="chkbdispositivo[]" value="PC">
+                                        <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="PC">
                                         <label class="form-check-label" for="PC">PC</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="chkbdispositivo[]" value="PS2 - PS3 - PS4 - PS5">
+                                        <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="PS2 - PS3 - PS4 - PS5">
                                         <label class="form-check-label" for="PS2 - PS3 - PS4 - PS5 ">PS2 - PS3 - PS4 - PS5 </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="chkbdispositivo[]" value="XBox">
+                                        <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="XBox">
                                         <label class="form-check-label" for="XBox">XBox</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="chkbdispositivo[]" value="Wii">
+                                        <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="Wii">
                                         <label class="form-check-label" for="Wii">Wii</label>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="chkbdispositivo[]" value="Android">
+                                    <div id="dispositivo" class="form-check">
+                                        <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="Android">
                                         <label class="form-check-label" for="Android">Android</label>
                                     </div>
                                 </div>
