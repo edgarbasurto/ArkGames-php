@@ -143,9 +143,9 @@ VALUES
     'Contrasenia perdida de cuenta en Fall Guys.'
   );
   /* TABLA USUARIOS
-                 * -- RAFAEL LARREA
-                 * -- @Rafael1108
-                */
+                   * -- RAFAEL LARREA
+                   * -- @Rafael1108
+                  */
   DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
     `Id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -239,4 +239,4 @@ VALUES
     'Guayaquil',
     'escalantePed@gmail.com',
     'muy buena pagina!.'
-  ),
+  );
