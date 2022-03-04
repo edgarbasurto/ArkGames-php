@@ -1,4 +1,12 @@
-<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+<?php
+
+if (!isset($_SESSION)) {
+    session_start();
+};
+
+require_once '../../models/dto/Enumeradores.php';
+require_once '../../views/Templates/HeadBootstrap.php'
+?>
 <meta name="description" content="ArkGames" />
 <meta name="keywords" content="videojuegos,catalogo,juegos" />
 <title>Demostración Métodos CRUD - USUARIO</title>
@@ -16,7 +24,7 @@
                     <h3 class="fw-bold" style="margin-top:.5rem">Usuarios</h3>
                 </div>
                 <div class="col text-end align-middle">
-                    <a href="./nuevo.php" class="btn btn-primary"><i class="fas fa-plus-square"></i> Nuevo Usuario</a>
+                    <a href="../../views/Usuarios/index.php?c=usuarios&a=new" class="btn btn-primary"><i class="fas fa-plus-square"></i> Nuevo Usuario</a>
                 </div>
             </div>
             <div class="card-body">
@@ -44,9 +52,9 @@
                                     <td class="text-center"><?php echo $registro->NombreCompleto ?></td>
                                     <td class="text-center"><?php echo Genero::getName($registro->Genero) ?></td>
                                     <td class="text-center">
-                                        <a href="../../views/Usuarios/index.php?userm=shw&id=<?php echo $registro->Id ?>" class="btn btn-success"><i class="fas fa-eye"></i></a>
-                                        <a href="../../views/Usuarios/index.php?userm=upd&id=<?php echo $registro->Id ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                        <a href="../../views/Usuarios/index.php?userm=del&id=<?php echo $registro->Id ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="../../views/Usuarios/index.php?c=usuarios&a=show&id=<?php echo $registro->Id ?>" class="btn btn-success"><i class="fas fa-eye"></i></a>
+                                        <a href="../../views/Usuarios/index.php?c=usuarios&a=edit&id=<?php echo $registro->Id ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                        <a href="../../views/Usuarios/index.php?c=usuarios&a=delete&id=<?php echo $registro->Id ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                             <?php
@@ -57,8 +65,41 @@
                 </div>
             </div>
         </div>
+        <div class="position-fixed bottom-0 end-0 p-3 " style="z-index: 11">
+            <div id="autoMensaje" class="toast align-items-center text-white <?php
+                                                                                if (isset($_SESSION['color'])) {
+
+                                                                                    echo
+                                                                                    $_SESSION['color'];
+                                                                                };
+
+                                                                                ?> border-0" role="aler" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body ">
+                        <h5 class="align-middle my-0"> <i class="fa-solid <?php
+                                                                            if (isset($_SESSION['color'])) {
+                                                                                echo $_SESSION['color'] == 'bg-info' ? ' fa-thumbs-up ' : ' fa-triangle-exclamation ';
+                                                                            }
+                                                                            ?> "></i>
+
+                            <?php if (isset($_SESSION['mensaje'])) {
+                                echo  $_SESSION['mensaje'];
+                            } ?></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
+
     <!-- Colocar aquí script js personalizados -->
+    <script>
+        function notificarMensaje() {
+            let autoMensaje = document.getElementById('autoMensaje')
+            let toast = new bootstrap.Toast(autoMensaje)
+            toast.show()
+        }
+    </script>
 
     <!-- Cierre de script js personalizados -->
     <?php
