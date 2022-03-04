@@ -4,12 +4,12 @@ require_once '../../models/dto/Categoria.php';
 
  class Producto
 {
-    public int $id_producto;
-    public ?string $nombre;
+    public $id_producto;
+    public $nombre;
     public ?float $precio;
     public $url_imagen;
     public Categoria $categoria;
-    public int $prod_estado;
+    public $prod_estado;
 
     public function __construct()
     {

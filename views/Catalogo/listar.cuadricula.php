@@ -31,12 +31,12 @@
                         <div class="col text-center">
                             <div class="row">
                                 <div class="col text-end">
-                                    <a class="btn btn-secondary my-auto" href="?c=productos&a=index_cuadricula">
+                                    <a class="btn btn-secondary my-auto" href="?c=productos&a=index_cuadricula" data-toggle="tooltip" data-placement="top" title="Listar cuadricula">
                                         <i class="fa-solid fa-border-all"></i></a>
                                 </div>
 
                                 <div class="col text-start">
-                                    <a class="btn btn-secondary my-auto" href="index.php">
+                                    <a class="btn btn-secondary my-auto" href="index.php" data-toggle="tooltip" data-placement="top" title="Listar tabla">
                                         <i class="fa-solid fa-align-justify"></i></a>
                                 </div>
                             </div>
