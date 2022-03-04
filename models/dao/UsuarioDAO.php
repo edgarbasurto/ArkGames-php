@@ -37,6 +37,12 @@ class UsuarioDAO
     $stmt = $this->con->prepare($sql);
     //ejecucion de la sentencia
     $stmt->execute();
+
+    if ($stmt->rowCount() >= 1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public function Insert(Usuario $Obj)
@@ -49,6 +55,11 @@ class UsuarioDAO
     $stmt = $this->con->prepare($sql);
     //ejecucion de la sentencia
     $stmt->execute();
+    if ($stmt->rowCount() >= 1) {
+      return true;
+    } else {
+      return false;
+    }
   }
   public function Update(Usuario $Obj)
   {
@@ -59,6 +70,11 @@ class UsuarioDAO
     $stmt = $this->con->prepare($sql);
     //ejecucion de la sentencia
     $stmt->execute();
+    if ($stmt->rowCount() >= 1) {
+      return true;
+    } else {
+      return false;
+    }
   }
   function sqlQuery(?String $sql)
   {

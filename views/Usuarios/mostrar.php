@@ -1,4 +1,6 @@
-<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+<?php
+require_once '../../models/dto/Enumeradores.php';
+require_once '../../views/Templates/HeadBootstrap.php' ?>
 <meta name="description" content="ArkGames" />
 <meta name="keywords" content="videojuegos,catalogo,juegos" />
 <title>Demostración Métodos CRUD - USUARIO</title>
@@ -15,7 +17,7 @@
                     <h4 class="fw-bold" style="margin-top:.5rem">ID#<?php echo $registro->Id . " - " .  $registro->NombreCompleto ?> </h4>
                 </div>
                 <div class="col text-end">
-                    <a href="../../views/Usuarios/index.php?userm=upd&id=<?php echo $registro->Id ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+                    <a href="../../views/Usuarios/index.php?c=usuarios&a=edit&id=<?php echo $registro->Id ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirm"><i class="fas fa-trash-alt"></i> Eliminar</button>
                 </div>
             </div>
@@ -81,7 +83,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-right-from-bracket"></i> Salir</button>
-                    <a href="../../views/Usuarios/index.php?userm=del&id=<?php echo $registro->Id ?>" class="btn btn-primary"><i class="fa-solid fa-circle-check"></i> Si</a>
+                    <a href="../../views/Usuarios/index.php?c=usuarios&a=delete&id=<?php echo $registro->Id ?>" class="btn btn-primary"><i class="fa-solid fa-circle-check"></i> Si</a>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 <?php
+require_once '../../models/dto/Enumeradores.php';
 require_once '../../views/Templates/HeadBootstrap.php'
 ?>
 <meta name="description" content="ArkGames" />
@@ -20,7 +21,7 @@ require_once '../../views/Templates/HeadBootstrap.php'
 
             </div>
             <div class="card-body">
-                <form class="row g-3 needs-validation" action=" <?php echo "../../views/Usuarios/index.php?userm=sav&id=" . $registro->Id ?>" method="POST" novalidate style="margin: 0px 80px 0px 80px">
+                <form class="row g-3 needs-validation" action=" <?php echo "../../views/Usuarios/index.php?c=usuarios&a=save&id=" . $registro->Id ?>" method="POST" novalidate style="margin: 0px 80px 0px 80px">
                     <div class="col-md-5">
                         <label for="txtNombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="txtNombre" name="Nombre" aria-describedby="msjValidacion_Nombre" placeholder="Nombre completo del usuario" value="<?php echo $registro->NombreCompleto ?>" required>

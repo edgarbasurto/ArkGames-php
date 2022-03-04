@@ -1,4 +1,19 @@
 <?php
+
+require_once '../../controller/UsuariosController.php';
+// Todo esta lógica hara el papel de un FrontController
+$controller = (!empty($_REQUEST['c'])) ? htmlentities($_REQUEST['c']) : 'usuarios';
+$controller = ucwords(strtolower($controller)) . 'Controller';
+
+$accion = (!empty($_REQUEST['a'])) ? htmlentities($_REQUEST['a']) : 'index';
+
+require_once '../../controller/' . $controller . '.php';
+
+$cont = new $controller();
+$cont->$accion();
+
+
+/*
 require_once '../../controller/UsuariosController.php';
 $cont = new UsuarioController();
 if (isset($_GET['userm'])) {
@@ -28,4 +43,5 @@ if (isset($_GET['userm'])) {
     }
 } else {
     $cont->index();
-}
+} 
+*/
