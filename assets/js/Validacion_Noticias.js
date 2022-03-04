@@ -6,6 +6,8 @@ let cont = 0;
 function validar(event){
     var resultado = true;
     var txtEmail = document.getElementById("email");
+    var chkbTema = document.getElementById("tema");
+    var chkbDisp = document.getElementById("dispositivo");
     var checkboxTema = document.querySelectorAll(".tema");
     var checkboxDispositivo = document.querySelectorAll(".dispositivo");
     var radiobDiscord = document.getElementsByName("rdbdiscord");
@@ -36,7 +38,7 @@ function validar(event){
         }
     }
     if (!sel) {
-        mensaje("Debe seleccionar al menos un tema de su preferencia", checkboxTema[0]);
+        mensaje("Debe seleccionar al menos un tema de su preferencia", chkbTema);
     } 
     
     //validacion de varios checkbox dispositivo
@@ -53,7 +55,7 @@ function validar(event){
         }
     }
     if (!sel) {
-        mensaje("Debe seleccionar un dispositivo tecnológico de su preferencia", checkboxDispositivo[0]);
+        mensaje("Debe seleccionar un dispositivo tecnológico de su preferencia", chkbDisp);
     }   
     
     //validacion radio button frecuencia
