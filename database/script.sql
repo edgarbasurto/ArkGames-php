@@ -1,4 +1,4 @@
-﻿/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8 */;
 /*!40014 SET FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET SQL_NOTES=0 */;
@@ -163,3 +163,50 @@ CREATE TABLE `usuarios` (
     `FechaActualizacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`Id`)
   ) ENGINE = InnoDB AUTO_INCREMENT = 3 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci
+
+  -- TABLA DE COMENTARIOS
+  -- EVELYN GUALE
+   CREATE TABLE `comentario` (
+    `id_comentario` INT(10) NOT NULL AUTO_INCREMENT,
+    `nombre` varchar(30) NOT NULL,
+    `apellido` varchar(30) NOT NULL,
+    `genero` varchar(10) NOT NULL,
+    `telefono` varchar(10) NOT NULL,
+    `ciudad` varchar(20) NOT NULL,
+    `email` varchar(30) NOT NULL,
+    `comentario` varchar(200) NOT NULL,
+    PRIMARY KEY (`id_comentario`)
+  ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;;
+INSERT INTO
+  `comentario` (
+    `id_comentario`,
+    `nombre`,
+    `apellido`,
+    `genero`,
+    `telefono`,
+    `ciudad`,
+    `email`,
+    `comentario`
+  )
+
+  VALUES
+  (
+    '1',
+    'Evelyn',
+    'Guale',
+    'femenino',
+    '044547178',
+    'Guayaquil',
+    'gualerEvelyn@gamil.com',
+    'recomiendo que deberian tener una tendencia de juegos .'
+  ),
+  (
+    '2',
+    'Pedro',
+    'Escalante',
+    'masculino',
+    '042663344',
+    'Guayaquil',
+    'escalantePed@gmail.com',
+    'muy buena pagina!.'
+  ),
