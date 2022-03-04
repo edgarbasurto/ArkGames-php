@@ -34,7 +34,7 @@
 
                         <form id="form_suscripcion" method="post">
                             <div class="card-header row">
-                                <h3 class="title text-center">Editar noticias</h3>
+                                <h3 class="title text-center">Editar Suscripción</h3>
                             </div>
 
                             <div class="card-body">
@@ -65,22 +65,22 @@
                                             //$temas = ["Novedades", "Eventos", "Descuentos", "Torneos","Análisis","Trucos"];
                                             ?>
                                             <div class="form-check">
-                                                <input class="formItem tema" type="checkbox" name="chkbtema[]" value="Novedades" <?php if (str_contains($fila['temas'], "Novedades")) echo 'checked'; ?> /> Novedades <br>
+                                                <input class="form-check-input" type="checkbox" name="chkbtema[]" value="Novedades" <?php if (str_contains($fila['temas'], "Novedades")) echo 'checked'; ?> /> Novedades <br>
                                             </div>
                                             <div class="form-check">
-                                                <input class="formItem tema" type="checkbox" name="chkbtema[]" value="Eventos" <?php if (str_contains($fila['temas'], "Eventos")) echo 'checked'; ?> /> Eventos <br>
+                                                <input class="form-check-input" type="checkbox" name="chkbtema[]" value="Eventos" <?php if (str_contains($fila['temas'], "Eventos")) echo 'checked'; ?> /> Eventos <br>
                                             </div>
                                             <div class="form-check">
-                                                <input class="formItem tema" type="checkbox" name="chkbtema[]" value="Descuentos" <?php if (str_contains($fila['temas'], "Descuentos")) echo 'checked'; ?> /> Descuentos <br>
+                                                <input class="form-check-input" type="checkbox" name="chkbtema[]" value="Descuentos" <?php if (str_contains($fila['temas'], "Descuentos")) echo 'checked'; ?> /> Descuentos <br>
                                             </div>
                                             <div class="form-check">
-                                                <input class="formItem tema" type="checkbox" name="chkbtema[]" value="Torneos" <?php if (str_contains($fila['temas'], "Torneos")) echo 'checked'; ?> /> Torneos <br>
+                                                <input class="form-check-input" type="checkbox" name="chkbtema[]" value="Torneos" <?php if (str_contains($fila['temas'], "Torneos")) echo 'checked'; ?> /> Torneos <br>
                                             </div>
                                             <div class="form-check">
-                                                <input class="formItem tema" type="checkbox" name="chkbtema[]" value="Análisis" <?php if (str_contains($fila['temas'], "Análisis")) echo 'checked'; ?> /> Análisis <br>
+                                                <input class="form-check-input" type="checkbox" name="chkbtema[]" value="Análisis" <?php if (str_contains($fila['temas'], "Análisis")) echo 'checked'; ?> /> Análisis <br>
                                             </div>
                                             <div class="form-check">
-                                                <input class="formItem tema" type="checkbox" name="chkbtema[]" value="Trucos" <?php if (str_contains($fila['temas'], "Trucos")) echo 'checked'; ?> /> Trucos <br>
+                                                <input class="form-check-input" type="checkbox" name="chkbtema[]" value="Trucos" <?php if (str_contains($fila['temas'], "Trucos")) echo 'checked'; ?> /> Trucos <br>
                                             </div>
                                             <!--<?php
                                                 //$temas = ["Novedades", "Eventos", "Descuentos", "Torneos","Análisis","Trucos"];
@@ -104,19 +104,19 @@
                                         <label class="form-label">Sección:</label> <br>
                                         <div>
                                             <div class="form-check">
-                                                <input class="formItem dispositivo" type="checkbox" name="chkbdispositivo[]" value="PC" <?php if (str_contains($fila['dispositivos'], "PC")) echo 'checked'; ?> /> PC <br>
+                                                <input class="form-check-input" type="checkbox" name="chkbdispositivo[]" value="PC" <?php if (str_contains($fila['dispositivos'], "PC")) echo 'checked'; ?> /> PC <br>
                                             </div>
                                             <div class="form-check">
-                                                <input class="formItem dispositivo" type="checkbox" name="chkbdispositivo[]" value="PS2 - PS3 - PS4 - PS5" <?php if (str_contains($fila['dispositivos'], "PS2 - PS3 - PS4 - PS5")) echo 'checked'; ?> /> PS2 - PS3 - PS4 - PS5 <br>
+                                                <input class="form-check-input" type="checkbox" name="chkbdispositivo[]" value="PS2 - PS3 - PS4 - PS5" <?php if (str_contains($fila['dispositivos'], "PS2 - PS3 - PS4 - PS5")) echo 'checked'; ?> /> PS2 - PS3 - PS4 - PS5 <br>
                                             </div>
                                             <div class="form-check">
-                                                <input class="formItem dispositivo" type="checkbox" name="chkbdispositivo[]" value="XBox" <?php if (str_contains($fila['dispositivos'], "XBox")) echo 'checked'; ?> /> XBox <br>
+                                                <input class="form-check-input" type="checkbox" name="chkbdispositivo[]" value="XBox" <?php if (str_contains($fila['dispositivos'], "XBox")) echo 'checked'; ?> /> XBox <br>
                                             </div>
                                             <div class="form-check">
-                                                <input class="formItem dispositivo" type="checkbox" name="chkbdispositivo[]" value="Wii" <?php if (str_contains($fila['dispositivos'], "Wii")) echo 'checked'; ?> /> Wii <br>
+                                                <input class="form-check-input" type="checkbox" name="chkbdispositivo[]" value="Wii" <?php if (str_contains($fila['dispositivos'], "Wii")) echo 'checked'; ?> /> Wii <br>
                                             </div>
                                             <div class="form-check">
-                                                <input class="formItem dispositivo" type="checkbox" name="chkbdispositivo[]" value="Android" <?php if (str_contains($fila['dispositivos'], "Android")) echo 'checked'; ?> /> Android <br>
+                                                <input class="form-check-input" type="checkbox" name="chkbdispositivo[]" value="Android" <?php if (str_contains($fila['dispositivos'], "Android")) echo 'checked'; ?> /> Android <br>
                                             </div>
                                         </div>
                                     </div>
@@ -160,7 +160,8 @@
 
                             <div class="card-footer row ">
                                 <div class="text-end">
-                                    <input id="btnListo" type="submit" value="Actualizar" />
+                                <a href="listar_suscripcion.php" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+                                    <button class="btn btn-primary" id="btnListo" type="submit" value="Actualizar">Actualizar</button>
                                 </div>
                             </div>
                         </form>
