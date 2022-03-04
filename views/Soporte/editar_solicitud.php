@@ -58,56 +58,64 @@
         }
     </style>
 
-    <script>
-        function inicioSesion() {
-            location.href = 'frm_LarreaRafael.php';
-        }
-    </script>
-
 </head>
 
-<body>
+
     <!-------------------------------------------------MENU---------------------------------------->
     <?php
     include_once '../Templates/navBar.php'
     ?>
     <!------------------------------------------------------------------------------------------>
+ <?php
+require_once '../../config/conexionPDO.php';
+ 
+if (isset($_GET['id'])) {
+
+    $data = ['id' => htmlentities($_GET['id'])];
+    $sql = "select * from soporte where id_solicitud = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($data);
+    $filas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       
+    foreach ($filas as $fila) {
+    ?>
     <div>
         <div id="frm_soporte">
             <form id="Soporte" method="post">
                 <fieldset>
                     <legend style="color:darkslategray; font-weight: bold;">¡Estamos aquí para ayudarte!</legend>
-                    <div>
-                        <input class="boton" type="button" value="Inicie sesión en su cuenta de ArkGames" onclick="inicioSesion()">
-                    </div>
                     <p class="frm_campos" style="text-align: center; font-size: 22px">Obtén ayuda de Soporte Técnico de ArkGames</p>
 
                     <div class="frm_campos">
-
+                        <div>
+                            <p>Id:</p>
+                            <input class="controls_2" type="number" name="txtid" readonly value="<?php echo $fila['id_solicitud'] ?>">
+                        </div>
+                                
                         <div>
                             <p>Usuario:</p>
-                            <input class="controls_2" type="text" name="txtusuario" id="usuario">
+                            <input class="controls_2" type="text" name="txtusuario" id="usuario" value="<?php echo $fila['usuario'] ?>">
                         </div>
 
                         <div>
                             <p>E-mail:</p>
-                            <input class="controls_2" type="email" name="txtemail" id="correo">
+                            <input class="controls_2" type="email" name="txtemail" id="correo" value="<?php echo $fila['email'] ?>">
                         </div>
 
                         <div>
                             <p>Número de teléfono</p>
-                            <input class="controls_2" type="tel" id="phone" name="telefono" placeholder="099-999-9999">
+                            <input class="controls_2" type="tel" id="phone" name="telefono" value="<?php echo $fila['telefono'] ?>">
                         </div>
 
                         <div>
                             <p>Servicios:</p>
                             <select class="controls_2" id="servicios" name="servicio">
                                 <option value="0">Seleccione...</option>
-                                <option value="Cuentas">Cuentas</option>
-                                <option value="Pagos">Pagos</option>
-                                <option value="Creadores">Creadores</option>
-                                <option value="Compatibilidad">Compatibilidad</option>
-                                <option value="Otros">Otros</option>
+                                <option value="Cuentas" <?php if($fila['servicio'] == "Cuentas"){ echo " selected"; }?>>Cuentas</option>
+                                <option value="Pagos" <?php if($fila['servicio'] == "Pagos"){ echo " selected"; }?>>Pagos</option>
+                                <option value="Creadores" <?php if($fila['servicio'] == "Creadores"){ echo " selected"; }?>>Creadores</option>
+                                <option value="Compatibilidad" <?php if($fila['servicio'] == "Compatibilidad"){ echo " selected"; }?>>Compatibilidad</option>
+                                <option value="Otros" <?php if($fila['servicio'] == "Otros"){ echo " selected"; }?>>Otros</option>
                             </select>
                         </div>
 
@@ -115,21 +123,21 @@
                             <p>Producto:</p>
                             <select class="controls_2" id="juegos" name="producto">
                                 <option value="0">Seleccione...</option>
-                                <option value="Apex Legends">Apex Legends</option>
-                                <option value="Genshin Impact">Genshin Impact</option>
-                                <option value="Fall Guys">Fall Guys</option>
-                                <option value="Fortnite">Fortnite</option>
-                                <option value="Otros">Otros</option>
+                                <option value="Apex Legends" <?php if($fila['producto'] == "Apex Legends"){ echo " selected"; }?>>Apex Legends</option>
+                                <option value="Genshin Impact" <?php if($fila['producto'] == "Genshin Impact"){ echo " selected"; }?>>Genshin Impact</option>
+                                <option value="Fall Guys" <?php if($fila['producto'] == "Fall Guys"){ echo " selected"; }?>>Fall Guys</option>
+                                <option value="Fortnite" <?php if($fila['producto'] == "Fortnite"){ echo " selected"; }?>>Fortnite</option>
+                                <option value="Otros" <?php if($fila['producto'] == "Otros"){ echo " selected"; }?>>Otros</option>
                             </select>
                         </div>
 
                         <div>
                             <p>Describa su problema:</p>
-                            <textarea name="txtdescripcion" placeholder="Escriba aqui su solicitud de soporte" cols="60" rows="10"></textarea>
+                            <textarea name="txtdescripcion" cols="60" rows="10" ><?php echo htmlspecialchars($fila['descripcion_problema']); ?></textarea>
                         </div>
 
                         <div>
-                            <input class="boton" type="submit" value="ENVIAR">
+                            <input class="boton" type="submit" value="Actualizar">
                         </div>
 
                     </div>
@@ -140,6 +148,10 @@
         </div>
 
     </div>
+        <?php
+    }
+}
+?>
         <?php
         require_once '../../config/conexionPDO.php';
         //var_dump($_POST);
@@ -155,6 +167,7 @@
             $descripcion = htmlentities($_POST['txtdescripcion']);
 
             $data = [
+                'id' => htmlentities($_POST['txtid']),
                 'user' => $usuario,
                 'email' => $email,
                 'tel' => $telefono,
@@ -162,12 +175,15 @@
                 'producto' =>$producto,
                 'desc' =>$descripcion   
             ];
-            $sql = "insert into soporte(usuario, email, telefono, servicio, producto, descripcion_problema) values(:user, :email, :tel, :serv, :producto, :desc)";
+            $sql = "update soporte set usuario =:user, email = :email, telefono = :tel, servicio=:serv, producto=:producto, descripcion_problema=:desc"
+            . " where id_solicitud=:id";
             $stmt = $pdo->prepare($sql);
             $stmt->execute($data);
-//            if ($stmt->rowCount() > 0) {// rowCount() permite conocer el numero de filas afectadas
-//                header("location:presentar_solicitud.php");
-//            }
+            if ($stmt->rowCount() > 0) { // rowCount() permite conocer el numero de filas afectadas
+                echo '<script>window.location="presentar_solicitud.php"</script>';
+            } else {
+                echo 'NO se pudo editar el registro';
+            }
         }    
     ?>
     <!-------------------------------------------------FOOTER---------------------------------------->
@@ -176,7 +192,7 @@
     ?>
     <!----------------------------------------------------------------------------------------------->
     <script type="text/javascript" src="../../assets/js/Validaciones_frmSoporte.js"> </script>
-</body>
+
 
 </html>
 
