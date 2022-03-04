@@ -143,9 +143,9 @@ VALUES
     'Contrasenia perdida de cuenta en Fall Guys.'
   );
   /* TABLA USUARIOS
-               * -- RAFAEL LARREA
-               * -- @Rafael1108
-              */
+                 * -- RAFAEL LARREA
+                 * -- @Rafael1108
+                */
   DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
     `Id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -163,6 +163,38 @@ CREATE TABLE `usuarios` (
     `FechaActualizacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`Id`)
   ) ENGINE = InnoDB AUTO_INCREMENT = 3 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+INSERT INTO
+  `usuarios`
+VALUES
+  (
+    3,
+    '2',
+    0,
+    'erlarrea',
+    'edwin.larreab@ug.edu.ec',
+    'Edwin Rafael Larrea Buste',
+    'M',
+    '1990-08-11 05:00:00',
+    _binary '$argon2id$v=19$m=65536,t=4,p=1$bDnoouCJGsPZVjjW/qYcjA$JTYWrA5NSl8zXMP/but0pdmQdwcs20xQC9QTnu1d9lI',
+    1,
+    0,
+    '2022-03-04 08:12:48',
+    '2022-03-04 03:35:22'
+  ),(
+    4,
+    '0',
+    0,
+    'acevallos',
+    'acevallos@hotmm.com',
+    'Marta Alenjandra Andrade Cevallos',
+    'F',
+    '1993-01-01 04:00:00',
+    _binary '$argon2id$v=19$m=65536,t=4,p=1$TxAaHSVLiovHrN/DX/IUig$f54CIXapK0z9FwL5Ij0tnEnumYPMrFqfq5vRu9Scgp8',
+    1,
+    0,
+    '2022-03-04 03:34:39',
+    '2022-03-04 03:36:03'
+  );
 -- TABLA DE COMENTARIOS
   -- EVELYN GUALE
   CREATE TABLE `comentario` (
