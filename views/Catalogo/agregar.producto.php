@@ -24,18 +24,21 @@
         <div class="card">
             <div class="card-header">
                 <h2 class="title my-2">
-                <?php echo $producto->id_producto != null ? 'Actualizar Registro' : 'Nuevo Registro'; ?>    
+                    <?php echo $producto->id_producto != null ? 'Actualizar Registro - '.$producto->nombre : 'Nuevo Registro'; ?>
                 </h2>
             </div>
 
 
-            <form method="post" action="index.php?c=productos&a=guardar" enctype="multipart/form-data">
+            <form method="post" action="index.php?c=productos&a=guardar&id_producto=<?php echo $producto->id_producto == null ? '' : $producto->id_producto; ?>" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="row px-4">
                         <div class="col-sm-6 px-5">
-
-                            <input class="form-control form-control-sm" type="hidden" name="txtId" value="<?php echo $producto->id_producto; ?>">
-
+                            <div class="mb-4 row text-end">
+                                <label class="col-sm-3 col-form-label d-<?php echo $producto->id_producto != null ? 'block' : 'none'; ?>">ID:</label>
+                                <div class="col-sm-9">
+                                    <input disabled class="form-control form-control-sm" type="<?php echo $producto->id_producto != null ? 'text' : 'hidden'; ?>" name="txtId" value="<?php echo $producto->id_producto; ?>">
+                                </div>
+                            </div>
 
                             <div class="mb-4 row text-end">
                                 <label class="col-sm-3 col-form-label">Nombre:</label>
@@ -54,7 +57,7 @@
                             <div class="mb-4 row text-end">
                                 <label class="col-sm-3 col-form-label">Añadir imagen:</label>
                                 <div class="col-sm-9">
-                                    <input required class="form-control form-control-sm" name="archivo" id="seleccionArchivos" type="file" />
+                                    <input <?php echo $producto->id_producto != null ? '' : 'required'; ?> class="form-control form-control-sm" name="archivo" id="seleccionArchivos" type="file" />
                                 </div>
 
                             </div>
@@ -66,10 +69,10 @@
                                     <select class="form-select form-control-sm mb-3" aria-label=".form-select-sm example" name="selectCategoria" required>
                                         <option disabled selected> --Seleccione una categoria-- </option>
                                         <?php
-                                       
+
                                         foreach ($lista as $categoria) {
                                         ?>
-                                            <option value="<?php echo $categoria->id_categoria ?>"><?php echo $categoria->nombre_categoria ?></option>
+                                            <option <?php echo $categoria->id_categoria == $producto->categoria->id_categoria ? "selected" : "" ?> value="<?php echo $categoria->id_categoria ?>"><?php echo $categoria->nombre_categoria ?></option>
 
                                         <?php } ?>
                                     </select>
@@ -90,7 +93,7 @@
                 </div>
                 <div class="card-footer text-end">
                     <a href="index.php" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
-                    <button class="btn btn-primary my-3" type="submit" value="guardar">Guardar</button>
+                    <button class="btn btn-primary my-3" type="submit" value="guardar"><?php echo $producto->id_producto != null ? 'Actualizar' : 'Guardar'; ?></button>
                 </div>
             </form>
 

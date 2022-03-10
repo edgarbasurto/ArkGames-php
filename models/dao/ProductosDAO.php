@@ -15,7 +15,7 @@ class ProductosDAO
   public function listar()
   {
     // sql de la sentencia
-    $sql = "SELECT * FROM productos p, categorias c WHERE p.id_categoria = c.id_categoria AND prod_estado=1";
+    $sql = "SELECT * FROM productos p, categorias c WHERE p.id_categoria = c.id_categoria AND prod_estado=1 ORDER BY p.id_producto";
     //preparacion de la sentencia
     $stmt = $this->con->prepare($sql);
     //ejecucion de la sentencia
@@ -41,25 +41,46 @@ class ProductosDAO
 						precio        = ?,
             url_imagen        = ?,
 						id_categoria            = ?, 
-						prod_estado = ?,
-				    WHERE id = ?";
+						prod_estado = ?
+				    WHERE id_producto = ?";
 
-      $this->con->prepare($sql)->execute(
-        array(
-          $data->nombre,
-          $data->precio,
-          $data->url_imagen,
-          $data->categoria->id_categoria,
-          $data->prod_estado,
-          $data->id_producto
-        )
+      $stmt = $this->con->prepare($sql);
+      $datos = array(
+        $data['nombre'],
+        $data['precio'],
+        $data['url_imagen'],
+        $data['id_categoria'],
+        $data['prod_estado'],
+        $data['id_producto']
       );
+
+
+      $stmt->execute($datos);
     } catch (Exception $e) {
       die($e->getMessage());
     }
   }
 
+  public function actualizarSinImagen($data)
+  {
+    try {
+      $sql = "UPDATE productos SET nombre = ?, precio = ?, id_categoria = ?, prod_estado = ? WHERE id_producto = ?";
 
+      $stmt = $this->con->prepare($sql);
+      $datos = array(
+        $data['nombre'],
+        $data['precio'],
+        $data['id_categoria'],
+        $data['prod_estado'],
+        $data['id_producto']
+      );
+
+
+      $stmt->execute($datos);
+    } catch (Exception $e) {
+      die($e->getMessage());
+    }
+  }
 
   public function registrar($data)
   {
@@ -112,7 +133,7 @@ class ProductosDAO
 
       //retorna datos para el controlador
       $ObjReturn = array();
-      foreach ($productos  as $producto) {
+      foreach ($productos as $producto) {
         $obj = new Producto();
         $obj->Set($producto);
         $ObjReturn[] = $obj;
