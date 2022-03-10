@@ -21,7 +21,7 @@
                 <div class="col-md-7">
                     <h2>Consultar Suscripciones a Newsletter</h2>
                 </div>
-                <div class="col-md-5 text-end"><a class="btn btn-success justify-center" href="frm_BernalHelen.php">Agregar <i class="fa-solid fa-circle-plus fa-lg"></i></a></div>
+                <div class="col-md-5 text-end"><a class="btn btn-success justify-center" href="?c=suscripcion&a=nuevo">Agregar <i class="fa-solid fa-circle-plus fa-lg"></i></a></div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -52,10 +52,10 @@
                                     <td>
                                         <div class="row">
                                             <div class="col">
-                                                <a class="btn btn-primary" href="editar_noticias.php?id=<?php echo $id ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                <a class="btn btn-primary" href="?c=suscripcion&a=nuevo&id=<?php echo $id ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                             </div>
                                             <div class="col">
-                                                <a class="btn btn-danger" href="eliminar_noticias.php?id=<?php echo $id?>"><i class="fa-solid fa-trash-can"></i></a>
+                                                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=suscripcion&a=delete&id=<?php echo $id?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                                             </div>
                                         </div>
                                     </td>

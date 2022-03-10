@@ -33,7 +33,7 @@ class SuscripcionDAO
     return $ObjReturn;
   }
 
-  public function editar($data)
+  public function actualizar($data)
   {
     try {
       $sql = "update suscripcion set email = ?, temas = ?, dispositivos = ?, frecuencia=?, discord=?
@@ -41,12 +41,12 @@ class SuscripcionDAO
 
       $stmt = $this->con->prepare($sql);
       $datos = array(
-        $data['id'],
         $data['email'],
         $data['temas'],
         $data['dispositivos'],
         $data['frecuencia'],
-        $data['discord']
+        $data['discord'],
+        $data['id_suscripcion']
       );
 
 

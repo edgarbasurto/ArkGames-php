@@ -19,7 +19,7 @@
         <div class="container px-5">
             <div class="container card shadow">
 
-                <form id="form_suscripcion" method="post">
+                <form id="form_suscripcion" method="POST" action="index.php?c=suscripcion&a=guardar">
                     <div class="card-header row">
                         <h3 class="title text-center">Suscripción a nuestra newsletter</h3>
                     </div>
@@ -116,8 +116,8 @@
 
                     <div class="card-footer row ">
                         <div class="text-end">
-                            <a href="listar_suscripcion.php" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
-                            <button class="btn btn-primary" id="btnListo" type="submit" value="Listo">Listo</button>
+                            <a href="index.php" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+                            <button class="btn btn-primary" id="btnListo" type="submit" value="guardar">Listo</button>
                         </div>
                     </div>
                 </form>
@@ -126,35 +126,11 @@
     </main>
     <?php
     require_once '../../config/conexionPDO.php';
-    var_dump($_POST);
-    if (
-        !empty($_POST['txtemail']) && isset($_POST['chkbtema'])  &&
-        isset($_POST['chkbdispositivo']) && isset($_POST['rdbfrecuencia']) && isset($_POST['rdbdiscord'])
-    ) {
-
-        $email = htmlentities($_POST['txtemail']);
-        $temas = implode(', ', $_POST['chkbtema']);
-        print $temas;
-        $dispositivos = implode(', ', $_POST['chkbdispositivo']);
-        $frecuencia = htmlentities($_POST['rdbfrecuencia']);
-        $discord = htmlentities($_POST['rdbdiscord']);
-
-        $data = [
-            'email' => $email,
-            'temas' => $temas,
-            'disps' => $dispositivos,
-            'frec' => $frecuencia,
-            'discord' => $discord
-        ];
-        $sql = "insert into suscripcion(email, temas, dispositivos, frecuencia, discord) values(:email, :temas, :disps, :frec, :discord)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute($data);
-
-        if ($stmt->rowCount() > 0) { // rowCount() permite conocer el numero de filas afectadas
+    
+        /*if ($stmt->rowCount() > 0) { // rowCount() permite conocer el numero de filas afectadas
             //header('location:listar_noticias.php');
             echo '<script>window.location="listar_suscripcion.php"</script>';
-        }
-    }
+        }*/
     ?>
     <!-------------------------------------------------FOOTER---------------------------------------->
 

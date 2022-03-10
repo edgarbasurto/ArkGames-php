@@ -24,19 +24,30 @@ class SuscripcionController
 
     public function guardar()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && 
+        !empty($_POST['txtemail']) && isset($_POST['chkbtema'])  &&
+        isset($_POST['chkbdispositivo']) && isset($_POST['rdbfrecuencia']) && isset($_POST['rdbdiscord'])) {
+    
+            $email = htmlentities($_POST['txtemail']);
+            $temas = implode(', ', $_POST['chkbtema']);
+            $dispositivos = implode(', ', $_POST['chkbdispositivo']);
+            $frecuencia = htmlentities($_POST['rdbfrecuencia']);
+            $discord = htmlentities($_POST['rdbdiscord']);
             $datos = [
-                    "id_suscripcion" => $_REQUEST['id_suscripcion'],
-                    "email" => $_POST['txtemail'],
-                    "temas" => $_POST['txtPrecio'],
-                    "dispositivos" => $_POST['dispositivos'],
-                    "frecuencia" => $_POST['frecuencia'],
-                    "discord" => $_POST['discord'],
+                    "id_suscripcion" => $_GET['id'],
+                    "email" => $email,
+                    "temas" => $temas,
+                    "dispositivos" => $dispositivos,
+                    "frecuencia" => $frecuencia,
+                    "discord" => $discord,
                     /*$usu = 'usuario'*/ //$_SESSION['usuario'];
             ];
+            $datos['id_suscripcion'] > 0
+                    ? $this->modelo->actualizar($datos)
+                    : $this->modelo->insertar($datos);
 
-            $exito = $this->modelo->insertar($datos);
-            /*$msj = 'Producto guardado exitosamente';
+            /*$exito = $this->modelo->insertar($datos);
+            $msj = 'Producto guardado exitosamente';
             $color = 'primary';
             if (!$exito) {
                 $msj = "No se pudo realizar el guardado";
@@ -48,23 +59,11 @@ class SuscripcionController
             //llamar a la vista
             //  $this->index();
             //header('Location:index.php?c=Productos&f=index');
-           
+            
             header('Location: index.php');
             echo '<script>alert("Registro guardado con exito")</script>';
             
         }
-    }
-
-    public function edit()
-    {
-      $id = $_REQUEST['id'];
-      $registros = $this->modelo->obtenerId($id);
-      if (empty($registros[0]) == false) {
-         $registro = $registros[0];
-         require_once("../../views/Noticias/editar_noticias.php");
-      } else {
-         header('Location:index.php?c=Noticias&f=index');
-      }
     }
 
     public function delete()
@@ -74,23 +73,18 @@ class SuscripcionController
         header('Location: index.php');
     }
 
+
     public function nuevo()
     {
+
         if (isset($_REQUEST['id'])) {
             $suscripciones = $this->modelo->obtenerId($_REQUEST['id']);
             $suscripcion = $suscripciones[0];
-            require_once '../../models/dao/SuscripcionsDAO.php';
-            $con = new SuscripcionDAO();
-            $lista = $con->listar();
-
-            require_once '../../views/Noticias/frm_BernalHelen.php';
+            require_once '../../views/Noticias/editar_suscripcion.php';
         } else {
-            require_once '../../models/dao/SuscripcionDAO.php';
-            $con = new SuscripcionDAO();
-            $lista = $con->listar();
-    
-            require_once '../../views/Noticias/frm_BernalHelen.php';
+            require_once '../../views/Noticias/registrar_suscripcion.php';
         }
         
     }
+
 }
