@@ -40,15 +40,15 @@
                         <tbody>
                             <?php
                             foreach ($resultados as $suscripcion) {
-                                $id = $suscripcion->$id_suscripcion;
+                                $id = $suscripcion->id_suscripcion;
                             ?>
                                 <tr>
-                                    <td><?php echo $suscripcion->$id_suscripcion ?></td>
-                                    <td><?php echo $suscripcion->$email ?></td>
-                                    <td><?php echo $suscripcion->$temas ?></td>
-                                    <td><?php echo $suscripcion->$dispositivos ?></td>
-                                    <td><?php echo $suscripcion->$frecuencia ?></td>
-                                    <td><?php echo $suscripcion->$discord ?></td>
+                                    <td><?php echo $id ?></td>
+                                    <td><?php echo $suscripcion->email ?></td>
+                                    <td><?php echo $suscripcion->temas ?></td>
+                                    <td><?php echo $suscripcion->dispositivos ?></td>
+                                    <td><?php echo $suscripcion->frecuencia ?></td>
+                                    <td><?php echo $suscripcion->discord ?></td>
                                     <td>
                                         <div class="row">
                                             <div class="col">
