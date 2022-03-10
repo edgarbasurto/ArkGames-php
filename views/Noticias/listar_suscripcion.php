@@ -13,12 +13,6 @@
         require_once '../Templates/navBarBootstrap.php'
         ?>
     </header>
-    <?php
-    include_once '../../config/conexionPDO.php';
-    $sql = "select * from suscripcion ";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    ?>
     <main class="main p-5 mx-3">
 
         <div class="container-fluid card shadow">
@@ -45,24 +39,23 @@
                         </thead>
                         <tbody>
                             <?php
-                            $filas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                            foreach ($filas as $fila) {
-                                $id = $fila['id_suscripcion'];
+                            foreach ($resultados as $suscripcion) {
+                                $id = $suscripcion->$id;
                             ?>
                                 <tr>
-                                    <td><?php echo $id ?></td>
-                                    <td><?php echo $fila['email'] ?></td>
-                                    <td><?php echo $fila['temas'] ?></td>
-                                    <td><?php echo $fila['dispositivos'] ?></td>
-                                    <td><?php echo $fila['frecuencia'] ?></td>
-                                    <td><?php echo $fila['discord'] ?></td>
+                                    <td><?php echo $suscripcion->$id ?></td>
+                                    <td><?php echo $suscripcion->$email ?></td>
+                                    <td><?php echo $suscripcion->$temas ?></td>
+                                    <td><?php echo $suscripcion->$dispositivos ?></td>
+                                    <td><?php echo $suscripcion->$frecuencia ?></td>
+                                    <td><?php echo $suscripcion->$discord ?></td>
                                     <td>
                                         <div class="row">
                                             <div class="col">
-                                                <a class="btn btn-primary" href="editar_noticias.php?id=<?php echo $fila['id_suscripcion'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                <a class="btn btn-primary" href="editar_noticias.php?id=<?php echo $id ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                             </div>
                                             <div class="col">
-                                                <a class="btn btn-danger" href="eliminar_noticias.php?id=<?php echo $fila['id_suscripcion'] ?>"><i class="fa-solid fa-trash-can"></i></a>
+                                                <a class="btn btn-danger" href="eliminar_noticias.php?id=<?php echo $id?>"><i class="fa-solid fa-trash-can"></i></a>
                                             </div>
                                         </div>
                                     </td>

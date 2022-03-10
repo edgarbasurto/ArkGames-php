@@ -17,6 +17,7 @@ CREATE TABLE `suscripcion` (
   `dispositivos` varchar(200) NOT NULL,
   `frecuencia` varchar(10) NOT NULL,
   `discord` varchar(2) NOT NULL,
+  `susp_estado` int NOT NULL DEFAULT 1,
   PRIMARY KEY (`id_suscripcion`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
 INSERT INTO
@@ -143,9 +144,9 @@ VALUES
     'Contrasenia perdida de cuenta en Fall Guys.'
   );
   /* TABLA USUARIOS
-                   * -- RAFAEL LARREA
-                   * -- @Rafael1108
-                  */
+                           * -- RAFAEL LARREA
+                           * -- @Rafael1108
+                          */
   DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
     `Id` bigint unsigned NOT NULL AUTO_INCREMENT,
