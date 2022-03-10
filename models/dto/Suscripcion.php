@@ -1,6 +1,4 @@
 <?php
-require_once '../../models/dto/Categoria.php';
-
 
  class Suscripcion
 {
