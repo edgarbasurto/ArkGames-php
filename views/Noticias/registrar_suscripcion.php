@@ -124,14 +124,6 @@
             </div>
         </div>
     </main>
-    <?php
-    require_once '../../config/conexionPDO.php';
-    
-        /*if ($stmt->rowCount() > 0) { // rowCount() permite conocer el numero de filas afectadas
-            //header('location:listar_noticias.php');
-            echo '<script>window.location="listar_suscripcion.php"</script>';
-        }*/
-    ?>
     <!-------------------------------------------------FOOTER---------------------------------------->
 
     <?php

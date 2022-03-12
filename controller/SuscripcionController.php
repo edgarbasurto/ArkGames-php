@@ -63,6 +63,12 @@ class SuscripcionController
             header('Location: index.php');
             echo '<script>alert("Registro guardado con exito")</script>';
             
+        }else{
+            if($_GET['id']){
+                require_once '../../views/Noticias/editar_suscripcion.php';
+            }else{
+                require_once '../../views/Noticias/registrar_suscripcion.php';
+            } 
         }
     }
 
