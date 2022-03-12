@@ -25,7 +25,6 @@
             $this->dispositivos=$Valor_SuscripcionDTO['dispositivos'];
             $this->frecuencia=$Valor_SuscripcionDTO['frecuencia'];
             $this->discord=$Valor_SuscripcionDTO['discord'];
-            $this->prod_estado=$Valor_SuscripcionDTO['susp_estado'];
         } 
     }
 }
