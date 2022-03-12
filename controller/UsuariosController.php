@@ -1,5 +1,5 @@
 <?php
-require_once '../../models/dao/UsuarioDAO.php';
+require_once DAO_PATH . 'UsuarioDAO.php';
 class UsuariosController
 {
    private $modelo;
@@ -17,7 +17,9 @@ class UsuariosController
       };
 
       $lista =  $this->modelo->All();
-      require_once("../../views/Usuarios/listar.php");
+      echo VIEW_PATH .  "Usuarios/listar.php";
+
+      require_once(VIEW_PATH .  "Usuarios/listar.php");
       if (isset($_SESSION['notificar'])) {
          if ($_SESSION['notificar'] == 1) {
             echo "<script>notificarMensaje();</script>";

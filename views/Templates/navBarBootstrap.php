@@ -19,8 +19,8 @@
  </svg>
  <nav class="navbar navbar-expand-lg  fixed-top" id="mainNav">
      <div class="container">
-         <a class="navbar-brand" href="../../index.html">
-             <img src="../../assets/img/logo-icon-text.svg" alt="ArkGames" height="50" class="d-inline-block align-text-top" />
+         <a class="navbar-brand" href="">
+             <img src="assets/img/logo-icon-text.svg" alt="ArkGames" height="50" class="d-inline-block align-text-top" />
          </a>
          <button class="navbar-toggler font-weight-bold text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
              <i class="fas fa-bars"></i>
@@ -28,14 +28,14 @@
          <div class="collapse navbar-collapse" id="navbarResponsive">
              <ul class="navbar-nav ms-auto">
                  <li class="nav-item mx-0 mx-lg-1">
-                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="../../index.html">
+                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="">
                          <svg class="bi d-inline-block align-text-top  mx-auto mb-1" width="24" height="24">
                              <use xlink:href="#home" />
                          </svg>
                          Home</a>
                  </li>
                  <li class="nav-item mx-0 mx-lg-1">
-                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="../Catalogo/BasurtoEdgar.php">
+                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="?c=Productos">
                          <svg class="bi d-inline-block align-text-top mx-auto mb-1" width="24" height="24">
                              <use xlink:href="#grid" />
                          </svg>

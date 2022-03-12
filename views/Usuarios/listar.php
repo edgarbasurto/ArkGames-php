@@ -4,8 +4,8 @@ if (!isset($_SESSION)) {
     session_start();
 };
 
-require_once '../../models/dto/Enumeradores.php';
-require_once '../../views/Templates/HeadBootstrap.php'
+require_once DTO_PATH . 'Enumeradores.php';
+require_once VIEW_PATH . 'Templates/HeadBootstrap.php'
 ?>
 <meta name="description" content="ArkGames" />
 <meta name="keywords" content="videojuegos,catalogo,juegos" />
@@ -13,7 +13,7 @@ require_once '../../views/Templates/HeadBootstrap.php'
 </head>
 
 <body id="bodyTemp">
-    <?php require_once '../../views/Templates/navBarBootstrap.php' ?>
+    <?php require_once VIEW_PATH . 'Templates/navBarBootstrap.php' ?>
     <header>
     </header>
     <main class="main p-5 mx-3">
@@ -103,7 +103,7 @@ require_once '../../views/Templates/HeadBootstrap.php'
 
     <!-- Cierre de script js personalizados -->
     <?php
-    require_once '../Templates/footerBootstrap.php'
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php'
     ?>
 </body>
 
