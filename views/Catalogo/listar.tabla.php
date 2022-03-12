@@ -1,8 +1,8 @@
-<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+<?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
 
 <meta name="keywords" content="videojuegos,catalogo,juegos" />
-<link rel="stylesheet" href="../../assets/css/BasurtoEdgar.css" />
-<link rel="stylesheet" href="../../assets/css/BernalHelen.css" />
+<link rel="stylesheet" href="assets/css/BasurtoEdgar.css" />
+<link rel="stylesheet" href="assets/css/BernalHelen.css" />
 
 <meta name="description" content="Catalogo" />
 
@@ -16,7 +16,7 @@
 
     <?php
 
-    require_once '../Templates/navBarBootstrap.php'
+    require_once VIEW_PATH . 'Templates/navBarBootstrap.php'
     ?>
 
     <!------------------------------------------------------------------------------------------>
@@ -102,7 +102,7 @@
 
 
     <?php
-    require_once '../Templates/footerBootstrap.php'
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php'
     ?>
 
 

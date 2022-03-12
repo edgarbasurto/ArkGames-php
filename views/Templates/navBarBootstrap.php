@@ -19,7 +19,7 @@
  </svg>
  <nav class="navbar navbar-expand-lg  fixed-top" id="mainNav">
      <div class="container">
-         <a class="navbar-brand" href="">
+         <a class="navbar-brand" href="index.php">
              <img src="assets/img/logo-icon-text.svg" alt="ArkGames" height="50" class="d-inline-block align-text-top" />
          </a>
          <button class="navbar-toggler font-weight-bold text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,35 +28,35 @@
          <div class="collapse navbar-collapse" id="navbarResponsive">
              <ul class="navbar-nav ms-auto">
                  <li class="nav-item mx-0 mx-lg-1">
-                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="">
+                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php">
                          <svg class="bi d-inline-block align-text-top  mx-auto mb-1" width="24" height="24">
                              <use xlink:href="#home" />
                          </svg>
                          Home</a>
                  </li>
                  <li class="nav-item mx-0 mx-lg-1">
-                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="?c=Productos">
+                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php?c=Productos">
                          <svg class="bi d-inline-block align-text-top mx-auto mb-1" width="24" height="24">
                              <use xlink:href="#grid" />
                          </svg>
                          Tienda</a>
                  </li>
                  <li class="nav-item mx-0 mx-lg-1">
-                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="../Noticias/index.php">
+                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php?c=Noticias">
                          <svg class="bi d-inline-block align-text-top mx-auto mb-1" width="24" height="24">
                              <use xlink:href="#table" />
                          </svg>
                          Noticias</a>
                  </li>
                  <li class="nav-item mx-0 mx-lg-1">
-                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="../Soporte/presentar_solicitud.php">
+                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php?c=Soporte">
                          <svg class="bi d-inline-block align-text-top mx-auto mb-1" width="24" height="24">
                              <use xlink:href="#speedometer2" />
                          </svg>
                          Soporte</a>
                  </li>
                  <li class="nav-item mx-0 mx-lg-1">
-                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="../Contacto/presentar_comentario.php">
+                     <a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php?c=Contactos">
                          <svg class="bi d-inline-block align-text-top mx-auto mb-1" width="24" height="24">
                              <use xlink:href="#people-circle" />
                          </svg>

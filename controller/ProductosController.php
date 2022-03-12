@@ -1,5 +1,5 @@
 <?php
-require_once '../../models/dao/ProductosDAO.php';
+require_once DAO_PATH . 'ProductosDAO.php';
 
 
 class ProductosController
@@ -10,6 +10,7 @@ class ProductosController
     public function __construct()
     {
         $this->modelo = new ProductosDAO();
+        echo 'test';
     }
 
     // funciones del controlador
@@ -17,9 +18,8 @@ class ProductosController
     {
         // llamar al modelo
         $resultados = $this->modelo->Listar();
-
         //llamo a la vista
-        require_once '../../views/Catalogo/listar.tabla.php';
+        require_once VIEW_PATH . 'Catalogo/listar.tabla.php';
     }
 
     public function index_cuadricula()
@@ -28,7 +28,7 @@ class ProductosController
         $resultados = $this->modelo->Listar();
 
         //llamo a la vista
-        require_once '../../views/Catalogo/listar.cuadricula.php';
+        require_once VIEW_PATH .  'Catalogo/listar.cuadricula.php';
     }
 
     public function guardar()
@@ -121,18 +121,17 @@ class ProductosController
         if (isset($_REQUEST['id'])) {
             $productos = $this->modelo->obtener($_REQUEST['id']);
             $producto = $productos[0];
-            require_once '../../models/dao/CategoriasDAO.php';
+            require_once DAO_PATH . 'CategoriasDAO.php';
             $con = new CategoriasDAO();
             $lista = $con->listar();
 
-            require_once '../../views/Catalogo/agregar.producto.php';
+            require_once VIEW_PATH . 'Catalogo/agregar.producto.php';
         } else {
-            require_once '../../models/dao/CategoriasDAO.php';
+            require_once DAO_PATH . 'CategoriasDAO.php';
             $con = new CategoriasDAO();
             $lista = $con->listar();
-    
-            require_once '../../views/Catalogo/agregar.producto.php';
+
+            require_once VIEW_PATH . 'Catalogo/agregar.producto.php';
         }
-        
     }
 }
