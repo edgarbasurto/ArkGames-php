@@ -45,7 +45,7 @@ class NoticiasController
                 $_FILES["archivo"]["type"] == "image/jpeg"
             ) {
                 # Escapa caracteres especiales
-                $imagen = addslashes((file_get_contents($_FILES["archivo"]["tmp_name"])));
+                $imagen = (file_get_contents($_FILES["archivo"]["tmp_name"]));
 
 
                 $datos = [
