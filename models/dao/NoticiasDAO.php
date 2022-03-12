@@ -16,8 +16,7 @@ class NoticiasDAO
   {
     // sql de la sentencia
     $formato = "%d-%m-%Y";
-    $sql = "SELECT id_noticia, titulo_noticia, t.nombre_tema, d.nombre_dispositivo, 
-    creacion_fecha, descripcion_noticia, imagen_noticia 
+    $sql = "SELECT * 
     FROM noticia n, tema t, dispositivo d 
     WHERE n.id_tema = t.id_tema AND n.id_dispositivo = d.id_dispositivo 
     AND noti_estado=1 ORDER BY n.id_noticia";
