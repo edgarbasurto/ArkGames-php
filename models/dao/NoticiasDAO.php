@@ -151,19 +151,32 @@ class NoticiasDAO
     }
   }
 
-  /*public function buscar($parametro) {
+  public function buscar($parametro, $op) {
     // sql de la sentencia
-    $sql = "SELECT * FROM productos, categoria  where prod_idCategoria = cat_id and prod_estado=1  and 
-    (prod_nombre like :b1 or cat_nombre like :b2)";
-    $stmt = $this->con->prepare($sql);
+    $sql = "SELECT *
+    FROM noticia n
+    inner join tema t on n.id_tema = t.id_tema
+    inner join dispositivo d on n.id_dispositivo = d.id_dispositivo
+    where n.noti_estado=1 and ";
+    if($op == 1){
+      $sql = $sql . "n.id_tema = $parametro";
+    }else if($op == 2){
+      $sql =  $sql . "n.id_dispositivo = $parametro";
+    }
     // preparar la sentencia
-    $conlike = '%' . $parametro . '%';
-    $data = ['b1' => $conlike, 'b2' => $conlike];
+    $stmt = $this->con->prepare($sql);
     // ejecutar la sentencia
-    $stmt->execute($data);
+    $stmt->execute();
     //obtener  resultados
     $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //retorna datos para el controlador
+    $ObjReturn = array();
+    foreach ($resultados  as $noticia) {
+      $obj = new Noticias();
+      $obj->Set($noticia);
+      $ObjReturn[] = $obj;
+    }
     //retornar resultados
-    return $resultados;
-  }*/
+    return $ObjReturn;
+  }
 }

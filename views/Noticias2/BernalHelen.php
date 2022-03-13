@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="col text-end">
-                            <a class="btn btn-secondary my-auto" href="?c=noticias&a=index_noticias" data-toggle="tooltip" data-placement="top" title="Listar Noticias">
+                            <a class="btn btn-secondary my-auto" href="index.php?c=Noticias&a=index_noticias" data-toggle="tooltip" data-placement="top" title="Listar Noticias">
                             <i class="fa-solid fa-border-all"></i></a>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                     <img class="image_notice" src="data:image/jpg;base64,<?php echo base64_encode($noticia->url_imagen) ?>" alt="<?php echo $id ?>" />
                     <div class="bloque_texto_noticia">
                         <h3><?php echo $noticia->titulo ?></h3>
-                        <p><time><?php echo $noticia->fecha ?></time><?php echo '/'. $noticia->tema->nombre_tema. '-'. $noticia->dispositivo->nombre_dispositivo ?><br>
+                        <p><time><?php echo $noticia->fecha ?></time><?php echo '/'. $noticia->tema->nombre_tema. ' - '. $noticia->dispositivo->nombre_dispositivo ?><br>
                         <?php echo $noticia->descripcion ?>
                         <br><a class="ver_mas" href="#">Ver más &rarr;</a></p>
         
@@ -52,15 +52,16 @@
                     <h3 id="titulo_categoria">Categorías</h3>
                     <div class="lista_categorias" >
                         <ul style="list-style: none;">
-                            <li><a class="temas_aside" href="#">Eventos</a></li>
-                            <li><a class="temas_aside" href="#">Novedades</a></li>
-                            <li><a class="temas_aside" href="#">Ofertas</a></li>
-                            <li><a class="temas_aside" href="#">PC</a></li>
-                            <li><a class="temas_aside" href="#">PS2</a></li>
-                            <li><a class="temas_aside" href="#">PS3</a></li>
-                            <li><a class="temas_aside" href="#">PS4</a></li>
-                            <li><a class="temas_aside" href="#">PS5</a></li>
-                            <li><a class="temas_aside" href="#">XBox</a></li>
+                            <?php
+                            foreach ($lista1 as $tema) {
+                            ?>
+                            <li><a class="temas_aside" href="index.php?c=noticias&a=buscar&busqueda=<?php echo $tema->id_tema ?>&op=1"><?php echo $tema->nombre_tema ?></a></li>
+                            <?php } ?>
+                            <?php
+                            foreach ($lista2 as $dispositivo) {
+                            ?>
+                            <li><a class="temas_aside" href="index.php?c=noticias&a=buscar&busqueda=<?php echo $dispositivo->id_dispositivo ?>&op=2"><?php echo $dispositivo->nombre_dispositivo ?></a></li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>

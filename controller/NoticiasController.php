@@ -24,10 +24,41 @@ class NoticiasController
 
     public function index_noticias()
     {
-        // llamar al modelo
+        // llamar al modelo para llenar noticias
         $resultados = $this->modelo->listar();
 
+        //llenar aside
+        require_once '../../models/dao/TemaDAO.php';
+        $con = new TemaDAO();
+        $lista1 = $con->listar();
+        require_once '../../models/dao/DispositivoDAO.php';
+        $con = new DispositivoDAO();
+        $lista2 = $con->listar();
+
         //llamo a la vista
+        require_once '../../views/Noticias2/BernalHelen.php';
+    }
+
+    public function buscar() {
+        // leer parametros
+        $busqueda = $_GET['busqueda'];
+        $i_criterio = (int)$busqueda;
+        $op = $_GET['op'];
+        $i_op = (int)$op;
+        //comunica con el modelo
+        $resultados = $this->modelo->buscar($i_criterio, $i_op);
+        //llenar aside
+        if(empty($resultados)){
+            echo '<script>alert("Pronto tendremos más noticias")</script>';
+        }
+        require_once '../../models/dao/TemaDAO.php';
+        $con = new TemaDAO();
+        $lista1 = $con->listar();
+        require_once '../../models/dao/DispositivoDAO.php';
+        $con = new DispositivoDAO();
+        $lista2 = $con->listar();
+
+        // comunicarnos a la vista
         require_once '../../views/Noticias2/BernalHelen.php';
     }
 

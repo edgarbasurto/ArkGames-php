@@ -51,12 +51,12 @@
                                     <td><?php echo $noticia->fecha ?></td>
                                     <td><?php echo $noticia->descripcion ?></td>
                                     <td><img style="height:50px" src="data:image/jpg;base64,<?php echo base64_encode($noticia->url_imagen) ?>" alt="<?php echo $id ?>"></td>
-                                    <td>
-                                        <div class="col">
-                                            <div class="row">
+                                    <td class="mx-5">
+                                        <div class="col" style="width: 100px;">
+                                            <div class="row-mx-2 my-2">
                                                 <a class="btn btn-primary" href="?c=noticias&a=nuevo&id=<?php echo $id ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                             </div>
-                                            <div class="row">
+                                            <div class="row-mx-2 my-2">
                                                 <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=noticias&a=delete&id=<?php echo $id?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                                             </div>
                                         </div>
