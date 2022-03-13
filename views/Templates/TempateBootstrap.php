@@ -1,5 +1,5 @@
 <!--     HEADER STANDAR     -->
-<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+<?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
 
 
 <!-- Colocar aquí los meta y link personalizados -->
@@ -12,7 +12,7 @@
 
 <body id="bodyTemp">
     <!--     NavBar Menu     -->
-    <?php require_once '../../views/Templates/navBarBootstrap.php' ?>
+    <?php require_once VIEW_PATH . 'Templates/navBarBootstrap.php' ?>
 
     <!-- Etiqueta Header *Opcional* -->
     <header>
@@ -32,7 +32,7 @@
     <!-- Cierre de script js personalizados -->
     <!--     Footer Menu     -->
     <?php
-    require_once '../Templates/footerBootstrap.php'
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php'
     ?>
 </body>
 
