@@ -22,7 +22,7 @@ class NoticiasController
         require_once '../../views/Noticias2/listar_noticia.php';
     }
 
-    public function index_cuadricula()
+    public function index_noticias()
     {
         // llamar al modelo
         $resultados = $this->modelo->listar();
@@ -102,17 +102,6 @@ class NoticiasController
         echo "<script>alert('Registro guardado con exito')</script>";
         header('Location: index.php');
     }
-
-
-    public function script()
-    {
-        $resultados = $this->modelo->listar();
-        foreach ($resultados as $noticia) {
-            echo '<p>INSERT INTO noticia(id_noticia, titulo, descripcion, imagen_noticia, id_tema, id_dispositivo) 
-            VALUES (' . $noticia->id_noticia . ',' . $noticia->titulo . ',' . $noticia->precio . ',' . $noticia->url_imagen . ', ' . $noticia->id_categoria . ', ' . $noticia->id_dispositivo .')</p><br>';
-        }
-    }
-
 
     public function nuevo()
     {

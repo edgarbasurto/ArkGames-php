@@ -140,7 +140,7 @@ class NoticiasDAO
       //retorna datos para el controlador
       $ObjReturn = array();
       foreach ($noticias as $noticia) {
-        $obj = new Producto();
+        $obj = new Noticias();
         $obj->Set($noticia);
         $ObjReturn[] = $obj;
       }
