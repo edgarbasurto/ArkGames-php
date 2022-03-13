@@ -46,7 +46,7 @@ class NoticiasDAO
 						descripcion_noticia  = ?,
             imagen_noticia       = ?,
 						id_tema              = ?, 
-            id_dispositivo       = ?, 
+            id_dispositivo       = ? 
 				    WHERE id_noticia     = ?";
 
       $stmt = $this->con->prepare($sql);
@@ -66,18 +66,19 @@ class NoticiasDAO
     }
   }
 
-  /*public function actualizarSinImagen($data)
+  public function actualizarSinImagen($data)
   {
     try {
-      $sql = "UPDATE productos SET nombre = ?, precio = ?, id_categoria = ?, prod_estado = ? WHERE id_producto = ?";
+      $sql = "UPDATE noticia SET titulo_noticia = ?, descripcion_noticia = ?, id_tema = ?, 
+      id_dispositivo = ? WHERE id_noticia = ?";
 
       $stmt = $this->con->prepare($sql);
       $datos = array(
-        $data['nombre'],
-        $data['precio'],
-        $data['id_categoria'],
-        $data['prod_estado'],
-        $data['id_producto']
+        $data['titulo'],
+        $data['descripcion'],
+        $data['id_tema'],
+        $data['id_dispositivo'],
+        $data['id_noticia']
       );
 
 
@@ -85,7 +86,7 @@ class NoticiasDAO
     } catch (Exception $e) {
       die($e->getMessage());
     }
-  }*/
+  }
 
   public function insertar($data)
   {

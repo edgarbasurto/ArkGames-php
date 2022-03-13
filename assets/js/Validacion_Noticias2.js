@@ -52,10 +52,11 @@ function validar(event){
     if (txtImagen.value == "") {
         resultado = false;
         mensaje("Imagen es requerida", txtImagen);
-    } /*else if(txtDescrip.length <50){
-        resultado = false;
-        mensaje("La descripción debe tener más de 50 caracteres", txtDescrip);
-    }*/
+    }
+
+    if(!resultado){
+        event.preventDefault(); //stop submit
+    }
     
 }
 

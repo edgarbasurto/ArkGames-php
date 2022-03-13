@@ -27,7 +27,7 @@ CREATE TABLE noticia(
     id_tema int NOT NULL,
     id_dispositivo int NOT NULL,
     noti_estado int NOT NULL DEFAULT 1,
-    creacion_fecha DATETIME NOT NULL,
+    creacion_fecha DATETIME NOT NULL DEFAULT NOW(),
     PRIMARY KEY (`id_noticia`),
     CONSTRAINT `id_tema` FOREIGN KEY (`id_tema`) REFERENCES `tema` (`id_tema`),
     CONSTRAINT `id_dispositivo` FOREIGN KEY (`id_dispositivo`) REFERENCES `dispositivo` (`id_dispositivo`)

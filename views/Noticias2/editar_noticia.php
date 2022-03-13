@@ -16,7 +16,7 @@
         <main class="main p-5 mx-3">
             <div class="container px-5">
                 <div class="container card shadow">
-                    <form id="form_suscripcion" method="POST" action="index.php?c=noticias&a=guardar&id=<?php echo $noticia->id_noticia == null ? '' : $noticia->id_noticia; ?>">
+                    <form id="form_noticia" method="POST" action="index.php?c=noticias&a=guardar&id=<?php echo $noticia->id_noticia == null ? '' : $noticia->id_noticia; ?>" enctype="multipart/form-data">
                         <div class="card-header row">
                             <h3 class="title text-center">Editar Noticia</h3>
                         </div>
@@ -39,10 +39,10 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-sm-6">
+                                <div class="col-sm-5">
                                     <div class="row">
-                                        <label class="col-sm-4 col-form-label text-end">Sección:</label>
-                                        <div class="col-sm-8">
+                                        <label class="col-sm-5 col-form-label text-end">Sección:</label>
+                                        <div class="col-sm-6">
                                             <select id="tema" class="form-select form-control-sm" aria-label=".form-select-sm example" name="selectTema" required>
                                                 <option value="0" disabled selected> --Seleccione una sección-- </option>
                                                 <?php
@@ -56,10 +56,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-5">
                                     <div class="row mb-3">
-                                        <label class="col-sm-3 col-form-label text-end">Tecnología:</label>
-                                        <div class="col-sm-8">
+                                        <label class="col-sm-4 col-form-label text-end">Tecnología:</label>
+                                        <div class="col-sm-6">
                                             <select id="dispositivo" class="form-select form-control-sm" aria-label=".form-select-sm example" name="selectDispositivo" required>
                                                 <option disabled selected> --Seleccione un dispositivo-- </option>
                                                 <?php
@@ -83,14 +83,16 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label text-end">Añadir imagen:</label>
-                                <div class="col-sm-8">
-                                    <input class="form-control form-control-sm" name="archivo" id="seleccionArchivos" type="file" value="<?php echo $noticia->id_noticia ?>"/>
-                                    <img style="height:100px" src="data:image/jpg;base64,<?php echo base64_encode($noticia->url_imagen) ?>" alt="<?php echo $id ?>">
+                                <div class="col-sm-4 text-end">
+                                    <img class="col" style="height:100px" src="data:image/jpg;base64,<?php echo base64_encode($noticia->url_imagen) ?>" alt="<?php echo $id ?>">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="row-sm-2 col-form-label">Cambiar imagen:</label>
+                                    <input class="form-control form-control-sm-6 text-end" name="archivo" id="seleccionArchivo" type="file" accept="image/png, .jpeg, .jpg"/>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-2 "></label>
-                                    <p class="col-sm-8 help-block">.png o .jpg o .jpeg</p> 
+                                    <p class="col-sm-6 help-block">.png o .jpg o .jpeg</p> 
                                 </div>                   
                             </div>
                         </div>

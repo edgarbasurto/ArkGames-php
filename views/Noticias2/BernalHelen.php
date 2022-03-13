@@ -14,15 +14,25 @@
     </header>
     <!------------------------------------------------------------------------------------------>
     <main class="main p-3">
-        <img id="flecha_arriba" src="data:image/jpg;base64,<?php echo base64_encode($noticia->url_imagen) ?>" alt="<?php echo $id ?>"/>
+        <img id="flecha_arriba" src="../../assets/img/flecha_arriba.svg" alt="flecha" />
         <div class="container-fluid row">
             <div class="col-md-9">
-                <h1>Últimas noticias de ArkGames</h1>
+                <div class="row">
+                    <div class="col-md-5">
+                        <h1>Últimas noticias de ArkGames</h1>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col text-end">
+                            <a class="btn btn-secondary my-auto" href="?c=noticias&a=index_noticias" data-toggle="tooltip" data-placement="top" title="Listar Noticias">
+                            <i class="fa-solid fa-border-all"></i></a>
+                        </div>
+                    </div>
+                </div>
                 <?php
                 foreach ($resultados as $noticia) {
                 ?>
                 <div class="previa_noticia">
-                    <img class="image_notice" src="../../assets/img/noticia1.jpg" alt="Ultimos juegos" />
+                    <img class="image_notice" src="data:image/jpg;base64,<?php echo base64_encode($noticia->url_imagen) ?>" alt="<?php echo $id ?>" />
                     <div class="bloque_texto_noticia">
                         <h3><?php echo $noticia->titulo ?></h3>
                         <p><time><?php echo $noticia->fecha ?></time><?php echo '/'. $noticia->tema->nombre_tema. '-'. $noticia->dispositivo->nombre_dispositivo ?><br>
@@ -56,7 +66,7 @@
                 </div>
                 <div id="aside_nuevo" class="aside_componente row mx-auto">
                     <a class="titulo_nuevo" onclick="mostrarBloque()">⇒ Juego Destacado del Mes ⇐</a>
-                    <img id="juego_destacado" src="../../assets/img/god_war.jfif" alt="anuncio3" />
+                    <img id="juego_destacado" src="../../assets/img/god_war.jfif" alt="anuncio3" style="height: 300px;" />
                 </div>
                 <div id="aside_slider" class="aside_componente row mx-auto">
                     <div id="container_slider">
