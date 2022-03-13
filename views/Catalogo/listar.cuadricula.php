@@ -36,7 +36,7 @@
                                 </div>
 
                                 <div class="col text-start">
-                                    <a class="btn btn-secondary my-auto" href="index.php" data-toggle="tooltip" data-placement="top" title="Listar tabla">
+                                    <a class="btn btn-secondary my-auto" href="index.php?c=productos" data-toggle="tooltip" data-placement="top" title="Listar tabla">
                                         <i class="fa-solid fa-align-justify"></i></a>
                                 </div>
                             </div>

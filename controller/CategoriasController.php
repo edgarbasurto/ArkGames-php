@@ -1,5 +1,5 @@
 <?php
-require_once '../../models/dao/CategoriasDAO.php';
+require_once DAO_PATH . 'CategoriasDAO.php';
 class CategoriasController
 {
     private $modelo;

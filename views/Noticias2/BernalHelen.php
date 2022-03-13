@@ -1,7 +1,7 @@
-<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+<?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
     <meta name="description" content="Página de noticas ArkGames" />
     <meta name="keywords" content="videojuegos,noticias,novedades" />
-    <link rel="stylesheet" href="../../assets/css/Noticias.css" />
+    <link rel="stylesheet" href="assets/css/Noticias.css" />
     <title>Noticias - ArkGames</title>
 </head>
 
@@ -9,12 +9,12 @@
     <!-------------------------------------------------MENU---------------------------------------->
     <header>
         <?php
-        require_once '../Templates/navBarBootstrap.php'
+        require_once VIEW_PATH . 'Templates/navBarBootstrap.php'
         ?>
     </header>
     <!------------------------------------------------------------------------------------------>
     <main class="main p-3">
-        <img id="flecha_arriba" src="../../assets/img/flecha_arriba.svg" alt="flecha" />
+        <img id="flecha_arriba" src="assets/img/flecha_arriba.svg" alt="flecha" />
         <div class="container-fluid row">
             <div class="col-md-9">
                 <div class="row">
@@ -73,13 +73,13 @@
                     <div id="container_slider">
                         <div class="slider" id="slider">
                             <div class="slider_section">
-                                <img class="slider_img" src="../../assets/img/anuncio1.png" alt="anuncio1" />
+                                <img class="slider_img" src="assets/img/anuncio1.png" alt="anuncio1" />
                             </div>
                             <div class="slider_section">
-                                <img class="slider_img" src="../../assets/img/anuncio2.png" alt="anuncio2" />
+                                <img class="slider_img" src="assets/img/anuncio2.png" alt="anuncio2" />
                             </div>
                             <div class="slider_section">
-                                <img class="slider_img" src="../../assets/img/anuncio3.png" alt="anuncio3" />
+                                <img class="slider_img" src="assets/img/anuncio3.png" alt="anuncio3" />
                             </div>
                         </div>
                         <div class="slider_btn slider_btn--right" id="btn-right">&#62;</div>
@@ -91,10 +91,10 @@
     </main>
     <!-------------------------------------------------FOOTER---------------------------------------->
     <?php
-    require_once '../Templates/footerBootstrap.php'
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php'
     ?>
     <!----------------------------------------------------------------------------------------------->
-    <script type="text/javascript" src="../../assets/js/Bernal_Helen.js"></script>
+    <script type="text/javascript" src="assets/js/Bernal_Helen.js"></script>
 </body>
 
 </html>

@@ -95,7 +95,7 @@ class NoticiasController
                         : $this->modelo->insertar($datos);
 
 
-                    header('Location: index.php');
+                    header('Location: index.php?c=noticias');
                     echo '<script>alert("Registro guardado con exito")</script>';
                 } else {
                     echo '<script>alert("Error: El formato de archivo tiene que ser JPG o PNG o JPEG.")</script>';
@@ -113,7 +113,7 @@ class NoticiasController
                     ];
                     $this->modelo->actualizarSinImagen($datos);
         
-                    header('Location: index.php');
+                    header('Location: index.php?c=noticias');
                     echo '<script>alert("Registro guardado con exito")</script>';
                 }
             }
@@ -138,7 +138,7 @@ class NoticiasController
     {
         $this->modelo->eliminar($_REQUEST['id']);
         echo "<script>alert('Registro guardado con exito')</script>";
-        header('Location: index.php');
+        header('Location: index.php?c=noticias');
     }
 
     public function nuevo()
@@ -155,7 +155,7 @@ class NoticiasController
             require_once VIEW_PATH . 'Noticias2/editar_noticia.php';
 
         } else {
-            require_once '../../models/dao/TemaDAO.php';
+            require_once DAO_PATH . 'TemaDAO.php';
             $con = new TemaDAO();
             $lista1 = $con->listar();
             require_once DAO_PATH . 'DispositivoDAO.php';

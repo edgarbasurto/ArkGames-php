@@ -1,4 +1,4 @@
-<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+<?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
 
 <title>Agregar - Noticias ArkGames</title>
 </head>
@@ -6,7 +6,7 @@
 <body id="bodyTemp">
     <header>
         <?php
-        require_once '../Templates/navBarBootstrap.php'
+        require_once VIEW_PATH . 'Templates/navBarBootstrap.php'
         ?>
     </header>
 
@@ -96,12 +96,12 @@
     <!-------------------------------------------------FOOTER---------------------------------------->
 
     <?php
-    require_once '../Templates/footerBootstrap.php'
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php'
     ?>
 
     <!----------------------------------------------------------------------------------------------->
 
-    <script type="text/javascript" src="../../assets/js/Validacion_Noticias2.js"></script>
+    <script type="text/javascript" src="assets/js/Validacion_Noticias2.js"></script>
 
 </body>
 
