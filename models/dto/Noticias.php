@@ -1,6 +1,6 @@
 <?php
-require_once '../../models/dto/Tema.php';
-require_once '../../models/dto/Dispositivo.php';
+require_once DTO_PATH . 'Tema.php';
+require_once DTO_PATH . 'Dispositivo.php';
 
  class Noticias
 {

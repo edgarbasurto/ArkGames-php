@@ -1,6 +1,6 @@
 <?php
-require_once '../../config/conexion.php';
-require_once '../../models/dto/Dispositivo.php';
+require_once ROOT_PATH . 'config/conexion.php';
+require_once DTO_PATH . 'Dispositivo.php';
 class DispositivoDAO {
     private $con;
     

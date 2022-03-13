@@ -1,5 +1,5 @@
 <?php
-require_once '../../models/dao/NoticiasDAO.php';
+require_once DAO_PATH . 'NoticiasDAO.php';
 
 
 class NoticiasController
@@ -19,7 +19,7 @@ class NoticiasController
         $resultados = $this->modelo->listar();
 
         //llamo a la vista
-        require_once '../../views/Noticias2/listar_noticia.php';
+        require_once VIEW_PATH . 'Noticias2/listar_noticia.php';
     }
 
     public function index_noticias()
@@ -28,15 +28,15 @@ class NoticiasController
         $resultados = $this->modelo->listar();
 
         //llenar aside
-        require_once '../../models/dao/TemaDAO.php';
+        require_once DAO_PATH . 'TemaDAO.php';
         $con = new TemaDAO();
         $lista1 = $con->listar();
-        require_once '../../models/dao/DispositivoDAO.php';
+        require_once DAO_PATH . 'DispositivoDAO.php';
         $con = new DispositivoDAO();
         $lista2 = $con->listar();
 
         //llamo a la vista
-        require_once '../../views/Noticias2/BernalHelen.php';
+        require_once VIEW_PATH . 'Noticias2/BernalHelen.php';
     }
 
     public function buscar() {
@@ -51,15 +51,15 @@ class NoticiasController
         if(empty($resultados)){
             echo '<script>alert("Pronto tendremos más noticias")</script>';
         }
-        require_once '../../models/dao/TemaDAO.php';
+        require_once DAO_PATH . 'TemaDAO.php';
         $con = new TemaDAO();
         $lista1 = $con->listar();
-        require_once '../../models/dao/DispositivoDAO.php';
+        require_once DAO_PATH . 'DispositivoDAO.php';
         $con = new DispositivoDAO();
         $lista2 = $con->listar();
 
         // comunicarnos a la vista
-        require_once '../../views/Noticias2/BernalHelen.php';
+        require_once VIEW_PATH . 'Noticias2/BernalHelen.php';
     }
 
     public function guardar()
@@ -122,13 +122,13 @@ class NoticiasController
             if (isset($_REQUEST['id'])) {
                 $noticias = $this->modelo->obtener($_REQUEST['id']);
                 $noticia = $noticias[0];
-                require_once '../../models/dao/TemaDAO.php';
+                require_once DAO_PATH . 'TemaDAO.php';
                 $con = new TemaDAO();
                 $lista1 = $con->listar();
-                require_once '../../models/dao/DispositivoDAO.php';
+                require_once DAO_PATH . 'DispositivoDAO.php';
                 $con = new DispositivoDAO();
                 $lista2 = $con->listar();
-                require_once '../../views/Noticias2/editar_noticia.php';
+                require_once VIEW_PATH . 'Noticias2/editar_noticia.php';
 
             }
         }   
@@ -146,22 +146,22 @@ class NoticiasController
         if (isset($_REQUEST['id'])) {
             $noticias = $this->modelo->obtener($_REQUEST['id']);
             $noticia = $noticias[0];
-            require_once '../../models/dao/TemaDAO.php';
+            require_once DAO_PATH . 'TemaDAO.php';
             $con = new TemaDAO();
             $lista1 = $con->listar();
-            require_once '../../models/dao/DispositivoDAO.php';
+            require_once DAO_PATH . 'DispositivoDAO.php';
             $con = new DispositivoDAO();
             $lista2 = $con->listar();
-            require_once '../../views/Noticias2/editar_noticia.php';
+            require_once VIEW_PATH . 'Noticias2/editar_noticia.php';
 
         } else {
             require_once '../../models/dao/TemaDAO.php';
             $con = new TemaDAO();
             $lista1 = $con->listar();
-            require_once '../../models/dao/DispositivoDAO.php';
+            require_once DAO_PATH . 'DispositivoDAO.php';
             $con = new DispositivoDAO();
             $lista2 = $con->listar();
-            require_once '../../views/Noticias2/agregar_noticia.php';
+            require_once VIEW_PATH . 'Noticias2/agregar_noticia.php';
         }
     }
 }

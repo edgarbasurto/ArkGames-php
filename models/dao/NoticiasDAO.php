@@ -1,7 +1,7 @@
 <?php
 
-require_once '../../config/conexion.php';
-require_once '../../models/dto/Noticias.php';
+require_once ROOT_PATH . 'config/conexion.php';
+require_once DTO_PATH . 'Noticias.php';
 
 class NoticiasDAO
 {

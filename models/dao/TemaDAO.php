@@ -1,6 +1,6 @@
 <?php
-require_once '../../config/conexion.php';
-require_once '../../models/dto/Tema.php';
+require_once ROOT_PATH . 'config/conexion.php';
+require_once DTO_PATH . 'Tema.php';
 class TemaDAO {
     private $con;
     
