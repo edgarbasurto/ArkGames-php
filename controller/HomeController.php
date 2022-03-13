@@ -1,6 +1,6 @@
   
 <?php
-
+require_once DAO_PATH . 'ProductosDAO.php';
 class HomeController
 {
 
@@ -15,6 +15,8 @@ class HomeController
             session_start();
         };
 
+        $productomodel = new ProductosDAO();
+        $catalogo = $productomodel->listar();
         require_once VIEW_PATH . 'Home/home.php';
     }
 }

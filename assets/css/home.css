@@ -1,0 +1,119 @@
+/*barra y autopop*/
+.barraflotante{
+  width:100px;
+  position:fixed;
+  top:150px;
+  left:0;
+  text-align: center;
+  z-index: 200;
+  padding: 2px;
+  background-color: rgba(255, 255, 255, 0.966);
+  border-radius: 0px 8px 8px 0px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.popupText {
+  visibility: hidden;
+  width: 100px;
+  background-color: #fff;
+  color: #555;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;
+  left: 50%;
+  margin-left: -15px;
+}
+
+.popupText::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255) transparent transparent transparent;
+}
+
+.mensajeError { 
+      /* width: 25%; */
+      height: 20px;
+      background-color: rgba(255, 255, 255, 0.945);
+      color: red;
+      text-align: center;
+      border-radius: 8px;
+      border-style: groove;
+      border: #555;
+      padding: 0 8px;
+      position: sticky;
+      z-index: 1;
+      bottom: 100%;
+      margin-top: 4px;
+      align-items: stretch;
+      left: 90%;      
+      display: block;
+}
+
+.showpopup {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+/*Seccion de juegos*/ 
+#sec_galeria {
+    background-color: #FFFFFF;
+    padding: 15px;
+    width: 1343px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+	align-content: space-around;
+}
+
+.mini_inline_block {
+    display: inline-block;
+    padding: 5px; 
+    text-align: center;
+    
+    margin-left: 1%;
+	margin-right: 1%;
+	
+}
+
+.mini_inline_block img{
+   width: 150px;
+ height: 225px;
+
+}
+
+.mini_inline_block h4 {
+	margin: 5px;
+	color: #31B2A0;
+}
+.mini_inline_block p {
+	margin:0px;
+	color: #A3A3A3;
+}
+
+.mini_inline_block h1 {
+	color: #717070;
+	margin-bottom: 5px;
+}
