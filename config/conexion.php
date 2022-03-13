@@ -6,11 +6,11 @@ class Conexion
         $host = "localhost";
         $port = 3306;
         $database_username = "root"; //USUARIO DE ACCESO A LA BASE DE DATOS
-        $database_password = "HeBe17"; //CONTRASENIA DE ACCESO A LA BASE DE DATOS
+        $database_password = "DBA#2021ug"; //CONTRASENIA DE ACCESO A LA BASE DE DATOS
         $dbname = "ArkgamesBD"; //NOMBRE DEL ESQUEMA DE LA BASE DE DATOS
         $conectar = null;
         $cadena = "mysql:host={$host};port={$port};dbname={$dbname}";
-  
+
         try {
             $conectar = new PDO($cadena, $database_username, $database_password);
         } catch (Exception $e) {
@@ -20,7 +20,4 @@ class Conexion
         }
         return $conectar;
     }
-
-   
-
 }

@@ -15,7 +15,7 @@ class UsuariosController
       if (!isset($_SESSION)) {
          session_start();
       };
-
+      /*
       $lista =  $this->modelo->All();
       echo VIEW_PATH .  "Usuarios/listar.php";
 
@@ -25,7 +25,9 @@ class UsuariosController
             echo "<script>notificarMensaje();</script>";
             unset($_SESSION['mensaje'], $_SESSION['color'], $_SESSION['notificar']);
          }
-      }
+      }*/
+
+      require_once(VIEW_PATH .  "Usuarios/cargarfile.php");
    }
 
    public function show()
@@ -134,5 +136,16 @@ class UsuariosController
          $_SESSION['notificar'] = 1;
       }
       header('Location:index.php?c=Usuarios&f=index');
+   }
+
+   public function savefile()
+   {
+      require_once CONTROLLER_PATH . 'Genericos.php';
+      $respuesta = Genericos::SaveFileServidor($_FILES["archivo"]);
+      if ($respuesta != null) {
+         echo  $respuesta;
+      } else {
+         echo "No se guradó la imagen!!\n";
+      }
    }
 }
