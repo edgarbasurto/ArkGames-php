@@ -103,17 +103,6 @@ class NoticiasController
         header('Location: index.php');
     }
 
-
-    public function script()
-    {
-        $resultados = $this->modelo->listar();
-        foreach ($resultados as $noticia) {
-            echo '<p>INSERT INTO noticia(id_noticia, titulo, descripcion, imagen_noticia, id_tema, id_dispositivo) 
-            VALUES (' . $noticia->id_noticia . ',' . $noticia->titulo . ',' . $noticia->precio . ',' . $noticia->url_imagen . ', ' . $noticia->id_categoria . ', ' . $noticia->id_dispositivo .')</p><br>';
-        }
-    }
-
-
     public function nuevo()
     {
         if (isset($_REQUEST['id'])) {

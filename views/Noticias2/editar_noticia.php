@@ -86,6 +86,7 @@
                                 <label class="col-sm-2 col-form-label text-end">Añadir imagen:</label>
                                 <div class="col-sm-8">
                                     <input class="form-control form-control-sm" name="archivo" id="seleccionArchivos" type="file" value="<?php echo $noticia->id_noticia ?>"/>
+                                    <img style="height:100px" src="data:image/jpg;base64,<?php echo base64_encode($noticia->url_imagen) ?>" alt="<?php echo $id ?>">
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-2 "></label>
@@ -108,7 +109,7 @@
     require_once '../Templates/footerBootstrap.php'
     ?>
     <!----------------------------------------------------------------------------------------------->
-    <script type="text/javascript" src="../../assets/js/Validacion_Noticias.js"></script>
+    <script type="text/javascript" src="../../assets/js/Validacion_Noticias2.js"></script>
 </body>
 
 </html>

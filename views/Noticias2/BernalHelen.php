@@ -14,61 +14,24 @@
     </header>
     <!------------------------------------------------------------------------------------------>
     <main class="main p-3">
-        <img id="flecha_arriba" src="../../assets/img/flecha_arriba.svg" alt="flecha" />
+        <img id="flecha_arriba" src="data:image/jpg;base64,<?php echo base64_encode($noticia->url_imagen) ?>" alt="<?php echo $id ?>"/>
         <div class="container-fluid row">
             <div class="col-md-9">
                 <h1>Últimas noticias de ArkGames</h1>
-                <!------------------------NOTICIA 1----------------------------------->
+                <?php
+                foreach ($resultados as $noticia) {
+                ?>
                 <div class="previa_noticia">
                     <img class="image_notice" src="../../assets/img/noticia1.jpg" alt="Ultimos juegos" />
                     <div class="bloque_texto_noticia">
-                        <h3>Próximos lanzamientos y últimos juegos</h3>
-                        <p><time datetime="2021-12-14">14-12-2021</time> /PS3, PSP, PC<br>¿Quieres saber cuáles son los próximos y últimos lanzamientos en videojuegos este año?
-                            Aquí encontrarás el calendario con las fechas de lanzamiento de todos los juegos de las
-                            diferentes plataformas actualizadas día a día.<br><a class="ver_mas" href="#">Ver más &rarr;</a></p>
+                        <h3><?php echo $noticia->titulo ?></h3>
+                        <p><time><?php echo $noticia->fecha ?></time><?php echo '/'. $noticia->tema->nombre_tema. '-'. $noticia->dispositivo->nombre_dispositivo ?><br>
+                        <?php echo $noticia->descripcion ?>
+                        <br><a class="ver_mas" href="#">Ver más &rarr;</a></p>
         
                     </div>
                 </div>
-                <!------------------------NOTICIA 2----------------------------------->
-                <div class="previa_noticia">
-                    <img class="image_notice" src="../../assets/img/noticia2.jpg" alt="PS5 novedades" />
-                    <div class="bloque_texto_noticia">
-                        <h3>Un vistazo a las características de la versión para PS5</h3>
-                        <p><time datetime="2021-12-02">02-12-2021</time> /PS3, PSP, PC<br>
-                            El 4 de marzo de 2022 se pone a la venta en PS4 y PS5 Gran Turismo 7, y obviamente,
-                            la superior calidad técnica de la consola más potente permite la implementación de algunas
-                            mejoras técnicas, o el uso del mando Dualsense para la vibración y los gatillos<br>
-                            <a class="ver_mas" href="#">Ver más &rarr;</a>
-                        </p>
-        
-                    </div>
-                </div>
-                <!------------------------NOTICIA 3----------------------------------->
-                <div class="previa_noticia">
-                    <img class="image_notice" src="../../assets/img/noticia3.jpg" alt="Fortnite navideño" />
-                    <div class="bloque_texto_noticia">
-                        <h3>Disfruta de las fiestas en Fornite</h3>
-                        <p><time datetime="2021-11-29">29-11-2021</time> /PS3, PSP, PC<br>
-                            Desde el 16 de diciembre de 2021 a las 15:00h CET hasta el 6 de enero de 2022 a esa
-                            misma hora se celebra el evento Festival de Invierno 2021 en Fortnite Battle Royale. Tendremos
-                            nuevos desafíos y misiones que completar, además de 14 regalos gratis entre los que se incluyen dos skins.<br>
-                            <a class="ver_mas" href="#">Ver más &rarr;</a>
-                        </p>
-        
-                    </div>
-                </div>
-                <!------------------------NOTICIA 4----------------------------------->
-                <div class="previa_noticia">
-                    <img class="image_notice" src="../../assets/img/noticia4.jpg" alt="Genshin Impact sin gacha" />
-                    <div class="bloque_texto_noticia">
-                        <h3>Novedades de la nueva versión de Genshin Impact</h3>
-                        <p><time datetime="2021-11-28">28-11-2021</time> /PS3, PSP, PC<br>Los jugadores de Genshin Impact pronto
-                            podrán desbloquear nuevos personajes y armas sin tener que usar Protogemas en los banner de gacha del juego.
-                            Según se informa, se está trabajando en un nuevo método para obtener personajes sin gacha para su lanzamiento
-                            en 2022.<br><a class="ver_mas" href="#">Ver más &rarr;</a></p>
-        
-                    </div>
-                </div>
+                <?php } ?>
             </div>
             <aside class="col-md-3">
                 <!--<div id="aside_suscribe" class="aside_componente">-->
