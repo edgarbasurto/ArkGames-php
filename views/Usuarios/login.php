@@ -16,9 +16,9 @@
 <body>
   <!-------------------------------------------------MENU---------------------------------------->
   <?php
-    include_once '../Templates/navBar.php'
-    ?>
-        <!------------------------------------------------------------------------------------------>
+  include_once '../Templates/navBar.php'
+  ?>
+  <!------------------------------------------------------------------------------------------>
 
 
 
@@ -43,27 +43,27 @@
             </select>
           </div>
 
-          
+
           <div class="other" id="divUser">
             <span class="ingreso-item">
               <i class="fa fa-user-circle"></i>
-            </span>            
-            <input class="form-ingreso"  id="txt-ingreso" type="text" placeholder="Usuario" name="user">
-            
+            </span>
+            <input class="form-ingreso" id="txt-ingreso" type="text" placeholder="Usuario" name="user">
+
           </div>
 
           <div class="other" id="divEmail" style="visibility: collapse; display:none;">
             <span class="ingreso-item">
               <i class="fa fa-envelope-open"></i>
             </span>
-            <input class="form-ingreso" id="email-ingreso"  placeholder="Email" name="email">
+            <input class="form-ingreso" id="email-ingreso" placeholder="Email" name="email">
           </div>
 
           <div class="other">
             <span class="ingreso-item">
               <i class="fa fa-key"></i>
             </span>
-            <input class="form-ingreso" id="password" type="password" placeholder="Password" name="password">        
+            <input class="form-ingreso" id="password" type="password" placeholder="Password" name="password">
           </div>
 
           <div class="radio-form">
@@ -91,9 +91,10 @@
   </div>
   <!-------------------------------------------------FOOTER---------------------------------------->
   <?php
-    include_once '../Templates/footer.php'
-    ?>
-    <!----------------------------------------------------------------------------------------------->
+  include_once '../Templates/footer.php'
+  ?>
+  <!----------------------------------------------------------------------------------------------->
   <script language="javascript" type="text/javascript" src="../../assets/js/frm_LarreaRafael.js"></script>
 </body>
+
 </html>

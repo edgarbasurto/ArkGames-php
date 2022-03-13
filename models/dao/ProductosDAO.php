@@ -33,6 +33,7 @@ class ProductosDAO
     return $ObjReturn;
   }
 
+
   public function actualizar($data)
   {
     try {
