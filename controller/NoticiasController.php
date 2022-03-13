@@ -22,7 +22,7 @@ class NoticiasController
         require_once '../../views/Noticias2/listar_noticia.php';
     }
 
-    public function index_cuadricula()
+    public function index_noticias()
     {
         // llamar al modelo
         $resultados = $this->modelo->listar();
