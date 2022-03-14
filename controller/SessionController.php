@@ -26,20 +26,8 @@ class SessionController
         require_once(VIEW_PATH .  "Session/dashboard.php");
     }
 
-    public function new()
+    public function end()
     {
-    }
-
-
-    public function edit()
-    {
-    }
-
-    public function delete()
-    {
-    }
-
-    public function save()
-    {
+        //para cerrrar session
     }
 }
