@@ -98,9 +98,9 @@
                         </div>
                     </div>
 
-                    <div  class="bloque_comentarios">
+                    <div  class="bloque_empleo">
                         <div> 
-                            <a id="comentario" href="frm_comentariosGualeEvelyn.php"> Enviar Comentarios... </a></div>
+                            <a id="comentario" href="frm_empleoGualeEvelyn.php"> Trabaje con nosotros... </a></div>
 
                     </div>
 
