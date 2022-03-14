@@ -15,7 +15,7 @@ class UsuariosController
       if (!isset($_SESSION)) {
          session_start();
       };
-      /*
+
       $lista =  $this->modelo->All();
       echo VIEW_PATH .  "Usuarios/listar.php";
 
@@ -25,9 +25,7 @@ class UsuariosController
             echo "<script>notificarMensaje();</script>";
             unset($_SESSION['mensaje'], $_SESSION['color'], $_SESSION['notificar']);
          }
-      }*/
-
-      require_once(VIEW_PATH .  "Usuarios/cargarfile.php");
+      }
    }
 
    public function show()
@@ -36,16 +34,16 @@ class UsuariosController
       $registros = $this->modelo->GetById($Id);
       if (empty($registros[0]) == false) {
          $registro = $registros[0];
-         require_once '../../models/dto/Enumeradores.php';
-         require_once("../../views/Usuarios/mostrar.php");
+         require_once(DTO_PATH . 'Enumeradores.php');
+         require_once(VIEW_PATH .  "Usuarios/mostrar.php");
       } else {
-         header('Location:index.php?c=Usuarios&f=index');
+         header('Location:index.php?c=usuarios&f=index');
       }
    }
 
    public function new()
    {
-      require_once("../../views/Usuarios/nuevo.php");
+      require_once(VIEW_PATH .  "Usuarios/nuevo.php");
    }
 
 
@@ -55,7 +53,7 @@ class UsuariosController
       $registros = $this->modelo->GetById($Id);
       if (empty($registros[0]) == false) {
          $registro = $registros[0];
-         require_once("../../views/Usuarios/editar.php");
+         require_once(VIEW_PATH .  "Usuarios/editar.php");
       } else {
          header('Location:index.php?c=Usuarios&f=index');
       }
