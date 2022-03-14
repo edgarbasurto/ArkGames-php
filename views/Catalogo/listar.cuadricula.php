@@ -1,7 +1,7 @@
-<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+<?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
 
 <meta name="keywords" content="videojuegos,catalogo,juegos" />
-<link rel="stylesheet" href="../../assets/css/BasurtoEdgar.css" />
+<link rel="stylesheet" href="assets/css/BasurtoEdgar.css" />
 <meta name="description" content="Catalogo" />
 
 <title>Catálogo - ArkGames</title>
@@ -13,7 +13,7 @@
 
 
     <?php
-    require_once '../Templates/navBarBootstrap.php'
+    require_once VIEW_PATH . 'Templates/navBarBootstrap.php'
     ?>
 
     <!------------------------------------------------------------------------------------------>
@@ -27,7 +27,7 @@
                     <h1 class="title">Catálogo de ArkGames</h1>
                 </div>
                 <div class="col-4">
-                <div class="row text-end py-2">
+                    <div class="row text-end py-2">
                         <div class="col text-center">
                             <div class="row">
                                 <div class="col text-end">
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                         <div class="col text-center">
-                            <a class="btn btn-primary my-auto" href="?c=productos&a=nuevo">
+                            <a class="btn btn-primary my-auto" href="index.php?c=productos&a=nuevo">
                                 <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
                         </div>
 
@@ -71,8 +71,8 @@
                                         <span class="precio2"><b>$<?php echo $producto->precio ?></b></span>
                                     </div>
                                     <div class="col text-end">
-                                        <a href="?c=productos&a=edit&id=<?php echo $producto->id_producto ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=productos&a=delete&id=<?php echo $producto->id_producto ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="index.php?c=productos&a=edit&id=<?php echo $producto->id_producto ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="index.php?c=productos&a=delete&id=<?php echo $producto->id_producto ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                 </div>
 
@@ -111,13 +111,13 @@
 
 
     <?php
-    require_once '../Templates/footerBootstrap.php'
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php'
     ?>
 
 
     <!----------------------------------------------------------------------------------------------->
 
-    <script type="text/javascript" src="../../assets/js/BasurtoEdgar.js"></script>
+    <script type="text/javascript" src="assets/js/BasurtoEdgar.js"></script>
 </body>
 
 </html>

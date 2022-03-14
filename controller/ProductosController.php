@@ -10,7 +10,6 @@ class ProductosController
     public function __construct()
     {
         $this->modelo = new ProductosDAO();
-        echo 'test';
     }
 
     // funciones del controlador
@@ -65,7 +64,7 @@ class ProductosController
                     : $this->modelo->registrar($datos);
 
 
-                header('Location: index.php');
+                header('Location: index.php?c=productos');
                 echo '<script>alert("Registro guardado con exito")</script>';
             } else {
                 echo '<script>alert("Error: El formato de archivo tiene que ser JPG, GIF, BMP o PNG.")</script>';
@@ -85,7 +84,7 @@ class ProductosController
 
 
 
-            header('Location: index.php');
+            header('Location: index.php?c=productos');
             echo '<script>alert("Registro guardado con exito")</script>';
         };
     }
@@ -95,7 +94,7 @@ class ProductosController
     {
         $this->modelo->eliminar($_REQUEST['id']);
         echo "<script>alert('Registro guardado con exito')</script>";
-        header('Location: index.php');
+        header('Location: index.php?c=productos');
     }
 
 

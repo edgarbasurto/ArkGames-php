@@ -1,7 +1,7 @@
-<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+<?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
 
 
-<link rel="stylesheet" href="../../assets/css/BasurtoEdgar.css" />
+<link rel="stylesheet" href="assets/css/BasurtoEdgar.css" />
 <meta name="keywords" content="videojuegos,catalogo,juegos" />
 <meta name="description" content="Catalogo" />
 
@@ -15,7 +15,7 @@
 
     <?php
 
-    require_once '../Templates/navBarBootstrap.php'
+    require_once VIEW_PATH . 'Templates/navBarBootstrap.php'
     ?>
 
     <!------------------------------------------------------------------------------------------>
@@ -24,7 +24,7 @@
         <div class="card">
             <div class="card-header">
                 <h2 class="title my-2">
-                    <?php echo $producto->id_producto != null ? 'Actualizar Registro - '.$producto->nombre : 'Nuevo Registro'; ?>
+                    <?php echo $producto->id_producto != null ? 'Actualizar Registro - ' . $producto->nombre : 'Nuevo Registro'; ?>
                 </h2>
             </div>
 
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-end">
-                    <a href="index.php" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+                    <a href="index.php?c=productos" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
                     <button class="btn btn-primary my-3" type="submit" value="guardar"><?php echo $producto->id_producto != null ? 'Actualizar' : 'Guardar'; ?></button>
                 </div>
             </form>
@@ -105,12 +105,12 @@
     <!-------------------------------------------------FOOTER---------------------------------------->
 
     <?php
-    require_once '../Templates/footerBootstrap.php';
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php';
     ?>
 
     <!----------------------------------------------------------------------------------------------->
 
-    <script src="../../assets/js/vistaprevia.js"></script>
+    <script src="assets/js/vistaprevia.js"></script>
 
 </body>
 
