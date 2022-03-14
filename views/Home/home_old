@@ -50,6 +50,7 @@
     </article>
 
 </section>
+
 <section class="seccion_index" id="sec_video">
     <iframe class="video" src="https://www.youtube.com/embed/rH634tJuwOw?start=5" title="Assiants - Muy Pronto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <iframe class="video" src="https://www.youtube.com/embed/zdVk4hHQTn0?start=15" title="Call of Duty - Muy Pronto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

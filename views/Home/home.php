@@ -60,11 +60,31 @@
 		<!--  Contenido generado dinamicamente      -->
 
 	</section>
-	<div class="main">
+	<section class="p-5">
+		<div class="row gx-5">
+			<div class="col-md-6 mb-4">
+				<div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
+					<img src="https://mdbcdn.b-cdn.net/img/new/slides/080.webp" class="img-fluid" />
+					<a href="#!">
+						<div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+					</a>
+				</div>
+			</div>
 
-	</div>
-	<!----------------------------------------------------------------------------------------------->
-	<!-- <script language="javascript" type="text/javascript" src="assets/js/home.js"></script> -->
+			<div class="col-md-6 mb-4">
+				<span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3">News of the day</span>
+				<h4><strong>Facilis consequatur eligendi</strong></h4>
+				<p class="text-muted">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
+					eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
+					sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
+				</p>
+				<button type="button" class="btn btn-primary">Read more</button>
+			</div>
+		</div>
+	</section>
+
+
 	<script language="javascript" type="text/javascript">
 		function show_popup() {
 			var popup = document.getElementById("autopopup");
@@ -107,8 +127,8 @@
 				div_col.className = "col mx-3";
 				div_col.style.width = "14rem";
 				div_col.id = "store" + this.id;
-				div_col.innerHTML = ' <div class="card h-100 text-center"><img   style="margin:1% width: 12rem;  height: 18rem;" src="data:image/jpg;base64,' + this.#img_uri + '" class="card-img-top" alt="' + this.#nombre + '"><div class="card-body "><h5 class="card-title fw-bold">' + this.#nombre + '</h5><h4 class="text-primary fw-bold"> $ ' + this.#precio + '</h4><div> <a href="index.php?c=productos&a=show&id=' + this.id + '" class="btn btn-success mx-1"><i class="fas fa-eye"></i> </a><a href="index.php?c=productos&a=car&id=' + this.id + '" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></a></div></div></div>';
-
+				// div_col.innerHTML = ' <div class="card h-100 text-center"><img   style="margin:1% width: 12rem;  height: 18rem;" src="data:image/jpg;base64,' + this.#img_uri + '" class="card-img-top" alt="' + this.#nombre + '"><div class="card-body "><h5 class="card-title fw-bold">' + this.#nombre + '</h5><h4 class="text-primary fw-bold"> $ ' + this.#precio + '</h4><div> <a href="index.php?c=productos&a=show&id=' + this.id + '" class="btn btn-success mx-1"><i class="fas fa-eye"></i> </a><a href="index.php?c=productos&a=car&id=' + this.id + '" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></a></div></div></div>';
+				div_col.innerHTML = ' <div class="card h-100 text-center"><img   style="margin:1% width: 12rem;  height: 18rem;" src="' + this.#img_uri + '" class="card-img-top" alt="' + this.#nombre + '"><div class="card-body "><h5 class="card-title fw-bold">' + this.#nombre + '</h5><h4 class="text-primary fw-bold"> $ ' + this.#precio + '</h4><div> <a href="index.php?c=productos&a=show&id=' + this.id + '" class="btn btn-success mx-1"><i class="fas fa-eye"></i> </a><a href="index.php?c=productos&a=car&id=' + this.id + '" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></a></div></div></div>';
 				return div_col;
 			}
 		}
@@ -119,7 +139,9 @@
 			foreach ($catalogo as $pro) {
 
 				$strprecio = number_format($pro->precio, 2);
-				echo 'new Catalogo(' . $pro->id_producto . ',"' . $pro->nombre  . '","' . base64_encode($pro->url_imagen) . '","' . $strprecio . '" ),';
+				// echo 'new Catalogo(' . $pro->id_producto . ',"' . $pro->nombre  . '","' . base64_encode($pro->url_imagen) . '","' . $strprecio . '" ),';
+
+				echo 'new Catalogo(' . $pro->id_producto . ',"' . $pro->nombre  . '","assets/img/posters/' .   $pro->url_imagen . '","' . $strprecio . '" ),';
 			}
 			?>
 		);
