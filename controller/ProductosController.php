@@ -19,6 +19,7 @@ class ProductosController
         $resultados = $this->modelo->Listar();
         //llamo a la vista
         require_once VIEW_PATH . 'Catalogo/listar.tabla.php';
+        // require_once(VIEW_PATH .  "Catalogo/cargarfile.php");
     }
 
     public function index_cuadricula()
@@ -45,14 +46,20 @@ class ProductosController
             ) {
 
                 # Escapa caracteres especiales
-                $imagen = (file_get_contents($_FILES["archivo"]["tmp_name"]));
-
+                // $imagen = (file_get_contents($_FILES["archivo"]["tmp_name"]));
+                require_once CONTROLLER_PATH . 'Genericos.php';
+                $respuesta = Genericos::SaveFileServidor($_FILES["archivo"]);
+                if ($respuesta != null) {
+                    echo  $respuesta;
+                } else {
+                    echo "No se guardó la imagen!!\n";
+                }
 
                 $datos = [
                     "id_producto" => $_REQUEST['id_producto'],
                     "nombre" => $_POST['txtNombre'],
                     "precio" => $_POST['txtPrecio'],
-                    "url_imagen" => $imagen,
+                    "url_imagen" => $respuesta,
                     "id_categoria" => $_POST['selectCategoria'],
                     "prod_estado" => 1
                 ];
@@ -82,8 +89,6 @@ class ProductosController
             // echo var_dump($datos);
             $this->modelo->actualizarSinImagen($datos);
 
-
-
             header('Location: index.php?c=productos');
             echo '<script>alert("Registro guardado con exito")</script>';
         };
@@ -98,24 +103,8 @@ class ProductosController
     }
 
 
-    public function script()
-    {
-        $resultados = $this->modelo->Listar();
-        foreach ($resultados as $producto) {
-            echo '<p>INSERT INTO productos(id_producto, nombre, precio, url_imagen, id_categoria, prod_estado) 
-            VALUES (' . $producto->id_producto . ',' . $producto->nombre . ',' . $producto->precio . ',' . $producto->url_imagen . ', ' . $producto->id_categoria . ', 1)</p><br>';
-        }
-    }
-
-
     public function nuevo()
     {
-        // echo var_dump($_REQUEST);
-        // echo var_dump($_GET);
-        // echo var_dump($_POST);
-        // $producto = $this->modelo->obtener($_REQUEST['id']);
-        // echo var_dump($producto);
-
 
         if (isset($_REQUEST['id'])) {
             $productos = $this->modelo->obtener($_REQUEST['id']);

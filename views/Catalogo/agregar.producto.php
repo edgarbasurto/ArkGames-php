@@ -85,7 +85,7 @@
                                     <h5 class="title"> Vista previa </h5>
                                 </div>
                                 <div class="card-body text-center" style="height: 300px;">
-                                    <img style="max-height:280px; width: auto;" id="imagenPrevisualizacion" src="data:image/jpg;base64,<?php echo base64_encode($producto->url_imagen) ?>" alt="<?php echo $producto->nombre ?>">
+                                    <img style="max-height:280px; width: auto;" id="imagenPrevisualizacion" src="assets/img/posters/<?php echo $producto->url_imagen ?>" alt="<?php echo $producto->nombre ?>">
                                 </div>
                             </div>
                         </div>

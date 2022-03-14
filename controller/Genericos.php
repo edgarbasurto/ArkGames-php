@@ -7,12 +7,12 @@ class Genericos
     //  derechos de escritura Linux(0700)  
     public static function SaveFileServidor($fichero)
     {
-
         //estableciendo directorio a almacenar
         $ruta =  date("Y-m-d", time()) . '/';
-
+        
         //comprobando existencia del directorio        
         if (!is_dir(FILES_UPLOAD . $ruta)) {
+            
             echo FILES_UPLOAD . $ruta;
             @mkdir(FILES_UPLOAD . $ruta, 0700);
         }

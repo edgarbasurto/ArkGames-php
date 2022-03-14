@@ -72,7 +72,7 @@
 
                                 <tr>
                                     <th scope="row"><?php echo $producto->id_producto ?></th>
-                                    <td><img style="height:50px" src="data:image/jpg;base64,<?php echo base64_encode($producto->url_imagen) ?>" alt="<?php echo $producto->nombre ?>"></td>
+                                    <td><img style="height:50px" src="assets/img/posters/<?php echo $producto->url_imagen ?>" alt="<?php echo $producto->nombre ?>"></td>
 
                                     <td><?php echo $producto->nombre ?></td>
                                     <td>$<?php echo $producto->precio ?></td>

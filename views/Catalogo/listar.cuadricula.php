@@ -58,7 +58,7 @@
                     <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 my-4">
                         <div class="card shadow" id="<?php echo $producto->id_producto ?>">
                             <div style="height: 450px; overflow: hidden;">
-                                <img class="card-img-top" src="data:image/jpg;base64,<?php echo base64_encode($producto->url_imagen) ?>" alt="<?php echo $producto->nombre ?>">
+                                <img class="card-img-top" src="assets/img/posters/<?php echo ($producto->url_imagen) ?>" alt="<?php echo $producto->nombre ?>">
                             </div>
                             <div class="card-body">
                                 <h2 class="card-title"><?php echo $producto->nombre ?></h2>
