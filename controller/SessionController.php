@@ -15,11 +15,15 @@ class SessionController
         if (!isset($_SESSION)) {
             session_start();
         };
-        require_once(VIEW_PATH .  "Usuarios/login.php");
+        require_once(VIEW_PATH .  "Session/login.php");
     }
 
-    public function show()
+    public function dash()
     {
+        if (!isset($_SESSION)) {
+            session_start();
+        };
+        require_once(VIEW_PATH .  "Session/dashboard.php");
     }
 
     public function new()

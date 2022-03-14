@@ -1,27 +1,30 @@
 <?php
-require_once '../../models/dto/Enumeradores.php';
-require_once '../../views/Templates/HeadBootstrap.php'
+
+if (!isset($_SESSION)) {
+    session_start();
+};
+
+require_once DTO_PATH . 'Enumeradores.php';
+require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
 ?>
 <meta name="description" content="ArkGames" />
 <meta name="keywords" content="videojuegos,catalogo,juegos" />
-<title>Demostración Métodos CRUD - USUARIO</title>
+<meta name="author" content="erlarrea" />
 </head>
 
-<body id="bodyTemp">
-    <?php require_once '../../views/Templates/navBarBootstrap.php' ?>
-    <header>
-    </header>
-    <main class="main p-5 mx-3">
-
-        <div class="card">
-            <div class="card-header row font-weight-bold align-middle">
-                <div class="col text-first">
-                    <h4 class="fw-bold" style="margin-top:.5rem">ID#<?php echo $registro->Id . " - " .  $registro->NombreCompleto ?> </h4>
+<?php require_once VIEW_PATH . 'Templates/MenuDashboardBootstrap.php' ?>
+<main>
+    <div class="container-fluid px-4 my-2">
+        <div class="card mb-4 ">
+            <div class="card-header font-weight-bold text-primary align-middle">
+                <div class="row">
+                    <div class="col text-first">
+                        <h4 class="fw-bold" style="margin-top:.5rem">ID#<?php echo $registro->Id . " - " .  $registro->NombreCompleto ?> </h4>
+                    </div>
                 </div>
-
             </div>
             <div class="card-body">
-                <form class="row g-3 needs-validation" action=" <?php echo "../../views/Usuarios/index.php?c=usuarios&a=save&id=" . $registro->Id ?>" method="POST" novalidate style="margin: 0px 80px 0px 80px">
+                <form class="row g-3 needs-validation" action=" <?php echo "?c=usuarios&a=save&id=" . $registro->Id ?>" method="POST" novalidate style="margin: 0px 80px 0px 80px">
                     <div class="col-md-5">
                         <label for="txtNombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="txtNombre" maxlength="80" name="Nombre" aria-describedby="msjValidacion_Nombre" placeholder="Nombre completo del usuario" value="<?php echo $registro->NombreCompleto ?>" required>
@@ -125,7 +128,7 @@ require_once '../../views/Templates/HeadBootstrap.php'
                     </div>
 
                     <div class="text-end">
-                        <a href="../../views/Usuarios/" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+                        <a href="?c=usuarios" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
                         <button type="submit" class="btn btn-warning"><i class="fa-solid fa-floppy-disk"></i> Actualizar</a>
                     </div>
                 </form>
@@ -133,67 +136,62 @@ require_once '../../views/Templates/HeadBootstrap.php'
             </div>
         </div>
 
-    </main>
+</main>
+<?php require_once VIEW_PATH . 'Templates/FootDashboardBootstrap.php' ?>
+<script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
 
-    <script>
-        var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth() + 1;
-        var yyyy = today.getFullYear();
-        if (dd < 10) {
-            dd = '0' + dd
+    today = yyyy - 3 + '-' + mm + '-' + dd;
+    document.getElementById("txtFecha").setAttribute("max", today);
+
+    function verficaPassword() {
+        let pwd1 = document.getElementById("txtPassword1").value;
+        let pwd2 = document.getElementById("txtPassword2").value;
+        let input = document.getElementById("txtPassword2");
+
+
+        if (pwd1 == "") {
+            input.classList.remove("is-valid");
+            input.classList.add("is-invalid");
+            return;
         }
-        if (mm < 10) {
-            mm = '0' + mm
+        if (pwd1 != pwd2) {
+            input.classList.remove("is-valid");
+            input.classList.add("is-invalid");
+            return;
+        }
+        input.classList.remove("is-invalid");
+        input.classList.add("is-valid");
+    }
+</script>
+<script>
+    (
+        function() {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
         }
 
-        today = yyyy - 3 + '-' + mm + '-' + dd;
-        document.getElementById("txtFecha").setAttribute("max", today);
 
-        function verficaPassword() {
-            let pwd1 = document.getElementById("txtPassword1").value;
-            let pwd2 = document.getElementById("txtPassword2").value;
-            let input = document.getElementById("txtPassword2");
-
-
-            if (pwd1 == "") {
-                input.classList.remove("is-valid");
-                input.classList.add("is-invalid");
-                return;
-            }
-            if (pwd1 != pwd2) {
-                input.classList.remove("is-valid");
-                input.classList.add("is-invalid");
-                return;
-            }
-            input.classList.remove("is-invalid");
-            input.classList.add("is-valid");
-        }
-    </script>
-    <script>
-        (
-            function() {
-                'use strict'
-                var forms = document.querySelectorAll('.needs-validation')
-                Array.prototype.slice.call(forms)
-                    .forEach(function(form) {
-                        form.addEventListener('submit', function(event) {
-                            if (!form.checkValidity()) {
-                                event.preventDefault()
-                                event.stopPropagation()
-                            }
-
-                            form.classList.add('was-validated')
-                        }, false)
-                    })
-            }
-
-
-        )()
-    </script>
-    <?php
-    require_once '../Templates/footerBootstrap.php'
-    ?>
-</body>
-
-</html>
+    )()
+</script>
+<?php require_once VIEW_PATH . 'Templates/EndDashboardBootstrap.php' ?>

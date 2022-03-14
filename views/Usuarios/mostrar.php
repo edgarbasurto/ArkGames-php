@@ -1,24 +1,29 @@
 <?php
-require_once '../../models/dto/Enumeradores.php';
-require_once '../../views/Templates/HeadBootstrap.php' ?>
+
+if (!isset($_SESSION)) {
+    session_start();
+};
+
+require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
+?>
 <meta name="description" content="ArkGames" />
 <meta name="keywords" content="videojuegos,catalogo,juegos" />
-<title>Demostración Métodos CRUD - USUARIO</title>
+<meta name="author" content="erlarrea" />
 </head>
 
-<body id="bodyTemp">
-    <?php require_once '../../views/Templates/navBarBootstrap.php' ?>
-    <header>
-    </header>
-    <main class="main p-5 mx-3">
-        <div class="card">
-            <div class="card-header row font-weight-bold align-middle">
-                <div class="col text-first">
-                    <h4 class="fw-bold" style="margin-top:.5rem">ID#<?php echo $registro->Id . " - " .  $registro->NombreCompleto ?> </h4>
-                </div>
-                <div class="col text-end">
-                    <a href="../../views/Usuarios/index.php?c=usuarios&a=edit&id=<?php echo $registro->Id ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirm"><i class="fas fa-trash-alt"></i> Eliminar</button>
+<?php require_once VIEW_PATH . 'Templates/MenuDashboardBootstrap.php' ?>
+<main>
+    <div class="container-fluid px-4 my-2">
+        <div class="card mb-4 ">
+            <div class="card-header font-weight-bold text-primary align-middle">
+                <div class="row">
+                    <div class="col text-first">
+                        <h4 class="fw-bold" style="margin-top:.5rem">ID#<?php echo $registro->Id . " - " .  $registro->NombreCompleto ?> </h4>
+                    </div>
+                    <div class="col text-end">
+                        <a href="?c=usuarios&a=edit&id=<?php echo $registro->Id ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirm"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                    </div>
                 </div>
             </div>
             <div class="card-body">
@@ -59,42 +64,36 @@ require_once '../../views/Templates/HeadBootstrap.php' ?>
                     </div>
                 </div>
                 <div class="text-end">
-                    <a href="../../views/Usuarios/" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+                    <a href="?c=usuarios" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
                 </div>
             </div>
         </div>
 
-    </main>
+</main>
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="deleteConfirm" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <i class="fa-solid fa-circle-info"></i>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body fw-bold align-middle text-center">
+<!-- Modal -->
+<div class="modal fade" id="deleteConfirm" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fa-solid fa-circle-info"></i>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body fw-bold align-middle text-center">
 
-                    <h3>Desea Eliminar?</h3>
-                    <h5>ID#<?php echo $registro->Id . " - " .  $registro->NombreCompleto ?> </h5>
+                <h3>Desea Eliminar?</h3>
+                <h5>ID#<?php echo $registro->Id . " - " .  $registro->NombreCompleto ?> </h5>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-right-from-bracket"></i> Salir</button>
-                    <a href="../../views/Usuarios/index.php?c=usuarios&a=delete&id=<?php echo $registro->Id ?>" class="btn btn-primary"><i class="fa-solid fa-circle-check"></i> Si</a>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-right-from-bracket"></i> Salir</button>
+                <a href="?c=usuarios&a=delete&id=<?php echo $registro->Id ?>" class="btn btn-primary"><i class="fa-solid fa-circle-check"></i> Si</a>
             </div>
         </div>
     </div>
+</div>
+<?php require_once VIEW_PATH . 'Templates/FootDashboardBootstrap.php' ?>
 
-    <!-- Colocar aquí script js personalizados -->
 
-    <!-- Cierre de script js personalizados -->
-    <?php
-    require_once '../Templates/footerBootstrap.php'
-    ?>
-</body>
-
-</html>
+<?php require_once VIEW_PATH . 'Templates/EndDashboardBootstrap.php' ?>
