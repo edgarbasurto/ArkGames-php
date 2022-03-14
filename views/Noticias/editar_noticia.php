@@ -84,7 +84,7 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-sm-4 text-end">
-                                    <img class="col" style="height:100px" src="data:image/jpg;base64,<?php echo base64_encode($noticia->url_imagen) ?>" alt="<?php echo $id ?>">
+                                    <img class="col" style="height:100px" src="assets/img/noticias/<?php echo $noticia->url_imagen ?>" alt="<?php echo $id ?>">
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="row-sm-2 col-form-label">Cambiar imagen:</label>

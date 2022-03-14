@@ -50,7 +50,7 @@
                                     <td><?php echo $noticia->dispositivo->nombre_dispositivo ?></td>
                                     <td><?php echo $noticia->fecha ?></td>
                                     <td><?php echo $noticia->descripcion ?></td>
-                                    <td><img style="height:50px" src="data:image/jpg;base64,<?php echo base64_encode($noticia->url_imagen) ?>" alt="<?php echo $id ?>"></td>
+                                    <td><img style="height:50px" src="assets/img/noticias/<?php echo $noticia->url_imagen ?>" alt="<?php echo $id ?>"></td>
                                     <td class="mx-5">
                                         <div class="col" style="width: 100px;">
                                             <div class="row-mx-2 my-2">

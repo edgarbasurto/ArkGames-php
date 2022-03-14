@@ -7,3 +7,4 @@ define('DTO_PATH', MODEL_PATH . 'dto/');
 define('CONTROLLER_DEFAULT', "Home");
 define('FUNCTION_DEFAULT', "index");
 define('FILES_UPLOAD', ROOT_PATH . 'assets/img/posters/');
+define('FILES_NOTICIAS', ROOT_PATH . 'assets/img/noticias/');

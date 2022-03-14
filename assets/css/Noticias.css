@@ -28,6 +28,11 @@ address {
   text-align: center;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
 .noticias {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
