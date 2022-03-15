@@ -1,4 +1,4 @@
-<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+<?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
 
 
 <link rel="stylesheet" href="../../assets/css/BernalHelen.css" />
@@ -10,7 +10,7 @@
 <body id="bodyTemp">
     <header>
         <?php
-        require_once '../Templates/navBarBootstrap.php'
+        require_once VIEW_PATH . 'Templates/navBarBootstrap.php'
         ?>
     </header>
     <main class="main p-5 mx-3">
@@ -69,7 +69,7 @@
         </div>
     </main>
     <?php
-    require_once '../Templates/footerBootstrap.php'
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php'
     ?>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script> -->
 </body>

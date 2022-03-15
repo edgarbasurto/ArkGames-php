@@ -1,4 +1,4 @@
-<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+<?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
 
 
 <meta name="description" content="Página de noticas ArkGames" />
@@ -10,7 +10,7 @@
 <body id="bodyTemp">
     <header>
         <?php
-        require_once '../Templates/navBarBootstrap.php'
+        require_once VIEW_PATH . 'Templates/navBarBootstrap.php'
         ?>
     </header>
 
@@ -127,7 +127,7 @@
     <!-------------------------------------------------FOOTER---------------------------------------->
 
     <?php
-    require_once '../Templates/footerBootstrap.php'
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php'
     ?>
 
     <!----------------------------------------------------------------------------------------------->
