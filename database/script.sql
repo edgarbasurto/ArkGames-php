@@ -106,7 +106,7 @@ INSERT INTO
 VALUES
   (
     1,
-    'Últimas noticias de ArkGames',
+    'Próximos lanzamientos y últimos juegos',
     '¿Quieres saber cuáles son los próximos y últimos lanzamientos en videojuegos este año? Aquí encontrarás el calendario con las fechas de lanzamiento de todos los juegos de las diferentes plataformas actualizadas día a día.',
     '2022-03-14/noticia1.jpg',
     1,
@@ -326,9 +326,9 @@ VALUES
     'Contrasenia perdida de cuenta en Fall Guys.'
   );
   /* TABLA USUARIOS
-                                 * -- RAFAEL LARREA
-                                 * -- @Rafael1108
-                                */
+                                   * -- RAFAEL LARREA
+                                   * -- @Rafael1108
+                                  */
   DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
     `Id` bigint unsigned NOT NULL AUTO_INCREMENT,

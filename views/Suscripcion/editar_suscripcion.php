@@ -71,7 +71,7 @@
                                             <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="PC" <?php if (str_contains($suscripcion->dispositivos, "PC")) echo 'checked'; ?> /> PC <br>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="PS2 - PS3 - PS4 - PS5" <?php if (str_contains($suscripcion->dispositivos, "PS2 - PS3 - PS4 - PS5")) echo 'checked'; ?> /> PS2 - PS3 - PS4 - PS5 <br>
+                                            <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="PS4 - PS5" <?php if (str_contains($suscripcion->dispositivos, "PS4 - PS5")) echo 'checked'; ?> /> PS4 - PS5 <br>
                                         </div>
                                         <div class="form-check">
                                             <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="XBox" <?php if (str_contains($suscripcion->dispositivos, "XBox")) echo 'checked'; ?> /> XBox <br>

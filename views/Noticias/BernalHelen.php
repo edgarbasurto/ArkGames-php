@@ -13,7 +13,7 @@
         ?>
     </header>
     <!------------------------------------------------------------------------------------------>
-    <main class="main p-3">
+    <main class="container-fluid row">
         <img id="flecha_arriba" src="assets/img/flecha_arriba.svg" alt="flecha" />
         <div class="container-fluid row">
             <div class="col-md-9">
