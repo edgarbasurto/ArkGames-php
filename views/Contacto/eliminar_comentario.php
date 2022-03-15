@@ -1,4 +1,4 @@
-<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+<?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
 
 
 <meta name="description" content="Página de contactos-comentarios ArkGames" />
@@ -9,12 +9,12 @@
     <body id="bodyTemp">
         <header>
             <?php
-            require_once '../Templates/navBarBootstrap.php'
+            require_once VIEW_PATH . 'Templates/navBarBootstrap.php'
             ?>
         </header>
 
         <?php
-        require_once '../../config/conexionPDO.php';
+        require_once 'config/conexionPDO.php';
         if (!empty($_GET['id'])) {
             $data = ['id' => htmlentities($_GET['id'])];
             $sql = "select * from comentario where id_comentario = :id";
@@ -95,9 +95,8 @@
 
         <!-------------------------------------------------FOOTER---------------------------------------->
         <?php
-            require_once '../Templates/footerBootstrap.php'
+            require_once VIEW_PATH . 'Templates/footerBootstrap.php';
             ?>
 
     </body>
-
 </html>
