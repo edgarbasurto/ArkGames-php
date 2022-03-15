@@ -1,6 +1,6 @@
   
 <?php
-require_once DAO_PATH . 'ProductosDAO.php';
+
 class HomeController
 {
 
@@ -15,8 +15,19 @@ class HomeController
             session_start();
         };
 
+        require_once DAO_PATH . 'ProductosDAO.php';
         $productomodel = new ProductosDAO();
         $catalogo = $productomodel->listar();
+
+        require_once DAO_PATH . 'NoticiasDAO.php';
+        $noticiasmodel = new NoticiasDAO();
+
+        $lst = $noticiasmodel->listar();
+        $noticias = $lst;
+        // for ($i = 0; $i < 2; $i++) {
+        //     $obj = $lst[mt_rand(0, count($personajes) - 1)];
+        //     //$noticias[] = ;
+        // }
         require_once VIEW_PATH . 'Home/home.php';
     }
 }
