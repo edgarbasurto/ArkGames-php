@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8" />        
+<?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>  
+
+
         <meta name="description" content="Página para contactos ArkGames" />        
         <meta name="keywords" content="videojuegos,catalogo,juegos" /> 
-        <link rel="stylesheet" href="../../assets/css/master.css" />  
-        <link rel="stylesheet" href="../../assets/css/GualeEvelyn.css"/>       
-        <link rel="shortcut icon" href="../../assets/img/logo.svg"/>
+        <link rel="stylesheet" href="assets/css/master.css" />  
+        <link rel="stylesheet" href="assets/css/GualeEvelyn.css"/>       
+        <link rel="shortcut icon" href="assets/img/logo.svg"/>
         <title>Contactos</title>
         <style>
 
@@ -31,7 +30,7 @@
     <body>
         <!-------------------------------------------------MENU---------------------------------------->
         <?php
-    include_once '../Templates/navBar.php'
+    include_once VIEW_PATH . 'Templates/navBarBootstrap.php'
     ?>
         <!------------------------------------------------------------------------------------------>
         <div >
@@ -120,7 +119,7 @@
         <br>
     <!-------------------------------------------------FOOTER---------------------------------------->
     <?php
-    include_once '../Templates/footer.php'
+    include_once VIEW_PATH . 'Templates/footerBootstrap.php'
     ?>
     <!----------------------------------------------------------------------------------------------->
 

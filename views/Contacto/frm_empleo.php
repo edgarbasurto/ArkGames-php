@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Página para contactos ArkGames" />       
         <meta name="keywords" content="formulario,juegos,comentario" /> 
-        <link rel="stylesheet" href="../../assets/css/master.css" /> 
-        <link rel="stylesheet" href="../../assets/css/GualeEvelyn.css"/> 
-        <link rel="shortcut icon" href="../../assets/img/logo.svg"/>
+        <link rel="stylesheet" href="assets/css/master.css" /> 
+        <link rel="stylesheet" href="assets/css/GualeEvelyn.css"/> 
+        <link rel="shortcut icon" href="assets/img/logo.svg"/>
         <title>Empleo - ArkGames</title>
 
         <style>
@@ -63,7 +63,7 @@
 
       <!-------------------------------------------------MENU---------------------------------------->
       <?php
-    include_once '../Templates/navBar.php'
+    include_once VIEW_PATH . 'Templates/navBar.php'
     ?>
      <!------------------------------------------------------------------------------------------>
 
@@ -125,11 +125,11 @@
 
         <!-------------------------------------------------FOOTER---------------------------------------->
         <?php
-    include_once '../Templates/footer.php'
+    include_once VIEW_PATH . 'Templates/footer.php'
     ?>
     <!----------------------------------------------------------------------------------------------->
 
-        <script async type="text/javascript" src="../../assets/js/validacionFormEGuale.js"></script>  
+        <script async type="text/javascript" src="assets/js/validacionFormEGuale.js"></script>  
 
         
     </body>

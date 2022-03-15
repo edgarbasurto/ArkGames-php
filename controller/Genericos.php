@@ -27,4 +27,27 @@ class Genericos
             return null;
         }
     }
+
+    public static function GuardarArchivoServidor($fichero)
+    {
+        //estableciendo directorio a almacenar
+        $ruta =  date("Y-m-d", time()) . '/';
+        
+        //comprobando existencia del directorio        
+        if (!is_dir(FILES_NOTICIAS . $ruta)) {
+            
+            echo FILES_NOTICIAS . $ruta;
+            @mkdir(FILES_NOTICIAS . $ruta, 0700);
+        }
+
+        //archivo a ser guardado
+        $archivo = $ruta . basename($fichero["name"]);
+
+        // Cargando el fichero en la carpeta "subidas"
+        if (move_uploaded_file($fichero["tmp_name"], FILES_NOTICIAS . $archivo)) {
+            return $archivo;
+        } else {
+            return null;
+        }
+    }
 }

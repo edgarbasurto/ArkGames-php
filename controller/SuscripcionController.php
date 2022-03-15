@@ -19,7 +19,7 @@ class SuscripcionController
         $resultados = $this->modelo->listar();
 
         //llamo a la vista
-        require_once VIEW_PATH .'Noticias/listar_suscripcion.php';
+        require_once VIEW_PATH .'Suscripcion/listar_suscripcion.php';
     }
 
     public function guardar()
@@ -65,9 +65,9 @@ class SuscripcionController
             
         }else{
             if($_GET['id']){
-                require_once VIEW_PATH . 'Noticias/editar_suscripcion.php';
+                require_once VIEW_PATH . 'Suscripcion/editar_suscripcion.php';
             }else{
-                require_once VIEW_PATH . 'Noticias/registrar_suscripcion.php';
+                require_once VIEW_PATH . 'Suscripcion/registrar_suscripcion.php';
             } 
         }
     }
@@ -86,9 +86,9 @@ class SuscripcionController
         if (isset($_REQUEST['id'])) {
             $suscripciones = $this->modelo->obtenerId($_REQUEST['id']);
             $suscripcion = $suscripciones[0];
-            require_once VIEW_PATH . 'Noticias/editar_suscripcion.php';
+            require_once VIEW_PATH . 'Suscripcion/editar_suscripcion.php';
         } else {
-            require_once VIEW_PATH . 'Noticias/registrar_suscripcion.php';
+            require_once VIEW_PATH . 'Suscripcion/registrar_suscripcion.php';
         }
         
     }

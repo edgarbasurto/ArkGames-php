@@ -13,26 +13,16 @@
         ?>
     </header>
     <!------------------------------------------------------------------------------------------>
-    <main class="main p-3">
+    <main class="container-fluid row">
         <img id="flecha_arriba" src="assets/img/flecha_arriba.svg" alt="flecha" />
         <div class="container-fluid row">
             <div class="col-md-9">
-                <div class="row">
-                    <div class="col-md-5">
-                        <h1>Últimas noticias de ArkGames</h1>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="col text-end">
-                            <a class="btn btn-secondary my-auto" href="index.php?c=Noticias&a=index_noticias" data-toggle="tooltip" data-placement="top" title="Listar Noticias">
-                            <i class="fa-solid fa-border-all"></i></a>
-                        </div>
-                    </div>
-                </div>
+                <h1>Últimas noticias de ArkGames</h1>
                 <?php
                 foreach ($resultados as $noticia) {
                 ?>
                 <div class="previa_noticia">
-                    <img class="image_notice" src="data:image/jpg;base64,<?php echo base64_encode($noticia->url_imagen) ?>" alt="<?php echo $id ?>" />
+                    <img class="image_notice" src="assets/img/noticias/<?php echo $noticia->url_imagen ?>" alt="<?php echo $id ?>" />
                     <div class="bloque_texto_noticia">
                         <h3><?php echo $noticia->titulo ?></h3>
                         <p><time><?php echo $noticia->fecha ?></time><?php echo '/'. $noticia->tema->nombre_tema. ' - '. $noticia->dispositivo->nombre_dispositivo ?><br>
@@ -44,9 +34,8 @@
                 <?php } ?>
             </div>
             <aside class="col-md-3">
-                <!--<div id="aside_suscribe" class="aside_componente">-->
                 <div class="row mx-auto suscribete" style="justify-content: center;">
-                    <button class="btn btn-primary btn-rounded btn-lg btn-block" type="submit">Suscríbete para más noticias<br>AQUÍ </button>
+                    <a class="btn btn-primary btn-rounded btn-lg btn-block" href="index.php?c=suscripcion&a=nuevo" >Suscríbete para más noticias<br>AQUÍ </a>
                 </div>
                 <div class="aside_componente row mx-auto">
                     <h3 id="titulo_categoria">Categorías</h3>

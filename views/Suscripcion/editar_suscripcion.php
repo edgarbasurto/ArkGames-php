@@ -1,4 +1,4 @@
-<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+<?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
 
 
 <meta name="description" content="Página de noticas ArkGames" />
@@ -10,7 +10,7 @@
 <body id="bodyTemp">
     <header>
         <?php
-        require_once '../Templates/navBarBootstrap.php'
+        require_once VIEW_PATH . 'Templates/navBarBootstrap.php'
         ?>
     </header>
         <main class="main p-5 mx-3">
@@ -71,7 +71,7 @@
                                             <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="PC" <?php if (str_contains($suscripcion->dispositivos, "PC")) echo 'checked'; ?> /> PC <br>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="PS2 - PS3 - PS4 - PS5" <?php if (str_contains($suscripcion->dispositivos, "PS2 - PS3 - PS4 - PS5")) echo 'checked'; ?> /> PS2 - PS3 - PS4 - PS5 <br>
+                                            <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="PS4 - PS5" <?php if (str_contains($suscripcion->dispositivos, "PS4 - PS5")) echo 'checked'; ?> /> PS4 - PS5 <br>
                                         </div>
                                         <div class="form-check">
                                             <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="XBox" <?php if (str_contains($suscripcion->dispositivos, "XBox")) echo 'checked'; ?> /> XBox <br>
@@ -118,7 +118,7 @@
         </main>
     <!-------------------------------------------------FOOTER---------------------------------------->
     <?php
-    require_once '../Templates/footerBootstrap.php'
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php'
     ?>
     <!----------------------------------------------------------------------------------------------->
     <script type="text/javascript" src="../../assets/js/Validacion_Noticias.js"></script>

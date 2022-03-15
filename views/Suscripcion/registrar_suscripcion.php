@@ -1,4 +1,4 @@
-<?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+<?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
 
 
 <meta name="description" content="Página de noticas ArkGames" />
@@ -10,23 +10,21 @@
 <body id="bodyTemp">
     <header>
         <?php
-        require_once '../Templates/navBarBootstrap.php'
+        require_once VIEW_PATH . 'Templates/navBarBootstrap.php'
         ?>
     </header>
 
     <main class="main p-5 mx-3">
 
         <div class="container px-5">
-            <div class="container card shadow">
+            <div class="container card shadow bg-dark text-white">
 
                 <form id="form_suscripcion" method="POST" action="index.php?c=suscripcion&a=guardar">
-                    <div class="card-header row">
+                    <div class="card-header row my-3">
                         <h3 class="title text-center">Suscripción a nuestra newsletter</h3>
                     </div>
-
-
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row my-4">
                             <div class="col-sm-3 text-end">
                                 <label class="form-label" for="email">Correo electrónico:</label>
                             </div>
@@ -34,7 +32,7 @@
                                 <input id="email" class="form-control" type="email" name="txtemail">
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row my-4 py-3">
                             <div class="col-sm-1"></div>
                             <div class="col-sm-5">
                                 <label class="form-label">Tipo de correo que deseo leer:</label>
@@ -73,12 +71,12 @@
                                         <label class="form-check-label" for="PC">PC</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="PS2 - PS3 - PS4 - PS5">
-                                        <label class="form-check-label" for="PS2 - PS3 - PS4 - PS5 ">PS2 - PS3 - PS4 - PS5 </label>
+                                        <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="PS4 - PS5">
+                                        <label class="form-check-label" for="PS4 - PS5 ">PS4 - PS5 </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="XBox">
-                                        <label class="form-check-label" for="XBox">XBox</label>
+                                        <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="Xbox">
+                                        <label class="form-check-label" for="Xbox">Xbox</label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input dispositivo" type="checkbox" name="chkbdispositivo[]" value="Wii">
@@ -93,7 +91,7 @@
                             <div class="col-sm-1"></div>
                         </div>
 
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="col-sm-1"></div>
                             <div class="col-sm-5">
                                 <label class="form-label">¿Cada cuánto desea recibir nuestros correos?</label> <br>
@@ -116,7 +114,7 @@
 
                     <div class="card-footer row ">
                         <div class="text-end">
-                            <a href="index.php" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+                            <a href="index.php?c=noticias&a=index_noticias" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
                             <button class="btn btn-primary" id="btnListo" type="submit" value="guardar">Listo</button>
                         </div>
                     </div>
@@ -127,7 +125,7 @@
     <!-------------------------------------------------FOOTER---------------------------------------->
 
     <?php
-    require_once '../Templates/footerBootstrap.php'
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php'
     ?>
 
     <!----------------------------------------------------------------------------------------------->

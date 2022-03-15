@@ -28,6 +28,16 @@ address {
   text-align: center;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
+footer {
+  position: relative;
+  bottom: 0px !important;
+}
+
 .noticias {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -243,10 +253,6 @@ div[class*="nente"],
   font-style: italic;
 }
 
-footer {
-  grid-area: footer;
-}
-
 @media screen and (max-width: 1015px) {
   #aside_nuevo {
     height: 70px;
@@ -258,9 +264,6 @@ footer {
 }
 
 @media screen and (max-width: 950px) {
-  header {
-    position: relative;
-  }
   body {
     margin: 0px 0px 0px 0px;
   }
@@ -269,12 +272,11 @@ footer {
   }
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 760px) {
   .noticias {
     grid-template-areas:
       "previa_noticia previa_noticia previa_noticia"
-      "aside aside aside"
-      "footer footer footer";
+      "aside aside aside";
   }
 
   aside {
@@ -287,7 +289,7 @@ footer {
   }
 
   #aside_categorias {
-    width: 18%;
+    width: 20%;
     height: 200px;
     padding-top: 20px;
     padding-bottom: 80px;
@@ -307,7 +309,7 @@ footer {
 
   #aside_nuevo {
     margin-bottom: 10px;
-    width: 35%;
+    width: 45%;
   }
 
   .titulo_nuevo {

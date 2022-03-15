@@ -19,7 +19,7 @@ class NoticiasController
         $resultados = $this->modelo->listar();
 
         //llamo a la vista
-        require_once VIEW_PATH . 'Noticias2/listar_noticia.php';
+        require_once VIEW_PATH . 'Noticias/listar_noticia.php';
     }
 
     public function index_noticias()
@@ -36,7 +36,7 @@ class NoticiasController
         $lista2 = $con->listar();
 
         //llamo a la vista
-        require_once VIEW_PATH . 'Noticias2/BernalHelen.php';
+        require_once VIEW_PATH . 'Noticias/BernalHelen.php';
     }
 
     public function buscar() {
@@ -48,7 +48,7 @@ class NoticiasController
         //comunica con el modelo
         $resultados = $this->modelo->buscar($i_criterio, $i_op);
         //llenar aside
-        if(empty($resultados)){
+        if(count($resultados) == 0 || $resultados == ""){
             echo '<script>alert("Pronto tendremos más noticias")</script>';
         }
         require_once DAO_PATH . 'TemaDAO.php';
@@ -59,7 +59,7 @@ class NoticiasController
         $lista2 = $con->listar();
 
         // comunicarnos a la vista
-        require_once VIEW_PATH . 'Noticias2/BernalHelen.php';
+        require_once VIEW_PATH . 'Noticias/BernalHelen.php';
     }
 
     public function guardar()
@@ -77,13 +77,21 @@ class NoticiasController
                     $_FILES["archivo"]["type"] == "image/jpeg"
                 ) {
                     # Escapa caracteres especiales
-                    $imagen = (file_get_contents($_FILES["archivo"]["tmp_name"]));
+                    //$imagen = (file_get_contents($_FILES["archivo"]["tmp_name"]));
+
+                    require_once CONTROLLER_PATH . 'Genericos.php';
+                    $respuesta = Genericos::GuardarArchivoServidor($_FILES["archivo"]);
+                    if ($respuesta != null) {
+                        echo  $respuesta;
+                    } else {
+                        echo "No se guardó la imagen!!\n";
+                    }
 
                     $datos = [
                         "id_noticia" => $_GET['id'] ? $_GET['id'] : "",
                         "titulo" => $_POST['txtTitulo'],
                         "descripcion" => $_POST['txtDescripcion'],
-                        "url_imagen" => $imagen,
+                        "url_imagen" => $respuesta,
                         "id_tema" => $_POST['selectTema'],
                         "id_dispositivo" => $_POST['selectDispositivo']
                     ];
@@ -128,7 +136,7 @@ class NoticiasController
                 require_once DAO_PATH . 'DispositivoDAO.php';
                 $con = new DispositivoDAO();
                 $lista2 = $con->listar();
-                require_once VIEW_PATH . 'Noticias2/editar_noticia.php';
+                require_once VIEW_PATH . 'Noticias/editar_noticia.php';
 
             }
         }   
@@ -152,7 +160,7 @@ class NoticiasController
             require_once DAO_PATH . 'DispositivoDAO.php';
             $con = new DispositivoDAO();
             $lista2 = $con->listar();
-            require_once VIEW_PATH . 'Noticias2/editar_noticia.php';
+            require_once VIEW_PATH . 'Noticias/editar_noticia.php';
 
         } else {
             require_once DAO_PATH . 'TemaDAO.php';
@@ -161,7 +169,7 @@ class NoticiasController
             require_once DAO_PATH . 'DispositivoDAO.php';
             $con = new DispositivoDAO();
             $lista2 = $con->listar();
-            require_once VIEW_PATH . 'Noticias2/agregar_noticia.php';
+            require_once VIEW_PATH . 'Noticias/agregar_noticia.php';
         }
     }
 }
