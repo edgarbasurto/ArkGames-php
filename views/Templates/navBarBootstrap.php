@@ -70,23 +70,45 @@ $tmp = getSessionActual();
                 <?php
 
                 if (TIENE_PERMISO(PERMISOS::PUEDE_ACCEDER_MANTENIMIENTO)) {
-                    echo ' <li class="nav-item ">
+                    echo ' <li class="nav-item mx-0 mx-lg-1">
                      <a class="nav-link py-3 px-0 px-lg-3 rounded " href="?c=session&a=dash" role="button"  aria-expanded="false"><i class="fa-solid fa-wrench"></i></a>
                  </li>
                  
                  ';
                 }
                 ?>
-                <li class="nav-item ">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded btn btn-primary position-relative" href="#" role="button" aria-expanded="false">
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded btn position-relative" href="#" role="button" aria-expanded="false">
                         <i class="fa-solid fa-cart-shopping"></i>
 
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            999999+
+                            0+
                             <span class="visually-hidden">unread messages</span>
                         </span>
                     </a>
                 </li>
+
+                <li class="nav-item mx-0 px-1 mx-lg-1 dropdown">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user fa-fw"></i>
+
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <h6 class="dropdown-header fw-bold"><?php echo $tmp->NombreCompleto; ?></h6>
+
+                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_CAMBIAR_PASSWORD)) {
+
+                            echo '     
+                    <li><a class="dropdown-item" href="index.php?c=usuarios&a=changepwd">Cambiar Contraseña</a></li>
+                  ';
+                        } ?>
+
+                        <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item" href="index.php?c=session&a=end">Cerrar Sessión</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </div>
