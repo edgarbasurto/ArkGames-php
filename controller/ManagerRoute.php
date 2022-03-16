@@ -1,17 +1,19 @@
 <?php
 
 require_once 'config/global.php';
-
+require_once  CONTROLLER_PATH . 'Genericos.php';
 class ManagerRoute
 {
-
+    private $SessionActual;
     public function __construct()
     {
+        //establece la session por default 
+        $this->SessionActual =  getSessionActual();
     }
 
     public function ruteo()
     {
-        // Todo esta lógica hara el papel de un FrontController
+        // // Todo esta lógica hara el papel de un FrontController
         $controller = (!empty($_REQUEST['c'])) ? htmlentities($_REQUEST['c']) : CONTROLLER_DEFAULT;
         $controller = ucwords(strtolower($controller)) . 'Controller';
 

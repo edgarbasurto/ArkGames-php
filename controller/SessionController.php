@@ -1,4 +1,7 @@
 <?php
+
+use phpDocumentor\Reflection\Location;
+
 require_once DAO_PATH . 'UsuarioDAO.php';
 class SessionController
 {
@@ -22,14 +25,17 @@ class SessionController
 
     public function dash()
     {
-        if (!isset($_SESSION)) {
-            session_start();
-        };
-        require_once(VIEW_PATH .  "Session/dashboard.php");
+        if (TIENE_PERMISO(PERMISOS::PUEDE_ACCEDER_MANTENIMIENTO)) {
+            require_once(VIEW_PATH .  "Session/dashboard.php");
+        } else {
+            header('Location:index.php?c=session');
+        }
     }
 
     public function end()
     {
         //para cerrrar session
+        session_unset();
+        header('Location: index.php');
     }
 }

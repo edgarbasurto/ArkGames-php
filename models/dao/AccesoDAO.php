@@ -2,8 +2,8 @@
 <?php
 
 require_once ROOT_PATH . 'config/conexion.php';
-//require_once DTO_PATH . 'Session.php';
-class SessionDAO
+require_once DTO_PATH . 'Acceso.php';
+class AccesoDAO
 {
     private $con;
 
@@ -14,9 +14,9 @@ class SessionDAO
 
     public function GetById(int $Value)
     {
-        return
-            $this->sqlQuery("SELECT * FROM usuarios WHERE Activo=1 AND Id=" . $Value);
+        return $this->sqlQuery("SELECT   * FROM accesos WHERE Activo=1 AND Id='" . $Value . "'");
     }
+
 
     public function Insert(Usuario $Obj)
     {
@@ -54,36 +54,15 @@ class SessionDAO
         //ejecucion de la sentencia
         $stmt->execute();
         //recuperacion de resultados
-        $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $Accesos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         // retorna datos para el controlador
         $ObjReturn = array();
-        foreach ($usuarios  as $usuario) {
-            $ObjUsuario = new Usuario();
-            $ObjUsuario->SetValorDTO($usuario);
-            $ObjReturn[] = $ObjUsuario;
+        foreach ($Accesos  as $session) {
+            $ObjAccesos = new Acceso();
+            $ObjAccesos->SetValorDTO($session);
+            $ObjReturn[] = $ObjAccesos;
         }
         return $ObjReturn;
-    }
-
-    public function getSessionActual()
-    {
-        //Rafael1108
-        //Se instancia session
-        if (!isset($_SESSION)) {
-            session_start();
-        };
-
-        //Se genera codigo de session como invitado
-        if (!isset($_SESSION['ID'])) {
-            $_SESSION['ID'] = '00000000-0000-0000-0000-000000000000';
-        }
-
-
-        if ($_SESSION['ID'] == '00000000-0000-0000-0000-000000000000') {
-            return 0;
-        } else {
-            return  1;
-        }
     }
 }

@@ -1,3 +1,9 @@
+<?php
+
+require_once  CONTROLLER_PATH . 'Genericos.php';
+$tmp = getSessionActual();
+?>
+
 <body class="sb-nav-fixed">
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -25,6 +31,14 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <?php if (TIENE_PERMISO(PERMISOS::PUEDE_CAMBIAR_PASSWORD)) {
+
+                        echo '     
+                    <li><a class="dropdown-item" href="index.php?c=usuarios&a=changepwd">Cambiar Contraseña</a></li>
+                  ';
+                    } ?>
+
+
                     <li><a class="dropdown-item" href="index.php?c=session&a=end">Cerrar Sessión</a></li>
                 </ul>
             </li>
@@ -35,39 +49,53 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-
                         <a class="nav-link" href="?c=session&a=dash">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
                         <div class="sb-sidenav-menu-heading">Mantenimiento</div>
-                        <a class="nav-link" href="?c=session&a=dash">
+                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
+                            echo ' <a class="nav-link" href="?c=session&a=dash">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
                             Productos
-                        </a>
-                        <a class="nav-link" href="?c=session&a=dash">
+                        </a>';
+                        } ?>
+                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_NOTICIAS)) {
+                            echo '<a class="nav-link" href="?c=session&a=dash">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-newspaper"></i></div>
                             Noticias
-                        </a>
-                        <a class="nav-link" href="?c=session&a=dash">
+                        </a>';
+                        } ?>
+                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SOPORTE)) {
+                            echo '<a class="nav-link" href="?c=session&a=dash">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                             Soporte
-                        </a>
-                        <a class="nav-link" href="?c=session&a=dash">
+                        </a>';
+                        } ?>
+                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_NOTICIAS)) {
+                            echo '<a class="nav-link" href="?c=session&a=dash">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-address-book"></i></div>
                             Contactos
-                        </a>
+                        </a>';
+                        } ?>
+                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_USUARIOS)) {
+                            echo '
                         <div class="sb-sidenav-menu-heading">Configuraciones</div>
                         <a class="nav-link" href="?c=usuarios">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
                             Usuarios
-                        </a>
+                        </a>';
+                        } ?>
                     </div>
                 </div>
-                <!-- <div class="sb-sidenav-footer text-center">
-                    <div class="fw-bold">Usuario</div>
-                    <div class="small">Perfil</div>
-                </div> -->
+                <div class="sb-sidenav-footer text-center">
+                    <div class="fw-bold">
+                        <?php
+                        echo $tmp->NombreCompleto;
+                        ?>
+                    </div>
+                    <div class="small"><?php echo $tmp->NombrePerfil; ?></div>
+                </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">

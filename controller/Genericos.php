@@ -50,14 +50,50 @@ class Genericos
             return null;
         }
     }
-    // @Rafael1108
-    // funcion para generar claves unicas de 64bits ... 
-    function GUID()
-    {
-        if (function_exists('com_create_guid') === true) {
-            return trim(com_create_guid(), '{}');
-        }
+}
 
-        return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+// @Rafael1108
+// funcion para generar claves unicas de 64bits ... 
+function GUID()
+{
+    if (function_exists('com_create_guid') === true) {
+        return trim(com_create_guid(), '{}');
     }
+
+    return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+}
+
+
+require_once  DAO_PATH . 'PermisosDAO.php';
+function TIENE_PERMISO(int $Permiso): bool
+{
+    $mySession = getSessionActual();
+    $IdRol = $mySession->Perfil;
+    $ObjPermisos = new PermisosDAO();
+    $ObjPerfilUsuario =  $ObjPermisos->getInstancia($IdRol);
+    return $ObjPerfilUsuario->tieneAcceso($Permiso);
+}
+
+function getSessionActual()
+{
+    require_once  DTO_PATH . 'Session.php';
+    //Rafael1108
+    //Se instancia session
+    if (!isset($_SESSION)) {
+        session_start();
+    };
+
+    $mySession = new Session();
+    // //Se genera codigo de session como invitado
+    if (!isset($_SESSION['mySession'])) {
+        $mySession->Session = '00000000-0000-0000-0000-000000000000';
+        $mySession->Usuario = -1;
+        $mySession->Perfil = 3;
+        $mySession->NombrePerfil = TipoRol::getName(0);
+        $mySession->Email = '';
+        $mySession->NombreCompleto = 'Invitado';
+        $_SESSION['mySession'] = $mySession;
+    }
+
+    return $_SESSION['mySession'];
 }

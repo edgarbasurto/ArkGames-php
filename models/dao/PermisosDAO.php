@@ -1,10 +1,8 @@
 <?php
-require_once DAO_PATH . 'SessionDAO.php';
 
 class PermisosDAO
 {
-
-    private function getInstancia(int $tipoRol)
+    public function getInstancia(int $tipoRol)
     {
         switch ($tipoRol) {
             case 0:
@@ -21,22 +19,7 @@ class PermisosDAO
                 break;
         }
     }
-
-    public static function TIENE_PERMISO(int $Permiso): bool
-    {
-
-        $OBJsession = new SessionDAO();
-        $mySession = $OBJsession->getSessionActual();
-
-        $IdRol = 3;
-        $ObjPermisos = new PermisosDAO();
-        $ObjPerfilUsuario =  $ObjPermisos->getInstancia($IdRol);
-        //$ObjPerfilUsuario->printRol();
-
-        return $ObjPerfilUsuario->tieneAcceso($Permiso);
-    }
 }
-
 
 class PERMISOS
 {
