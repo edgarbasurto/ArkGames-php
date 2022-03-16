@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <?php require_once '../../views/Templates/HeadBootstrap.php' ?>
+        <?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
         <title>CRUD</title>
         <style>
             .contenedor-table{
+                margin-top: 80px;
                 margin-left: 20px;
             }
             footer{
@@ -24,48 +25,39 @@
     <body> 
     <header>
         <?php
-        require_once '../Templates/navBarBootstrap.php'
+        require_once VIEW_PATH . 'Templates/navBarBootstrap.php'
         ?>
     </header>
         <h1>Soporte</h1>
-
-        <?php
-       require_once '../../config/conexionPDO.php';
-
-        $sql = "select * from soporte ";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-        ?>
 
         <div class="contenedor-table">
             <table>
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>USUARIO</th>
-                        <th>EMAIL</th>
-                        <th>TELEFONO</th>
-                        <th>SERVICIO</th>
-                        <th>PRODUCTO</th>
-                        <th>DESCRIPCION</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Telefono</th>
+                        <th>Servicio</th>
+                        <th>Producto</th>
+                        <th>Descripcion</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $filas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($filas as $fila) {
+                    foreach ($resultados as $soporte) {
                         ?>
                         <tr>
-                            <td><?php echo $fila['id_solicitud'] ?></td>
-                            <td><?php echo $fila['usuario'] ?></td>
-                            <td><?php echo $fila['email'] ?></td>
-                            <td><?php echo $fila['telefono'] ?></td>
-                            <td><?php echo $fila['servicio'] ?></td>
-                            <td><?php echo $fila['producto'] ?></td>
-                            <td><?php echo $fila['descripcion_problema'] ?></td>
+                            <td><?php echo $soporte->id_solicitud ?></td>
+                            <td><?php echo $soporte->usuario ?></td>
+                            <td><?php echo $soporte->email ?></td>
+                            <td><?php echo $soporte->telefono ?></td>
+                            <td><?php echo $soporte->servicio ?></td>
+                            <td><?php echo $soporte->producto ?></td>
+                            <td><?php echo $soporte->descripcion_problema ?></td>
                             <td>
-                                <a href="editar_solicitud.php?id=<?php echo $fila['id_solicitud'] ?>">Editar</a>
-                                <a href="eliminar_solicitud.php?id=<?php echo $fila['id_solicitud'] ?>">Eliminar</a>
+                                <a href="editar_solicitud.php?id=<?php echo $soporte->id_solicitud ?>">Editar</a>
+                                <a href="eliminar_solicitud.php?id=<?php echo $soporte->id_solicitud ?>">Eliminar</a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -73,6 +65,9 @@
             </table>
             <a href="frmSoporte_EspinozaIvan.php">Agregar</a>
         </div>
+    <?php
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php'
+    ?>
     </body>
 </html>
 
