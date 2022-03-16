@@ -7,12 +7,7 @@
 <title>Suscripción - Noticias ArkGames</title>
 </head>
 
-<body id="bodyTemp">
-    <header>
-        <?php
-        require_once VIEW_PATH . 'Templates/MenuDashboardBootstrap.php'
-        ?>
-    </header>
+<?php require_once VIEW_PATH . 'Templates/MenuDashboardBootstrap.php'?>
         <main class="main p-5 mx-3">
             <div class="container px-5">
                 <div class="container card shadow">
@@ -117,12 +112,7 @@
             </div>
         </main>
     <!-------------------------------------------------FOOTER---------------------------------------->
-    <?php
-    require_once VIEW_PATH . 'Templates/FootDashboardBootstrap.php'
-    ?>
+    <?php require_once VIEW_PATH . 'Templates/FootDashboardBootstrap.php'?>
     <!----------------------------------------------------------------------------------------------->
     <script type="text/javascript" src="../../assets/js/Validacion_Noticias.js"></script>
     <?php require_once VIEW_PATH . 'Templates/EndDashboardBootstrap.php' ?>
-</body>
-
-</html>

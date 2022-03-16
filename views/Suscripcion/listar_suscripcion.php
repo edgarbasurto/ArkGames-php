@@ -7,12 +7,8 @@
 <title>CRUD</title>
 </head>
 
-<body id="bodyTemp">
-    <header>
-        <?php
-        require_once VIEW_PATH . 'Templates/MenuDashboardBootstrap.php'
-        ?>
-    </header>
+    <?php require_once VIEW_PATH . 'Templates/MenuDashboardBootstrap.php'?>
+
     <main class="main p-5 mx-3">
 
         <div class="container-fluid card shadow">
@@ -65,13 +61,7 @@
                     </table>
                 </div>
             </div>
-
         </div>
     </main>
-    <?php
-    require_once VIEW_PATH . 'Templates/FootDashboardBootstrap.php'
-    ?>
+    <?php require_once VIEW_PATH . 'Templates/FootDashboardBootstrap.php'?>
     <?php require_once VIEW_PATH . 'Templates/EndDashboardBootstrap.php' ?>
-</body>
-
-</html>
