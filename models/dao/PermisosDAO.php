@@ -50,6 +50,11 @@ class PERMISOS
     const PUEDE_ELIMINAR_SOPORTE = 19;
 
     const PUEDE_FINALIZAR_COMPRAR = 20;
+
+    const PUEDE_VISUALIZAR_CONTACTOS = 21;
+    const PUEDE_CREAR_CONTACTOS = 22;
+    const PUEDE_EDITAR_CONTACTOS = 23;
+    const PUEDE_ELIMINAR_CONTACTOS = 24;
 }
 
 class Administrador implements Perfil
@@ -105,6 +110,11 @@ class Jugador implements Perfil
         $bloqueo_funciones[] = PERMISOS::PUEDE_EDITAR_SOPORTE;
         $bloqueo_funciones[] = PERMISOS::PUEDE_ELIMINAR_SOPORTE;
 
+        $bloqueo_funciones[] = PERMISOS::PUEDE_VISUALIZAR_CONTACTOS;
+        $bloqueo_funciones[] = PERMISOS::PUEDE_CREAR_CONTACTOS;
+        $bloqueo_funciones[] = PERMISOS::PUEDE_EDITAR_CONTACTOS;
+        $bloqueo_funciones[] = PERMISOS::PUEDE_ELIMINAR_CONTACTOS;
+
         return  $bloqueo_funciones;
     }
 }
@@ -141,6 +151,11 @@ class Invitado implements Perfil
         $bloqueo_funciones[] = PERMISOS::PUEDE_CREAR_SOPORTE;
         $bloqueo_funciones[] = PERMISOS::PUEDE_EDITAR_SOPORTE;
         $bloqueo_funciones[] = PERMISOS::PUEDE_ELIMINAR_SOPORTE;
+
+        $bloqueo_funciones[] = PERMISOS::PUEDE_VISUALIZAR_CONTACTOS;
+        $bloqueo_funciones[] = PERMISOS::PUEDE_CREAR_CONTACTOS;
+        $bloqueo_funciones[] = PERMISOS::PUEDE_EDITAR_CONTACTOS;
+        $bloqueo_funciones[] = PERMISOS::PUEDE_ELIMINAR_CONTACTOS;
 
         return  $bloqueo_funciones;
     }
