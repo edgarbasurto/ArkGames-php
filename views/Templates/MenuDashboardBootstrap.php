@@ -73,10 +73,16 @@ $tmp = getSessionActual();
                             Soporte
                         </a>';
                         } ?>
-                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_NOTICIAS)) {
+                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_CONTACTOS)) {
                             echo '<a class="nav-link" href="?c=session&a=dash">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-address-book"></i></div>
                             Contactos
+                        </a>';
+                        } ?>
+                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SUSCRIP)) {
+                            echo '<a class="nav-link" href="?c=suscripcion">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-address-book"></i></div>
+                            Suscripciones
                         </a>';
                         } ?>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_USUARIOS)) {
