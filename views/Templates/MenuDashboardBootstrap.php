@@ -31,6 +31,7 @@ $tmp = getSessionActual();
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <h6 class="dropdown-header fw-bold"><?php echo $tmp->NombreCompleto; ?></h6>
                     <?php if (TIENE_PERMISO(PERMISOS::PUEDE_CAMBIAR_PASSWORD)) {
 
                         echo '     
@@ -38,7 +39,7 @@ $tmp = getSessionActual();
                   ';
                     } ?>
 
-
+                    <div class="dropdown-divider"></div>
                     <li><a class="dropdown-item" href="index.php?c=session&a=end">Cerrar Sessión</a></li>
                 </ul>
             </li>
