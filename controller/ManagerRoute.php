@@ -1,8 +1,10 @@
 <?php
 
 require_once 'config/global.php';
+
 class ManagerRoute
 {
+
     public function __construct()
     {
     }

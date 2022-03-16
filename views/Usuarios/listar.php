@@ -24,7 +24,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                         <h3 class="fw-bold" style="margin-top:.5rem">Usuarios</h3>
                     </div>
                     <div class="col text-end align-middle">
-                        <a href="index.php?c=usuarios&a=new" class="btn btn-primary"><i class="fas fa-plus-square"></i> Nuevo Usuario</a>
+                        <a href="index.php?c=usuarios&a=new" class="btn btn-primary"><i class="fas fa-plus-square"></i> Nuevo</a>
                     </div>
                 </div>
             </div>

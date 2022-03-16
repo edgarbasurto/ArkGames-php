@@ -60,28 +60,33 @@
 		<!--  Contenido generado dinamicamente      -->
 
 	</section>
-	<section class="p-5 ">
+	<section class="px-5">
 		<?php foreach ($noticias as $noticia) { ?>
-			<div class="row gx-5" style="background-color: white;">
-				<div class="col-md-6 mb-4">
+			<div class="row gx-5 m-2 rounded" style=" background-color: rgba(255, 255, 255, 0.781);">
+				<div class="col-md-6 mb-4 py-5">
 					<div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
 						<img src="data:image/jpg;base64,<?php echo base64_encode($noticia->url_imagen); ?>" class="img-fluid" />
 					</div>
 				</div>
 
-				<div class="col-md-6 mb-4">
+				<div class="col-md-6 mb-4 py-5">
 					<span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3"><?php echo $noticia->nombre_tema; ?></span>
 					<h4><strong><?php echo $noticia->titulo; ?></strong></h4>
 					<p class="text-muted">
 						<?php echo $noticia->descripcion; ?>
 					</p>
-					<button type="button" class="btn btn-primary">Leer más!</button>
+					<a href="index.php?c=noticias" class="btn btn-primary">Leer más!</a>
 				</div>
 			</div>
 		<?php } ?>
 
 	</section>
 
+	<section class="px-5 align-middle text-center">
+		<iframe class="video" src="https://www.youtube.com/embed/rH634tJuwOw?start=5" title="Assiants - Muy Pronto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe class="video" src="https://www.youtube.com/embed/zdVk4hHQTn0?start=15" title="Call of Duty - Muy Pronto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe class="video" src="https://www.youtube.com/embed/eS-ZrijCiPk?start=25" title="Battlefield" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>
 
 	<script language="javascript" type="text/javascript">
 		function show_popup() {

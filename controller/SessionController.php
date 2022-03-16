@@ -18,6 +18,8 @@ class SessionController
         require_once(VIEW_PATH .  "Session/login.php");
     }
 
+
+
     public function dash()
     {
         if (!isset($_SESSION)) {

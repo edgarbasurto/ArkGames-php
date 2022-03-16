@@ -9,10 +9,10 @@ class Genericos
     {
         //estableciendo directorio a almacenar
         $ruta =  date("Y-m-d", time()) . '/';
-        
+
         //comprobando existencia del directorio        
         if (!is_dir(FILES_UPLOAD . $ruta)) {
-            
+
             echo FILES_UPLOAD . $ruta;
             @mkdir(FILES_UPLOAD . $ruta, 0700);
         }
@@ -32,10 +32,10 @@ class Genericos
     {
         //estableciendo directorio a almacenar
         $ruta =  date("Y-m-d", time()) . '/';
-        
+
         //comprobando existencia del directorio        
         if (!is_dir(FILES_NOTICIAS . $ruta)) {
-            
+
             echo FILES_NOTICIAS . $ruta;
             @mkdir(FILES_NOTICIAS . $ruta, 0700);
         }
@@ -49,5 +49,15 @@ class Genericos
         } else {
             return null;
         }
+    }
+    // @Rafael1108
+    // funcion para generar claves unicas de 64bits ... 
+    function GUID()
+    {
+        if (function_exists('com_create_guid') === true) {
+            return trim(com_create_guid(), '{}');
+        }
+
+        return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
     }
 }
