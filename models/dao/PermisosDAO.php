@@ -55,6 +55,11 @@ class PERMISOS
     const PUEDE_CREAR_CONTACTOS = 22;
     const PUEDE_EDITAR_CONTACTOS = 23;
     const PUEDE_ELIMINAR_CONTACTOS = 24;
+
+    const PUEDE_VISUALIZAR_SUSCRIP = 25;
+    const PUEDE_CREAR_SUSCRIP = 26;
+    const PUEDE_EDITAR_SUSCRIP = 27;
+    const PUEDE_ELIMINAR_SUSCRIP = 28;
 }
 
 class Administrador implements Perfil
@@ -115,6 +120,11 @@ class Jugador implements Perfil
         $bloqueo_funciones[] = PERMISOS::PUEDE_EDITAR_CONTACTOS;
         $bloqueo_funciones[] = PERMISOS::PUEDE_ELIMINAR_CONTACTOS;
 
+        $bloqueo_funciones[] = PERMISOS::PUEDE_VISUALIZAR_SUSCRIP;
+        $bloqueo_funciones[] = PERMISOS::PUEDE_CREAR_SUSCRIP;
+        $bloqueo_funciones[] = PERMISOS::PUEDE_EDITAR_SUSCRIP;
+        $bloqueo_funciones[] = PERMISOS::PUEDE_ELIMINAR_SUSCRIP;
+
         return  $bloqueo_funciones;
     }
 }
@@ -156,6 +166,11 @@ class Invitado implements Perfil
         $bloqueo_funciones[] = PERMISOS::PUEDE_CREAR_CONTACTOS;
         $bloqueo_funciones[] = PERMISOS::PUEDE_EDITAR_CONTACTOS;
         $bloqueo_funciones[] = PERMISOS::PUEDE_ELIMINAR_CONTACTOS;
+
+        $bloqueo_funciones[] = PERMISOS::PUEDE_VISUALIZAR_SUSCRIP;
+        $bloqueo_funciones[] = PERMISOS::PUEDE_CREAR_SUSCRIP;
+        $bloqueo_funciones[] = PERMISOS::PUEDE_EDITAR_SUSCRIP;
+        $bloqueo_funciones[] = PERMISOS::PUEDE_ELIMINAR_SUSCRIP;
 
         return  $bloqueo_funciones;
     }
