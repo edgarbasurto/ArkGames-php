@@ -55,13 +55,13 @@ $tmp = getSessionActual();
                         </a>
                         <div class="sb-sidenav-menu-heading">Mantenimiento</div>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
-                            echo ' <a class="nav-link" href="?c=session&a=dash">
+                            echo ' <a class="nav-link" href="?c=productos">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
                             Productos
                         </a>';
                         } ?>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_NOTICIAS)) {
-                            echo '<a class="nav-link" href="?c=session&a=dash">
+                            echo '<a class="nav-link" href="?c=noticias">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-newspaper"></i></div>
                             Noticias
                         </a>';
