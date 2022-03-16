@@ -326,9 +326,9 @@ VALUES
     'Contrasenia perdida de cuenta en Fall Guys.'
   );
   /* TABLA USUARIOS
-                                     * -- RAFAEL LARREA
-                                     * -- @Rafael1108
-                                    */
+                                         * -- RAFAEL LARREA
+                                         * -- @Rafael1108
+                                        */
   DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
     `Id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -453,31 +453,31 @@ VALUES
     'escalantePed@gmail.com',
     'muy buena pagina!.'
   );
-   DROP TABLE IF EXISTS `vacante`;
+DROP TABLE IF EXISTS `vacante`;
 CREATE TABLE vacante(
     id_vacante int NOT NULL AUTO_INCREMENT,
     nombre_vacante VARCHAR(50) NOT NULL,
     PRIMARY KEY (`id_vacante`)
   ) DEFAULT CHARSET UTF8 COMMENT '';
-  INSERT INTO
+INSERT INTO
   vacante(nombre_vacante)
 VALUES
   ('Ventas'),('Atencion al cliente'),('Desarrollo de Juegos'),('Soporte Tecnico'),('Administracion');
- DROP TABLE IF EXISTS `empleo`;
- CREATE TABLE `empleo` (
-   `id_solictudEmpleo` int NOT NULL AUTO_INCREMENT,
-   `nombre` VARCHAR(30) NOT NULL,
-   `apellido` VARCHAR(30) NOT NULL,
-   `edad` int NOT NULL,
-   `telefono` VARCHAR(10) NOT NULL,
-   `correo` VARCHAR(60) NOT NULL,
-   `id_vacante` int NOT NULL,
-   `experiencia` VARCHAR(300) NOT NULL,
-   PRIMARY KEY (`id_solictudEmpleo`),
+DROP TABLE IF EXISTS `empleo`;
+CREATE TABLE `empleo` (
+    `id_solictudEmpleo` int NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(30) NOT NULL,
+    `apellido` VARCHAR(30) NOT NULL,
+    `edad` int NOT NULL,
+    `telefono` VARCHAR(10) NOT NULL,
+    `correo` VARCHAR(60) NOT NULL,
+    `id_vacante` int NOT NULL,
+    `experiencia` VARCHAR(300) NOT NULL,
+    PRIMARY KEY (`id_solictudEmpleo`),
     KEY `id_vacante` (`id_vacante`),
-     CONSTRAINT `id_vacante` FOREIGN KEY (`id_vacante`) REFERENCES `vacante` (`id_vacante`)
- ) ENGINE = InnoDB AUTO_INCREMENT = 0 DEFAULT CHARSET = utf8mb3 COLLATE = utf8_spanish_ci;
- INSERT INTO
+    CONSTRAINT `id_vacante` FOREIGN KEY (`id_vacante`) REFERENCES `vacante` (`id_vacante`)
+  ) ENGINE = InnoDB AUTO_INCREMENT = 0 DEFAULT CHARSET = utf8mb3 COLLATE = utf8_spanish_ci;
+INSERT INTO
   `empleo`
 VALUES
   (
@@ -499,3 +499,20 @@ VALUES
     2,
     'Cuento con 4 años de experiencia en atentencion al cliente asumiendo mis responsabilidades con la empresa '
   );
+  /* TABLA accesos
+                                         * -- RAFAEL LARREA
+                                         * -- @Rafael1108
+                                        */
+  DROP TABLE IF EXISTS `accesos`;
+CREATE TABLE `accesos` (
+    `Id` char(38) NOT NULL DEFAULT 'UUID()',
+    `IdUsuario` bigint unsigned NOT NULL,
+    `ACCESO_FECHA_HORA_ACCESO` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `ACCESO_NOMBRE_NAVEGADOR` varchar(25) NOT NULL DEFAULT 'No registrado',
+    `ACCESO_IP` varchar(17) NOT NULL DEFAULT '255.255.255.0',
+    PRIMARY KEY (`Id`),
+    UNIQUE KEY `acceso_id_unique` (`Id`),
+    UNIQUE KEY `usuario_id_unique` (`IdUsuario`),
+    KEY `FK_log_acceso_usuario` (`Id`),
+    CONSTRAINT `FK_log_acceso_usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `usuarios` (`Id`)
+  ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
