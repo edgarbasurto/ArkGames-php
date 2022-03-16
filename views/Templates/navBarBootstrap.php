@@ -40,7 +40,7 @@ $tmp = getSessionActual();
                         Home</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php?c=productos">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php?c=productos&a=index_cuadricula">
                         <svg class="bi d-inline-block align-text-top mx-auto mb-1" width="24" height="24">
                             <use xlink:href="#grid" />
                         </svg>

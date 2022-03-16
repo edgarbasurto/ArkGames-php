@@ -9,10 +9,10 @@ html {
   height: 100%;
   scroll-padding-top: calc(4.5rem - 1px);
 }
-.main{
+/* .main{
    height: 100%;
    min-height: calc(100vh - 77px - 134px);
-}
+} */
 #bodyTemp {
   height: 100%;
     background-image: url("../img/fondo_Arkgames.svg");
@@ -59,7 +59,11 @@ nav ul li a svg {
   padding-bottom: 5rem;
   background-color: black;
   color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
 }
+
 
 .copyright {
   background-color: black;

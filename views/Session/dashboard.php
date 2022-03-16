@@ -18,7 +18,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
                 echo '<div class="col-xl-3 col-md-6">
                 <div class="card" style="width: 18rem;">
-                    <a class="nav-link" href="?c=session&a=dash">
+                    <a class="nav-link" href="?c=productos">
                         <div class="card-body text-center">
                             <div>
                                 <i class="fa-solid fa-boxes-stacked"></i>

@@ -18,7 +18,7 @@
 
     <!------------------------------------------------------------------------------------------>
 
-    <main class="main p-5 mx-3">
+    <main class="container my-5">
 
         <div class="container-fluid card shadow">
 
@@ -28,24 +28,7 @@
                 </div>
                 <div class="col-4">
                     <div class="row text-end py-2">
-                        <div class="col text-center">
-                            <div class="row">
-                                <div class="col text-end">
-                                    <a class="btn btn-secondary my-auto" href="?c=productos&a=index_cuadricula" data-toggle="tooltip" data-placement="top" title="Listar cuadricula">
-                                        <i class="fa-solid fa-border-all"></i></a>
-                                </div>
-
-                                <div class="col text-start">
-                                    <a class="btn btn-secondary my-auto" href="index.php?c=productos" data-toggle="tooltip" data-placement="top" title="Listar tabla">
-                                        <i class="fa-solid fa-align-justify"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col text-center">
-                            <a class="btn btn-primary my-auto" href="index.php?c=productos&a=nuevo">
-                                <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
-                        </div>
-
+                        
                     </div>
                 </div>
             </div>
@@ -71,8 +54,8 @@
                                         <span class="precio2"><b>$<?php echo $producto->precio ?></b></span>
                                     </div>
                                     <div class="col text-end">
-                                        <a href="index.php?c=productos&a=edit&id=<?php echo $producto->id_producto ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="index.php?c=productos&a=delete&id=<?php echo $producto->id_producto ?>" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="index.php?c=productos&a=edit&id=<?php echo $producto->id_producto ?>" class="btn btn-info text-white"><i class="fa-solid fa-cart-plus"></i></a>
+                                        
                                     </div>
                                 </div>
 
@@ -83,7 +66,7 @@
 
                 <?php } ?>
 
-                <div class="paginador row" id="paginador">
+                <!-- <div class="paginador row" id="paginador">
                     <div class="col"><label class="col-form-label">Registros por pagina:</label></div>
                     <div class="col"> <select name="regitrospagina" class="form-select" id="cantreg">
                             <option value="0">Todos</option>
@@ -101,7 +84,7 @@
                     <div class="col"> <a href="javascript:void(0)" class="btn btn-primary" id="nextPage">❯</a></div>
                     <div class="col"><a href="javascript:void(0)" class="btn btn-primary" id="lastPage">»</a></div>
 
-                </div>
+                </div> -->
             </div>
         </div>
     </main>
