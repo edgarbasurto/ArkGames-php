@@ -65,12 +65,12 @@
 			<div class="row gx-5 m-2 rounded" style=" background-color: rgba(255, 255, 255, 0.781);">
 				<div class="col-md-6 mb-4 py-5">
 					<div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
-						<img src="data:image/jpg;base64,<?php echo base64_encode($noticia->url_imagen); ?>" class="img-fluid" />
+						<img src="assets/img/noticias/<?php echo $noticia->url_imagen; ?>" class="img-fluid" />
 					</div>
 				</div>
 
 				<div class="col-md-6 mb-4 py-5">
-					<span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3"><?php echo $noticia->nombre_tema; ?></span>
+					<span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3"><?php echo $noticia->tema->nombre_tema; ?></span>
 					<h4><strong><?php echo $noticia->titulo; ?></strong></h4>
 					<p class="text-muted">
 						<?php echo $noticia->descripcion; ?>
