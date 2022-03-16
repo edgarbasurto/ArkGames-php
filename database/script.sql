@@ -453,3 +453,49 @@ VALUES
     'escalantePed@gmail.com',
     'muy buena pagina!.'
   );
+   DROP TABLE IF EXISTS `vacante`;
+CREATE TABLE vacante(
+    id_vacante int NOT NULL AUTO_INCREMENT,
+    nombre_vacante VARCHAR(50) NOT NULL,
+    PRIMARY KEY (`id_vacante`)
+  ) DEFAULT CHARSET UTF8 COMMENT '';
+  INSERT INTO
+  vacante(nombre_vacante)
+VALUES
+  ('Ventas'),('Atencion al cliente'),('Desarrollo de Juegos'),('Soporte Tecnico'),('Administracion');
+ DROP TABLE IF EXISTS `empleo`;
+ CREATE TABLE `empleo` (
+   `id_solictudEmpleo` int NOT NULL AUTO_INCREMENT,
+   `nombre` VARCHAR(30) NOT NULL,
+   `apellido` VARCHAR(30) NOT NULL,
+   `edad` int NOT NULL,
+   `telefono` VARCHAR(10) NOT NULL,
+   `correo` VARCHAR(60) NOT NULL,
+   `id_vacante` int NOT NULL,
+   `experiencia` VARCHAR(300) NOT NULL,
+   PRIMARY KEY (`id_solictudEmpleo`),
+    KEY `id_vacante` (`id_vacante`),
+     CONSTRAINT `id_vacante` FOREIGN KEY (`id_vacante`) REFERENCES `vacante` (`id_vacante`)
+ ) ENGINE = InnoDB AUTO_INCREMENT = 0 DEFAULT CHARSET = utf8mb3 COLLATE = utf8_spanish_ci;
+ INSERT INTO
+  `empleo`
+VALUES
+  (
+    1,
+    'Marcos',
+    'Jimenez',
+    32,
+    '0985703056',
+    'marcos32j@gmail.com',
+    3,
+    'dessarrolo de videojuegos con experiencia de mas de 3 años'
+  ),(
+    2,
+    'Julian',
+    'Lopez',
+    29,
+    '0945373056',
+    'jlopez09j@gmail.com',
+    2,
+    'Cuento con 4 años de experiencia en atentencion al cliente asumiendo mis responsabilidades con la empresa '
+  );
