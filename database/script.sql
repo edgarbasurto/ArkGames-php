@@ -326,13 +326,13 @@ VALUES
     'Contrasenia perdida de cuenta en Fall Guys.'
   );
   /* TABLA USUARIOS
-                                   * -- RAFAEL LARREA
-                                   * -- @Rafael1108
-                                  */
+                                     * -- RAFAEL LARREA
+                                     * -- @Rafael1108
+                                    */
   DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
     `Id` bigint unsigned NOT NULL AUTO_INCREMENT,
-    `IdRol` enum('0', '1', '2') NOT NULL COMMENT 'Tipos de Roles (0=> Invitado, 1=>Administrador, 2=>Jugador)',
+    `IdRol` enum('0', '1', '2', '3') NOT NULL COMMENT 'Tipos de Roles (0=> Invitado, 1=>Administrador, 2=>Jugador, 3=>Mantenimiento)',
     `IdServidor` int NOT NULL DEFAULT 0,
     `NickName` varchar(15) NOT NULL,
     `Email` varchar(80) DEFAULT '',
@@ -346,10 +346,39 @@ CREATE TABLE `usuarios` (
     `FechaActualizacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`Id`)
   ) ENGINE = InnoDB AUTO_INCREMENT = 3 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+LOCK TABLES `usuarios` WRITE;
 INSERT INTO
   `usuarios`
 VALUES
   (
+    1,
+    '1',
+    0,
+    'admin',
+    'administrador@dominio.com',
+    'Administrador del Sitio',
+    'N',
+    '1990-08-11 10:00:00',
+    _binary '$argon2id$v=19$m=65536,t=4,p=1$bDnoouCJGsPZVjjW/qYcjA$JTYWrA5NSl8zXMP/but0pdmQdwcs20xQC9QTnu1d9lI',
+    1,
+    0,
+    '2022-03-04 13:12:48',
+    '2022-03-04 08:35:22'
+  ),(
+    2,
+    '3',
+    0,
+    'mantener',
+    'mantenimiento@dominio.com',
+    'Usuario Mantenimiento',
+    'N',
+    '1990-08-11 10:00:00',
+    _binary '$argon2id$v=19$m=65536,t=4,p=1$bDnoouCJGsPZVjjW/qYcjA$JTYWrA5NSl8zXMP/but0pdmQdwcs20xQC9QTnu1d9lI',
+    1,
+    0,
+    '2022-03-04 13:12:48',
+    '2022-03-04 08:35:22'
+  ),(
     3,
     '2',
     0,
@@ -357,12 +386,12 @@ VALUES
     'edwin.larreab@ug.edu.ec',
     'Edwin Rafael Larrea Buste',
     'M',
-    '1990-08-11 05:00:00',
+    '1990-08-11 10:00:00',
     _binary '$argon2id$v=19$m=65536,t=4,p=1$bDnoouCJGsPZVjjW/qYcjA$JTYWrA5NSl8zXMP/but0pdmQdwcs20xQC9QTnu1d9lI',
     1,
     0,
-    '2022-03-04 08:12:48',
-    '2022-03-04 03:35:22'
+    '2022-03-04 13:12:48',
+    '2022-03-04 08:35:22'
   ),(
     4,
     '0',
@@ -371,13 +400,14 @@ VALUES
     'acevallos@hotmm.com',
     'Marta Alenjandra Andrade Cevallos',
     'F',
-    '1993-01-01 04:00:00',
+    '1993-01-01 08:00:00',
     _binary '$argon2id$v=19$m=65536,t=4,p=1$TxAaHSVLiovHrN/DX/IUig$f54CIXapK0z9FwL5Ij0tnEnumYPMrFqfq5vRu9Scgp8',
     1,
     0,
-    '2022-03-04 03:34:39',
-    '2022-03-04 03:36:03'
+    '2022-03-04 08:34:39',
+    '2022-03-04 08:36:03'
   );
+UNLOCK TABLES;
 -- TABLA DE COMENTARIOS
   -- EVELYN GUALE
   CREATE TABLE `comentario` (
