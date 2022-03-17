@@ -1,12 +1,8 @@
 <?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>  
-
-
-        <meta name="description" content="Página para contactos ArkGames" />        
-        <meta name="keywords" content="videojuegos,catalogo,juegos" /> 
-        <link rel="stylesheet" href="assets/css/master.css" />  
+    <meta name="description" content="Página para contactos ArkGames" />        
+    <meta name="keywords" content="videojuegos,contactos,juegos" />   
         <link rel="stylesheet" href="assets/css/GualeEvelyn.css"/>       
-        <link rel="shortcut icon" href="assets/img/logo.svg"/>
-        <title>Contactos</title>
+        <title>Contactos - ArkGames</title>
         <style>
 
             #bttenviar{
@@ -27,11 +23,11 @@
            
         </style>
     </head>
-    <body>
+    <body id="bodyTemp">
         <!-------------------------------------------------MENU---------------------------------------->
         <?php
-    include_once VIEW_PATH . 'Templates/navBarBootstrap.php'
-    ?>
+            include_once VIEW_PATH . 'Templates/navBarBootstrap.php'
+         ?>
         <!------------------------------------------------------------------------------------------>
         <div >
 
