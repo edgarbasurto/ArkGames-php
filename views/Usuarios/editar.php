@@ -1,9 +1,4 @@
 <?php
-
-if (!isset($_SESSION)) {
-    session_start();
-};
-
 require_once DTO_PATH . 'Enumeradores.php';
 require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
 ?>

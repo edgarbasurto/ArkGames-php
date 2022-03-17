@@ -4,84 +4,51 @@
 <meta name="keywords" content="videojuegos,catalogo,juegos" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="erlarrea" />
-<link rel="stylesheet" href="assets/css/master.css" />
-<link rel="stylesheet" href="assets/css/LarreaRafael_old.css" />
+<!-- <link rel="stylesheet" href="assets/css/master.css" />
+<link rel="stylesheet" href="assets/css/LarreaRafael.css" /> -->
 <title>Ark Games</title>
 
 </head>
 
 <body id="bodyTemp">
   <?php require_once VIEW_PATH . 'Templates/navBarBootstrap.php' ?>
+  <main>
+    <div class="container py-1 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="assets/img/logo.svg" alt="ArkGames" class="img-fluid p-5 my-5" style="border-radius: 1rem 0 0 1rem;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
 
-  <div class="formmain">
-    <form id="frmLogIn">
-      <div class="contenido">
+                  <form>
+                    <h2 class="fw-bold mb-0 text-center">Log In</h2>
+                    <h5 class="fw-normal mb-4 pb-3 text-center">Ingresa usando tu usuario y contraseña</h5>
 
-        <header class="cabecera-form">
-          <img src="assets/img/logo.svg" alt="ArkGames" />
-          <h2>Log In</h2>
-          <p>Ingresa usando tu usuario y contraseña</p>
-          <p>&nbsp;</p>
-        </header>
-        <br>
-        <div>
-          <div class="other">
-            <span class="ingreso-item">
-              <i class="fa fa-globe"></i>
-            </span>
-            <select class="form-select" id="regiones" onchange="servidores_ActivarCampos(this);">
-              <!--GENERADOS DINAMICANTE-->
-            </select>
+                    <div class="form-outline mb-4">
+                      <input id="email-ingreso" placeholder="Email" name="email" class="form-control form-control-lg">
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input id="password" type="password" placeholder="Password" name="password" class="form-control form-control-lg">
+                    </div>
+
+                    <div class="pt-1 mb-4">
+                      <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
           </div>
-
-
-          <div class="other" id="divUser">
-            <span class="ingreso-item">
-              <i class="fa fa-user-circle"></i>
-            </span>
-            <input class="form-ingreso" id="txt-ingreso" type="text" placeholder="Usuario" name="user">
-
-          </div>
-
-          <div class="other" id="divEmail" style="visibility: collapse; display:none;">
-            <span class="ingreso-item">
-              <i class="fa fa-envelope-open"></i>
-            </span>
-            <input class="form-ingreso" id="email-ingreso" placeholder="Email" name="email">
-          </div>
-
-          <div class="other">
-            <span class="ingreso-item">
-              <i class="fa fa-key"></i>
-            </span>
-            <input class="form-ingreso" id="password" type="password" placeholder="Password" name="password">
-          </div>
-
-          <div class="radio-form">
-            <label><input type="checkbox" name="ok_cookies" checked> Acepta el uso de cookies.</label>
-            <br>
-            <label><input type="checkbox" name="ok_sesion"> Recordar sesión?.</label>
-          </div>
-
-          <div class="other">
-            <button class="log-in" type="submit"> Ingresar </button>
-          </div>
-        </div>
-
-        <div class="other">
-          <button class="btn submits frgt-pass" type="button" onclick="formulario_olvidoContrasenia()">Olvidó la contraseña?</button>
-          <button class="btn submits sign-up" type="button" onclick="formulario_redirigir()">Registrarse
-            <i class="fa fa-user-plus" aria-hidden="true"></i>
-          </button>
         </div>
       </div>
-
-    </form>
-
-
-  </div>
-
-  <script language="javascript" type="text/javascript" src="assets/js/frm_LarreaRafael.js"></script>
+    </div>
+  </main>
   <?php
   require_once VIEW_PATH . 'Templates/footerBootstrap.php'
   ?>
