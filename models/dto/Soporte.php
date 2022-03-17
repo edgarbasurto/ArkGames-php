@@ -40,6 +40,7 @@ class Soporte
             $this->servicio = $array['servicio'];
             $this->producto = $array['producto'];
             $this->servicio = $array['servicio'];
+            $this->descripcion_problema = $array['descripcion_problema'];
         }
     }
 }

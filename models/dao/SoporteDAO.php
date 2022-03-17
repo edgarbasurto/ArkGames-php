@@ -71,8 +71,7 @@ class SoporteDAO
         $data['telefono'],
         $data['servicio'],
         $data['producto'],
-        $data['descripcion_problema'],
-        $data['id_solicitud']
+        $data['descripcion_problema']
       );
       $stmt->execute($datos);
     } catch (Exception $e) {
@@ -80,11 +79,11 @@ class SoporteDAO
     }
   }
 
-  public function eliminar(int $Id)
+  public function eliminar(int $id)
   {
 
     try {
-      $sql = "DELETE from soporte WHERE id_solicitud=" . $Id;
+      $sql = "DELETE from soporte WHERE id_solicitud=" . $id;
       //preparacion de la sentencia
       $stmt = $this->con->prepare($sql);
       //ejecucion de la sentencia

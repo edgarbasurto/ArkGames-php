@@ -68,7 +68,7 @@ $tmp = getSessionActual();
                         </a>';
                         } ?>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SOPORTE)) {
-                            echo '<a class="nav-link" href="?c=session&a=dash">
+                            echo '<a class="nav-link" href="?c=soporte">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                             Soporte
                         </a>';
