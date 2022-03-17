@@ -99,7 +99,7 @@
 
                     <div  class="bloque_empleo">
                         <div> 
-                            <a id="comentario" href="frm_empleo.php"> Trabaje con nosotros... </a></div>
+                            <a id="comentario" href="index.php?c=empleo&a=agregar"> Trabaje con nosotros... </a></div>
 
                     </div>
 
