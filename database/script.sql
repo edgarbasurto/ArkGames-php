@@ -285,6 +285,7 @@ VALUES
     1
   );
 UNLOCK TABLES;
+DROP TABLE IF EXISTS `soporte`;
   /*TABLA SOPORTE --- ESPINOZA IVAN*/
   CREATE TABLE `soporte` (
     `id_solicitud` INT(10) NOT NULL AUTO_INCREMENT,
@@ -326,9 +327,9 @@ VALUES
     'Contrasenia perdida de cuenta en Fall Guys.'
   );
   /* TABLA USUARIOS
-                                         * -- RAFAEL LARREA
-                                         * -- @Rafael1108
-                                        */
+                                             * -- RAFAEL LARREA
+                                             * -- @Rafael1108
+                                            */
   DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
     `Id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -339,7 +340,7 @@ CREATE TABLE `usuarios` (
     `NombreCompleto` varchar(80) NOT NULL,
     `Genero` varchar(1) NOT NULL DEFAULT 'N',
     `FechaNacimiento` timestamp NOT NULL,
-    `PasswordHASH` blob NOT NULL,
+    `PasswordHASH` varchar(300) NOT NULL,
     `Activo` tinyint(1) NOT NULL DEFAULT 1,
     `UsuarioActualizacion` bigint unsigned NOT NULL DEFAULT 0,
     `FechaCreacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -359,7 +360,7 @@ VALUES
     'Administrador del Sitio',
     'N',
     '1990-08-11 10:00:00',
-    _binary '$argon2id$v=19$m=65536,t=4,p=1$bDnoouCJGsPZVjjW/qYcjA$JTYWrA5NSl8zXMP/but0pdmQdwcs20xQC9QTnu1d9lI',
+    '',
     1,
     0,
     '2022-03-04 13:12:48',
@@ -373,7 +374,7 @@ VALUES
     'Usuario Mantenimiento',
     'N',
     '1990-08-11 10:00:00',
-    _binary '$argon2id$v=19$m=65536,t=4,p=1$bDnoouCJGsPZVjjW/qYcjA$JTYWrA5NSl8zXMP/but0pdmQdwcs20xQC9QTnu1d9lI',
+    '',
     1,
     0,
     '2022-03-04 13:12:48',
@@ -387,7 +388,7 @@ VALUES
     'Edwin Rafael Larrea Buste',
     'M',
     '1990-08-11 10:00:00',
-    _binary '$argon2id$v=19$m=65536,t=4,p=1$bDnoouCJGsPZVjjW/qYcjA$JTYWrA5NSl8zXMP/but0pdmQdwcs20xQC9QTnu1d9lI',
+    '',
     1,
     0,
     '2022-03-04 13:12:48',
@@ -401,13 +402,14 @@ VALUES
     'Marta Alenjandra Andrade Cevallos',
     'F',
     '1993-01-01 08:00:00',
-    _binary '$argon2id$v=19$m=65536,t=4,p=1$TxAaHSVLiovHrN/DX/IUig$f54CIXapK0z9FwL5Ij0tnEnumYPMrFqfq5vRu9Scgp8',
+    '',
     1,
     0,
     '2022-03-04 08:34:39',
     '2022-03-04 08:36:03'
   );
 UNLOCK TABLES;
+DROP TABLE IF EXISTS `comentario`;
 -- TABLA DE COMENTARIOS
   -- EVELYN GUALE
   CREATE TABLE `comentario` (
@@ -420,7 +422,7 @@ UNLOCK TABLES;
     `email` varchar(30) NOT NULL,
     `comentario` varchar(200) NOT NULL,
     PRIMARY KEY (`id_comentario`)
-  ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;;
+  ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
 INSERT INTO
   `comentario` (
     `id_comentario`,
@@ -500,16 +502,17 @@ VALUES
     'Cuento con 4 años de experiencia en atentencion al cliente asumiendo mis responsabilidades con la empresa '
   );
   /* TABLA accesos
-                                         * -- RAFAEL LARREA
-                                         * -- @Rafael1108
-                                        */
+                                             * -- RAFAEL LARREA
+                                             * -- @Rafael1108
+                                            */
   DROP TABLE IF EXISTS `accesos`;
 CREATE TABLE `accesos` (
     `Id` char(38) NOT NULL DEFAULT 'UUID()',
     `IdUsuario` bigint unsigned NOT NULL,
-    `ACCESO_FECHA_HORA_ACCESO` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `ACCESO_NOMBRE_NAVEGADOR` varchar(25) NOT NULL DEFAULT 'No registrado',
-    `ACCESO_IP` varchar(17) NOT NULL DEFAULT '255.255.255.0',
+    `FechaHoraAcceso` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `NombreNavegador` varchar(25) NOT NULL DEFAULT 'No registrado',
+    `IP` varchar(17) NOT NULL DEFAULT '255.255.255.0',
+    `Activo` tinyint(1) NOT NULL DEFAULT '1',
     PRIMARY KEY (`Id`),
     UNIQUE KEY `acceso_id_unique` (`Id`),
     UNIQUE KEY `usuario_id_unique` (`IdUsuario`),
