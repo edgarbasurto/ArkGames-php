@@ -18,11 +18,10 @@ class AccesoDAO
     }
 
 
-    public function Insert(Usuario $Obj)
+    public function Insert(Acceso $Obj)
     {
-        $pwd = $Obj->getPassword();
-        $sql = "INSERT INTO usuarios (IdRol, IdServidor, NickName, Email, NombreCompleto, Genero, FechaNacimiento, PasswordHASH, Activo, UsuarioActualizacion, FechaCreacion, FechaActualizacion) VALUES
-            ('$Obj->IdRol',$Obj->IdServidor,'$Obj->NickName','$Obj->Email','$Obj->NombreCompleto','$Obj->Genero','$Obj->FechaNacimiento', _binary '$pwd', 1, 0, NOW(), NOW())";
+        $sql = "INSERT INTO accesos (Id,IdUsuario,FechaHoraAcceso,NombreNavegador,IP ) VALUES
+                                ('$Obj->Session',$Obj->IdUsuario,NOW(),'$Obj->NombreNavegador','$Obj->IP')";
 
         //preparacion de la sentencia
         $stmt = $this->con->prepare($sql);
@@ -33,7 +32,7 @@ class AccesoDAO
             return false;
         }
     }
-    public function Update(Usuario $Obj)
+    public function Update(Acceso $Obj)
     {
 
         $sql = "UPDATE usuarios SET IdRol='$Obj->IdRol', IdServidor=$Obj->IdServidor, Email='$Obj->Email', NombreCompleto='$Obj->NombreCompleto', Genero='$Obj->Genero', FechaNacimiento ='$Obj->FechaNacimiento', UsuarioActualizacion=0, FechaActualizacion=NOW() WHERE Id=$Obj->Id";

@@ -79,7 +79,7 @@ function getSessionActual()
     require_once  DTO_PATH . 'Session.php';
     //Rafael1108
     //Se instancia session
-    if (!isset($_SESSION)) {
+    if (isset($_SESSION)) {
         session_start();
     };
 
@@ -88,7 +88,7 @@ function getSessionActual()
     if (!isset($_SESSION['mySession'])) {
         $mySession->Session = '00000000-0000-0000-0000-000000000000';
         $mySession->Usuario = -1;
-        $mySession->Perfil = 3;
+        $mySession->Perfil = 0;
         $mySession->NombrePerfil = TipoRol::getName(0);
         $mySession->Email = '';
         $mySession->NombreCompleto = 'Invitado';

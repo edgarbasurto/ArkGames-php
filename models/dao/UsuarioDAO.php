@@ -11,6 +11,24 @@ class UsuarioDAO
     $this->con = Conexion::getConexion();
   }
 
+  public function ValidarPWD($ingreso, $password)
+  {
+    $valor = strtoupper($ingreso);
+    $lst = $this->GetByNickName($valor);
+
+    if (count($lst) != 0) {
+
+      foreach ($lst as $ObjUsuario) {
+
+        echo password_verify($password, $ObjUsuario->getPassword()) . '<br>';
+
+        if (password_verify($password, $ObjUsuario->getPassword())) {
+          return  $ObjUsuario;
+        }
+      }
+    }
+    return null;
+  }
 
   public function All()
   {
@@ -27,7 +45,7 @@ class UsuarioDAO
   {
 
     return
-      $this->sqlQuery("SELECT * FROM usuarios WHERE Activo=1 & NickName LIKE '%" . $Value . "'%");
+      $this->sqlQuery("SELECT * FROM usuarios WHERE Activo=1 AND UPPER(NickName) LIKE '%" . $Value . "%'");
   }
 
   public function Delete(int $Id)
@@ -58,6 +76,8 @@ class UsuarioDAO
       return false;
     }
   }
+
+
   public function Update(Usuario $Obj)
   {
 

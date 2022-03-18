@@ -153,6 +153,63 @@ class UsuariosController
       header('Location:index.php?c=Usuarios&f=index');
    }
 
+   public function validar()
+   {
+      //para cerrrar session
+      session_unset();
+      if (!isset($_SESSION)) {
+         session_start();
+      };
+
+      if (isset($_POST['txtingreso'], $_POST['txtpassword'])) {
+         $txtingreso = $_POST['txtingreso'];
+         $txtpassword = $_POST['txtpassword'];
+         $ObjUsuario = $this->modelo->ValidarPWD($txtingreso, $txtpassword);
+
+         echo $ObjUsuario->NombreCompleto . '<br>';
+         if (!isset($ObjUsuario)) {
+
+            require_once DAO_PATH . 'SessionDAO.php';
+            $ObjAcceso = new  Acceso();
+            $ObjAcceso->Id = GUID();
+            $ObjAcceso->IdUsuario = $ObjUsuario->Id;
+            $ObjAcceso->NombreNavegador = $_SERVER['HTTP_USER_AGENT'];
+            $ObjAcceso->IP = $_SERVER['REMOTE_ADDR'];
+
+            $modelo_acceso = new AccesoDAO();
+            if ($modelo_acceso->Insert($ObjAcceso)) {
+               /* código establecer session*/
+
+               $mySession->Session = $ObjAcceso->Id;
+               $mySession->Usuario = $ObjUsuario->Id;
+               $mySession->Perfil = $ObjUsuario->IdRol;
+               $mySession->NombrePerfil = TipoRol::getName($ObjUsuario->IdRol);
+               $mySession->Email = $ObjUsuario->Email;
+               $mySession->NombreCompleto = $ObjUsuario->NombreCompleto;
+               $_SESSION['mySession'] = $mySession;
+               /*crear session*/
+               // print_r($_SESSION['mySession']);
+               // header('Location:index.php');
+            } else {
+               $this->errorLogin();
+            }
+         } else {
+            $this->errorLogin();
+         }
+      }
+   }
+   public function errorLogin()
+   {
+      if (!isset($_SESSION)) {
+         session_start();
+      };
+
+      $_SESSION['mensaje_pwd'] =  'No se pudo verificar las credenciales';
+      $_SESSION['color_pwd'] = 'bg-warning';
+      $_SESSION['notificar_pwd'] = 1;
+
+      header('Location:index.php?c=session&f=index');
+   }
    public function savefile()
    {
       require_once CONTROLLER_PATH . 'Genericos.php';

@@ -40,6 +40,7 @@ class Usuario
         }
     }
 
+
     public function setPassword($pwd)
     {
         $pwd = $this->getPasswordHash($pwd);
