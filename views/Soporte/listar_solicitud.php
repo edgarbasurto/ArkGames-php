@@ -31,9 +31,10 @@
                         <tbody>
                             <?php
                             foreach ($resultados as $soporte) {
+                                $id = $soporte->id_solicitud;
                             ?>
                                 <tr>
-                                <td><?php echo $soporte->id_solicitud ?></td>
+                                <td><?php echo $id ?></td>
                                 <td><?php echo $soporte->usuario ?></td>
                                 <td><?php echo $soporte->email ?></td>
                                 <td><?php echo $soporte->telefono ?></td>

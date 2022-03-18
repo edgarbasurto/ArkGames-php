@@ -31,7 +31,8 @@ class SoporteController
         {
                 
             $datos = [
-                "usuario" => $_REQUEST['txtusuario'],
+                "id_solicitud" => $_GET['id'] ? $_GET['id'] : "",
+                "usuario" => $_POST['txtusuario'],
                 "email" => $_POST['txtemail'],
                 "telefono" => $_POST['telefono'],
                 "servicio" => $_POST['servicio'],
@@ -40,15 +41,17 @@ class SoporteController
             ];
             // echo 'ENTRO AL ELSE';
             // echo var_dump($datos);
-            $this->modelo->insertar($datos);
-
+            $datos['id_solicitud'] > 0
+            ? $this->modelo->actualizar($datos)
+            : $this->modelo->insertar($datos);
+            
             header('Location: index.php?c=soporte');
             echo '<script>alert("Registro guardado con exito")</script>';
             
                 if(isset($_GET['id'])){
                     $datos = [
                     "id_solicitud" => $_GET['id'] ? $_GET['id'] : "",
-                    "usuario" => $_REQUEST['txtusuario'],
+                    "usuario" => $_POST['txtusuario'],
                     "email" => $_POST['txtemail'],
                     "telefono" => $_POST['telefono'],
                     "servicio" => $_POST['servicio'],
@@ -68,7 +71,7 @@ class SoporteController
             $con = new SoporteDAO();
             $lista = $con->listar();
 
-            require_once VIEW_PATH . 'Soporte/editar_solicitud2.php';
+            require_once VIEW_PATH . 'Soporte/editar_solicitud.php';
             }
         
         }

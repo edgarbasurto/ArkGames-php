@@ -9,7 +9,7 @@
         <div class="container px-5">
             <div class="container card shadow">
 
-                <form id="solicitud" method="POST" action="index.php?c=soporte&a=guardar" enctype="multipart/form-data">
+                <form id="form_solicitud" method="POST" action="index.php?c=soporte&a=guardar" enctype="multipart/form-data">
                     <div class="card-header row">
                         <h3 class="title text-center">Agrega una solicitud de soporte</h3>
                     </div>

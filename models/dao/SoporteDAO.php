@@ -96,7 +96,7 @@ class SoporteDAO
   public function obtener($id)
   {
     try {
-      $sql = "SELECT * FROM soporte WHERE id_solicitud" . $id;
+      $sql = "SELECT * FROM soporte WHERE id_solicitud =" . $id;
       // echo var_dump($sql);
       $stmt = $this->con->prepare($sql);
       //ejecucion de la sentencia
