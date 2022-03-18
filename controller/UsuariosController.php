@@ -39,7 +39,7 @@ class UsuariosController
             require_once(DTO_PATH . 'Enumeradores.php');
             require_once(VIEW_PATH .  "Usuarios/mostrar.php");
          } else {
-            header('Location:index.php?c=usuarios&f=index');
+            header('Location:index.php?c=usuarios');
          }
       } else {
          header('Location:index.php?c=session&a=dash');
@@ -57,7 +57,18 @@ class UsuariosController
 
    public function changepwd()
    {
-      header('Location:index.php');
+      if (TIENE_PERMISO(PERMISOS::PUEDE_CAMBIAR_PASSWORD)) {
+         $Id = $_REQUEST['id'];
+         $registros = $this->modelo->GetById($Id);
+         if (empty($registros[0]) == false) {
+            $registro = $registros[0];
+            require_once(VIEW_PATH .  "Usuarios/changepassword.php");
+         } else {
+            header('Location:index.php?c=Usuarios');
+         }
+      } else {
+         header('Location:index.php');
+      }
    }
 
    public function edit()
@@ -69,7 +80,7 @@ class UsuariosController
             $registro = $registros[0];
             require_once(VIEW_PATH .  "Usuarios/editar.php");
          } else {
-            header('Location:index.php?c=Usuarios&f=index');
+            header('Location:index.php?c=Usuarios');
          }
       } else {
          header('Location:index.php&a=dash');
@@ -94,7 +105,7 @@ class UsuariosController
       $_SESSION['mensaje'] = $msj;
       $_SESSION['color'] = $color;
       $_SESSION['notificar'] = 1;
-      header('Location:index.php?c=Usuarios&f=index');
+      header('Location:index.php?c=Usuarios');
    }
 
    public function save()
@@ -150,8 +161,42 @@ class UsuariosController
          $_SESSION['color'] = $color;
          $_SESSION['notificar'] = 1;
       }
-      header('Location:index.php?c=Usuarios&f=index');
+      header('Location:index.php?c=Usuarios');
    }
+
+   public function savepwd()
+   {
+      $Id =   $_GET['id'];
+      $post = $_POST;
+      $msj =   'Ocurrio un error en el cambio de contraseña! ';
+      $color = "bg-warning";
+      if (isset($Id, $post)) {
+         $passwordANT = htmlentities($post['PasswordAnt']);
+         if ($this->modelo->ValidarPWD_PorID($Id,  $passwordANT)) //valida si el password anterior es válido 
+         {
+            $usuario = new Usuario();
+            $usuario->Id =  $Id;
+
+            $usuario->setPassword(htmlentities($post['Password']));
+
+            if ($this->modelo->Update_pwd($usuario)) {
+               // //Actualiza Password  
+               $msj = 'Cambio de contraseña realizado correctamente! ';
+               $color = 'bg-info';
+            }
+         }
+      }
+      if (!isset($_SESSION)) {
+         session_start();
+      };
+
+
+      $_SESSION['mensaje'] = $msj;
+      $_SESSION['color'] = $color;
+      $_SESSION['notificar'] = 1;
+      header('Location:index.php?c=Usuarios');
+   }
+
 
    public function validar()
    {
@@ -160,20 +205,23 @@ class UsuariosController
       if (!isset($_SESSION)) {
          session_start();
       };
-
+      echo print_r($_POST);
       if (isset($_POST['txtingreso'], $_POST['txtpassword'])) {
-         $txtingreso = $_POST['txtingreso'];
-         $txtpassword = $_POST['txtpassword'];
-         $ObjUsuario = $this->modelo->ValidarPWD($txtingreso, $txtpassword);
 
-         echo $ObjUsuario->NombreCompleto . '<br>';
-         if (!isset($ObjUsuario)) {
+         $txtingreso = htmlentities($_POST['txtingreso']);
+         $txtpassword = htmlentities($_POST['txtpassword']);
 
-            require_once DAO_PATH . 'SessionDAO.php';
+         $ObjUsuario = $this->modelo->ValidarPWD_PorUsuario($txtingreso, $txtpassword);
+         echo var_dump($ObjUsuario);
+         if (is_null($ObjUsuario) == false) {
+
+            require_once DAO_PATH . 'AccesoDAO.php';
+
             $ObjAcceso = new  Acceso();
+
             $ObjAcceso->Id = GUID();
-            $ObjAcceso->IdUsuario = $ObjUsuario->Id;
-            $ObjAcceso->NombreNavegador = $_SERVER['HTTP_USER_AGENT'];
+            $ObjAcceso->IdUsuario = $ObjUsuario['Id'];
+            $ObjAcceso->NombreNavegador = getBrowser($_SERVER['HTTP_USER_AGENT']);
             $ObjAcceso->IP = $_SERVER['REMOTE_ADDR'];
 
             $modelo_acceso = new AccesoDAO();
@@ -181,15 +229,20 @@ class UsuariosController
                /* código establecer session*/
 
                $mySession->Session = $ObjAcceso->Id;
-               $mySession->Usuario = $ObjUsuario->Id;
-               $mySession->Perfil = $ObjUsuario->IdRol;
-               $mySession->NombrePerfil = TipoRol::getName($ObjUsuario->IdRol);
-               $mySession->Email = $ObjUsuario->Email;
-               $mySession->NombreCompleto = $ObjUsuario->NombreCompleto;
+               $mySession->Usuario = $ObjUsuario['Id'];
+               $mySession->Perfil
+                  =
+                  $ObjUsuario['IdRol'];
+               $mySession->NombrePerfil = TipoRol::getName($ObjUsuario['IdRol']);
+               $mySession->Email =
+                  $ObjUsuario['Email'];
+               $mySession->NombreCompleto =
+                  $ObjUsuario['NombreCompleto'];
                $_SESSION['mySession'] = $mySession;
                /*crear session*/
                // print_r($_SESSION['mySession']);
-               // header('Location:index.php');
+               echo '<script> alert("Bienvenido.\n ' . $ObjUsuario['NombreCompleto'] . '") </script> ';
+               header('Location:index.php');
             } else {
                $this->errorLogin();
             }
@@ -208,7 +261,7 @@ class UsuariosController
       $_SESSION['color_pwd'] = 'bg-warning';
       $_SESSION['notificar_pwd'] = 1;
 
-      header('Location:index.php?c=session&f=index');
+      header('Location:index.php?c=session');
    }
    public function savefile()
    {

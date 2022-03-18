@@ -20,17 +20,17 @@ class AccesoDAO
 
     public function Insert(Acceso $Obj)
     {
-        $sql = "INSERT INTO accesos (Id,IdUsuario,FechaHoraAcceso,NombreNavegador,IP ) VALUES
-                                ('$Obj->Session',$Obj->IdUsuario,NOW(),'$Obj->NombreNavegador','$Obj->IP')";
-
-        //preparacion de la sentencia
-        $stmt = $this->con->prepare($sql);
-        //ejecucion de la sentencia
-        if ($stmt->execute()) {
-            return true;
-        } else {
-            return false;
-        }
+        // $sql = "INSERT INTO accesos (Id,IdUsuario,FechaHoraAcceso,NombreNavegador,IP ) VALUES
+        //                         ('$Obj->Id',$Obj->IdUsuario,NOW(),'$Obj->NombreNavegador','$Obj->IP')";
+        // echo $sql;
+        // //preparacion de la sentencia
+        // $stmt = $this->con->prepare($sql);
+        // //ejecucion de la sentencia
+        // if ($stmt->execute()) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
     }
     public function Update(Acceso $Obj)
     {
