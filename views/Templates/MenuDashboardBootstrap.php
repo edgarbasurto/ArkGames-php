@@ -67,6 +67,12 @@ $tmp = getSessionActual();
                             Noticias
                         </a>';
                         } ?>
+                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SUSCRIP)) {
+                            echo '<a class="nav-link" href="?c=suscripcion">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                            Suscripciones
+                        </a>';
+                        } ?>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SOPORTE)) {
                             echo '<a class="nav-link" href="?c=soporte">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
@@ -77,12 +83,6 @@ $tmp = getSessionActual();
                             echo '<a class="nav-link" href="?c=session&a=dash">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-address-book"></i></div>
                             Contactos
-                        </a>';
-                        } ?>
-                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SUSCRIP)) {
-                            echo '<a class="nav-link" href="?c=suscripcion">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
-                            Suscripciones
                         </a>';
                         } ?>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_USUARIOS)) {
