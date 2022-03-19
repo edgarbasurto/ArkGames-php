@@ -60,7 +60,7 @@ $tmp = getSessionActual();
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-bag-shopping"></i></div>
                             Mis Ordenes
                         </a>
-                        <a class="nav-link" href="?c=productos">
+                        <a class="nav-link" href="?c=orden">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-shop"></i></div>
                             Ventas
                         </a>
