@@ -1,9 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap");
 
-
 * {
-  font-family: "Source Sans 3", sans-serif; 
-} 
+  font-family: "Source Sans 3", sans-serif;
+}
 
 html {
   height: 100%;
@@ -15,22 +14,25 @@ html {
 } */
 #bodyTemp {
   height: 100%;
-    background-image: url("../img/fondo_Arkgames.svg");
-    background-size: 100% auto;
-    background-position: center top;
-    background-color: rgb(104, 99, 99);
-    background-color: linear-gradient(131deg,rgba(104, 99, 99, 1) 0%,rgba(33, 31, 31, 1) 100%);
-  } 
- 
+  background-image: url("../img/fondo_Arkgames.svg");
+  background-size: 100% auto;
+  background-position: center top;
+  background-color: rgb(104, 99, 99);
+  background-color: linear-gradient(
+    131deg,
+    rgba(104, 99, 99, 1) 0%,
+    rgba(33, 31, 31, 1) 100%
+  );
+}
 
 /* Menú Cabecera*/
 nav {
-    background-color: black;
+  background-color: black;
 }
 
 .nav-link {
   color: #e7e7e7 !important;
-  font-size: 18px; 
+  font-size: 18px;
   transition: all 0.5s ease 0s;
 }
 .nav-link:hover {
@@ -40,8 +42,8 @@ nav {
   transition: all 0.5s ease 0s;
 }
 
-nav ul li a svg { 
-  fill: #ffffff; 
+nav ul li a svg {
+  fill: #ffffff;
 }
 
 /* footer */
@@ -60,10 +62,9 @@ nav ul li a svg {
   background-color: black;
   color: #fff;
   position: -webkit-sticky;
-  position: sticky;
+  /*position: sticky;*/
   bottom: 0;
 }
-
 
 .copyright {
   background-color: black;

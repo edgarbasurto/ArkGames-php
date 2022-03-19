@@ -1,97 +1,62 @@
 /*CONTROL DE FORMULARIO*/
-var form = document.getElementById("form_suscripcion");
+var form = document.getElementById("form_noticia");
 form.addEventListener('submit', validar);
 let cont = 0;
 
 function validar(event){
     var resultado = true;
-    var txtEmail = document.getElementById("email");
-    var chkbTema = document.getElementById("tema");
-    var chkbDisp = document.getElementById("dispositivo");
-    var checkboxTema = document.querySelectorAll(".tema");
-    var checkboxDispositivo = document.querySelectorAll(".dispositivo");
-    var radiobDiscord = document.getElementsByName("rdbdiscord");
-    var radiobfrecuencia = document.getElementsByName("rdbfrecuencia");
-    var correo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    var txtTitulo = document.getElementById("titulo");
+    var slctTema = document.getElementById("tema");
+    var slctDisp = document.getElementById("dispositivo");
+    var txtDescrip = document.getElementById("descripcion");
+    var txtImagen = document.getElementById("seleccionArchivos");
     
     limpiarMensajes();
 
     //validacion email
-    if (txtEmail.value == "") {
+    if (txtTitulo.value == "") {
         resultado = false;
-        mensaje("Email es requerido", txtEmail);
-    } else if (!correo.test(txtEmail.value)) {
+        mensaje("Título es requerido", txtTitulo);
+    } else if(txtTitulo.length <10){
         resultado = false;
-        mensaje("Email no es correcto", txtEmail);
+        mensaje("El título debe tener más de 10 caracteres", txtTitulo);
+    }
+    
+    //validacion select temas
+    if(slctTema.value == 0 || slctTema.value == ""){
+        resultado = false;
+        mensaje("Seleccione una sección", slctTema);
     }
 
-    //validacion de varios checkbox tema
-    sel = false;
-   
-    for (let i = 0; i < checkboxTema.length; i++) {
-        if (checkboxTema[i].checked) {
-            sel = true;
-            break;
-        }
-        else{
-            sel=false;
-        }
-    }
-    if (!sel) {
-        mensaje("Debe seleccionar al menos un tema de su preferencia", chkbTema);
-    } 
-    
-    //validacion de varios checkbox dispositivo
-    sel = false;
-       
-    for (let i = 0; i < checkboxDispositivo.length; i++) {
-        if (checkboxDispositivo[i].checked) {
-            sel = true;
-            break;
-        }
-        else
-        {
-            sel=false;
-        }
-    }
-    if (!sel) {
-        mensaje("Debe seleccionar un dispositivo tecnológico de su preferencia", chkbDisp);
-    }   
-    
-    //validacion radio button frecuencia
-    var sel = false;
-    for (let i = 0; i < radiobfrecuencia.length; i++) {
-        if (radiobfrecuencia[i].checked) {
-            sel = true;
-            let res = radiobfrecuencia[i].value;
-            
-            break;
-        }
-    }
-    if (!sel) {
+    //validacion select temas
+    if(slctDisp.value == 0 || slctDisp.value == ""){
         resultado = false;
-        mensaje("Debe seleccionar la frecuencia", radiobfrecuencia[0]);
-    }   
+        mensaje("Seleccione un dispositivo", slctDisp);
+    }
 
-    //validacion radio button discord
-    var sel = false;
-    for (let i = 0; i < radiobDiscord.length; i++) {
-        if (radiobDiscord[i].checked) {
-            sel = true;
-            let res = radiobDiscord[i].value;
-            
-            break;
-        }
-    }
-    if (!sel) {
-        resultado = false;
-        mensaje("Debe seleccionar si desea unirse al canal", radiobDiscord[0]);
-    }
 
     if(!resultado){
         event.preventDefault(); //stop submit
     }
 
+    //validacion descripcion
+    if (txtDescrip.value == "") {
+        resultado = false;
+        mensaje("Descripción es requerida", txtDescrip);
+    } else if(txtDescrip.length <50){
+        resultado = false;
+        mensaje("La descripción debe tener más de 50 caracteres", txtDescrip);
+    }
+
+    //validacion imagen
+    if (txtImagen.value == "") {
+        resultado = false;
+        mensaje("Imagen es requerida", txtImagen);
+    }
+
+    if(!resultado){
+        event.preventDefault(); //stop submit
+    }
     
 }
 
