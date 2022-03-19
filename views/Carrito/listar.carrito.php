@@ -41,20 +41,22 @@ $cart = new CarritoDAO;
     }
 </script>
 </head>
-</head>
+
 
 <body id="bodyTemp">
-    <header>
+ 
         <!--     NavBar Menu     -->
         <?php require_once VIEW_PATH . 'Templates/navBarBootstrap.php' ?>
-    </header>
+  
+
+    <main class="container my-5">
     <div class="container-fluid">
         <div class="card shadow">
             <div class="card-header">
 
                 <ul class="nav nav-pills">
-                    <li role="presentation"><a href="index.php">Inicio</a></li>
-                    <li role="presentation" class="active"><a href="VerCarta.php">Ver Carta</a></li>
+                    <li role="presentation"><a href="index.php?c=productos&a=index_cuadricula">Catalogo</a></li>
+                    <li role="presentation" class="active"><a href="index.php?c=carrito">Ver Carrito</a></li>
                     <li role="presentation"><a href="Pagos.php">Pagos</a></li>
                 </ul>
             </div>
@@ -116,6 +118,7 @@ $cart = new CarritoDAO;
 
         <!-------------------------------------------------FOOTER---------------------------------------->
     </div>
+    </main>
 
     <?php
     require_once VIEW_PATH . 'Templates/footerBootstrap.php'
