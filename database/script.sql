@@ -327,9 +327,9 @@ VALUES
     'Contrasenia perdida de cuenta en Fall Guys.'
   );
   /* TABLA USUARIOS
-                                               * -- RAFAEL LARREA
-                                               * -- @Rafael1108
-                                              */
+                                                   * -- RAFAEL LARREA
+                                                   * -- @Rafael1108
+                                                  */
   DROP TABLE IF EXISTS `usuarios`;
   /*!40101 SET @saved_cs_client     = @@character_set_client */;
   /*!50503 SET character_set_client = utf8mb4 */;
@@ -510,12 +510,10 @@ VALUES
     'Cuento con 4 años de experiencia en atentencion al cliente asumiendo mis responsabilidades con la empresa '
   );
   /* TABLA accesos
-                                               * -- RAFAEL LARREA
-                                               * -- @Rafael1108
-                                              */
+                                                   * -- RAFAEL LARREA
+                                                   * -- @Rafael1108
+                                                  */
   DROP TABLE IF EXISTS `accesos`;
-  /*!40101 SET @saved_cs_client     = @@character_set_client */;
-  /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `accesos` (
     `Id` varchar(50) NOT NULL DEFAULT 'UUID()',
     `IdUsuario` bigint unsigned NOT NULL,
@@ -525,10 +523,8 @@ CREATE TABLE `accesos` (
     `Activo` tinyint(1) NOT NULL DEFAULT '1',
     PRIMARY KEY (`Id`),
     UNIQUE KEY `acceso_id_unique` (`Id`)
-  ) --
-  -- Table structure for table `orden`
-  --
-  DROP TABLE IF EXISTS `orden`;
+  ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS `orden`;
 CREATE TABLE `orden` (
     `id` int NOT NULL AUTO_INCREMENT,
     `user_id` bigint unsigned NOT NULL,
