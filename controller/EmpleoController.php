@@ -43,13 +43,29 @@ class EmpleoController
             ];
             // echo 'ENTRO AL ELSE';
             // echo var_dump($datos);
-            datos['id_solictudEmpleo'] > 0
+            $datos['id_solictudEmpleo'] > 0
                         ? $this->modelo->actualizar($datos)
                         : $this->modelo->insertar($datos);
 
             header('Location: index.php?c=empleo');
             echo '<script>alert("Registro guardado con exito")</script>';
             
+            if(isset($_GET['id'])){
+                $datos = [
+                "id_solictudEmpleo" => $_GET['id'] ? $_GET['id'] : "",
+                "nombre" => $_POST['txtnombre'],
+                "apellido" => $_POST['txtapellido'],
+                "edad" => $_POST['txtedad'],
+                "telefono" => $_POST['txtTelefono'],
+                "correo" => $_POST['txtemail'],
+                "id_vacante" => $_POST['selectVacante'],
+                "experiencia" => $_POST['txtExperiencia']
+                ];
+                $this->modelo->actualizar($datos);
+    
+                header('Location: index.php?c=empleo');
+                echo '<script>alert("Registro guardado con exito")</script>';
+            }          
                    
         }else {
             if (isset($_REQUEST['id'])) {
