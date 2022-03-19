@@ -84,7 +84,7 @@ $tmp = getSessionActual();
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         <?php 
                         
-                        if (!isset($_SESSION)) {
+                        if (isset($_SESSION['cart_contents'])) {
                             $cant = count($_SESSION['cart_contents']);
                             echo $cant-2; 
                         } else {
