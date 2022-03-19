@@ -80,19 +80,19 @@
                                 foreach ($cartItems as $item) {
                             ?>
                                     <tr>
-                                        <td><?php echo $item["name"]; ?></td>
-                                        <td><?php echo '$' . $item["price"] . ' USD'; ?></td>
-                                        <td><input type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')"></td>
-                                        <td><?php echo '$' . $item["subtotal"] . ' USD'; ?></td>
+                                        <td><?php echo $item['name']; ?></td>
+                                        <td><?php echo '$' . $item['price'] . ' USD'; ?></td>
+                                        <td><input type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item['rowid']; ?>')"> </td>
+                                        <td><?php echo '$' . $item['subtotal'] . ' USD'; ?></td>
                                         <td>
-                                            <a href="?c=carrito&action=removeCartItem&id=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Confirma eliminar?')"><i class="fa-solid fa-trash-can"></i></a>
+                                            <a href="?c=carrito&a=removeCartItem&id=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Confirma eliminar?')"><i class="fa-solid fa-trash-can"></i></a>
                                         </td>
                                     </tr>
                                 <?php }
                             } else { ?>
                                 <tr>
                                     <td colspan="5">
-                                        <p>Tu carta esta vacia.....</p>
+                                        <p>Tu carta esta vacía.....</p>
                                     </td>
                                 <?php } ?>
                         </tbody>
