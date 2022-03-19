@@ -18,27 +18,25 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
                 echo '<div class="col-xl-3 col-md-6">
                
-                    <a class="tile card" href="?c=productos">
-                    <div class="card-header">Productos</div>
+                    <a class="tile" href="?c=productos">
+                    <div class="tile-tittle">Productos</div>
                     <div class="card-body text-center">
                             <div class="tile-icon">
                             <i class="fas fa-box-open fa-fw"></i>
                             </div>                     
-                         </div>   
+                        </div>
                     </a>
-                
             </div>';
             } ?>
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_NOTICIAS)) {
                 echo '<div class="col-xl-3 col-md-6">
                 
-                    <a class="tile card" href="?c=noticias">
-                    <div class="card-header">Noticias</div>
+                    <a class="tile" href="?c=noticias">
+                    <div class="tile-tittle">Noticias</div>
                         <div class="card-body text-center">
                             <div class="tile-icon">
                                 <i class="fa-solid fa-newspaper"></i>
                             </div>
-                            
                         </div>
                     </a>
             </div>';
@@ -46,8 +44,8 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SOPORTE)) {
                 echo '<div class="col-xl-3 col-md-6">
                
-                    <a class="tile card" href="?c=soporte">
-                    <div class="card-header">Soporte</div>
+                    <a class="tile" href="?c=soporte">
+                    <div class="tile-tittle">Soporte</div>
                         <div class="card-body text-center">
                             <div class="tile-icon">
                                 <i class="fa-solid fa-screwdriver-wrench"></i>
@@ -61,8 +59,8 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_CONTACTOS)) {
                 echo '<div class="col-xl-3 col-md-6">
                
-                    <a class="tile card" href="?c=session&a=dash">
-                    <div class="card-header">Contactos</div>
+                    <a class="tile" href="?c=session&a=dash">
+                    <div class="tile-tittle">Contactos</div>
                         <div class="card-body text-center">
                             <div class="tile-icon">
                                 <i class="fa-solid fa-address-book"></i>
@@ -76,8 +74,8 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_USUARIOS)) {
                 echo '<div class="col-xl-3 col-md-6">
                 
-                    <a class="tile card" href="?c=usuarios">
-                    <div class="card-header">Usuarios</div>
+                    <a class="tile" href="?c=usuarios">
+                    <div class="tile-tittle">Usuarios</div>
                         <div class="card-body text-center">
                             <div class="tile-icon">
                                 <i class="fa-solid fa-users"></i>
@@ -89,6 +87,26 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
             </div>
             ';
             } ?>
+
+            <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SUSCRIP)) {
+                echo '<div class="col-xl-3 col-md-6">
+                
+                    <a class="tile" href="?c=suscripcion">
+                    <div class="tile-tittle">Suscripción</div>
+                        <div class="card-body text-center">
+                            <div class="tile-icon">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                            </div>
+                           
+                        </div>
+                    </a>
+              
+            </div>
+            ';
+            } ?>
+
+
+
         </div>
     </div>
 </main>

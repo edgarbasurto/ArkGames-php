@@ -11,7 +11,21 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-  --bs-blue: #0d6efd;
+ 
+    --color-two: #24292E;
+    --color-three: #EC5252;
+  
+    --accent-color: #253556;
+    --border-color: #E1E1E1;
+    --bg-color: rgb(246,246,246);
+  
+    --link-color: #3273dc;
+    --link-hover: #1851B4;
+  
+    --text-color: rgb(27,27,27);
+    
+    --header-height: 65px;
+    --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
   --bs-pink: #d63384;
@@ -11737,7 +11751,6 @@ body {
 	text-transform: uppercase;
 	border-bottom: 1px solid var(--border-color);
 	transition: all .2s ease-in-out;
-	font-family: 'roboto_medium_regular';
 }
 .tile:hover .tile-tittle{
 	color: #FFF;
@@ -11754,7 +11767,7 @@ body {
 	font-size: 80px;
 }
 .tile-icon > p{
-	font-family: 'roboto_medium_regular';
+
 	height: 35px;
 	line-height: 35px;
 }

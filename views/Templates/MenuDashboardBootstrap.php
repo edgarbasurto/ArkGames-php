@@ -81,7 +81,7 @@ $tmp = getSessionActual();
                         } ?>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SUSCRIP)) {
                             echo '<a class="nav-link" href="?c=suscripcion">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-address-book"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
                             Suscripciones
                         </a>';
                         } ?>
