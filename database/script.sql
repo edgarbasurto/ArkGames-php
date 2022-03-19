@@ -327,27 +327,34 @@ VALUES
     'Contrasenia perdida de cuenta en Fall Guys.'
   );
   /* TABLA USUARIOS
-                                             * -- RAFAEL LARREA
-                                             * -- @Rafael1108
-                                            */
+                                               * -- RAFAEL LARREA
+                                               * -- @Rafael1108
+                                              */
   DROP TABLE IF EXISTS `usuarios`;
+  /*!40101 SET @saved_cs_client     = @@character_set_client */;
+  /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
     `Id` bigint unsigned NOT NULL AUTO_INCREMENT,
-    `IdRol` enum('0', '1', '2', '3') NOT NULL COMMENT 'Tipos de Roles (0=> Invitado, 1=>Administrador, 2=>Jugador, 3=>Mantenimiento)',
-    `IdServidor` int NOT NULL DEFAULT 0,
-    `NickName` varchar(15) NOT NULL,
-    `Email` varchar(80) DEFAULT '',
-    `NombreCompleto` varchar(80) NOT NULL,
-    `Genero` varchar(1) NOT NULL DEFAULT 'N',
+    `IdRol` enum('0', '1', '2', '3') COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tipos de Roles (0=> Invitado, 1=>Administrador, 2=>Jugador, 3=>Mantenimiento)',
+    `IdServidor` int NOT NULL DEFAULT '0',
+    `NickName` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `Email` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT '',
+    `NombreCompleto` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `Genero` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'N',
     `FechaNacimiento` timestamp NOT NULL,
-    `PasswordHASH` varchar(300) NOT NULL,
-    `Activo` tinyint(1) NOT NULL DEFAULT 1,
-    `UsuarioActualizacion` bigint unsigned NOT NULL DEFAULT 0,
+    `PasswordHASH` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `Activo` tinyint(1) NOT NULL DEFAULT '1',
+    `UsuarioActualizacion` bigint unsigned NOT NULL DEFAULT '0',
     `FechaCreacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `FechaActualizacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`Id`)
-  ) ENGINE = InnoDB AUTO_INCREMENT = 3 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
-LOCK TABLES `usuarios` WRITE;
+  ) ENGINE = InnoDB AUTO_INCREMENT = 5 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+  /*!40101 SET character_set_client = @saved_cs_client */;
+--
+  -- Dumping data for table `usuarios`
+  --
+  LOCK TABLES `usuarios` WRITE;
+  /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
 INSERT INTO
   `usuarios`
 VALUES
@@ -359,12 +366,12 @@ VALUES
     'administrador@dominio.com',
     'Administrador del Sitio',
     'N',
-    '1990-08-11 10:00:00',
-    '',
+    '1990-08-11 15:00:00',
+    '$2y$10$ZgQQCHJo1F7zullxUv4c9OLJXLOBDyNrXK1NkO4YLcajCqQhpK2lS',
     1,
     0,
-    '2022-03-04 13:12:48',
-    '2022-03-04 08:35:22'
+    '2022-03-04 18:12:48',
+    '2022-03-04 13:35:22'
   ),(
     2,
     '3',
@@ -373,12 +380,12 @@ VALUES
     'mantenimiento@dominio.com',
     'Usuario Mantenimiento',
     'N',
-    '1990-08-11 10:00:00',
-    '',
+    '1990-08-11 05:00:00',
+    '$2y$10$ZgQQCHJo1F7zullxUv4c9OLJXLOBDyNrXK1NkO4YLcajCqQhpK2lS',
     1,
     0,
-    '2022-03-04 13:12:48',
-    '2022-03-04 08:35:22'
+    '2022-03-04 18:12:48',
+    '2022-03-19 04:38:14'
   ),(
     3,
     '2',
@@ -387,12 +394,12 @@ VALUES
     'edwin.larreab@ug.edu.ec',
     'Edwin Rafael Larrea Buste',
     'M',
-    '1990-08-11 10:00:00',
-    '',
+    '1990-08-11 15:00:00',
+    '$2y$10$ZgQQCHJo1F7zullxUv4c9OLJXLOBDyNrXK1NkO4YLcajCqQhpK2lS',
     1,
     0,
-    '2022-03-04 13:12:48',
-    '2022-03-04 08:35:22'
+    '2022-03-04 18:12:48',
+    '2022-03-04 13:35:22'
   ),(
     4,
     '0',
@@ -401,13 +408,14 @@ VALUES
     'acevallos@hotmm.com',
     'Marta Alenjandra Andrade Cevallos',
     'F',
-    '1993-01-01 08:00:00',
-    '',
+    '1993-01-01 12:00:00',
+    '$2y$10$ZgQQCHJo1F7zullxUv4c9OLJXLOBDyNrXK1NkO4YLcajCqQhpK2lS',
     1,
     0,
-    '2022-03-04 08:34:39',
-    '2022-03-04 08:36:03'
+    '2022-03-04 13:34:39',
+    '2022-03-04 13:36:03'
   );
+  /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 DROP TABLE IF EXISTS `comentario`;
 -- TABLA DE COMENTARIOS
@@ -502,54 +510,46 @@ VALUES
     'Cuento con 4 años de experiencia en atentencion al cliente asumiendo mis responsabilidades con la empresa '
   );
   /* TABLA accesos
-                                             * -- RAFAEL LARREA
-                                             * -- @Rafael1108
-                                            */
+                                               * -- RAFAEL LARREA
+                                               * -- @Rafael1108
+                                              */
   DROP TABLE IF EXISTS `accesos`;
+  /*!40101 SET @saved_cs_client     = @@character_set_client */;
+  /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `accesos` (
-    `Id` char(38) NOT NULL DEFAULT 'UUID()',
+    `Id` varchar(50) NOT NULL DEFAULT 'UUID()',
     `IdUsuario` bigint unsigned NOT NULL,
     `FechaHoraAcceso` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `NombreNavegador` varchar(25) NOT NULL DEFAULT 'No registrado',
     `IP` varchar(17) NOT NULL DEFAULT '255.255.255.0',
     `Activo` tinyint(1) NOT NULL DEFAULT '1',
     PRIMARY KEY (`Id`),
-    UNIQUE KEY `acceso_id_unique` (`Id`),
-    UNIQUE KEY `usuario_id_unique` (`IdUsuario`),
-    KEY `FK_log_acceso_usuario` (`Id`),
-    CONSTRAINT `FK_log_acceso_usuario` FOREIGN KEY (`IdUsuario`) REFERENCES `usuarios` (`Id`)
-  ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
-
+    UNIQUE KEY `acceso_id_unique` (`Id`)
+  ) --
+  -- Table structure for table `orden`
   --
--- Table structure for table `orden`
---
-DROP TABLE IF EXISTS `orden`;
-
+  DROP TABLE IF EXISTS `orden`;
 CREATE TABLE `orden` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` bigint unsigned NOT NULL,
-  `total_price` float(10,2) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
-  `status` enum('1','0') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `orden_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
+    `id` int NOT NULL AUTO_INCREMENT,
+    `user_id` bigint unsigned NOT NULL,
+    `total_price` float(10, 2) NOT NULL,
+    `created` datetime NOT NULL,
+    `modified` datetime NOT NULL,
+    `status` enum('1', '0') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '1',
+    PRIMARY KEY (`id`),
+    KEY `user_id` (`user_id`),
+    CONSTRAINT `orden_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`Id`) ON DELETE CASCADE
+  ) ENGINE = InnoDB AUTO_INCREMENT = 9 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 --
--- Table structure for table `orden_articulos`
---
-
-DROP TABLE IF EXISTS `orden_articulos`;
-
+  -- Table structure for table `orden_articulos`
+  --
+  DROP TABLE IF EXISTS `orden_articulos`;
 CREATE TABLE `orden_articulos` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `order_id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `quantity` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `order_id` (`order_id`),
-  CONSTRAINT `orden_articulos_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orden` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+    `id` int NOT NULL AUTO_INCREMENT,
+    `order_id` int NOT NULL,
+    `product_id` int NOT NULL,
+    `quantity` int NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `order_id` (`order_id`),
+    CONSTRAINT `orden_articulos_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orden` (`id`) ON DELETE CASCADE
+  ) ENGINE = InnoDB AUTO_INCREMENT = 8 DEFAULT CHARSET = utf8mb3 COLLATE = utf8_unicode_ci;
