@@ -56,11 +56,11 @@ $tmp = getSessionActual();
                         </a>
 
                         <div class="sb-sidenav-menu-heading">Administración</div>
-                        <a class="nav-link" href="?c=orden">
+                        <a class="nav-link" href="?c=ordenes">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-bag-shopping"></i></div>
                             Mis Ordenes
                         </a>
-                        <a class="nav-link" href="?c=orden&a=index&vista=store">
+                        <a class="nav-link" href="?c=ordenes&a=index&vista=store">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-shop"></i></div>
                             Ventas
                         </a>

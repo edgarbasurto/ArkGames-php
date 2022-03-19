@@ -16,7 +16,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
             <div class="card-header font-weight-bold text-primary align-middle">
                 <div class="row">
                     <div class="col text-first align-middle">
-                        <h3 class="fw-bold" style="margin-top:.5rem">$titleOrdenes</h3>
+                        <h3 class="fw-bold" style="margin-top:.5rem"><?php echo $titleOrdenes; ?></h3>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,10 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
 
                         <thead class="table-light">
                             <th class="text-center" scope="col">Id</th>
-                            <th class="text-center" scope="col">Registrado a</th>
+                            <?php if ($modulo == 'store') //&&  TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_VENTAS)) 
+                            {
+                                echo '<th class="text-center" scope="col">Registrado a</th>';
+                            } ?>
                             <th class="text-center" scope="col">Valor</th>
                             <th class="text-center" scope="col">Fecha</th>
                             <th class="text-center" scope="col">Estado</th>
@@ -38,21 +41,17 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                             foreach ($lista as $registro) {
                             ?>
                                 <tr>
-                                    <th class="align-middle text-center fw-light" scope="row"> Transac# <?php echo $registro->Orden ?></th>
-                                    <td class="align-middle text-center fw-light"><?php echo  $registro->NombreCompleto  ?></td>
-                                    <td class="align-middle text-center fw-light">$<?php echo $registro->Valor ?></td>
-                                    <td class="align-middle text-center fw-light"><?php echo $registro->Fecha ?></td>
-                                    <td class="align-middle text-center fw-light"><?php echo $registro->Estado ?></td>
-                                    <td class="align-middle text-center fw-light " style="width: 10%; ">
-                                        <a href="index.php?c=usuarios&a=show&id=<?php echo $registro->Orden ?>" class="btn btn-success"><i class="fas fa-eye"></i></a>
-                                        <?php
-                                        if ($registro->IdRol != TipoRol::Administrador) {
-                                            echo ' <a href="index.php?c=usuarios&a=changepwd&id=' . $registro->Id . '" class="btn btn-primary"><i class="fas fa-key"></i></a>
-                                        <a href="index.php?c=usuarios&a=edit&id=' . $registro->Id . '" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                        <a href="index.php?c=usuarios&a=delete&id=' . $registro->Id . '" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>';
-                                        }
-                                        ?>
+                                    <th class="align-middle text-center fw-light" scope="row"> Transac# <?php echo $registro->Id ?></th>
+                                    <?php if ($modulo == 'store') //&&  TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_VENTAS)) 
+                                    {
+                                        echo '<td class="align-middle text-center fw-light">' . $registro->modified . '</td>';
+                                    } ?>
 
+                                    <td class="align-middle text-center fw-light">$<?php echo $registro->total_price ?></td>
+                                    <td class="align-middle text-center fw-light"><?php echo $registro->created ?></td>
+                                    <td class="align-middle text-center fw-light"><?php echo $registro->status ?></td>
+                                    <td class="align-middle text-center fw-light " style="width: 10%; ">
+                                        <a href="index.php?c=usuarios&a=show&id=<?php echo $registro->Id ?>" class="btn btn-success"><i class="fas fa-eye"></i></a>
                                     </td>
                                 </tr>
                             <?php

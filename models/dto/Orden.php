@@ -17,7 +17,8 @@ class Orden
     public function SetValorDTO($Valor_SessionDTO)
     {
         if (isset($Valor_SessionDTO)) {
-            $this->Id = $Valor_SessionDTO['Id'];
+
+            $this->Id = $Valor_SessionDTO['id'];
             $this->IdUsuario = $Valor_SessionDTO['user_id'];
             $this->total_price = $Valor_SessionDTO['total_price'];
             $this->created = $Valor_SessionDTO['created'];

@@ -19,7 +19,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                         <h3 class="fw-bold" style="margin-top:.5rem">Usuarios</h3>
                     </div>
                     <div class="col text-end align-middle">
-                        <a href="index.php?c=usuarios&a=new" class="btn btn-primary"><i class="fas fa-plus-square"></i> Nuevo</a>
+                        <a href="index.php?c=usuarios&a=new" class="btn btn-success "><i class="fas fa-plus-square"></i> Nuevo</a>
                     </div>
                 </div>
             </div>
@@ -50,11 +50,11 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                                     <td class="align-middle text-center fw-light"><?php echo Genero::getName($registro->Genero) ?></td>
                                     <td class="align-middle text-center fw-light " style="width: 20%; ">
 
-                                        <a href="index.php?c=usuarios&a=show&id=<?php echo $registro->Id ?>" class="btn btn-success"><i class="fas fa-eye"></i></a>
+                                        <a href="index.php?c=usuarios&a=show&id=<?php echo $registro->Id ?>" class="btn btn-warning"><i class="fas fa-eye"></i></a>
                                         <?php
                                         if ($registro->IdRol != TipoRol::Administrador) {
-                                            echo ' <a href="index.php?c=usuarios&a=changepwd&id=' . $registro->Id . '" class="btn btn-primary"><i class="fas fa-key"></i></a>
-                                        <a href="index.php?c=usuarios&a=edit&id=' . $registro->Id . '" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                            echo ' <a href="index.php?c=usuarios&a=changepwd&id=' . $registro->Id . '" class="btn btn-success"><i class="fas fa-key"></i></a>
+                                        <a href="index.php?c=usuarios&a=edit&id=' . $registro->Id . '" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                         <a href="index.php?c=usuarios&a=delete&id=' . $registro->Id . '" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>';
                                         }
                                         ?>

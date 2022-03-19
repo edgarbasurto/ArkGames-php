@@ -34,12 +34,12 @@ class OrdenDAO
 
 	function GetByIdUsuario($IdUsuario)
 	{
-		return $this->sqlQuery("SELECT O.id  ,U.NombreCompleto, O.total_price ,O.created  , O.status  FROM orden AS O INNER JOIN usuarios AS U ON O.USER_ID=U.Id WHERE O.USER_ID=" . $IdUsuario);
+		return $this->sqlQuery("SELECT O.id  ,U.NombreCompleto, O.total_price ,O.created  , O.status , O.modified FROM orden AS O INNER JOIN usuarios AS U ON O.USER_ID=U.Id WHERE O.USER_ID=" . $IdUsuario);
 	}
 
 	function GetVentas()
 	{
-		return $this->sqlQuery("SELECT O.id  ,U.NombreCompleto, O.total_price ,O.created  , O.status  FROM orden AS O INNER JOIN usuarios AS U ON O.USER_ID=U.Id  ");
+		return $this->sqlQuery("SELECT O.id  ,U.NombreCompleto, O.total_price ,O.created  , O.status , O.modified  FROM orden AS O INNER JOIN usuarios AS U ON O.USER_ID=U.Id  ");
 	}
 
 
@@ -54,15 +54,18 @@ class OrdenDAO
 
 		// retorna datos para el controlador
 		$ObjReturn = array();
+
 		foreach ($Ordenes  as $Orden) {
 			$ObjOrden = new Orden();
 			$ObjOrden->SetValorDTO($Orden);
+
 			if (isset($Orden['NombreCompleto'])) {
 				$ObjOrden->NombreUsuario = $Orden['NombreCompleto'];
 			}
 
-			$ObjReturn[] = $Ordenes;
+			$ObjReturn[] = $ObjOrden;
 		}
+
 		return $ObjReturn;
 	}
 }

@@ -15,7 +15,6 @@ class UsuariosController
    {
       if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_USUARIOS)) {
          $lista =  $this->modelo->All();
-         echo VIEW_PATH .  "Usuarios/listar.php";
 
          require_once(VIEW_PATH .  "Usuarios/listar.php");
          if (isset($_SESSION['notificar'])) {
