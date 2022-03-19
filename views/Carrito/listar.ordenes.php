@@ -44,7 +44,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                                     <th class="align-middle text-center fw-light" scope="row"> Transac# <?php echo $registro->Id ?></th>
                                     <?php if ($modulo == 'store') //&&  TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_VENTAS)) 
                                     {
-                                        echo '<td class="align-middle text-center fw-light">' . $registro->modified . '</td>';
+                                        echo '<td class="align-middle text-center fw-light">' . $registro->NombreUsuario . '</td>';
                                     } ?>
 
                                     <td class="align-middle text-center fw-light">$<?php echo $registro->total_price ?></td>
