@@ -73,8 +73,8 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_CONTACTOS)) {
                 echo '<div class="col-xl-3 col-md-6">
                
-                    <a class="tile" href="?c=session&a=dash">
-                    <div class="tile-tittle">Contactos</div>
+                    <a class="tile" href="?c=empleo">
+                    <div class="tile-tittle">Empleo</div>
                         <div class="card-body text-center">
                             <div class="tile-icon">
                                 <i class="fa-solid fa-address-book"></i>
