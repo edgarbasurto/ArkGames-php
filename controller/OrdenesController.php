@@ -1,4 +1,7 @@
 <?php
+
+use function PHPSTORM_META\elementType;
+
 require_once DAO_PATH . 'OrdenDAO.php';
 require_once  CONTROLLER_PATH . 'Genericos.php';
 class OrdenesController
@@ -13,20 +16,22 @@ class OrdenesController
    // funciones del controlador
    public function index()
    {
-      // if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_USUARIOS)) {
-      //    $lista =  $this->modelo->All();
-      //    echo VIEW_PATH .  "Usuarios/listar.php";
+      $modulo = 'my';
+      $titleOrdenes = 'Mis Ordenes';
+      if (isset($_POST, $_POST['vista'])) {
+         $modulo = $_POST['vista'];
+      }
+      $lista = array();
 
-      //    require_once(VIEW_PATH .  "Usuarios/listar.php");
-      //    if (isset($_SESSION['notificar'])) {
-      //       if ($_SESSION['notificar'] == 1) {
-      //          echo "<script>notificarMensaje();</script>";
-      //          unset($_SESSION['mensaje'], $_SESSION['color'], $_SESSION['notificar']);
-      //       }
-      //    }
-      // } else {
-      //    header('Location:index.php?c=session&a=dash');
-      // }
+      if ($modulo == 'store' &&  TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_VENTAS)) {
+         $mysession = getSessionActual();
+         $lista = $this->modelo->GetByIdUsuario($mysession->Usuario);
+         $titleOrdenes = 'Ventas';
+      } else {
+         $lista = $this->modelo->GetVentas();
+      }
+
+      echo VIEW_PATH .  "Carrito/listar.ordenes.php";
    }
 
    public function show()
