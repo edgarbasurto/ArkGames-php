@@ -30,4 +30,9 @@ class OrdenDAO
 		  }
 	}
 
+    public function lastOrdenID()
+    {
+        return $this->con->lastInsertId();
+    }
+
 }

@@ -80,7 +80,7 @@ class CarritoController
             $insertOrder = $this->orden->insertarOrden();
 
             if ($insertOrder) {
-                $orderID = $db->insert_id;
+                $orderID = $this->orden->lastOrdenID();
                 $sql = '';
                 // get cart items
                 $cartItems = $this->cart->contents();
