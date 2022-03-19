@@ -174,6 +174,7 @@ class Invitado implements Perfil
         $bloqueo_funciones[] = PERMISOS::PUEDE_EDITAR_SUSCRIP;
         $bloqueo_funciones[] = PERMISOS::PUEDE_ELIMINAR_SUSCRIP;
 
+        $bloqueo_funciones[] = PERMISOS::PUEDE_VISUALIZAR_VENTAS;
         return  $bloqueo_funciones;
     }
 }
