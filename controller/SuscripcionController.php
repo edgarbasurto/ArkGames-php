@@ -15,11 +15,15 @@ class SuscripcionController
     // funciones del controlador
     public function index()
     {
-        // llamar al modelo
-        $resultados = $this->modelo->listar();
+        if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SUSCRIP)) {
+            // llamar al modelo
+            $resultados = $this->modelo->listar();
 
-        //llamo a la vista
-        require_once VIEW_PATH .'Suscripcion/listar_suscripcion.php';
+            //llamo a la vista
+            require_once VIEW_PATH .'Suscripcion/listar_suscripcion.php';
+        } else {
+            header('Location:index.php?c=session&a=dash');
+        }
     }
 
     public function guardar()
@@ -45,21 +49,6 @@ class SuscripcionController
             $datos['id_suscripcion'] > 0
                     ? $this->modelo->actualizar($datos)
                     : $this->modelo->insertar($datos);
-
-            /*$exito = $this->modelo->insertar($datos);
-            $msj = 'Producto guardado exitosamente';
-            $color = 'primary';
-            if (!$exito) {
-                $msj = "No se pudo realizar el guardado";
-                $color = "danger";
-            }
-            if(!isset($_SESSION)){ session_start();};
-            $_SESSION['mensaje'] = $msj;
-            $_SESSION['color'] = $color;*/
-            //llamar a la vista
-            //  $this->index();
-            //header('Location:index.php?c=Productos&f=index');
-            
             header('Location: index.php');
             echo '<script>alert("Registro guardado con exito")</script>';
             
@@ -74,9 +63,13 @@ class SuscripcionController
 
     public function delete()
     {
-        $this->modelo->eliminar($_REQUEST['id']);
-        echo "<script>alert('Registro guardado con exito')</script>";
-        header('Location: index.php');
+        if (TIENE_PERMISO(PERMISOS::PUEDE_ELIMINAR_SUSCRIP)) {
+            $this->modelo->eliminar($_REQUEST['id']);
+            echo "<script>alert('Registro guardado con exito')</script>";
+            header('Location: index.php');
+        } else {
+            header('Location:index.php?c=session&a=dash');
+        }  
     }
 
 
@@ -84,11 +77,19 @@ class SuscripcionController
     {
 
         if (isset($_REQUEST['id'])) {
-            $suscripciones = $this->modelo->obtenerId($_REQUEST['id']);
-            $suscripcion = $suscripciones[0];
-            require_once VIEW_PATH . 'Suscripcion/editar_suscripcion.php';
+            if (TIENE_PERMISO(PERMISOS::PUEDE_EDITAR_SUSCRIP)) {
+                $suscripciones = $this->modelo->obtenerId($_REQUEST['id']);
+                $suscripcion = $suscripciones[0];
+                require_once VIEW_PATH . 'Suscripcion/editar_suscripcion.php';
+            }else {
+                header('Location:index.php?c=session&a=dash');
+            }   
         } else {
-            require_once VIEW_PATH . 'Suscripcion/registrar_suscripcion.php';
+            if (TIENE_PERMISO(PERMISOS::PUEDE_CREAR_SUSCRIP)) {
+                require_once VIEW_PATH . 'Suscripcion/registrar_suscripcion.php';
+            }else {
+                header('Location:index.php?c=session&a=dash');
+            }      
         }
         
     }
