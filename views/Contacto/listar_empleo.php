@@ -9,7 +9,7 @@
 
             <div class="card-header row">
                 <div class="col-md-7">
-                    <h2>Solicitudes de </h2>Empleo
+                    <h2>Solicitudes de Empleo</h2>
                 </div>
                 <div class="col-md-5 text-end"><a class="btn btn-success justify-center" href="?c=empleo&a=nuevo">Agregar <i class="fa-solid fa-circle-plus fa-lg"></i></a></div>
             </div>
