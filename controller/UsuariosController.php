@@ -200,48 +200,33 @@ class UsuariosController
 
    public function validar()
    {
-      //para cerrrar session
-      session_unset();
-      if (!isset($_SESSION)) {
-         session_start();
-      };
-      echo print_r($_POST);
       if (isset($_POST['txtingreso'], $_POST['txtpassword'])) {
 
          $txtingreso = htmlentities($_POST['txtingreso']);
          $txtpassword = htmlentities($_POST['txtpassword']);
 
-         $ObjUsuario = $this->modelo->ValidarPWD_PorUsuario($txtingreso, $txtpassword);
-         echo var_dump($ObjUsuario);
-         if (is_null($ObjUsuario) == false) {
+         $ObRepuestajUsuario = $this->modelo->ValidarPWD_PorUsuario($txtingreso, $txtpassword);
+
+         if (is_null($ObRepuestajUsuario) == false) {
 
             require_once DAO_PATH . 'AccesoDAO.php';
+            require_once  DTO_PATH . 'Acceso.php';
+            $modelo_acceso = new AccesoDAO();
 
             $ObjAcceso = new  Acceso();
-
             $ObjAcceso->Id = GUID();
-            $ObjAcceso->IdUsuario = $ObjUsuario['Id'];
+            $ObjAcceso->IdUsuario = $ObRepuestajUsuario['Id'];
             $ObjAcceso->NombreNavegador = getBrowser($_SERVER['HTTP_USER_AGENT']);
             $ObjAcceso->IP = $_SERVER['REMOTE_ADDR'];
 
-            $modelo_acceso = new AccesoDAO();
-            if ($modelo_acceso->Insert($ObjAcceso)) {
-               /* código establecer session*/
+            $insertar = $modelo_acceso->Insert($ObjAcceso);
 
-               $mySession->Session = $ObjAcceso->Id;
-               $mySession->Usuario = $ObjUsuario['Id'];
-               $mySession->Perfil
-                  =
-                  $ObjUsuario['IdRol'];
-               $mySession->NombrePerfil = TipoRol::getName($ObjUsuario['IdRol']);
-               $mySession->Email =
-                  $ObjUsuario['Email'];
-               $mySession->NombreCompleto =
-                  $ObjUsuario['NombreCompleto'];
-               $_SESSION['mySession'] = $mySession;
-               /*crear session*/
-               // print_r($_SESSION['mySession']);
-               echo '<script> alert("Bienvenido.\n ' . $ObjUsuario['NombreCompleto'] . '") </script> ';
+            if ($insertar == true) {
+
+               setcookie("mySession", $ObjAcceso->Id, time() - 3600, "/");
+               setcookie("mySession", $ObjAcceso->Id, time() + 3600, "/");
+
+               echo '<script> alert("Bienvenido.\n ' . $ObRepuestajUsuario['NombreCompleto'] . '") </script> ';
                header('Location:index.php');
             } else {
                $this->errorLogin();
@@ -249,6 +234,8 @@ class UsuariosController
          } else {
             $this->errorLogin();
          }
+      } else {
+         $this->errorLogin();
       }
    }
    public function errorLogin()

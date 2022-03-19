@@ -1,4 +1,5 @@
 <?php
+
 class Genericos
 {
     // @Rafael1108
@@ -74,28 +75,70 @@ function TIENE_PERMISO(int $Permiso): bool
     return $ObjPerfilUsuario->tieneAcceso($Permiso);
 }
 
-function getSessionActual()
-{
-    require_once  DTO_PATH . 'Session.php';
-    //Rafael1108
-    //Se instancia session
-    if (isset($_SESSION)) {
-        session_start();
-    };
+require_once DAO_PATH . 'UsuarioDAO.php';
+require_once DAO_PATH . 'AccesoDAO.php';
+require_once  DTO_PATH . 'Acceso.php';
+require_once  DTO_PATH . 'Session.php';
+function getdefaultSession()
+{ //Rafael1108
 
     $mySession = new Session();
-    // //Se genera codigo de session como invitado
-    if (!isset($_SESSION['mySession'])) {
-        $mySession->Session = '00000000-0000-0000-0000-000000000000';
-        $mySession->Usuario = -1;
-        $mySession->Perfil = 1;
-        $mySession->NombrePerfil = TipoRol::getName(0);
-        $mySession->Email = '';
-        $mySession->NombreCompleto = 'Invitado';
-        $_SESSION['mySession'] = $mySession;
-    }
 
-    return $_SESSION['mySession'];
+    $mySession->Session = '00000000-0000-0000-0000-000000000000';
+    $mySession->Usuario = -1;
+    $mySession->Perfil = 0;
+    $mySession->NombrePerfil = TipoRol::getName(0);
+    $mySession->Email = '';
+    $mySession->NombreCompleto = 'Invitado';
+    //Se instancia session
+    if (!isset($_SESSION)) {
+        session_start();
+    };
+    $_SESSION['mySession'] = $mySession;
+
+    setcookie("mySession", '00000000-0000-0000-0000-000000000000', time() - 3600, "/");
+    setcookie("mySession", '00000000-0000-0000-0000-000000000000', time() + 3600, "/");
+    return  $mySession;
+}
+function getSessionActual()
+{
+
+    if (isset($_COOKIE['mySession'])) {
+        $IdSession =  $_COOKIE['mySession'];
+
+        if ($IdSession != '00000000-0000-0000-0000-000000000000') {
+
+            $modelo_acceso = new AccesoDAO();
+            $modelo_Usuario = new UsuarioDAO();
+
+            $registros = $modelo_acceso->GetById($IdSession);
+
+            if (empty($registros[0]) == false) {
+                $ObjAcceso = $registros[0];
+                $ObjUsuario = $modelo_Usuario->GetById($ObjAcceso->IdUsuario)[0];
+
+                $mySession = new Session();
+                $mySession->Session = $IdSession;
+                $mySession->Usuario = $ObjUsuario->Id;
+                $mySession->Perfil = $ObjUsuario->IdRol;
+                $mySession->NombrePerfil = TipoRol::getName($ObjUsuario->IdRol);
+                $mySession->Email = $ObjUsuario->Email;
+                $mySession->NombreCompleto = $ObjUsuario->NombreCompleto;
+                //Se instancia session
+                if (!isset($_SESSION)) {
+                    session_start();
+                };
+                $_SESSION['mySession'] = $mySession;
+                return  $mySession;
+            } else {
+                return getdefaultSession();
+            }
+        } else {
+            return getdefaultSession();
+        }
+    } else {
+        return getdefaultSession();
+    }
 }
 
 

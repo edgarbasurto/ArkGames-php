@@ -27,11 +27,13 @@ class UsuarioDAO
     $conversion = strtoupper($usuario);
     $lst = $this->GetByNickName($conversion);
 
-    foreach ($lst as $ObjUsuario) {
+    foreach ($lst as $ObjUser) {
 
-      $hash = $ObjUsuario->getPassword();
+      $hash = $ObjUser->getPassword();
+
       if (password_verify($password, $hash)) {
-        return  get_object_vars($ObjUsuario);
+
+        return  get_object_vars($ObjUser);
       }
     }
 

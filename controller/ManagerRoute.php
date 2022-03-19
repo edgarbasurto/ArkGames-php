@@ -4,11 +4,10 @@ require_once 'config/global.php';
 require_once  CONTROLLER_PATH . 'Genericos.php';
 class ManagerRoute
 {
-    private $SessionActual;
     public function __construct()
     {
         //establece la session por default 
-        $this->SessionActual =  getSessionActual();
+        getSessionActual();
     }
 
     public function ruteo()

@@ -13,13 +13,15 @@
 
 <body id="bodyTemp">
 	<?php require_once VIEW_PATH . 'Templates/navBarBootstrap.php' ?>
-	<div class="barraflotante" onmouseover="show_popup()">
+	<?php if (getSessionActual()->Session == '00000000-0000-0000-0000-000000000000') {
+
+		echo '<div class="barraflotante" onmouseover="show_popup()">
 		<span class="popupText" id="autopopup">Juega Ya!</span>
-		<a href="index.php?c=Session"><img src="assets/img/joystick.svg" style="width:45px; height:45px;" alt="LogIn">
+		<a href="index.php?c=Session"><img src="assets/img/joystick.svg" style="width:45px; height:45px;" alt="LogIn ">
 			<h5>Log In</h5>
 		</a>
-	</div>
-
+	</div>';
+	} ?>
 	<header>
 		<div id="slider" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-indicators">

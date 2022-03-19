@@ -12,25 +12,25 @@ class AccesoDAO
         $this->con = Conexion::getConexion();
     }
 
-    public function GetById(int $Value)
+    public function GetById($Value)
     {
-        return $this->sqlQuery("SELECT   * FROM accesos WHERE Activo=1 AND Id='" . $Value . "'");
+        return $this->sqlQuery("SELECT * FROM accesos WHERE Activo=1 AND Id='" . $Value . "'");
     }
 
 
     public function Insert(Acceso $Obj)
     {
-        // $sql = "INSERT INTO accesos (Id,IdUsuario,FechaHoraAcceso,NombreNavegador,IP ) VALUES
-        //                         ('$Obj->Id',$Obj->IdUsuario,NOW(),'$Obj->NombreNavegador','$Obj->IP')";
-        // echo $sql;
-        // //preparacion de la sentencia
-        // $stmt = $this->con->prepare($sql);
-        // //ejecucion de la sentencia
-        // if ($stmt->execute()) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
+        $sql = "INSERT INTO accesos (Id,IdUsuario,FechaHoraAcceso,NombreNavegador,IP ) VALUES
+                                 ('$Obj->Id',$Obj->IdUsuario,NOW(),'$Obj->NombreNavegador','$Obj->IP')";
+
+        //preparacion de la sentencia
+        $stmt = $this->con->prepare($sql);
+        //ejecucion de la sentencia
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
     public function Update(Acceso $Obj)
     {
@@ -48,6 +48,7 @@ class AccesoDAO
     }
     function sqlQuery(?String $sql)
     {
+
         //preparacion de la sentencia
         $stmt = $this->con->prepare($sql);
         //ejecucion de la sentencia
