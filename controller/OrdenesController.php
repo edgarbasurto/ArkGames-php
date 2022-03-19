@@ -18,9 +18,10 @@ class OrdenesController
    {
       $modulo = 'my';
       $titleOrdenes = 'Mis Ordenes';
-      if (isset($_POST, $_POST['vista'])) {
-         $modulo = $_POST['vista'];
+      if (isset($_GET, $_GET['vista'])) {
+         $modulo = $_GET['vista'];
       }
+      echo var_dump($modulo);
       $lista = array();
 
       if ($modulo == 'store' &&  TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_VENTAS)) {
