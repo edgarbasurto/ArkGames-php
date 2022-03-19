@@ -41,6 +41,20 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                     </a>
             </div>';
             } ?>
+           <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SUSCRIP)) {
+                echo '<div class="col-xl-3 col-md-6">
+                
+                    <a class="tile" href="?c=suscripcion">
+                    <div class="tile-tittle">Suscripción</div>
+                        <div class="card-body text-center">
+                            <div class="tile-icon">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                            </div>
+                           
+                        </div>
+                    </a>
+            </div>';
+            } ?>
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SOPORTE)) {
                 echo '<div class="col-xl-3 col-md-6">
                
@@ -87,26 +101,6 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
             </div>
             ';
             } ?>
-
-            <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SUSCRIP)) {
-                echo '<div class="col-xl-3 col-md-6">
-                
-                    <a class="tile" href="?c=suscripcion">
-                    <div class="tile-tittle">Suscripción</div>
-                        <div class="card-body text-center">
-                            <div class="tile-icon">
-                            <i class="fa-solid fa-envelope-open-text"></i>
-                            </div>
-                           
-                        </div>
-                    </a>
-              
-            </div>
-            ';
-            } ?>
-
-
-
         </div>
     </div>
 </main>

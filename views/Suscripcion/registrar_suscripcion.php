@@ -8,13 +8,9 @@
 </head>
 
 <body id="bodyTemp">
-    <header>
-        <?php
-        require_once VIEW_PATH . 'Templates/navBarBootstrap.php'
-        ?>
-    </header>
+    <?php require_once VIEW_PATH . 'Templates/navBarBootstrap.php'?>
 
-    <main class="main p-5 mx-3">
+    <main class="container my-5">
 
         <div class="container px-5">
             <div class="container card shadow bg-dark text-white">
@@ -130,7 +126,7 @@
 
     <!----------------------------------------------------------------------------------------------->
 
-    <script type="text/javascript" src="../../assets/js/Validacion_Noticias.js"></script>
+    <script type="text/javascript" src="../../assets/js/Validacion_Suscrip.js"></script>
 
 </body>
 

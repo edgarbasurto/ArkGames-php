@@ -78,7 +78,7 @@ $tmp = getSessionActual();
                 }
                 ?>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded btn position-relative" href="#" role="button" aria-expanded="false">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded btn position-relative" href="?c=carrito" role="button" aria-expanded="false">
                         <i class="fa-solid fa-cart-shopping"></i>
 
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

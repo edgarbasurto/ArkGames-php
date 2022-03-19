@@ -1,6 +1,6 @@
 <?php
 require_once DAO_PATH . 'NoticiasDAO.php';
-
+require_once  CONTROLLER_PATH . 'Genericos.php';
 
 class NoticiasController
 {
@@ -15,28 +15,33 @@ class NoticiasController
     // funciones del controlador
     public function index()
     {
-        // llamar al modelo
-        $resultados = $this->modelo->listar();
-
-        //llamo a la vista
-        require_once VIEW_PATH . 'Noticias/listar_noticia.php';
+        if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_NOTICIAS)) {
+            // llamar al modelo
+            $resultados =  $this->modelo->listar();
+            //llamo a la vista
+            require_once VIEW_PATH . 'Noticias/listar_noticia.php';
+        } else {
+            header('Location:index.php?c=session&a=dash');
+        }
     }
 
     public function index_noticias()
     {
-        // llamar al modelo para llenar noticias
-        $resultados = $this->modelo->listar();
-
-        //llenar aside
-        require_once DAO_PATH . 'TemaDAO.php';
-        $con = new TemaDAO();
-        $lista1 = $con->listar();
-        require_once DAO_PATH . 'DispositivoDAO.php';
-        $con = new DispositivoDAO();
-        $lista2 = $con->listar();
-
-        //llamo a la vista
-        require_once VIEW_PATH . 'Noticias/BernalHelen.php';
+        if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_NOTICIAS)) {
+            // llamar al modelo
+            $resultados =  $this->modelo->listar();
+            //llenar aside
+            require_once DAO_PATH . 'TemaDAO.php';
+            $con = new TemaDAO();
+            $lista1 = $con->listar();
+            require_once DAO_PATH . 'DispositivoDAO.php';
+            $con = new DispositivoDAO();
+            $lista2 = $con->listar();
+            //llamo a la vista
+            require_once VIEW_PATH . 'Noticias/BernalHelen.php';
+        } else {
+            header('Location:index.php?c=session&a=dash');
+        }
     }
 
     public function buscar() {
@@ -144,32 +149,44 @@ class NoticiasController
 
     public function delete()
     {
-        $this->modelo->eliminar($_REQUEST['id']);
-        echo "<script>alert('Registro guardado con exito')</script>";
-        header('Location: index.php?c=noticias');
+        if (TIENE_PERMISO(PERMISOS::PUEDE_ELIMINAR_NOTICIAS)) {
+            $this->modelo->eliminar($_REQUEST['id']);
+            echo "<script>alert('Registro guardado con exito')</script>";
+            header('Location: index.php?c=noticias');
+        } else {
+            header('Location:index.php?c=session&a=dash');
+        }    
     }
 
     public function nuevo()
     {
         if (isset($_REQUEST['id'])) {
-            $noticias = $this->modelo->obtener($_REQUEST['id']);
-            $noticia = $noticias[0];
-            require_once DAO_PATH . 'TemaDAO.php';
-            $con = new TemaDAO();
-            $lista1 = $con->listar();
-            require_once DAO_PATH . 'DispositivoDAO.php';
-            $con = new DispositivoDAO();
-            $lista2 = $con->listar();
-            require_once VIEW_PATH . 'Noticias/editar_noticia.php';
+            if (TIENE_PERMISO(PERMISOS::PUEDE_EDITAR_NOTICIAS)) {
+                $noticias = $this->modelo->obtener($_REQUEST['id']);
+                $noticia = $noticias[0];
+                require_once DAO_PATH . 'TemaDAO.php';
+                $con = new TemaDAO();
+                $lista1 = $con->listar();
+                require_once DAO_PATH . 'DispositivoDAO.php';
+                $con = new DispositivoDAO();
+                $lista2 = $con->listar();
+                require_once VIEW_PATH . 'Noticias/editar_noticia.php';
+            }else {
+                header('Location:index.php?c=session&a=dash');
+            }    
 
         } else {
-            require_once DAO_PATH . 'TemaDAO.php';
-            $con = new TemaDAO();
-            $lista1 = $con->listar();
-            require_once DAO_PATH . 'DispositivoDAO.php';
-            $con = new DispositivoDAO();
-            $lista2 = $con->listar();
-            require_once VIEW_PATH . 'Noticias/agregar_noticia.php';
+            if (TIENE_PERMISO(PERMISOS::PUEDE_CREAR_NOTICIAS)) {
+                require_once DAO_PATH . 'TemaDAO.php';
+                $con = new TemaDAO();
+                $lista1 = $con->listar();
+                require_once DAO_PATH . 'DispositivoDAO.php';
+                $con = new DispositivoDAO();
+                $lista2 = $con->listar();
+                require_once VIEW_PATH . 'Noticias/agregar_noticia.php';
+            }else {
+                header('Location:index.php?c=session&a=dash');
+            }    
         }
     }
 }
