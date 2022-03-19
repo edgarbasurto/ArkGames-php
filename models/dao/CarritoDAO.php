@@ -1,12 +1,11 @@
 <?php
 
 require_once ROOT_PATH . 'config/conexion.php';
-// require_once DTO_PATH . 'Producto.php';
 
 class CarritoDAO
 {
 	private $con;
-	protected $cart_contents = array();
+	private $cart_contents = array();
 
 	public function __construct()
 	{
@@ -204,20 +203,5 @@ class CarritoDAO
 	}
 
 
-	public function insertarOrden()
-	{
-		try {
-			// sql de la sentencia
-			$sql = "INSERT INTO orden (user_id, total_price, created, modified) VALUES ('" . $_SESSION['sessCustomerID'] . "', '" . $this->total() . "', '" . date("Y-m-d H:i:s") . "', '" . date("Y-m-d H:i:s") . "')";
-			//preparacion de la sentencia
-			$stmt = $this->con->prepare($sql);
-
-			//ejecucion de la sentencia
-			$stmt->execute();
-			return true;
-		}  catch (Exception $e) {
-			die($e->getMessage());
-			return false;
-		  }
-	}
+	
 }
