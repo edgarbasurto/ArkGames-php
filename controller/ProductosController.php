@@ -27,15 +27,13 @@ class ProductosController
 
     public function index_cuadricula()
     {
-        if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
+       
             // llamar al modelo
             $resultados = $this->modelo->Listar();
 
             //llamo a la vista
             require_once VIEW_PATH .  'Catalogo/listar.cuadricula.php';
-        } else {
-            header('Location:index.php?c=session&a=dash');
-        }
+        
     }
 
     public function guardar()

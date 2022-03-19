@@ -54,7 +54,7 @@
                                         <span class="precio2"><b>$<?php echo $producto->precio ?></b></span>
                                     </div>
                                     <div class="col text-end">
-                                        <a href="index.php?c=productos&a=edit&id=<?php echo $producto->id_producto ?>" class="btn btn-info text-white"><i class="fa-solid fa-cart-plus"></i></a>
+                                        <a href="index.php?c=carrito&a=addToCart&id=<?php echo $producto->id_producto ?>" class="btn btn-info text-white"><i class="fa-solid fa-cart-plus"></i></a>
                                         
                                     </div>
                                 </div>
