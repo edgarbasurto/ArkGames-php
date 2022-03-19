@@ -54,6 +54,20 @@ $tmp = getSessionActual();
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
+
+                        <div class="sb-sidenav-menu-heading">Administración</div>
+                        <a class="nav-link" href="?c=session&a=dash">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                            Mis Ordenes
+                        </a>
+                        <a class="nav-link" href="?c=productos">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-shop"></i></div>
+                            Ventas
+                        </a>
+                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
+                            echo ' ';
+                        } ?>
+
                         <div class="sb-sidenav-menu-heading">Mantenimiento</div>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
                             echo ' <a class="nav-link" href="?c=productos">

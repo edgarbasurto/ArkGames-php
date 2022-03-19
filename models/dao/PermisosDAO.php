@@ -60,6 +60,8 @@ class PERMISOS
     const PUEDE_CREAR_SUSCRIP = 26;
     const PUEDE_EDITAR_SUSCRIP = 27;
     const PUEDE_ELIMINAR_SUSCRIP = 28;
+
+    const PUEDE_VISUALIZAR_VENTAS = 29;
 }
 
 class Administrador implements Perfil
@@ -125,6 +127,7 @@ class Jugador implements Perfil
         $bloqueo_funciones[] = PERMISOS::PUEDE_EDITAR_SUSCRIP;
         $bloqueo_funciones[] = PERMISOS::PUEDE_ELIMINAR_SUSCRIP;
 
+        $bloqueo_funciones[] = PERMISOS::PUEDE_VISUALIZAR_VENTAS;
         return  $bloqueo_funciones;
     }
 }
