@@ -93,6 +93,12 @@ $tmp = getSessionActual();
                             Usuarios
                         </a>';
                         } ?>
+
+                        <div class="sb-sidenav-menu-heading">Página Principal</div>
+                        <a class="nav-link" href="index.php">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
+                            Home
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer text-center">
