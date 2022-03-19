@@ -38,7 +38,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                         <div class="row text-end py-2">
                             <div class="col text-center">
                                 <div class="row">
-                                    <div class="col text-end">
+                                    <!-- <div class="col text-end">
                                         <a class="btn btn-secondary my-auto" href="?c=productos&a=index_cuadricula" data-toggle="tooltip" data-placement="top" title="Listar cuadricula">
                                             <i class="fa-solid fa-border-all"></i></a>
                                     </div>
@@ -46,12 +46,12 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                                     <div class="col text-start">
                                         <a class="btn btn-secondary my-auto" href="index.php?c=productos" data-toggle="tooltip" data-placement="top" title="Listar tabla">
                                             <i class="fa-solid fa-align-justify"></i></a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="col text-center">
-                                <a class="btn btn-primary my-auto" href="?c=productos&a=nuevo">
-                                    <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
+                                <a class="btn btn-success my-auto" href="?c=productos&a=nuevo">
+                                     Agregar <i class="fa-solid fa-circle-plus"></i></a>
                             </div>
 
                         </div>

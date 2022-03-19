@@ -14,75 +14,78 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Bienvenido</li>
         </ol>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="row row-cols-1 row-cols-md-2 g-4 tile-container">
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
                 echo '<div class="col-xl-3 col-md-6">
-                <div class="card" style="width: 18rem;">
-                    <a class="nav-link" href="?c=productos">
-                        <div class="card-body text-center">
-                            <div>
-                                <i class="fa-solid fa-boxes-stacked"></i>
-                            </div>
-                            <p class="card-text">Productos</p>
-                        </div>
+               
+                    <a class="tile card" href="?c=productos">
+                    <div class="card-header">Productos</div>
+                    <div class="card-body text-center">
+                            <div class="tile-icon">
+                            <i class="fas fa-box-open fa-fw"></i>
+                            </div>                     
+                         </div>   
                     </a>
-                </div>
+                
             </div>';
             } ?>
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_NOTICIAS)) {
                 echo '<div class="col-xl-3 col-md-6">
-                <div class="card" style="width: 18rem;">
-                    <a class="nav-link" href="?c=noticias">
+                
+                    <a class="tile card" href="?c=noticias">
+                    <div class="card-header">Noticias</div>
                         <div class="card-body text-center">
-                            <div>
+                            <div class="tile-icon">
                                 <i class="fa-solid fa-newspaper"></i>
                             </div>
-                            <p class="card-text">Noticias</p>
+                            
                         </div>
                     </a>
-                </div>
             </div>';
             } ?>
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SOPORTE)) {
                 echo '<div class="col-xl-3 col-md-6">
-                <div class="card" style="width: 18rem;">
-                    <a class="nav-link" href="?c=soporte">
+               
+                    <a class="tile card" href="?c=soporte">
+                    <div class="card-header">Soporte</div>
                         <div class="card-body text-center">
-                            <div>
+                            <div class="tile-icon">
                                 <i class="fa-solid fa-screwdriver-wrench"></i>
                             </div>
-                            <p class="card-text">Soporte</p>
+                            
                         </div>
                     </a>
-                </div>
+                
             </div>';
             } ?>
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_CONTACTOS)) {
                 echo '<div class="col-xl-3 col-md-6">
-                <div class="card" style="width: 18rem;">
-                    <a class="nav-link" href="?c=session&a=dash">
+               
+                    <a class="tile card" href="?c=session&a=dash">
+                    <div class="card-header">Contactos</div>
                         <div class="card-body text-center">
-                            <div>
+                            <div class="tile-icon">
                                 <i class="fa-solid fa-address-book"></i>
                             </div>
-                            <p class="card-text">Contactos</p>
+                            
                         </div>
                     </a>
-                </div>
+            
             </div>';
             } ?>
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_USUARIOS)) {
                 echo '<div class="col-xl-3 col-md-6">
-                <div class="card" style="width: 18rem;">
-                    <a class="nav-link" href="?c=usuarios">
+                
+                    <a class="tile card" href="?c=usuarios">
+                    <div class="card-header">Usuarios</div>
                         <div class="card-body text-center">
-                            <div>
+                            <div class="tile-icon">
                                 <i class="fa-solid fa-users"></i>
                             </div>
-                            <p class="card-text">Usuarios</p>
+                           
                         </div>
                     </a>
-                </div>
+              
             </div>
             ';
             } ?>

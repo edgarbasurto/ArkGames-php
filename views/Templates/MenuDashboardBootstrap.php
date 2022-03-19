@@ -57,7 +57,7 @@ $tmp = getSessionActual();
                         <div class="sb-sidenav-menu-heading">Mantenimiento</div>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
                             echo ' <a class="nav-link" href="?c=productos">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-box-open fa-fw"></i></div>
                             Productos
                         </a>';
                         } ?>

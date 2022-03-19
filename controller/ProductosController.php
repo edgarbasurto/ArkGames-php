@@ -15,20 +15,27 @@ class ProductosController
     // funciones del controlador
     public function index()
     {
-        // llamar al modelo
-        $resultados = $this->modelo->Listar();
-        //llamo a la vista
-        require_once VIEW_PATH . 'Catalogo/listar.tabla.php';
-        // require_once(VIEW_PATH .  "Catalogo/cargarfile.php");
+        if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
+            // llamar al modelo
+            $resultados = $this->modelo->Listar();
+            //llamo a la vista
+            require_once VIEW_PATH . 'Catalogo/listar.tabla.php';
+        } else {
+            header('Location:index.php?c=session&a=dash');
+        }
     }
 
     public function index_cuadricula()
     {
-        // llamar al modelo
-        $resultados = $this->modelo->Listar();
+        if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
+            // llamar al modelo
+            $resultados = $this->modelo->Listar();
 
-        //llamo a la vista
-        require_once VIEW_PATH .  'Catalogo/listar.cuadricula.php';
+            //llamo a la vista
+            require_once VIEW_PATH .  'Catalogo/listar.cuadricula.php';
+        } else {
+            header('Location:index.php?c=session&a=dash');
+        }
     }
 
     public function guardar()
@@ -64,8 +71,6 @@ class ProductosController
                     "prod_estado" => 1
                 ];
 
-                // echo 'ENTRO AL IF';
-                // echo var_dump($datos);
                 $datos['id_producto'] > 0
                     ? $this->modelo->actualizar($datos)
                     : $this->modelo->registrar($datos);
@@ -75,7 +80,6 @@ class ProductosController
                 echo '<script>alert("Registro guardado con exito")</script>';
             } else {
                 echo '<script>alert("Error: El formato de archivo tiene que ser JPG, GIF, BMP o PNG.")</script>';
-                // echo "<div class='error'>Error: El formato de archivo tiene que ser JPG, GIF, BMP o PNG.</div>";
             }
         } else {
             $datos = [
@@ -85,8 +89,7 @@ class ProductosController
                 "id_categoria" => $_POST['selectCategoria'],
                 "prod_estado" => 1
             ];
-            // echo 'ENTRO AL ELSE';
-            // echo var_dump($datos);
+
             $this->modelo->actualizarSinImagen($datos);
 
             header('Location: index.php?c=productos');
@@ -97,29 +100,44 @@ class ProductosController
 
     public function delete()
     {
-        $this->modelo->eliminar($_REQUEST['id']);
-        echo "<script>alert('Registro guardado con exito')</script>";
-        header('Location: index.php?c=productos');
+        if (TIENE_PERMISO(PERMISOS::PUEDE_ELIMINAR_PRODUCTOS)) {
+
+            $this->modelo->eliminar($_REQUEST['id']);
+            echo "<script>alert('Registro guardado con exito')</script>";
+            header('Location: index.php?c=productos');
+        } else {
+            header('Location:index.php?c=session&a=dash');
+        }
     }
 
 
     public function nuevo()
     {
 
+
         if (isset($_REQUEST['id'])) {
-            $productos = $this->modelo->obtener($_REQUEST['id']);
-            $producto = $productos[0];
-            require_once DAO_PATH . 'CategoriasDAO.php';
-            $con = new CategoriasDAO();
-            $lista = $con->listar();
+            if (TIENE_PERMISO(PERMISOS::PUEDE_EDITAR_PRODUCTOS)) {
+                $productos = $this->modelo->obtener($_REQUEST['id']);
+                $producto = $productos[0];
+                require_once DAO_PATH . 'CategoriasDAO.php';
+                $con = new CategoriasDAO();
+                $lista = $con->listar();
 
-            require_once VIEW_PATH . 'Catalogo/agregar.producto.php';
+                require_once VIEW_PATH . 'Catalogo/agregar.producto.php';
+            } else {
+                header('Location:index.php?c=session&a=dash');
+            }
         } else {
-            require_once DAO_PATH . 'CategoriasDAO.php';
-            $con = new CategoriasDAO();
-            $lista = $con->listar();
 
-            require_once VIEW_PATH . 'Catalogo/agregar.producto.php';
+            if (TIENE_PERMISO(PERMISOS::PUEDE_CREAR_PRODUCTOS)) {
+
+                require_once DAO_PATH . 'CategoriasDAO.php';
+                $con = new CategoriasDAO();
+                $lista = $con->listar();
+                require_once VIEW_PATH . 'Catalogo/agregar.producto.php';
+            } else {
+                header('Location:index.php?c=session&a=dash');
+            }
         }
     }
 }

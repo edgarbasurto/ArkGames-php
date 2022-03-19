@@ -11699,3 +11699,66 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+
+/*----------  Home Styles  ----------*/
+.tile-container{
+	text-align: center;
+	padding: 20px 25px;
+}
+.tile{
+	height: 200px;
+	width: 200px;
+	margin: 10px;
+	display: inline-block;
+	text-decoration: none;
+	color: var(--accent-color);
+	border: 1px solid var(--border-color);
+	border-radius: 3px;
+	user-select: none;
+	transition: all .2s ease-in-out;
+	background-color: #FFF;
+}
+.tile:hover{
+	text-decoration: none;
+	border-color: var(--color-three);
+}
+.tile:focus,
+.tile:active{
+	outline: none;
+}
+.tile-tittle{
+	margin: 0;
+	width: 100%;
+	padding: 0;
+	height: 40px;
+	line-height: 40px;
+	box-sizing: border-box;
+	text-transform: uppercase;
+	border-bottom: 1px solid var(--border-color);
+	transition: all .2s ease-in-out;
+	font-family: 'roboto_medium_regular';
+}
+.tile:hover .tile-tittle{
+	color: #FFF;
+	border-color: var(--color-three);
+	background-color: var(--color-three);
+}
+.tile-icon{
+	width: 100%;
+	height: 160px;
+	box-sizing: border-box;
+	padding-top: 22px;
+}
+.tile-icon > i{
+	font-size: 80px;
+}
+.tile-icon > p{
+	font-family: 'roboto_medium_regular';
+	height: 35px;
+	line-height: 35px;
+}
+.tile:hover .tile-icon > i,
+.tile:hover .tile-icon > p{
+	color: var(--color-three);
+}
