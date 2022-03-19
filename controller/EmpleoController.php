@@ -70,9 +70,31 @@ class EmpleoController
 
     public function delete()
     {
-       
+        $this->modelo->eliminar($_REQUEST['id']);
+        echo "<script>alert('Registro guardado con exito')</script>";
+        header('Location: index.php?c=empleo');
     }
 
+    public function nuevo()
+    {
+
+        if (isset($_REQUEST['id'])) {
+            $empleos = $this->modelo->obtener($_REQUEST['id']);
+            $empleo = $empleos[0];
+            require_once DAO_PATH . 'VacanteDAO.php';
+            $con = new VacanteDAO();
+            $lista = $con->listar();
+
+            require_once VIEW_PATH . 'Contacto/editar_empleo.php';
+            
+        } else {
+            require_once DAO_PATH . 'VacanteDAO.php';
+            $con = new VacanteDAO();
+            $lista = $con->listar();
+
+            require_once VIEW_PATH . 'Contacto/agregar_empleo.php';
+        }
+    }
 
    
 }

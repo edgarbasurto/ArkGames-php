@@ -27,8 +27,8 @@ class Empleo
             $this->edad= $Valor_EmpleoDTO['edad'];
             $this->telefono= $Valor_EmpleoDTO['telefono'];
             $this->correo= $Valor_EmpleoDTO['correo'];
-            $id_vacante = $Valor_NoticiaDTO['id_vacante'];
-            $nom_vacante = $Valor_NoticiaDTO['nombre_vacante'];
+            $id_vacante = $Valor_EmpleoDTO['id_vacante'];
+            $nom_vacante = $Valor_EmpleoDTO['nombre_vacante'];
             $this->vacante = new Vacante($id_vacante,$nom_vacante);
             $this->experiencia= $Valor_EmpleoDTO['experiencia'];
         }
