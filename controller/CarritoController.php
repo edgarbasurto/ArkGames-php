@@ -1,11 +1,13 @@
 <?php
 require_once DAO_PATH . 'CarritoDAO.php';
 require_once DAO_PATH . 'ProductosDAO.php';
+require_once DAO_PATH . 'OrdenDAO.php';
 
 
 class CarritoController
 {
     private $cart;
+    private $orden;
     private $modelo;
 
     public function __construct()
@@ -14,11 +16,13 @@ class CarritoController
             session_start();
         };
         $this->cart = new CarritoDAO();
+        $this->orden = new OrdenDAO();
         $this->modelo = new ProductosDAO();
     }
 
     public function index()
     {
+        $cart = $this->cart;
         require_once VIEW_PATH . 'Carrito/listar.carrito.php';
     }
 
@@ -39,7 +43,9 @@ class CarritoController
 
             // echo var_dump($itemData);
             $insertItem = $this->cart->insert($itemData);
-            $redirectLoc = $insertItem ? 'index.php?c=carrito' : 'index.php?c=productos&a=index_cuadricula';
+            $redirectLoc = $insertItem ? 
+            'index.php?c=carrito' : 
+            'index.php?c=productos&a=index_cuadricula';
             header("Location: " . $redirectLoc);
         }
     }
@@ -60,9 +66,9 @@ class CarritoController
 
     public function removeCartItem()
     {
-        if ($_REQUEST['action'] == 'removeCartItem' && !empty($_REQUEST['id'])) {
+        if (!empty($_REQUEST['id'])) {
             $deleteItem = $this->cart->remove($_REQUEST['id']);
-            header("Location: VerCarta.php");
+            header("Location: index.php?c=carrito");
         }
     }
 
@@ -71,7 +77,7 @@ class CarritoController
     {
         if ($this->cart->total_items() > 0 && !empty($_SESSION['sessCustomerID'])) {
             // insert order details into database
-            $insertOrder = $this->cart->insertarOrden();
+            $insertOrder = $this->orden->insertarOrden();
 
             if ($insertOrder) {
                 $orderID = $db->insert_id;

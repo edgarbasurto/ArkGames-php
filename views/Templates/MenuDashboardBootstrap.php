@@ -80,9 +80,9 @@ $tmp = getSessionActual();
                         </a>';
                         } ?>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_CONTACTOS)) {
-                            echo '<a class="nav-link" href="?c=session&a=dash">
+                            echo '<a class="nav-link" href="?c=empleo">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-address-book"></i></div>
-                            Contactos
+                            Empleo
                         </a>';
                         } ?>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_USUARIOS)) {

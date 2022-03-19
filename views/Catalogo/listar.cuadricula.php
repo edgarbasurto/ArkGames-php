@@ -38,9 +38,9 @@
                 <?php
                 foreach ($resultados as $producto) {
                 ?>
-                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 my-4">
+                    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 my-4">
                         <div class="card shadow" id="<?php echo $producto->id_producto ?>">
-                            <div style="height: 450px; overflow: hidden;">
+                            <div style="height: 320px; overflow: hidden;">
                                 <img class="card-img-top" src="assets/img/posters/<?php echo ($producto->url_imagen) ?>" alt="<?php echo $producto->nombre ?>">
                             </div>
                             <div class="card-body">
