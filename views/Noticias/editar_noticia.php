@@ -105,5 +105,5 @@
     <?php require_once VIEW_PATH . 'Templates/FootDashboardBootstrap.php' ?>
     
     <!----------------------------------------------------------------------------------------------->
-    <script type="text/javascript" src="assets/js/Validacion_Noticias2.js"></script>
+    <script type="text/javascript" src="assets/js/Validacion_Noticias.js"></script>
     <?php require_once VIEW_PATH . 'Templates/EndDashboardBootstrap.php' ?>

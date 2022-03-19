@@ -168,7 +168,6 @@ class Invitado implements Perfil
         $bloqueo_funciones[] = PERMISOS::PUEDE_ELIMINAR_CONTACTOS;
 
         $bloqueo_funciones[] = PERMISOS::PUEDE_VISUALIZAR_SUSCRIP;
-        $bloqueo_funciones[] = PERMISOS::PUEDE_CREAR_SUSCRIP;
         $bloqueo_funciones[] = PERMISOS::PUEDE_EDITAR_SUSCRIP;
         $bloqueo_funciones[] = PERMISOS::PUEDE_ELIMINAR_SUSCRIP;
 

@@ -48,10 +48,17 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                                     <td class="align-middle text-center fw-light"><?php echo $registro->Email ?></td>
                                     <td class="align-middle text-center fw-light"><?php echo $registro->NombreCompleto ?></td>
                                     <td class="align-middle text-center fw-light"><?php echo Genero::getName($registro->Genero) ?></td>
-                                    <td class="align-middle text-center fw-light " style="width: 15%; ">
+                                    <td class="align-middle text-center fw-light " style="width: 20%; ">
+
                                         <a href="index.php?c=usuarios&a=show&id=<?php echo $registro->Id ?>" class="btn btn-success"><i class="fas fa-eye"></i></a>
-                                        <a href="index.php?c=usuarios&a=edit&id=<?php echo $registro->Id ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                        <a href="index.php?c=usuarios&a=delete&id=<?php echo $registro->Id ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                        <?php
+                                        if ($registro->IdRol != TipoRol::Administrador) {
+                                            echo ' <a href="index.php?c=usuarios&a=changepwd&id=' . $registro->Id . '" class="btn btn-primary"><i class="fas fa-key"></i></a>
+                                        <a href="index.php?c=usuarios&a=edit&id=' . $registro->Id . '" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                        <a href="index.php?c=usuarios&a=delete&id=' . $registro->Id . '" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>';
+                                        }
+                                        ?>
+
                                     </td>
                                 </tr>
                             <?php

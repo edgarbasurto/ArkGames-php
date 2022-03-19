@@ -1,9 +1,4 @@
 <?php require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php' ?>
-
-
-<link rel="stylesheet" href="../../assets/css/BernalHelen.css" />
-
-
 <title>CRUD</title>
 </head>
 

@@ -52,8 +52,6 @@ class Usuario
     }
     private function getPasswordHash($pwd)
     {
-        $salt = "2022#ArkGames-php";
-        $pwd_salt = hash_hmac("sha256", $pwd, $salt);
-        return password_hash($pwd_salt, PASSWORD_ARGON2ID);
+        return password_hash($pwd, PASSWORD_DEFAULT);
     }
 }

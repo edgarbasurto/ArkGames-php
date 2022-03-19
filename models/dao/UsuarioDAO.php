@@ -11,24 +11,36 @@ class UsuarioDAO
     $this->con = Conexion::getConexion();
   }
 
-  public function ValidarPWD($ingreso, $password)
+  public function ValidarPWD_PorID($IdUsuario,  $password)
   {
-    $valor = strtoupper($ingreso);
-    $lst = $this->GetByNickName($valor);
+    $Usuario = $this->GetById($IdUsuario);
 
-    if (count($lst) != 0) {
+    if (is_null($Usuario) == false) {
+      $hash = $Usuario[0]->getPassword();
 
-      foreach ($lst as $ObjUsuario) {
+      return password_verify($password, $hash);
+    }
+    return false;
+  }
+  public function ValidarPWD_PorUsuario($usuario,  $password)
+  {
+    $conversion = strtoupper($usuario);
+    $lst = $this->GetByNickName($conversion);
 
-        echo password_verify($password, $ObjUsuario->getPassword()) . '<br>';
+    foreach ($lst as $ObjUsuario) {
 
-        if (password_verify($password, $ObjUsuario->getPassword())) {
-          return  $ObjUsuario;
-        }
+      $hash = $ObjUsuario->getPassword();
+      if (password_verify($password, $hash)) {
+        return  get_object_vars($ObjUsuario);
       }
     }
+
     return null;
   }
+
+
+  /*
+      */
 
   public function All()
   {
@@ -80,8 +92,8 @@ class UsuarioDAO
 
   public function Update(Usuario $Obj)
   {
-
     $sql = "UPDATE usuarios SET IdRol='$Obj->IdRol', IdServidor=$Obj->IdServidor, Email='$Obj->Email', NombreCompleto='$Obj->NombreCompleto', Genero='$Obj->Genero', FechaNacimiento ='$Obj->FechaNacimiento', UsuarioActualizacion=0, FechaActualizacion=NOW() WHERE Id=$Obj->Id";
+
 
     //preparacion de la sentencia
     $stmt = $this->con->prepare($sql);
@@ -92,6 +104,25 @@ class UsuarioDAO
       return false;
     }
   }
+
+  public function Update_pwd(Usuario $Obj)
+  {
+
+    $newHASH = $Obj->getPassword();
+
+    $sql = "UPDATE usuarios SET PasswordHASH='$newHASH' WHERE Id=$Obj->Id";
+
+
+    //preparacion de la sentencia
+    $stmt = $this->con->prepare($sql);
+    //ejecucion de la sentencia
+    if ($stmt->execute()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   function sqlQuery(?String $sql)
   {
     //preparacion de la sentencia

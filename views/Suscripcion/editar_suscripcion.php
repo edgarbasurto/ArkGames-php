@@ -114,5 +114,5 @@
     <!-------------------------------------------------FOOTER---------------------------------------->
     <?php require_once VIEW_PATH . 'Templates/FootDashboardBootstrap.php'?>
     <!----------------------------------------------------------------------------------------------->
-    <script type="text/javascript" src="../../assets/js/Validacion_Noticias.js"></script>
+    <script type="text/javascript" src="../../assets/js/Validacion_Suscrip.js"></script>
     <?php require_once VIEW_PATH . 'Templates/EndDashboardBootstrap.php' ?>
