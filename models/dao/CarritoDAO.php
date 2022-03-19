@@ -9,9 +9,9 @@ class CarritoDAO
 
 	public function __construct()
 	{
-		if (isset($_SESSION)) {
-			session_start();
-		};
+		// if (!isset($_SESSION)) {
+        //     session_start();
+        // };
 		$this->con = Conexion::getConexion();
 		// get the shopping cart array from the session
 		$this->cart_contents = !empty($_SESSION['cart_contents']) ? $_SESSION['cart_contents'] : NULL;
