@@ -27,7 +27,7 @@ class NoticiasController
 
     public function index_noticias()
     {
-        if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_NOTICIAS)) {
+        
             // llamar al modelo
             $resultados =  $this->modelo->listar();
             //llenar aside
@@ -39,9 +39,6 @@ class NoticiasController
             $lista2 = $con->listar();
             //llamo a la vista
             require_once VIEW_PATH . 'Noticias/BernalHelen.php';
-        } else {
-            header('Location:index.php?c=session&a=dash');
-        }
     }
 
     public function buscar() {

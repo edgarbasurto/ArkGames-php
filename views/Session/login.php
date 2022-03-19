@@ -13,7 +13,7 @@
 
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
-        <div class="text-white" style="background-color:rgba(0,0,0,0.6);;border-radius: 1rem; ">
+        <div class="text-white" style="background-color:rgba(0,0,0,0.6);border-radius: 1rem; ">
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block">
               <img src="assets/img/logo.svg" alt="ArkGames" class="img-fluid p-5 my-5" style="border-radius: 1rem 0 0 1rem;" />
