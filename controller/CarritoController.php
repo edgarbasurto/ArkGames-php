@@ -1,4 +1,7 @@
 <?php
+
+use Symfony\Component\VarDumper\VarDumper;
+
 require_once DAO_PATH . 'CarritoDAO.php';
 require_once DAO_PATH . 'ProductosDAO.php';
 require_once DAO_PATH . 'OrdenDAO.php';
@@ -43,9 +46,9 @@ class CarritoController
 
             // echo var_dump($itemData);
             $insertItem = $this->cart->insert($itemData);
-            $redirectLoc = $insertItem ? 
-            'index.php?c=carrito' : 
-            'index.php?c=productos&a=index_cuadricula';
+            $redirectLoc = $insertItem ?
+                'index.php?c=carrito' :
+                'index.php?c=productos&a=index_cuadricula';
             header("Location: " . $redirectLoc);
         }
     }
@@ -53,14 +56,16 @@ class CarritoController
 
     public function updateCartItem()
     {
-        if (!empty($_REQUEST['id'])) {
+        if (!empty($_GET['id'])) {
             $itemData = array(
-                'rowid' => $_REQUEST['id'],
-                'qty' => $_REQUEST['qty']
+                'rowid' => $_GET['id'],
+                'qty' => $_GET['qty']
             );
+            
             $updateItem = $this->cart->update($itemData);
-            echo $updateItem ? 'ok' : 'err';
-            die;
+           
+
+            echo json_encode($itemData);
         }
     }
 
