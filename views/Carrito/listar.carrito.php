@@ -90,7 +90,6 @@
                         </tfoot>
                     </table>
                 </div>
-                <?php echo var_dump($_SESSION) ?>  
             </div>
             <!--Panek cierra-->
                

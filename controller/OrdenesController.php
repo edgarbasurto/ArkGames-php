@@ -74,8 +74,6 @@ class OrdenesController
          $cart = $this->cart;
          $custRow = $this->user->GetById($mysession->Usuario);
 
-         // echo var_dump($cart);
-         // echo var_dump($custRow);
          //llamo a la vista
          require_once VIEW_PATH . 'Carrito/pago.orden.php';
 
@@ -96,12 +94,12 @@ class OrdenesController
             'precio_total' => $_SESSION['cart_contents']['cart_total']
          );
           $insertOrder = $this->modelo->insertarOrden($ordenTemp);
-          echo var_dump($insertOrder);
+       
       
 
           if ($insertOrder) {
               $orderID = $this->modelo->lastOrdenID();
-              echo var_dump($orderID);
+              
        
             // get cart items
             $cartItems = $this->cart->contents();

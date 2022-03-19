@@ -123,7 +123,6 @@
                         <a href="index.php?c=ordenes&a=placeOrder" class="btn btn-success orderBtn">Realizar pedido <i class="glyphicon glyphicon-menu-right"></i></a>
                     </div>
                 </div>
-                <div class="card-footer">BaulPHP</div>
             </div>
             <!--Panek cierra-->
         </div>
