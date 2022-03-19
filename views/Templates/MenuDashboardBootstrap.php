@@ -57,7 +57,7 @@ $tmp = getSessionActual();
                         <div class="sb-sidenav-menu-heading">Mantenimiento</div>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
                             echo ' <a class="nav-link" href="?c=productos">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-box-open fa-fw"></i></div>
                             Productos
                         </a>';
                         } ?>
@@ -68,7 +68,7 @@ $tmp = getSessionActual();
                         </a>';
                         } ?>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SOPORTE)) {
-                            echo '<a class="nav-link" href="?c=session&a=dash">
+                            echo '<a class="nav-link" href="?c=soporte">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                             Soporte
                         </a>';
@@ -81,7 +81,7 @@ $tmp = getSessionActual();
                         } ?>
                         <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SUSCRIP)) {
                             echo '<a class="nav-link" href="?c=suscripcion">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-address-book"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
                             Suscripciones
                         </a>';
                         } ?>

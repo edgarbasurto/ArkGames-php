@@ -1,9 +1,5 @@
 <?php
 
-if (!isset($_SESSION)) {
-    session_start();
-};
-
 require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
 ?>
 <meta name="description" content="ArkGames" />

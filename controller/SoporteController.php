@@ -18,72 +18,64 @@ class SoporteController
         // llamar al modelo
         $resultados = $this->modelo->listar();
         //llamo a la vista
-        require_once VIEW_PATH . 'Soporte/presentar_solicitud.php';
+        require_once VIEW_PATH . 'Soporte/listar_solicitud.php';
 
     }   
 
-//    public function guardar()
-//    {
-//        # Comprovamos que se haya subido un fichero
-//        if (is_uploaded_file($_FILES["archivo"]["tmp_name"])) {
-//
-//            # verificamos el formato de la imagen
-//            if (
-//                $_FILES["archivo"]["type"] == "image/jpeg" ||
-//                $_FILES["archivo"]["type"] == "image/pjpeg" ||
-//                $_FILES["archivo"]["type"] == "image/gif" ||
-//                $_FILES["archivo"]["type"] == "image/bmp" ||
-//                $_FILES["archivo"]["type"] == "image/png"
-//            ) {
-//
-//                # Escapa caracteres especiales
-//                // $imagen = (file_get_contents($_FILES["archivo"]["tmp_name"]));
-//                require_once CONTROLLER_PATH . 'Genericos.php';
-//                $respuesta = Genericos::SaveFileServidor($_FILES["archivo"]);
-//                if ($respuesta != null) {
-//                    echo  $respuesta;
-//                } else {
-//                    echo "No se guardó la imagen!!\n";
-//                }
-//
-//                $datos = [
-//                    "id_producto" => $_REQUEST['id_producto'],
-//                    "nombre" => $_POST['txtNombre'],
-//                    "precio" => $_POST['txtPrecio'],
-//                    "url_imagen" => $respuesta,
-//                    "id_categoria" => $_POST['selectCategoria'],
-//                    "prod_estado" => 1
-//                ];
-//
-//                // echo 'ENTRO AL IF';
-//                // echo var_dump($datos);
-//                $datos['id_producto'] > 0
-//                    ? $this->modelo->actualizar($datos)
-//                    : $this->modelo->registrar($datos);
-//
-//
-//                header('Location: index.php?c=productos');
-//                echo '<script>alert("Registro guardado con exito")</script>';
-//            } else {
-//                echo '<script>alert("Error: El formato de archivo tiene que ser JPG, GIF, BMP o PNG.")</script>';
-//                // echo "<div class='error'>Error: El formato de archivo tiene que ser JPG, GIF, BMP o PNG.</div>";
-//            }
-//        } else {
-//            $datos = [
-//                "id_producto" => $_REQUEST['id_producto'],
-//                "nombre" => $_POST['txtNombre'],
-//                "precio" => $_POST['txtPrecio'],
-//                "id_categoria" => $_POST['selectCategoria'],
-//                "prod_estado" => 1
-//            ];
-//            // echo 'ENTRO AL ELSE';
-//            // echo var_dump($datos);
-//            $this->modelo->actualizarSinImagen($datos);
-//
-//            header('Location: index.php?c=productos');
-//            echo '<script>alert("Registro guardado con exito")</script>';
-//        };
-//    }
+    public function guardar()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && 
+        !empty($_POST['txtusuario']) && !empty($_POST['txtemail'])  &&
+        !empty($_POST['telefono']) && !empty($_POST['servicio'])&& 
+        !empty($_POST['producto']) && !empty($_POST['txtdescripcion']))
+        {
+                
+            $datos = [
+                "id_solicitud" => $_GET['id'] ? $_GET['id'] : "",
+                "usuario" => $_POST['txtusuario'],
+                "email" => $_POST['txtemail'],
+                "telefono" => $_POST['telefono'],
+                "servicio" => $_POST['servicio'],
+                "producto" => $_POST['producto'],
+                "descripcion_problema" => $_POST['txtdescripcion']
+            ];
+            // echo 'ENTRO AL ELSE';
+            // echo var_dump($datos);
+            $datos['id_solicitud'] > 0
+            ? $this->modelo->actualizar($datos)
+            : $this->modelo->insertar($datos);
+            
+            header('Location: index.php?c=soporte');
+            echo '<script>alert("Registro guardado con exito")</script>';
+            
+                if(isset($_GET['id'])){
+                    $datos = [
+                    "id_solicitud" => $_GET['id'] ? $_GET['id'] : "",
+                    "usuario" => $_POST['txtusuario'],
+                    "email" => $_POST['txtemail'],
+                    "telefono" => $_POST['telefono'],
+                    "servicio" => $_POST['servicio'],
+                    "producto" => $_POST['producto'],
+                    "descripcion_problema" => $_POST['txtdescripcion']
+                    ];
+                    $this->modelo->actualizar($datos);
+        
+                    header('Location: index.php?c=soporte');
+                    echo '<script>alert("Registro guardado con exito")</script>';
+                }          
+        }else {
+            if (isset($_REQUEST['id'])) {
+            $solicitudes = $this->modelo->obtener($_REQUEST['id']);
+            $soporte = $solicitudes[0];
+            require_once DAO_PATH . 'SoporteDAO.php';
+            $con = new SoporteDAO();
+            $lista = $con->listar();
+
+            require_once VIEW_PATH . 'Soporte/editar_solicitud.php';
+            }
+        
+        }
+    }
 
 
     public function delete()
@@ -104,14 +96,14 @@ class SoporteController
             $con = new SoporteDAO();
             $lista = $con->listar();
 
-            require_once VIEW_PATH . 'Soporte/frmSoporte_EspinozaIvan.php';
+            require_once VIEW_PATH . 'Soporte/editar_solicitud.php';
             
         } else {
             require_once DAO_PATH . 'SoporteDAO.php';
             $con = new SoporteDAO();
             $lista = $con->listar();
 
-            require_once VIEW_PATH . 'Soporte/frmSoporte_EspinozaIvan.php';
+            require_once VIEW_PATH . 'Soporte/agregar_solicitud.php';
         }
     }
 }

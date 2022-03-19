@@ -1,5 +1,5 @@
 <?php
-require_once DAO_PATH .'SuscripcionDAO.php';
+require_once DAO_PATH . 'SuscripcionDAO.php';
 
 
 class SuscripcionController
@@ -28,36 +28,37 @@ class SuscripcionController
 
     public function guardar()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && 
-        !empty($_POST['txtemail']) && isset($_POST['chkbtema'])  &&
-        isset($_POST['chkbdispositivo']) && isset($_POST['rdbfrecuencia']) && isset($_POST['rdbdiscord'])) {
-    
+        if (
+            $_SERVER['REQUEST_METHOD'] == 'POST' &&
+            !empty($_POST['txtemail']) && isset($_POST['chkbtema'])  &&
+            isset($_POST['chkbdispositivo']) && isset($_POST['rdbfrecuencia']) && isset($_POST['rdbdiscord'])
+        ) {
+
             $email = htmlentities($_POST['txtemail']);
             $temas = implode(', ', $_POST['chkbtema']);
             $dispositivos = implode(', ', $_POST['chkbdispositivo']);
             $frecuencia = htmlentities($_POST['rdbfrecuencia']);
             $discord = htmlentities($_POST['rdbdiscord']);
             $datos = [
-                    "id_suscripcion" => $_GET['id'],
-                    "email" => $email,
-                    "temas" => $temas,
-                    "dispositivos" => $dispositivos,
-                    "frecuencia" => $frecuencia,
-                    "discord" => $discord,
-                    /*$usu = 'usuario'*/ //$_SESSION['usuario'];
+                "id_suscripcion" => $_GET['id'],
+                "email" => $email,
+                "temas" => $temas,
+                "dispositivos" => $dispositivos,
+                "frecuencia" => $frecuencia,
+                "discord" => $discord,
+                /*$usu = 'usuario'*/ //$_SESSION['usuario'];
             ];
             $datos['id_suscripcion'] > 0
                     ? $this->modelo->actualizar($datos)
                     : $this->modelo->insertar($datos);
             header('Location: index.php');
             echo '<script>alert("Registro guardado con exito")</script>';
-            
-        }else{
-            if($_GET['id']){
+        } else {
+            if ($_GET['id']) {
                 require_once VIEW_PATH . 'Suscripcion/editar_suscripcion.php';
-            }else{
+            } else {
                 require_once VIEW_PATH . 'Suscripcion/registrar_suscripcion.php';
-            } 
+            }
         }
     }
 
@@ -91,7 +92,5 @@ class SuscripcionController
                 header('Location:index.php?c=session&a=dash');
             }      
         }
-        
     }
-
 }

@@ -1,20 +1,21 @@
-var form = document.getElementById("Soporte");
+var form = document.getElementById("form_solicitud");
 form.addEventListener('submit', validar);
 let cont=0;
 
 function validar(event) {
     var resultado = true;
     var txtUsuario = document.getElementById("usuario");
-    var txtCorreo = document.getElementById("correo");
-    var txtTelefono = document.getElementById("phone");
-    var selectServicio = document.getElementById("servicios");
-    var selectJuego = document.getElementById("juegos");    
+    var txtCorreo = document.getElementById("email");
+    var txtTelefono = document.getElementById("telefono");
+    var selectServicio = document.getElementById("servicio");
+    var selectJuego = document.getElementById("producto");
+    var txtdescripcion = document.getElementById("descripcion");
     var correo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     var telefonoreg = /^[0-9]{10}$/g; // para validar datos que deban tener 10 numeros
     
     limpiarMensajes();
     
-    if (txtUsuario.value === '') {
+    if (txtUsuario.value === "") {
         resultado = false;
         mensaje("Usuario es requerido", txtUsuario);
     } else if (txtUsuario.value.length > 15) {
@@ -48,6 +49,11 @@ function validar(event) {
         mensaje("Debe seleccionar un producto", selectJuego);
     }
     
+    if (txtdescripcion.value === "") {
+        resultado = false;
+        mensaje("Descripción es requerida", txtdescripcion);
+    }
+    
     if(!resultado){
        event.preventDefault();  
     }
@@ -60,8 +66,8 @@ function validar(event) {
     var nodoPadre = elemento.parentNode;
     var nodoMensaje = document.createElement("span");
     nodoMensaje.textContent = cadenaMensaje;
-//    nodoMensaje.style.color = "red";
-//    nodoMensaje.display = "block";
+    nodoMensaje.style.color = "red";
+    nodoMensaje.display = "block";
     nodoMensaje.setAttribute("class", "mensajeError");
     nodoPadre.appendChild(nodoMensaje);
     }
