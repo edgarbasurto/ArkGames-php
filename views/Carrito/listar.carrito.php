@@ -27,17 +27,7 @@
             <div class="card shadow">
                 <div class="card-header">
                 <h1>Carrito de compras</h1>
-                    <!-- <ul class="nav">
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link text-black" href="index.php?c=productos&a=index_cuadricula">Catalogo</a>
-                        </li>
-                        <li role="presentation" class="active nav-item">
-                            <a class="nav-link active" href="index.php?c=carrito">Ver Carrito</a>
-                        </li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" href="Pagos.php">Pagos</a>
-                        </li>
-                    </ul> -->
+                    
                 </div>
 
                 <div class="card-body">
@@ -90,7 +80,6 @@
                         </tfoot>
                     </table>
                 </div>
-                <?php echo var_dump($_SESSION) ?>  
             </div>
             <!--Panek cierra-->
                
