@@ -15,9 +15,6 @@ class CarritoController
 
     public function __construct()
     {
-        // if (!isset($_SESSION)) {
-        //     session_start();
-        // };
         $this->cart = new CarritoDAO();
         $this->orden = new OrdenDAO();
         $this->modelo = new ProductosDAO();

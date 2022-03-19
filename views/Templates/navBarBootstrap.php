@@ -83,8 +83,15 @@ $tmp = getSessionActual();
 
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         <?php 
-                        $cant = count($_SESSION['cart_contents']);
-                        echo $cant-2; 
+                        
+                        if (!isset($_SESSION)) {
+                            $cant = count($_SESSION['cart_contents']);
+                            echo $cant-2; 
+                        } else {
+                            echo 0;
+                        }
+                        
+                        
                         ?>
                             <span class="visually-hidden">unread messages</span>
                         </span>

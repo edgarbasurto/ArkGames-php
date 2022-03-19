@@ -93,15 +93,7 @@
                             </tr>
                         </tfoot>
                     </table>
-
                 </div>
-                <div class="card-footer">ArkGames</div>
-                <?php 
-                echo var_dump($_COOKIE);
-                echo var_dump($_REQUEST);
-                echo var_dump($_SESSION);
-              
-                ?>
             </div>
             <!--Panek cierra-->
 
