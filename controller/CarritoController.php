@@ -10,13 +10,11 @@ require_once DAO_PATH . 'OrdenDAO.php';
 class CarritoController
 {
     private $cart;
-    private $orden;
     private $modelo;
 
     public function __construct()
     {
         $this->cart = new CarritoDAO();
-        $this->orden = new OrdenDAO();
         $this->modelo = new ProductosDAO();
     }
 
@@ -75,34 +73,5 @@ class CarritoController
     }
 
 
-    public function placeOrder()
-    {
-        if ($this->cart->total_items() > 0 && !empty($_SESSION['sessCustomerID'])) {
-            // insert order details into database
-            $insertOrder = $this->orden->insertarOrden();
-
-            if ($insertOrder) {
-                $orderID = $this->orden->lastOrdenID();
-                $sql = '';
-                // get cart items
-                $cartItems = $this->cart->contents();
-                foreach ($cartItems as $item) {
-                    $sql .= "INSERT INTO orden_articulos (order_id, product_id, quantity) VALUES ('" . $orderID . "', '" . $item['id'] . "', '" . $item['qty'] . "');";
-                }
-                // insert order items into database
-                $insertOrderItems = $db->multi_query($sql);
-
-                if ($insertOrderItems) {
-                    $this->cart->destroy();
-                    header("Location: OrdenExito.php?id=$orderID");
-                } else {
-                    header("Location: Pagos.php");
-                }
-            } else {
-                header("Location: Pagos.php");
-            }
-        } else {
-            header("Location: index.php");
-        }
-    }
+    
 }

@@ -1,10 +1,6 @@
 <?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
 
 
-<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-
 <title>Ark Games</title>
 
 
@@ -88,15 +84,16 @@
                                 <td colspan="2"></td>
                                 <?php if ($cart->total_items() > 0) { ?>
                                     <td class="text-center" id="total_carrito"><strong>Total <?php echo '$' . $cart->total() . ' USD'; ?></strong></td>
-                                    <td><a href="Pagos.php" class="btn btn-success btn-block">Pagar <i class="fa-solid fa-money-bill-1-wave"></i></a></td>
+                                    <td><a href="index.php?c=ordenes&a=pagar" class="btn btn-success btn-block">Pagar <i class="fa-solid fa-money-bill-1-wave"></i></a></td>
                                 <?php } ?>
                             </tr>
                         </tfoot>
                     </table>
                 </div>
+                <?php echo var_dump($_SESSION) ?>  
             </div>
             <!--Panek cierra-->
-
+               
             <!-------------------------------------------------FOOTER---------------------------------------->
         </div>
     </main>

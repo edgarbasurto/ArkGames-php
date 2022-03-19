@@ -10,21 +10,41 @@ class OrdenDAO
 		$this->con = Conexion::getConexion();
 	}
 
-	public function insertarOrden()
+	public function insertarOrden($ordenTemp)
 	{
-		// try {
-		// 	// sql de la sentencia
-		// 	$sql = "INSERT INTO orden (user_id, total_price, created, modified) VALUES ('" . $_SESSION['sessCustomerID'] . "', '" . $this->total() . "', '" . date("Y-m-d H:i:s") . "', '" . date("Y-m-d H:i:s") . "')";
-		// 	//preparacion de la sentencia
-		// 	$stmt = $this->con->prepare($sql);
+		try {
+			// sql de la sentencia
+			$sql = "INSERT INTO orden (user_id, total_price, created, modified) VALUES ('" . $ordenTemp['usuario'] . "', '" . $ordenTemp['precio_total'] . "', '" . date("Y-m-d H:i:s") . "', '" . date("Y-m-d H:i:s") . "')";
+			//preparacion de la sentencia
+			$stmt = $this->con->prepare($sql);
 
-		// 	//ejecucion de la sentencia
-		// 	$stmt->execute();
-		// 	return true;
-		// } catch (Exception $e) {
-		// 	die($e->getMessage());
-		// 	return false;
-		// }
+			//ejecucion de la sentencia
+			$stmt->execute();
+			return true;
+		} catch (Exception $e) {
+			die($e->getMessage());
+			return false;
+		}
+	}
+
+	public function insertarDetalleOrden($cartItems, $orderID)
+	{
+		try {
+			// sql de la sentencia
+			$sql = '';
+			foreach ($cartItems as $item) {
+				$sql .= "INSERT INTO orden_articulos (order_id, product_id, quantity) VALUES ('" . $orderID . "', '" . $item['id'] . "', '" . $item['qty'] . "');";
+			}
+			//preparacion de la sentencia
+			$stmt = $this->con->prepare($sql);
+
+			//ejecucion de la sentencia
+			$stmt->execute();
+			return true;
+		} catch (Exception $e) {
+			die($e->getMessage());
+			return false;
+		}
 	}
 
 	public function lastOrdenID()

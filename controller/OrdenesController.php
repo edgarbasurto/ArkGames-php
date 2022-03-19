@@ -4,13 +4,21 @@ use function PHPSTORM_META\elementType;
 
 require_once DAO_PATH . 'OrdenDAO.php';
 require_once  CONTROLLER_PATH . 'Genericos.php';
+require_once DAO_PATH . 'CarritoDAO.php';
+require_once DAO_PATH . 'UsuarioDAO.php';
+
 class OrdenesController
 {
+   private $cart;
    private $modelo;
+   private $user;
 
    public function __construct()
    {
       $this->modelo = new OrdenDAO();
+      $this->cart = new CarritoDAO();
+      $this->user= new UsuarioDAO();
+
    }
 
    // funciones del controlador
@@ -57,5 +65,61 @@ class OrdenesController
       // } else {
       //    header('Location:index.php?c=session&a=dash');
       // }
+   }
+
+   public function pagar(){
+      if (TIENE_PERMISO(PERMISOS::PUEDE_FINALIZAR_COMPRAR)) {
+         // llamar al modelo
+         $mysession = getSessionActual();
+         $cart = $this->cart;
+         $custRow = $this->user->GetById($mysession->Usuario);
+
+         // echo var_dump($cart);
+         // echo var_dump($custRow);
+         //llamo a la vista
+         require_once VIEW_PATH . 'Carrito/pago.orden.php';
+
+     } else {
+         header('Location:index.php?c=session&a=dash');
+     }
+
+   }
+
+   public function placeOrder()
+   {
+      $mysession = getSessionActual();
+      echo var_dump($mysession);
+      if ($this->cart->total_items() > 0 && !empty($mysession)) {
+          // insert order details into database
+          $ordenTemp = array(
+            'usuario' => $mysession->Usuario,
+            'precio_total' => $_SESSION['cart_contents']['cart_total']
+         );
+          $insertOrder = $this->modelo->insertarOrden($ordenTemp);
+          echo var_dump($insertOrder);
+      
+
+          if ($insertOrder) {
+              $orderID = $this->modelo->lastOrdenID();
+              echo var_dump($orderID);
+       
+            // get cart items
+            $cartItems = $this->cart->contents();
+
+            // insert order items into database
+            $insertOrderItems = $this->modelo->insertarDetalleOrden($cartItems, $orderID);
+
+            if ($insertOrderItems) {
+               $this->cart->destroy();
+               header("Location: index.php?c=ordenes");
+            } else {
+               header("Location: Pagos.php");
+            }
+         } else {
+            header("Location: Pagos.php");
+         }
+      } else {
+         header("Location: index.php");
+      }
    }
 }
