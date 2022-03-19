@@ -42,16 +42,19 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                             ?>
                                 <tr>
                                     <th class="align-middle text-center fw-light" scope="row"> Transac# <?php echo $registro->Id ?></th>
-                                    <?php if ($modulo == 'store') //&&  TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_VENTAS)) 
-                                    {
+                                    <?php if ($modulo == 'store' &&  TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_VENTAS) == true) {
                                         echo '<td class="align-middle text-center fw-light">' . $registro->NombreUsuario . '</td>';
                                     } ?>
 
                                     <td class="align-middle text-center fw-light">$<?php echo $registro->total_price ?></td>
-                                    <td class="align-middle text-center fw-light"><?php echo $registro->created ?></td>
-                                    <td class="align-middle text-center fw-light"><?php echo $registro->status ?></td>
+                                    <td class="align-middle text-center fw-light"><?php
+                                                                                    $date  = date_create($registro->created);
+                                                                                    echo date_format($date, "d/m/Y");
+                                                                                    ?>
+                                    </td>
+                                    <td class="align-middle text-center fw-light"><?php echo $registro->status == 1 ? "Compra Finalizada" : "Activo"; ?></td>
                                     <td class="align-middle text-center fw-light " style="width: 10%; ">
-                                        <a href="index.php?c=usuarios&a=show&id=<?php echo $registro->Id ?>" class="btn btn-success"><i class="fas fa-eye"></i></a>
+                                        <a href="index.php?c=ordenes&a=show&id=<?php echo $registro->Id ?>" class="btn btn-primary"><i class="fa-solid fa-download"></i></a>
                                     </td>
                                 </tr>
                             <?php

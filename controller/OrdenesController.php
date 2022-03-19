@@ -17,8 +17,7 @@ class OrdenesController
    {
       $this->modelo = new OrdenDAO();
       $this->cart = new CarritoDAO();
-      $this->user= new UsuarioDAO();
-
+      $this->user = new UsuarioDAO();
    }
 
    // funciones del controlador
@@ -43,8 +42,8 @@ class OrdenesController
 
    public function show()
    {
-      // if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_USUARIOS)) {
-      //    $Id = $_REQUEST['id'];
+
+      $Id = $_REQUEST['id'];
       //    $registros = $this->modelo->GetById($Id);
       //    if (empty($registros[0]) == false) {
       //       $registro = $registros[0];
@@ -67,7 +66,8 @@ class OrdenesController
       // }
    }
 
-   public function pagar(){
+   public function pagar()
+   {
       if (TIENE_PERMISO(PERMISOS::PUEDE_FINALIZAR_COMPRAR)) {
          // llamar al modelo
          $mysession = getSessionActual();
@@ -78,11 +78,9 @@ class OrdenesController
          // echo var_dump($custRow);
          //llamo a la vista
          require_once VIEW_PATH . 'Carrito/pago.orden.php';
-
-     } else {
+      } else {
          header('Location:index.php?c=session&a=dash');
-     }
-
+      }
    }
 
    public function placeOrder()
@@ -90,19 +88,19 @@ class OrdenesController
       $mysession = getSessionActual();
       echo var_dump($mysession);
       if ($this->cart->total_items() > 0 && !empty($mysession)) {
-          // insert order details into database
-          $ordenTemp = array(
+         // insert order details into database
+         $ordenTemp = array(
             'usuario' => $mysession->Usuario,
             'precio_total' => $_SESSION['cart_contents']['cart_total']
          );
-          $insertOrder = $this->modelo->insertarOrden($ordenTemp);
-          echo var_dump($insertOrder);
-      
+         $insertOrder = $this->modelo->insertarOrden($ordenTemp);
+         echo var_dump($insertOrder);
 
-          if ($insertOrder) {
-              $orderID = $this->modelo->lastOrdenID();
-              echo var_dump($orderID);
-       
+
+         if ($insertOrder) {
+            $orderID = $this->modelo->lastOrdenID();
+            echo var_dump($orderID);
+
             // get cart items
             $cartItems = $this->cart->contents();
 
