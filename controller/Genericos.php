@@ -85,11 +85,11 @@ function getdefaultSession()
 
     $mySession = new Session();
 
-    $mySession->Session = '00000000-0000-0000-0000-000000000000';
+    $mySession->Session = "00000000-0000-0000-0000-000000000000";
     $mySession->Usuario = -1;
     $mySession->Perfil = 0;
     $mySession->NombrePerfil = TipoRol::getName(0);
-    $mySession->Email = '';
+    $mySession->Email = ' ';
     $mySession->NombreCompleto = 'Invitado';
     //Se instancia session
     if (!isset($_SESSION)) {
@@ -130,7 +130,7 @@ function getSessionActual()
                 if (!isset($_SESSION)) {
                     session_start();
                 };
-                $_SESSION['mySession'] = $mySession;
+                $_SESSION["mySession"] = $mySession;
                 return  $mySession;
             } else {
                 return getdefaultSession();
