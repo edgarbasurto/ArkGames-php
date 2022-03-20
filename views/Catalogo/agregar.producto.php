@@ -21,14 +21,14 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
         </div>
 
 
-        <form method="post" action="index.php?c=productos&a=guardar&id_producto=1" enctype="multipart/form-data">
+        <form method="post" action="index.php?c=productos&a=guardar&id_producto=0" enctype="multipart/form-data">
             <div class="card-body">
                 <div class="row px-4">
                     <div class="col-sm-6 px-5">
                         <div class="mb-4 row text-end">
                             <label class="col-sm-3 col-form-label d-none">ID:</label>
                             <div class="col-sm-9">
-                                <input disabled class="form-control form-control-sm" type="hidden" name="txtId" value="1">
+                                <input disabled class="form-control form-control-sm" type="hidden" name="txtId" value="0">
                             </div>
                         </div>
 
