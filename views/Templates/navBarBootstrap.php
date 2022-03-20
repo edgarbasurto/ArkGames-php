@@ -82,17 +82,17 @@ $tmp = getSessionActual();
                         <i class="fa-solid fa-cart-shopping"></i>
 
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        <?php 
-                        
-                        if (isset($_SESSION['cart_contents'])) {
-                            $cant = count($_SESSION['cart_contents']);
-                            echo $cant-2; 
-                        } else {
-                            echo 0;
-                        }
-                        
-                        
-                        ?>
+                            <?php
+
+                            if (isset($_SESSION['cart_contents'])) {
+                                $cant = count($_SESSION['cart_contents']);
+                                echo $cant - 2;
+                            } else {
+                                echo 0;
+                            }
+
+
+                            ?>
                             <span class="visually-hidden">unread messages</span>
                         </span>
                     </a>
@@ -107,15 +107,28 @@ $tmp = getSessionActual();
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <h6 class="dropdown-header fw-bold"><?php echo $tmp->NombreCompleto; ?></h6>
 
-                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_CAMBIAR_PASSWORD)) {
+
+
+                        <?php
+
+                        if ($tmp->Perfil != TipoRol::Invitado) {
+                            echo ' <li><a class="dropdown-item text-primary" href="index.php?c=ordenes&modo=public">Mis Ordenes</a></li>';
+                        }
+
+                        if ($tmp->Usuario > 0 && $tmp->Perfil != TipoRol::Administrador) {
 
                             echo '     
-                    <li><a class="dropdown-item" href="index.php?c=usuarios&a=changepwd">Cambiar Contraseña</a></li>
+                    <li><a class="dropdown-item" href="index.php?c=usuarios&a=changepwd&id=' . $tmp->Usuario . '&modo=pbl ">Cambiar Contraseña</a></li>
                   ';
-                        } ?>
+                        }
 
-                        <div class="dropdown-divider"></div>
-                        <li><a class="dropdown-item" href="index.php?c=session&a=end">Cerrar Sessión</a></li>
+                        if ($tmp->Perfil != TipoRol::Invitado) {
+                            echo ' <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item" href="index.php?c=session&a=end">Cerrar Sessión</a></li>';
+                        }
+                        ?>
+
+
                     </ul>
                 </li>
 

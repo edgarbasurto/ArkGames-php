@@ -8,6 +8,10 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
 </head>
 
 <?php require_once VIEW_PATH . 'Templates/MenuDashboardBootstrap.php' ?>
+
+
+
+
 <main>
 
     <div class="container-fluid px-4  my-2">
@@ -16,10 +20,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
             <div class="card-header font-weight-bold text-primary align-middle">
                 <div class="row">
                     <div class="col text-first align-middle">
-                        <h3 class="fw-bold" style="margin-top:.5rem">Usuarios</h3>
-                    </div>
-                    <div class="col text-end align-middle">
-                        <a href="index.php?c=usuarios&a=new" class="btn btn-success "><i class="fas fa-plus-square"></i> Nuevo</a>
+                        <h3 class="fw-bold" style="margin-top:.5rem"><?php echo $titleOrdenes; ?></h3>
                     </div>
                 </div>
             </div>
@@ -30,35 +31,34 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
 
                         <thead class="table-light">
                             <th class="text-center" scope="col">Id</th>
-                            <th class="text-center" scope="col">Perfil</th>
-                            <th class="text-center" scope="col">Usuario</th>
-                            <th class="text-center" scope="col">Email</th>
-                            <th class="text-center" scope="col">Nombre</th>
-                            <th class="text-center" scope="col">Género</th>
-                            <th style="width: 15%; " class="text-center" scope="col">--</th>
+                            <?php if ($modulo == 'store') //&&  TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_VENTAS)) 
+                            {
+                                echo '<th class="text-center" scope="col">Registrado a</th>';
+                            } ?>
+                            <th class="text-center" scope="col">Valor</th>
+                            <th class="text-center" scope="col">Fecha</th>
+                            <th class="text-center" scope="col">Estado</th>
+                            <th style="width: 10%; " class="text-center" scope="col">--</th>
                         </thead>
                         <tbody>
                             <?php
                             foreach ($lista as $registro) {
                             ?>
                                 <tr>
-                                    <th class="align-middle text-center fw-light" scope="row"><?php echo $registro->Id ?></th>
-                                    <td class="align-middle text-center fw-light"><?php echo TipoRol::getName($registro->IdRol) ?></td>
-                                    <td class="align-middle text-center fw-light"><?php echo $registro->NickName ?></td>
-                                    <td class="align-middle text-center fw-light"><?php echo $registro->Email ?></td>
-                                    <td class="align-middle text-center fw-light"><?php echo $registro->NombreCompleto ?></td>
-                                    <td class="align-middle text-center fw-light"><?php echo Genero::getName($registro->Genero) ?></td>
-                                    <td class="align-middle text-center fw-light " style="width: 20%; ">
+                                    <th class="align-middle text-center fw-light" scope="row"> Transac# <?php echo $registro->Id ?></th>
+                                    <?php if ($modulo == 'store' &&  TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_VENTAS) == true) {
+                                        echo '<td class="align-middle text-center fw-light">' . $registro->NombreUsuario . '</td>';
+                                    } ?>
 
-                                        <a href="index.php?c=usuarios&a=show&id=<?php echo $registro->Id ?>" class="btn btn-warning"><i class="fas fa-eye"></i></a>
-                                        <?php
-                                        if ($registro->IdRol != TipoRol::Administrador) {
-                                            echo ' <a href="index.php?c=usuarios&a=changepwd&id=' . $registro->Id . '&modo=dash" class="btn btn-success"><i class="fas fa-key"></i></a>
-                                        <a href="index.php?c=usuarios&a=edit&id=' . $registro->Id . '" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                        <a href="index.php?c=usuarios&a=delete&id=' . $registro->Id . '" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>';
-                                        }
-                                        ?>
-
+                                    <td class="align-middle text-center fw-light">$<?php echo $registro->total_price ?></td>
+                                    <td class="align-middle text-center fw-light"><?php
+                                                                                    $date  = date_create($registro->created);
+                                                                                    echo date_format($date, "d/m/Y");
+                                                                                    ?>
+                                    </td>
+                                    <td class="align-middle text-center fw-light"><?php echo $registro->status == 1 ? "Compra Finalizada" : "Activo"; ?></td>
+                                    <td class="align-middle text-center fw-light " style="width: 10%; ">
+                                        <a href="index.php?c=ordenes&a=show&id=<?php echo $registro->Id ?>" class="btn btn-primary"><i class="fa-solid fa-download"></i></a>
                                     </td>
                                 </tr>
                             <?php

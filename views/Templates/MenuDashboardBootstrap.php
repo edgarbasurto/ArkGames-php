@@ -32,15 +32,29 @@ $tmp = getSessionActual();
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <h6 class="dropdown-header fw-bold"><?php echo $tmp->NombreCompleto; ?></h6>
-                    <?php if (TIENE_PERMISO(PERMISOS::PUEDE_CAMBIAR_PASSWORD)) {
+
+
+
+                    <?php
+
+                    if ($tmp->Perfil != TipoRol::Invitado) {
+                        echo ' <li><a class="dropdown-item text-primary" href="index.php?c=ordenes">Mis Ordenes</a></li>';
+                    }
+
+                    if ($tmp->Usuario > 0 && $tmp->Perfil != TipoRol::Administrador) {
 
                         echo '     
-                    <li><a class="dropdown-item" href="index.php?c=usuarios&a=changepwd">Cambiar Contraseña</a></li>
+                    <li><a class="dropdown-item" href="index.php?c=usuarios&a=changepwd&id=' . $tmp->Usuario . '&modo=dash ">Cambiar Contraseña</a></li>
                   ';
-                    } ?>
+                    }
 
-                    <div class="dropdown-divider"></div>
-                    <li><a class="dropdown-item" href="index.php?c=session&a=end">Cerrar Sessión</a></li>
+                    if ($tmp->Perfil != TipoRol::Invitado) {
+                        echo ' <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item" href="index.php?c=session&a=end">Cerrar Sessión</a></li>';
+                    }
+                    ?>
+
+
                 </ul>
             </li>
         </ul>

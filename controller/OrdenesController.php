@@ -24,20 +24,29 @@ class OrdenesController
    public function index()
    {
       $modulo = 'my';
+      $presenta = 'dash';
+
       $titleOrdenes = 'Mis Ordenes';
       if (isset($_GET, $_GET['vista'])) {
          $modulo = $_GET['vista'];
       }
 
-      if ($modulo == 'store') //&&  TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_VENTAS)) 
-      {
+      if (isset($_GET, $_GET['modo'])) {
+         $presenta = $_GET['modo'];
+      }
+
+      if ($modulo == 'store' &&  TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_VENTAS)) {
+         $titleOrdenes = 'Ventas';
+         $lista = $this->modelo->GetVentas();
+      } else {
          $mysession = getSessionActual();
          $lista = $this->modelo->GetByIdUsuario($mysession->Usuario);
-         $titleOrdenes = 'Ventas';
-      } else {
-         $lista = $this->modelo->GetVentas();
       }
-      require_once VIEW_PATH .  "Carrito/listar.ordenes.php";
+      if ($presenta == 'dash') {
+         require_once VIEW_PATH .  "Carrito/listar.ordenesdash.php";
+      } else {
+         require_once VIEW_PATH .  "Carrito/listar.ordenes.php";
+      }
    }
 
    public function show()
