@@ -16,40 +16,40 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
     <div class="card">
         <div class="card-header">
             <h2 class="title my-2">
-                Nuevo Registro
+                <?php echo 'Actualizar Registro - ' . $producto->nombre ?>
             </h2>
         </div>
 
 
-        <form method="post" action="index.php?c=productos&a=guardar&id_producto=1" enctype="multipart/form-data">
+        <form method="post" action="index.php?c=productos&a=guardar&id_producto=<?php echo $producto->id_producto?>" enctype="multipart/form-data">
             <div class="card-body">
                 <div class="row px-4">
                     <div class="col-sm-6 px-5">
                         <div class="mb-4 row text-end">
-                            <label class="col-sm-3 col-form-label d-none">ID:</label>
+                            <label class="col-sm-3 col-form-label d-block">ID:</label>
                             <div class="col-sm-9">
-                                <input disabled class="form-control form-control-sm" type="hidden" name="txtId" value="1">
+                                <input disabled class="form-control form-control-sm" type="text" name="txtId" value="<?php echo $producto->id_producto ?>">
                             </div>
                         </div>
 
                         <div class="mb-4 row text-end">
                             <label class="col-sm-3 col-form-label">Nombre:</label>
                             <div class="col-sm-9">
-                                <input required class="form-control form-control-sm" type="text" value="" name="txtNombre" placeholder="Ingrese nombre del producto" data-validacion-tipo="requerido|min:3">
+                                <input required class="form-control form-control-sm" type="text" value="<?php echo $producto->nombre?>" name="txtNombre" placeholder="Ingrese nombre del producto" data-validacion-tipo="requerido|min:3">
                             </div>
                         </div>
 
                         <div class="mb-4 row text-end">
                             <label class="col-sm-3 col-form-label">Precio:</label>
                             <div class="col-sm-9">
-                                <input required value="" class="form-control form-control-sm" type="number" placeholder="0.0" step="0.01" min="0" max="1000" name="txtPrecio">
+                                <input required value="<?php echo $producto->precio?>" class="form-control form-control-sm" type="number" placeholder="0.0" step="0.01" min="0" max="1000" name="txtPrecio">
                             </div>
                         </div>
 
                         <div class="mb-4 row text-end">
                             <label class="col-sm-3 col-form-label">Añadir imagen:</label>
                             <div class="col-sm-9">
-                                <input required class="form-control form-control-sm" name="archivo" id="seleccionArchivos" type="file" />
+                                <input class="form-control form-control-sm" name="archivo" id="seleccionArchivos" type="file" />
                             </div>
 
                         </div>
@@ -64,7 +64,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
 
                                     foreach ($lista as $categoria) {
                                     ?>
-                                        <option value="<?php echo $categoria->id_categoria ?>"><?php echo $categoria->nombre_categoria ?></option>
+                                        <option <?php echo $categoria->id_categoria == $producto->categoria->id_categoria ? "selected" : "" ?> value="<?php echo $categoria->id_categoria ?>"><?php echo $categoria->nombre_categoria ?></option>
 
                                     <?php } ?>
                                 </select>
@@ -77,7 +77,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                                 <h5 class="title"> Vista previa </h5>
                             </div>
                             <div class="card-body text-center" style="height: 300px;">
-                                <img style="max-height:280px; width: auto;" id="imagenPrevisualizacion" src="" alt="">
+                                <img style="max-height:280px; width: auto;" id="imagenPrevisualizacion" src="assets/img/posters/<?php echo $producto->url_imagen != null? $producto->url_imagen : '' ?>" alt="<?php echo $producto->nombre !=null? $producto->nombre : '' ?>">
                             </div>
                         </div>
                     </div>
@@ -85,7 +85,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
             </div>
             <div class="card-footer text-end">
                 <a href="index.php?c=productos" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
-                <button class="btn btn-primary my-3" type="submit" value="guardar">Guardar</button>
+                <button class="btn btn-primary my-3" type="submit" value="guardar">Actualizar</button>
             </div>
         </form>
 

@@ -113,6 +113,7 @@ class ProductosController
     {
         
         $producto = new Producto();
+
         if (isset($_REQUEST['id'])) {
             if (TIENE_PERMISO(PERMISOS::PUEDE_EDITAR_PRODUCTOS)) {
                 $productos = $this->modelo->obtener($_REQUEST['id']);
@@ -121,7 +122,7 @@ class ProductosController
                 $con = new CategoriasDAO();
                 $lista = $con->listar();
 
-                require_once VIEW_PATH . 'Catalogo/agregar.producto.php';
+                require_once VIEW_PATH . 'Catalogo/editar.producto.php';
             } else {
                 header('Location:index.php?c=session&a=dash');
             }
