@@ -29,8 +29,8 @@ class SessionController
 
     public function end()
     {
-        setcookie("mySession", '00000000-0000-0000-0000-000000000000', time() - 3600, "/");
-        setcookie("mySession", '00000000-0000-0000-0000-000000000000', time() + 3600, "/");
+        setcookie("mySession", '0', time() - 3600, "/");
+        setcookie("mySession", '0', time() + 3600, "/");
         session_unset();
         session_destroy();
         header('Location: index.php');
