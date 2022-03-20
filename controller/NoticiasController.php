@@ -27,18 +27,17 @@ class NoticiasController
 
     public function index_noticias()
     {
-        
-            // llamar al modelo
-            $resultados =  $this->modelo->listar();
-            //llenar aside
-            require_once DAO_PATH . 'TemaDAO.php';
-            $con = new TemaDAO();
-            $lista1 = $con->listar();
-            require_once DAO_PATH . 'DispositivoDAO.php';
-            $con = new DispositivoDAO();
-            $lista2 = $con->listar();
-            //llamo a la vista
-            require_once VIEW_PATH . 'Noticias/BernalHelen.php';
+        // llamar al modelo
+        $resultados =  $this->modelo->listar();
+        //llenar aside
+        require_once DAO_PATH . 'TemaDAO.php';
+        $con = new TemaDAO();
+        $lista1 = $con->listar();
+        require_once DAO_PATH . 'DispositivoDAO.php';
+        $con = new DispositivoDAO();
+        $lista2 = $con->listar();
+        //llamo a la vista
+        require_once VIEW_PATH . 'Noticias/BernalHelen.php';
     }
 
     public function buscar() {

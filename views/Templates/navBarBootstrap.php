@@ -61,7 +61,7 @@ $tmp = getSessionActual();
                         Soporte</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php?c=empleo">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.php?c=empleo&a=index_contacto">
                         <svg class="bi d-inline-block align-text-top mx-auto mb-1" width="24" height="24">
                             <use xlink:href="#people-circle" />
                         </svg>
