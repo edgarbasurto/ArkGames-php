@@ -53,7 +53,7 @@ class OrdenesController
    {
 
       $Id = $_REQUEST['id'];
-      //    $registros = $this->modelo->GetById($Id);
+      $registros = $this->modelo->GetById($Id);
       //    if (empty($registros[0]) == false) {
       //       $registro = $registros[0];
       //       require_once(DTO_PATH . 'Enumeradores.php');
