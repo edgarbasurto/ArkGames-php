@@ -124,7 +124,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
 
                     <div class="text-end">
                         <a href="?c=usuarios" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
-                        <button type="submit" class="btn btn-warning"><i class="fa-solid fa-floppy-disk"></i> Actualizar</a>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Actualizar</a>
                     </div>
                 </form>
 

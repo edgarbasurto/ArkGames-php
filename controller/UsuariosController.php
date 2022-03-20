@@ -15,7 +15,6 @@ class UsuariosController
    {
       if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_USUARIOS)) {
          $lista =  $this->modelo->All();
-         echo VIEW_PATH .  "Usuarios/listar.php";
 
          require_once(VIEW_PATH .  "Usuarios/listar.php");
          if (isset($_SESSION['notificar'])) {
@@ -57,14 +56,25 @@ class UsuariosController
 
    public function changepwd()
    {
-      if (TIENE_PERMISO(PERMISOS::PUEDE_CAMBIAR_PASSWORD)) {
-         $Id = $_REQUEST['id'];
+      $Id = $_REQUEST['id'];
+      $modo = $_REQUEST['modo'];
+      if ($modo == 'dash' && TIENE_PERMISO(PERMISOS::PUEDE_CAMBIAR_PASSWORD)) {
+
+         $registros = $this->modelo->GetById($Id);
+         if (empty($registros[0]) == false) {
+            $registro = $registros[0];
+            require_once(VIEW_PATH .  "Usuarios/changepassworddash.php");
+         } else {
+            header('Location:index.php?c=Usuarios');
+         }
+      } else if ($modo == 'pbl') {
+
          $registros = $this->modelo->GetById($Id);
          if (empty($registros[0]) == false) {
             $registro = $registros[0];
             require_once(VIEW_PATH .  "Usuarios/changepassword.php");
          } else {
-            header('Location:index.php?c=Usuarios');
+            header('Location:index.php');
          }
       } else {
          header('Location:index.php');

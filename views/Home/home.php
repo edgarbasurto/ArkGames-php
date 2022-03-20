@@ -132,8 +132,8 @@
 				div_col.className = "col mx-3";
 				div_col.style.width = "14rem";
 				div_col.id = "store" + this.id;
-				// div_col.innerHTML = ' <div class="card h-100 text-center"><img   style="margin:1% width: 12rem;  height: 18rem;" src="data:image/jpg;base64,' + this.#img_uri + '" class="card-img-top" alt="' + this.#nombre + '"><div class="card-body "><h5 class="card-title fw-bold">' + this.#nombre + '</h5><h4 class="text-primary fw-bold"> $ ' + this.#precio + '</h4><div> <a href="index.php?c=productos&a=show&id=' + this.id + '" class="btn btn-success mx-1"><i class="fas fa-eye"></i> </a><a href="index.php?c=productos&a=car&id=' + this.id + '" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></a></div></div></div>';
-				div_col.innerHTML = ' <div class="card h-100 text-center"><img   style="margin:1% width: 12rem;  height: 18rem;" src="' + this.#img_uri + '" class="card-img-top" alt="' + this.#nombre + '"><div class="card-body "><h5 class="card-title fw-bold">' + this.#nombre + '</h5><h4 class="text-primary fw-bold"> $ ' + this.#precio + '</h4><div> <a href="index.php?c=productos&a=show&id=' + this.id + '" class="btn btn-success mx-1"><i class="fas fa-eye"></i> </a><a href="index.php?c=productos&a=car&id=' + this.id + '" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></a></div></div></div>';
+
+				div_col.innerHTML = ' <div class="card h-100 text-center"><img   style="margin:1% width: 12rem;  height: 18rem;" src="' + this.#img_uri + '" class="card-img-top" alt="' + this.#nombre + '"><div class="card-body "><h5 class="card-title fw-bold">' + this.#nombre + '</h5><h4 class="text-primary fw-bold"> $ ' + this.#precio + '</h4><div>  <a href="index.php?c=carrito&a=addToCart&id=' + this.id + '" class="btn btn-info"><i class="fa-solid fa-cart-plus text-white"></i></a></div></div></div>';
 				return div_col;
 			}
 		}

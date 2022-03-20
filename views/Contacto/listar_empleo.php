@@ -9,7 +9,7 @@
 
             <div class="card-header row">
                 <div class="col-md-7">
-                    <h2>Solicitudes de </h2>Empleo
+                    <h2>Solicitudes de Empleo</h2>
                 </div>
                 <div class="col-md-5 text-end"><a class="btn btn-success justify-center" href="?c=empleo&a=nuevo">Agregar <i class="fa-solid fa-circle-plus fa-lg"></i></a></div>
             </div>
@@ -32,7 +32,7 @@
                         <tbody>
                             <?php
                             foreach ($resultados as $empleo) {
-                                $id = $empleo->id_solicitudempleo;
+                                $id = $empleo->id_solictudEmpleo;
                             ?>
                                 <tr>
                                 <td><?php echo $id ?></td>

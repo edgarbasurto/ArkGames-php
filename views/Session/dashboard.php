@@ -14,7 +14,36 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Bienvenido</li>
         </ol>
+
         <div class="row row-cols-1 row-cols-md-2 g-4 tile-container">
+            <div class="col-xl-3 col-md-6">
+
+                <a class="tile" href="?c=ordenes">
+                    <div class="tile-tittle">Mis Ordenes</div>
+                    <div class="card-body text-center">
+                        <div class="tile-icon">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
+                echo '
+            <div class="col-xl-3 col-md-6">
+
+                <a class="tile" href="?c=ordenes&a=index&vista=store">
+                    <div class="tile-tittle">Ventas</div>
+                    <div class="card-body text-center">
+                        <div class="tile-icon">
+                            <i class="fa-solid fa-shop"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>';
+            } ?>
+
+
             <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
                 echo '<div class="col-xl-3 col-md-6">
                
@@ -41,7 +70,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                     </a>
             </div>';
             } ?>
-           <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SUSCRIP)) {
+            <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SUSCRIP)) {
                 echo '<div class="col-xl-3 col-md-6">
                 
                     <a class="tile" href="?c=suscripcion">

@@ -1,4 +1,7 @@
 <?php
+
+use Symfony\Component\VarDumper\VarDumper;
+
 require_once DAO_PATH . 'CarritoDAO.php';
 require_once DAO_PATH . 'ProductosDAO.php';
 require_once DAO_PATH . 'OrdenDAO.php';
@@ -7,16 +10,11 @@ require_once DAO_PATH . 'OrdenDAO.php';
 class CarritoController
 {
     private $cart;
-    private $orden;
     private $modelo;
 
     public function __construct()
     {
-        if (isset($_SESSION)) {
-            session_start();
-        };
         $this->cart = new CarritoDAO();
-        $this->orden = new OrdenDAO();
         $this->modelo = new ProductosDAO();
     }
 
@@ -43,9 +41,9 @@ class CarritoController
 
             // echo var_dump($itemData);
             $insertItem = $this->cart->insert($itemData);
-            $redirectLoc = $insertItem ? 
-            'index.php?c=carrito' : 
-            'index.php?c=productos&a=index_cuadricula';
+            $redirectLoc = $insertItem ?
+                'index.php?c=carrito' :
+                'index.php?c=productos&a=index_cuadricula';
             header("Location: " . $redirectLoc);
         }
     }
@@ -53,14 +51,16 @@ class CarritoController
 
     public function updateCartItem()
     {
-        if (!empty($_REQUEST['id'])) {
+        if (!empty($_GET['id'])) {
             $itemData = array(
-                'rowid' => $_REQUEST['id'],
-                'qty' => $_REQUEST['qty']
+                'rowid' => $_GET['id'],
+                'qty' => $_GET['qty']
             );
+            
             $updateItem = $this->cart->update($itemData);
-            echo $updateItem ? 'ok' : 'err';
-            die;
+           
+
+            echo json_encode($itemData);
         }
     }
 
@@ -73,34 +73,5 @@ class CarritoController
     }
 
 
-    public function placeOrder()
-    {
-        if ($this->cart->total_items() > 0 && !empty($_SESSION['sessCustomerID'])) {
-            // insert order details into database
-            $insertOrder = $this->orden->insertarOrden();
-
-            if ($insertOrder) {
-                $orderID = $db->insert_id;
-                $sql = '';
-                // get cart items
-                $cartItems = $this->cart->contents();
-                foreach ($cartItems as $item) {
-                    $sql .= "INSERT INTO orden_articulos (order_id, product_id, quantity) VALUES ('" . $orderID . "', '" . $item['id'] . "', '" . $item['qty'] . "');";
-                }
-                // insert order items into database
-                $insertOrderItems = $db->multi_query($sql);
-
-                if ($insertOrderItems) {
-                    $this->cart->destroy();
-                    header("Location: OrdenExito.php?id=$orderID");
-                } else {
-                    header("Location: Pagos.php");
-                }
-            } else {
-                header("Location: Pagos.php");
-            }
-        } else {
-            header("Location: index.php");
-        }
-    }
+    
 }

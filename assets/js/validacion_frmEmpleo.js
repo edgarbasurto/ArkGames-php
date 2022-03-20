@@ -1,5 +1,5 @@
 
-var form = document.getElementById("solicitudEmpleo");
+var form = document.getElementById("form_solicitud");
 form.addEventListener('submit', validar);
 let cont = 0;
 

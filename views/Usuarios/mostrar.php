@@ -17,7 +17,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                         <h4 class="fw-bold" style="margin-top:.5rem">ID#<?php echo $registro->Id . " - " .  $registro->NombreCompleto ?> </h4>
                     </div>
                     <div class="col text-end">
-                        <a href="?c=usuarios&a=edit&id=<?php echo $registro->Id ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+                        <a href="?c=usuarios&a=edit&id=<?php echo $registro->Id ?>" class="btn btn-primary"><i class="fas fa-edit"></i> Editar</a>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirm"><i class="fas fa-trash-alt"></i> Eliminar</button>
                     </div>
                 </div>
