@@ -38,15 +38,17 @@
                             </thead>
                             <tbody>
 
-                                <tr>
-                                    <?php foreach ($lstDt as $ObjDetalleODA) { ?>
-                                        <td class="text-center" style="width: 5%; "><?php echo $ObjDetalleODA->Id; ?></td>
-                                        <td style="width: 75%; "><?php echo $ObjDetalleODA->Id; ?></td>
-                                        <td style="width: 10%; " class="text-center">$ <?php echo $ObjDetalleODA->Id; ?></td>
 
-                                        <td style="width: 10%; " class="text-end">$ <?php echo $ObjDetalleODA->Id; ?></td>
-                                    <?php } ?>
-                                </tr>
+                                <?php foreach ($lstDt as $ObjDetalleODA) { ?>
+                                    <tr>
+                                        <td class="text-center" style="width: 5%; "><?php echo $ObjDetalleODA['quantity']; ?></td>
+                                        <td style="width: 75%; "><?php echo $ObjDetalleODA['nombre']; ?></td>
+                                        <td style="width: 10%; " class="text-center">$ <?php echo $ObjDetalleODA['precio']; ?></td>
+
+                                        <td style="width: 10%; " class="text-end">$ <?php echo $ObjDetalleODA['subtotal']; ?></td>
+                                    </tr>
+                                <?php } ?>
+
 
                             </tbody>
                         </table>
@@ -60,10 +62,10 @@
                         </div>
         </div>
     </div>
-    <script src="../../assets/js/jquery.js"></script>
-    <script src="../../assets/js/jspdf.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jspdf.js"></script>
     <script>
-        DescargarPDF('reporte', 'Archivo');
+        DescargarPDF('reporte', 'Orden#"<?php echo $ObjOda->Id; ?>');
 
         function DescargarPDF(ContenidoID, nombre) {
 

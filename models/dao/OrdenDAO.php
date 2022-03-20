@@ -59,7 +59,9 @@ class OrdenDAO
 
 	public function	GetByDetallleId($Id)
 	{
-		$sql = "";
+		$sql = "SELECT d.order_id , p.id_producto as codigo, p.nombre,d.quantity, p.precio, d.quantity* p.precio  as subtotal FROM  orden_articulos d
+inner join productos p on d.product_id=p.id_producto WHERE d.order_id=" . $Id;
+
 		//preparacion de la sentencia
 		$stmt = $this->con->prepare($sql);
 		//ejecucion de la sentencia
@@ -73,12 +75,12 @@ class OrdenDAO
 
 	public function GetByIdUsuario($IdUsuario)
 	{
-		return $this->sqlQuery("SELECT O.id  ,U.NombreCompleto, O.total_price ,O.created  , O.status , O.modified FROM orden AS O INNER JOIN usuarios AS U ON O.USER_ID=U.Id WHERE O.USER_ID=" . $IdUsuario);
+		return $this->sqlQuery("SELECT O.id  ,U.NombreCompleto, O.total_price ,O.created  , O.status , O.modified,O.user_id FROM orden AS O INNER JOIN usuarios AS U ON O.USER_ID=U.Id WHERE O.USER_ID=" . $IdUsuario);
 	}
 
 	public function GetVentas()
 	{
-		return $this->sqlQuery("SELECT O.id  ,U.NombreCompleto, O.total_price ,O.created  , O.status , O.modified  FROM orden AS O INNER JOIN usuarios AS U ON O.USER_ID=U.Id  ");
+		return $this->sqlQuery("SELECT O.id  ,U.NombreCompleto, O.total_price ,O.created  , O.status , O.modified,O.user_id  FROM orden AS O INNER JOIN usuarios AS U ON O.USER_ID=U.Id  ");
 	}
 
 

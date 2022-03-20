@@ -51,19 +51,15 @@ class OrdenesController
 
    public function show()
    {
-
       $Id = $_REQUEST['id'];
       $registros = $this->modelo->GetById($Id);
-      //    if (empty($registros[0]) == false) {
-      //       $registro = $registros[0];
-      //       require_once(DTO_PATH . 'Enumeradores.php');
-      //       require_once(VIEW_PATH .  "Usuarios/mostrar.php");
-      //    } else {
-      //       header('Location:index.php?c=usuarios');
-      //    }
-      // } else {
-      //    header('Location:index.php?c=session&a=dash');
-      // }
+
+      if (empty($registros[0]) == false) {
+
+         $ObjOda = $registros[0];
+         $lstDt = $this->modelo->GetByDetallleId($ObjOda->Id);
+         require_once VIEW_PATH . 'Carrito/preview.orden.php';
+      }
    }
 
    public function new()
