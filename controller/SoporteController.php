@@ -16,11 +16,25 @@ class SoporteController
     public function index()
     {
         // llamar al modelo
-        $resultados = $this->modelo->listar();
-        //llamo a la vista
-        require_once VIEW_PATH . 'Soporte/listar_solicitud.php';
-
+        if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SOPORTE)) {
+            $resultados = $this->modelo->listar();
+            require_once VIEW_PATH . 'Soporte/listar_solicitud.php';
+        }else{
+            header('Location:index.php?c=session&a=dash');
+        }
     }   
+    
+    public function index_soporte()
+    {
+        if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_SOPORTE)) {
+            // llamar al modelo
+            $resultados =  $this->modelo->listar();
+            //llamo a la vista
+            require_once VIEW_PATH . 'Soporte/EspinozaIvan.php';
+        } else {
+            header('Location:index.php?c=session&a=dash');
+        }
+    }
 
     public function guardar()
     {
@@ -80,9 +94,13 @@ class SoporteController
 
     public function delete()
     {
-        $this->modelo->eliminar($_REQUEST['id']);
+        if (TIENE_PERMISO(PERMISOS::PUEDE_ELIMINAR_SOPORTE)) {
+            $this->modelo->eliminar($_REQUEST['id']);
         echo "<script>alert('Registro guardado con exito')</script>";
         header('Location: index.php?c=soporte');
+        }else {
+            header('Location:index.php?c=session&a=dash');
+        }
     }
 
 
@@ -90,6 +108,7 @@ class SoporteController
     {
 
         if (isset($_REQUEST['id'])) {
+            if (TIENE_PERMISO(PERMISOS::PUEDE_EDITAR_SOPORTE)) {
             $solicitudes = $this->modelo->obtener($_REQUEST['id']);
             $soporte = $solicitudes[0];
             require_once DAO_PATH . 'SoporteDAO.php';
@@ -98,12 +117,21 @@ class SoporteController
 
             require_once VIEW_PATH . 'Soporte/editar_solicitud.php';
             
+        }else{
+            header('Location:index.php?c=session&a=dash');
+        }
+            
         } else {
+            if (TIENE_PERMISO(PERMISOS::PUEDE_CREAR_SOPORTE)) {
             require_once DAO_PATH . 'SoporteDAO.php';
             $con = new SoporteDAO();
             $lista = $con->listar();
 
             require_once VIEW_PATH . 'Soporte/agregar_solicitud.php';
+            
+            }else{
+                header('Location:index.php?c=session&a=dash');
+            }
         }
     }
 }

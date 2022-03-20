@@ -8,7 +8,7 @@
     <main class="main p-5 mx-3">
         <div class="container px-5">
             <div class="container card shadow">
-                <form id="form_solicitud" method="POST" action="index.php?c=empleo&a=guardar&id=<?php echo $empleo->id_solicitud == null ? '' : $empleo->id_solicitud; ?>" enctype="multipart/form-data">
+                <form id="form_solicitud" method="POST" action="index.php?c=empleo&a=guardar&id=<?php echo $empleo->id_solictudEmpleo == null ? '' : $empleo->id_solictudEmpleo; ?>" enctype="multipart/form-data">
                     <div class="card-header row">
                         <h3 class="title text-center">Editar solicitud de Empleo</h3>
                     </div>
@@ -18,7 +18,7 @@
                                 <label class="form-label" for="id">ID:</label>
                             </div>
                             <div class="col-sm-1">
-                                <input id="id" class="form-control" type="<?php echo $empleo->id_solicitudEmpleo != null ? 'text' : 'hidden'; ?>" name="txtid" readonly value="<?php echo $empleo->id_solicitudEmpleo?>" /> <br>
+                                <input id="id" class="form-control" type="<?php echo $empleo->id_solictudEmpleo != null ? 'text' : 'hidden'; ?>" name="id" readonly value="<?php echo $empleo->id_solictudEmpleo?>" /> <br>
                             </div>
                         </div>
                         <div class="row mb-3">

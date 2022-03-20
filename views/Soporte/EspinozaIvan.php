@@ -2,8 +2,9 @@
 <html lang="es">
 
 <head>
+    <?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
     <meta charset="utf-8" />
-    <meta name="description" content="Soporte" />
+    <meta name="description" content="Soporte" />  
     <meta name="keywords" content="videojuegos,catalogo,juegos" />
     <link rel="stylesheet" href="../../assets/css/master.css" />
     <link rel="shortcut icon" href="../../assets/img/logo.svg">
@@ -43,7 +44,7 @@
             padding: 0px;
             /*font-family: 'Open Sans', sans-serif;*/
             background-color: rgb(104, 99, 99);
-            background-image: url("../../assets/img/fondo_Arkgames.svg")
+            background-image: url("assets/img/fondo_Arkgames.svg")
         }
 
         section {
@@ -266,7 +267,7 @@
 <body>
     <!-------------------------------------------------MENU---------------------------------------->
     <?php
-    include_once '../Templates/navBar.php'
+    require_once VIEW_PATH . 'Templates/navBarBootstrap.php'
     ?>
     <!------------------------------------------------------------------------------------------>
     <div id=contenedor>
@@ -314,25 +315,25 @@
                     <h2>¿Con qué producto podemos ayudarlo?</h2>
                     <div class="row">
                         <div class="col-md-6">
-                            <img onmouseover="cambioImg(this)" onmouseout="normalImg(this)" style="margin-bottom: 10px;width:380px;height:200px;border: solid 2px black;" src="../../assets/img/fortnite.jpg" alt="fortnite" />
+                            <img onmouseover="cambioImg(this)" onmouseout="normalImg(this)" style="margin-bottom: 10px;width:380px;height:200px;border: solid 2px black;" src="assets/img/fortnite.jpg" alt="fortnite" />
                         </div>
                         <div class="col-md-6">
-                            <img onmouseover="cambioImg(this)" onmouseout="normalImg(this)" style="margin-bottom: 10px;width:380px;height:200px;border: solid 2px black;" src="../../assets/img/genshin.jpg" alt="genshin" />
+                            <img onmouseover="cambioImg(this)" onmouseout="normalImg(this)" style="margin-bottom: 10px;width:380px;height:200px;border: solid 2px black;" src="assets/img/genshin.jpg" alt="genshin" />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6">
-                            <img onmouseover="cambioImg(this)" onmouseout="normalImg(this)" style="margin-bottom: 10px;width:380px;height:200px;border: solid 2px black;" src="../../assets/img/rocket.jpg" alt="rocket" />
+                            <img onmouseover="cambioImg(this)" onmouseout="normalImg(this)" style="margin-bottom: 10px;width:380px;height:200px;border: solid 2px black;" src="assets/img/rocket.jpg" alt="rocket" />
                         </div>
                         <div class="col-md-6">
-                            <img onmouseover="cambioImg(this)" onmouseout="normalImg(this)" style="margin-bottom: 10px;width:380px;height:200px;border: solid 2px black;" src="../../assets/img/fall.jpeg" alt="fall" />
+                            <img onmouseover="cambioImg(this)" onmouseout="normalImg(this)" style="margin-bottom: 10px;width:380px;height:200px;border: solid 2px black;" src="assets/img/fall.jpeg" alt="fall" />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col">
-                            <img onmouseover="cambioImg2(this)" onmouseout="normalImg2(this)" style="width:785px;height:330px;border: solid 2px black;" src="../../assets/img/apex.jpg" alt="apex" />
+                            <img onmouseover="cambioImg2(this)" onmouseout="normalImg2(this)" style="width:785px;height:330px;border: solid 2px black;" src="assets/img/apex.jpg" alt="apex" />
                         </div>
                     </div>
                 </article>
@@ -357,13 +358,13 @@
         <div class="bloque_ayuda">
             <h3>¿No puedes encontrar lo que buscas?</h3>
             <ul id="ayuda">
-                <li><a href="frmSoporte_EspinozaIvan.php">Obtén ayuda personalizada</a></li>
+                <li><a href="index.php?c=soporte&a=nuevo">Obtén ayuda personalizada</a></li>
             </ul>
         </div>
     </div>
     <!-------------------------------------------------FOOTER---------------------------------------->
     <?php
-    include_once '../Templates/footer.php'
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php'
     ?>
     <!----------------------------------------------------------------------------------------------->
     <script type="text/javascript" src="../../assets/js/EspinozaIvan.js"> </script>

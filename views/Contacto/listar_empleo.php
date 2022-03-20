@@ -32,7 +32,7 @@
                         <tbody>
                             <?php
                             foreach ($resultados as $empleo) {
-                                $id = $empleo->id_solicitudempleo;
+                                $id = $empleo->id_solictudEmpleo;
                             ?>
                                 <tr>
                                 <td><?php echo $id ?></td>
