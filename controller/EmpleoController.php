@@ -22,6 +22,15 @@ class EmpleoController
       //AQUI DEBES LLAMAR POR MEDIO DE LA RUTA A LA TABLA GENERAL
     }
 
+     // funciones del controlador
+     public function index_contacto()
+     {
+         // llamar al modelo
+         //$resultados = $this->modelo->listar();
+         //llamo a la vista
+         require_once VIEW_PATH . 'Contacto/GualeEvelyn.php';
+       //AQUI DEBES LLAMAR POR MEDIO DE LA RUTA A LA TABLA GENERAL
+     }
     public function guardar()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && 

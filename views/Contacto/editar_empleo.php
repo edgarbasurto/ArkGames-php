@@ -91,7 +91,7 @@
                     </div>
                     <div class="card-footer row ">
                         <div class="text-end">
-                            <a href="index.php" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+                            <a href="index.php?c=session&a=dash" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
                             <button class="btn btn-primary" id="btnListo" type="submit" value="guardar">Actualizar</button>
                         </div>
                     </div>
