@@ -35,14 +35,14 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                         <div class="mb-4 row text-end">
                             <label class="col-sm-3 col-form-label">Nombre:</label>
                             <div class="col-sm-9">
-                                <input required class="form-control form-control-sm" type="text" value="<?php echo $producto->nombre; ?>" name="txtNombre" placeholder="Ingrese nombre del producto" data-validacion-tipo="requerido|min:3">
+                                <input required class="form-control form-control-sm" type="text" value="<?php echo $producto->nombre != null? $producto->nombre : '' ?>" name="txtNombre" placeholder="Ingrese nombre del producto" data-validacion-tipo="requerido|min:3">
                             </div>
                         </div>
 
                         <div class="mb-4 row text-end">
                             <label class="col-sm-3 col-form-label">Precio:</label>
                             <div class="col-sm-9">
-                                <input required value="<?php echo $producto->precio; ?>" class="form-control form-control-sm" type="number" placeholder="0.0" step="0.01" min="0" max="1000" name="txtPrecio">
+                                <input required value="<?php echo $producto->precio != null? $producto->precio : '' ?>" class="form-control form-control-sm" type="number" placeholder="0.0" step="0.01" min="0" max="1000" name="txtPrecio">
                             </div>
                         </div>
 
@@ -77,7 +77,7 @@ require_once VIEW_PATH . 'Templates/HeadDashboardBootstrap.php'
                                 <h5 class="title"> Vista previa </h5>
                             </div>
                             <div class="card-body text-center" style="height: 300px;">
-                                <img style="max-height:280px; width: auto;" id="imagenPrevisualizacion" src="assets/img/posters/<?php echo $producto->url_imagen ?>" alt="<?php echo $producto->nombre ?>">
+                                <img style="max-height:280px; width: auto;" id="imagenPrevisualizacion" src="assets/img/posters/<?php echo $producto->url_imagen != null? $producto->url_imagen : '' ?>" alt="<?php echo $producto->nombre !=null? $producto->nombre : '' ?>">
                             </div>
                         </div>
                     </div>
