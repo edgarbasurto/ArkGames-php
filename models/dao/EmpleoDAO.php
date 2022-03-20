@@ -18,7 +18,7 @@ class EmpleoDAO
     // sql de la sentencia
     $sql = "SELECT * 
         FROM empleo e, vacante v 
-        WHERE e.id_vacante = v.id_vacante";
+        WHERE e.id_vacante = v.id_vacante AND e.estado = 1";
 
     //preparacion de la sentencia
     $stmt = $this->con->prepare($sql);
@@ -39,8 +39,8 @@ class EmpleoDAO
   public function insertar($data)
   {
     try {
-      $sql = "INSERT INTO empleo(nombre, apellido, edad, telefono, correo, id_vacante, experiencia) 
-             VALUES (?, ?, ?, ?, ?, ?, ?)";
+      $sql = "INSERT INTO empleo(nombre, apellido, edad, telefono, correo, id_vacante, experiencia, estado) 
+             VALUES (?, ?, ?, ?, ?, ?, ?,?)";
 
 
       $stmt = $this->con->prepare($sql);
@@ -51,7 +51,8 @@ class EmpleoDAO
         $data['telefono'],
         $data['correo'],
         $data['id_vacante'],
-        $data['experiencia']
+        $data['experiencia'],
+        1
       );
 
       $stmt->execute($datos);
@@ -98,7 +99,8 @@ class EmpleoDAO
   public function eliminar(int $id)
   {
     try {
-      $sql = "UPDATE empleo WHERE id_solictudEmpleo=" . $id;
+      $sql = "UPDATE empleo SET 
+      estado = 0 WHERE id_solictudEmpleo=" . $id;
       //preparacion de la sentencia
       $stmt = $this->con->prepare($sql);
       //ejecucion de la sentencia
@@ -111,9 +113,10 @@ class EmpleoDAO
   public function obtener($id)
   {
     try {
-      $sql = "SELECT * FROM empleo e, vacante v WHERE e.id_vacante = v.id_vacante";
+      $sql = "SELECT * 
+        FROM empleo e, vacante v 
+        WHERE e.id_vacante = v.id_vacante AND e.estado = 1 AND id_solictudEmpleo=" . $id;
 
-      $sql = "SELECT * FROM empleo e, vacante v WHERE e.id_vacante = v.id_vacante AND id_solictudEmpleo=" . $id;
       // echo var_dump($sql);
       $stmt = $this->con->prepare($sql);
       //ejecucion de la sentencia

@@ -125,7 +125,7 @@ class ProductosDAO
   {
     try {
       $sql = "SELECT * FROM productos p, categorias c WHERE p.id_categoria = c.id_categoria AND prod_estado=1 AND id_producto =" . $id;
-      // echo var_dump($sql);
+     
       $stmt = $this->con->prepare($sql);
       //ejecucion de la sentencia
       $stmt->execute();
