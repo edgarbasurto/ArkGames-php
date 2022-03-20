@@ -79,6 +79,7 @@ require_once DAO_PATH . 'UsuarioDAO.php';
 require_once DAO_PATH . 'AccesoDAO.php';
 require_once  DTO_PATH . 'Acceso.php';
 require_once  DTO_PATH . 'Session.php';
+
 function getdefaultSession()
 { //Rafael1108
 
@@ -94,17 +95,18 @@ function getdefaultSession()
     if (!isset($_SESSION)) {
         session_start();
     };
-    $_SESSION['mySession'] = $mySession;
+    $_SESSION["mySession"] = $mySession;
 
-    setcookie("mySession", '00000000-0000-0000-0000-000000000000', time() - 3600, "/");
-    setcookie("mySession", '00000000-0000-0000-0000-000000000000', time() + 3600, "/");
+    setcookie("mySession", "00000000-0000-0000-0000-000000000000", time() - 3600, "/");
+    setcookie("mySession", "00000000-0000-0000-0000-000000000000", time() + 3600, "/");
     return  $mySession;
 }
+
 function getSessionActual()
 {
 
-    if (isset($_COOKIE['mySession'])) {
-        $IdSession =  $_COOKIE['mySession'];
+    if (isset($_COOKIE["mySession"])) {
+        $IdSession =  $_COOKIE["mySession"];
 
         if ($IdSession != '00000000-0000-0000-0000-000000000000') {
 

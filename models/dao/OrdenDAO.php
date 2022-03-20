@@ -52,12 +52,17 @@ class OrdenDAO
 		return $this->con->lastInsertId();
 	}
 
-	function GetByIdUsuario($IdUsuario)
+	public function	GetById($Id)
+	{
+		return $this->sqlQuery("SELECT * FROM orden  WHERE id=" . $Id);
+	}
+
+	public function GetByIdUsuario($IdUsuario)
 	{
 		return $this->sqlQuery("SELECT O.id  ,U.NombreCompleto, O.total_price ,O.created  , O.status , O.modified FROM orden AS O INNER JOIN usuarios AS U ON O.USER_ID=U.Id WHERE O.USER_ID=" . $IdUsuario);
 	}
 
-	function GetVentas()
+	public function GetVentas()
 	{
 		return $this->sqlQuery("SELECT O.id  ,U.NombreCompleto, O.total_price ,O.created  , O.status , O.modified  FROM orden AS O INNER JOIN usuarios AS U ON O.USER_ID=U.Id  ");
 	}
