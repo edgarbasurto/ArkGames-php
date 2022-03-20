@@ -13,7 +13,7 @@
 
 <body id="bodyTemp">
 	<?php require_once VIEW_PATH . 'Templates/navBarBootstrap.php' ?>
-	<?php if (getSessionActual()->Session == '00000000-0000-0000-0000-000000000000') {
+	<?php if (getSessionActual()->Session == '0') {
 
 		echo '<div class="barraflotante" onmouseover="show_popup()">
 		<span class="popupText" id="autopopup">Juega Ya!</span>

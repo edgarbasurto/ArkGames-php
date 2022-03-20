@@ -111,8 +111,8 @@ class ProductosController
 
     public function nuevo()
     {
-
-
+        
+        $producto = new Producto();
         if (isset($_REQUEST['id'])) {
             if (TIENE_PERMISO(PERMISOS::PUEDE_EDITAR_PRODUCTOS)) {
                 $productos = $this->modelo->obtener($_REQUEST['id']);

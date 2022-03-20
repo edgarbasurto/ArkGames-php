@@ -1,6 +1,4 @@
-  
 <?php
-
 require_once  CONTROLLER_PATH . 'Genericos.php';
 class HomeController
 {

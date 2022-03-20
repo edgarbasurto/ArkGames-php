@@ -1,6 +1,5 @@
 <?php
-
-class Genericos
+ class Genericos
 {
     // @Rafael1108
     // funcion para almacenar imagenes en el servidor ... 
@@ -85,7 +84,7 @@ function getdefaultSession()
 
     $mySession = new Session();
 
-    $mySession->Session = "00000000-0000-0000-0000-000000000000";
+    $mySession->Session = "0";
     $mySession->Usuario = -1;
     $mySession->Perfil = 0;
     $mySession->NombrePerfil = TipoRol::getName(0);
@@ -97,8 +96,8 @@ function getdefaultSession()
     };
     $_SESSION["mySession"] = $mySession;
 
-    setcookie("mySession", "00000000-0000-0000-0000-000000000000", time() - 3600, "/");
-    setcookie("mySession", "00000000-0000-0000-0000-000000000000", time() + 3600, "/");
+   //setcookie("mySession", "0", time() - 3600, "/");
+   //setcookie("mySession", "0", time() + 3600, "/");
     return  $mySession;
 }
 
@@ -108,7 +107,7 @@ function getSessionActual()
     if (isset($_COOKIE["mySession"])) {
         $IdSession =  $_COOKIE["mySession"];
 
-        if ($IdSession != '00000000-0000-0000-0000-000000000000') {
+        if ($IdSession != '0') {
 
             $modelo_acceso = new AccesoDAO();
             $modelo_Usuario = new UsuarioDAO();
