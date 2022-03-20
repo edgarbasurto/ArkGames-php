@@ -51,7 +51,7 @@ class SuscripcionController
             $datos['id_suscripcion'] > 0
                     ? $this->modelo->actualizar($datos)
                     : $this->modelo->insertar($datos);
-            header('Location: index.php');
+            header('Location: index.php?c=suscripcion');
             echo '<script>alert("Registro guardado con exito")</script>';
         } else {
             if ($_GET['id']) {
@@ -67,7 +67,7 @@ class SuscripcionController
         if (TIENE_PERMISO(PERMISOS::PUEDE_ELIMINAR_SUSCRIP)) {
             $this->modelo->eliminar($_REQUEST['id']);
             echo "<script>alert('Registro guardado con exito')</script>";
-            header('Location: index.php');
+            header('Location: index.php?c=suscripcion');
         } else {
             header('Location:index.php?c=session&a=dash');
         }  

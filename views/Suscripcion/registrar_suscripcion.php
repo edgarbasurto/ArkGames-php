@@ -110,7 +110,7 @@
 
                     <div class="card-footer row ">
                         <div class="text-end">
-                            <a href="index.php?c=noticias&a=index_noticias" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+                            <a href="?c=noticias&a=index_noticias" class="btn btn-secondary"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
                             <button class="btn btn-primary" id="btnListo" type="submit" value="guardar">Listo</button>
                         </div>
                     </div>
