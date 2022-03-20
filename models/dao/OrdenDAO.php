@@ -57,6 +57,20 @@ class OrdenDAO
 		return $this->sqlQuery("SELECT * FROM orden  WHERE id=" . $Id);
 	}
 
+	public function	GetByDetallleId($Id)
+	{
+		$sql = "";
+		//preparacion de la sentencia
+		$stmt = $this->con->prepare($sql);
+		//ejecucion de la sentencia
+		$stmt->execute();
+		//recuperacion de resultados
+		$Detalle = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+		return $Detalle;
+	}
+
 	public function GetByIdUsuario($IdUsuario)
 	{
 		return $this->sqlQuery("SELECT O.id  ,U.NombreCompleto, O.total_price ,O.created  , O.status , O.modified FROM orden AS O INNER JOIN usuarios AS U ON O.USER_ID=U.Id WHERE O.USER_ID=" . $IdUsuario);

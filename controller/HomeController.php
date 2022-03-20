@@ -1,11 +1,13 @@
   
 <?php
 
+require_once  CONTROLLER_PATH . 'Genericos.php';
 class HomeController
 {
 
     public function __construct()
     {
+        getSessionActual();
     }
 
     // funciones del controlador
