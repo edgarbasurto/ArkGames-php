@@ -474,41 +474,33 @@ INSERT INTO
 VALUES
   ('Ventas'),('Atencion al cliente'),('Desarrollo de Juegos'),('Soporte Tecnico'),('Administracion');
 DROP TABLE IF EXISTS `empleo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `empleo` (
-    `id_solictudEmpleo` int NOT NULL AUTO_INCREMENT,
-    `nombre` VARCHAR(30) NOT NULL,
-    `apellido` VARCHAR(30) NOT NULL,
-    `edad` int NOT NULL,
-    `telefono` VARCHAR(10) NOT NULL,
-    `correo` VARCHAR(60) NOT NULL,
-    `id_vacante` int NOT NULL,
-    `experiencia` VARCHAR(300) NOT NULL,
-    PRIMARY KEY (`id_solictudEmpleo`),
-    KEY `id_vacante` (`id_vacante`),
-    CONSTRAINT `id_vacante` FOREIGN KEY (`id_vacante`) REFERENCES `vacante` (`id_vacante`)
-  ) ENGINE = InnoDB AUTO_INCREMENT = 0 DEFAULT CHARSET = utf8mb3 COLLATE = utf8_spanish_ci;
-INSERT INTO
-  `empleo`
-VALUES
-  (
-    1,
-    'Marcos',
-    'Jimenez',
-    32,
-    '0985703056',
-    'marcos32j@gmail.com',
-    3,
-    'dessarrolo de videojuegos con experiencia de mas de 3 años'
-  ),(
-    2,
-    'Julian',
-    'Lopez',
-    29,
-    '0945373056',
-    'jlopez09j@gmail.com',
-    2,
-    'Cuento con 4 años de experiencia en atentencion al cliente asumiendo mis responsabilidades con la empresa '
-  );
+  `id_solictudEmpleo` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `apellido` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `edad` int NOT NULL,
+  `telefono` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `correo` varchar(60) COLLATE utf8_spanish_ci NOT NULL,
+  `id_vacante` int NOT NULL,
+  `experiencia` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
+  `estado` int NOT NULL,
+  PRIMARY KEY (`id_solictudEmpleo`),
+  KEY `id_vacante` (`id_vacante`),
+  CONSTRAINT `id_vacante` FOREIGN KEY (`id_vacante`) REFERENCES `vacante` (`id_vacante`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `empleo`
+--
+
+LOCK TABLES `empleo` WRITE;
+/*!40000 ALTER TABLE `empleo` DISABLE KEYS */;
+INSERT INTO `empleo` VALUES (1,'Marcos','Jimenez',32,'0985703056','marcos32j@gmail.com',3,'dessarrolo de videojuegos con experiencia de mas de 3 años',1),(2,'Julian','Lopez',29,'0945373056','jlopez09j@gmail.com',2,'Cuento con 4 años de experiencia en atentencion al cliente asumiendo mis responsabilidades con la empresa ',1),(3,'EDGAR','BASURTO',45,'0994915345','ed_basurto@hotmail.com',2,'dfsgwfd',0),(4,'DAYANNA','LOPEZ',23,'0987654321','yayi@dominio.com',3,'RDGSDF',0),(5,'DANIEL','LOOR',34,'1234567890','usuario@dominio.com',3,'43asdfasd',0);
+/*!40000 ALTER TABLE `empleo` ENABLE KEYS */;
+UNLOCK TABLES;
   /* TABLA accesos
                                                    * -- RAFAEL LARREA
                                                    * -- @Rafael1108
