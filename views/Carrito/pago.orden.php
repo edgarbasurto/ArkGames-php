@@ -1,31 +1,8 @@
-<?php
-// include database configuration file
-// include 'Configuracion.php';
-
-// initializ shopping cart class
-// include 'La-carta.php';
-// $cart = new Cart;
-
-// redirect to home if cart is empty
-// if ($cart->total_items() <= 0) {
-//    header("Location: index.php");
-// } 
-
-// // set customer ID in session
-// $_SESSION['sessCustomerID'] = 1;
-
-// // get customer details by session customer ID
-// $query = $db->query("SELECT * FROM clientes WHERE id = " . $_SESSION['sessCustomerID']);
-// $custRow = $query->fetch_assoc();
-?>
 <?php require_once VIEW_PATH . 'Templates/HeadBootstrap.php' ?>
-
 
 <title>Ark Games</title>
 
-
-
-<style>
+<!-- <style>
     .container {
         padding: 20px;
     }
@@ -49,7 +26,7 @@
     .orderBtn {
         float: right;
     }
-</style>
+</style> -->
 </head>
 
 <body id="bodyTemp">
@@ -63,70 +40,85 @@
             <div class="card shadow">
                 <div class="card-header">
 
-                    <ul class="nav nav-pills">
-                        <li role="presentation"><a href="index.php">Inicio</a></li>
-                        <li role="presentation"><a href="VerCarta.php">Ver Carta</a></li>
-                        <li role="presentation" class="active"><a href="Pagos.php">Pagos</a></li>
-                    </ul>
+                    <h1>Vista previa de la Orden</h1>
                 </div>
 
                 <div class="card-body">
-                    <h1>Vista previa de la Orden</h1>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Producto</th>
-                                <th>Pricio</th>
-                                <th>Cantidad</th>
-                                <th>Sub total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if ($cart->total_items() > 0) {
-                                //get cart items from session
-                                $cartItems = $cart->contents();
-                                foreach ($cartItems as $item) {
-                            ?>
+                    <div class="row">
+                        <div class="col-8">
+                            <table class="table">
+                                <thead>
                                     <tr>
-                                        <td><?php echo $item["name"]; ?></td>
-                                        <td><?php echo '$' . $item["price"] . ' USD'; ?></td>
-                                        <td><?php echo $item["qty"]; ?></td>
-                                        <td><?php echo '$' . $item["subtotal"] . ' USD'; ?></td>
+                                        <th>Producto</th>
+                                        <th>Pricio</th>
+                                        <th>Cantidad</th>
+                                        <th>Sub total</th>
                                     </tr>
-                                <?php }
-                            } else { ?>
-                                <tr>
-                                    <td colspan="4">
-                                        <p>No hay articulos en tu carta......</p>
-                                    </td>
-                                <?php } ?>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="3"></td>
-                                <?php if ($cart->total_items() > 0) { ?>
-                                    <td class="text-center"><strong>Total <?php echo '$' . $cart->total() . ' USD'; ?></strong></td>
-                                <?php } ?>
-                            </tr>
-                        </tfoot>
-                    </table>
-                    <div class="shipAddr">
-                        <h4>Detalles del Cliente</h4>
-                        
-                        <p><strong>Nombre: </strong><?php echo $custRow[0]->NombreCompleto ?></p>
-                        <p><strong>Email: </strong><?php echo $custRow[0]->Email ?></p>
-                        <p><strong>NickName: </strong><?php echo $custRow[0]->NickName ?></p>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    if ($cart->total_items() > 0) {
+                                        //get cart items from session
+                                        $cartItems = $cart->contents();
+                                        foreach ($cartItems as $item) {
+                                    ?>
+                                            <tr>
+                                                <td><?php echo $item["name"]; ?></td>
+                                                <td><?php echo '$' . $item["price"] . ' USD'; ?></td>
+                                                <td><?php echo $item["qty"]; ?></td>
+                                                <td><?php echo '$' . $item["subtotal"] . ' USD'; ?></td>
+                                            </tr>
+                                        <?php }
+                                    } else { ?>
+                                        <tr>
+                                            <td colspan="4">
+                                                <p>No hay articulos en tu carta......</p>
+                                            </td>
+                                        <?php } ?>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3"></td>
+                                        <?php if ($cart->total_items() > 0) { ?>
+                                            <td class="text-center"><strong>Total <?php echo '$' . $cart->total() . ' USD'; ?></strong></td>
+                                        <?php } ?>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <div class="col-4">
+                            <h4>Detalles del Cliente</h4>
+
+                            <p><strong>Nombre: </strong><?php echo $custRow[0]->NombreCompleto ?></p>
+                            <p><strong>Email: </strong><?php echo $custRow[0]->Email ?></p>
+                            <p><strong>NickName: </strong><?php echo $custRow[0]->NickName ?></p>
+                        </div>
                     </div>
-                    <div class="footBtn">
-                        <a href="?c=productos&a=index_cuadricula" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Comprando</a>
-                        <a href="index.php?c=ordenes&a=placeOrder" class="btn btn-success orderBtn">Realizar pedido <i class="glyphicon glyphicon-menu-right"></i></a>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="?c=productos&a=index_cuadricula" class="btn btn-warning text-start"><i class="fa-solid fa-backward"></i> Continue Comprando</a>
+                        </div>
+                        <div class="col-6 text-end">
+                            <a href="index.php?c=ordenes&a=placeOrder" class="btn btn-success text-end">Finalizar compra <i class="fa-solid fa-circle-check"></i></a>
+                        </div>
                     </div>
+
                 </div>
             </div>
             <!--Panek cierra-->
+            <!-------------------------------------------------FOOTER---------------------------------------->
         </div>
     </main>
+
+    <?php
+    require_once VIEW_PATH . 'Templates/footerBootstrap.php'
+    ?>
+
+    <!-- <script type="text/javascript" src="assets/js/funcionesAjax.js"></script> -->
+    <!----------------------------------------------------------------------------------------------->
 
 </body>
 

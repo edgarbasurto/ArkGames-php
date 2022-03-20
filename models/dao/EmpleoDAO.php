@@ -113,7 +113,7 @@ class EmpleoDAO
     try {
       $sql = "SELECT * FROM empleo e, vacante v WHERE e.id_vacante = v.id_vacante";
 
-      $sql = "SELECT * FROM empleo e, vacante v WHERE e.id_vacante = v.id_vacante AND id_solicitud=" . $id;
+      $sql = "SELECT * FROM empleo e, vacante v WHERE e.id_vacante = v.id_vacante AND id_solictudEmpleo=" . $id;
       // echo var_dump($sql);
       $stmt = $this->con->prepare($sql);
       //ejecucion de la sentencia

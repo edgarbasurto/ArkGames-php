@@ -61,9 +61,7 @@ nav ul li a svg {
   padding-bottom: 5rem;
   background-color: black;
   color: #fff;
-  position: -webkit-sticky;
-  /*position: sticky;*/
-  bottom: 0;
+
 }
 
 .copyright {

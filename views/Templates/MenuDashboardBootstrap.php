@@ -60,12 +60,12 @@ $tmp = getSessionActual();
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-bag-shopping"></i></div>
                             Mis Ordenes
                         </a>
-                        <a class="nav-link" href="?c=ordenes&a=index&vista=store">
+
+                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_VENTAS)) {
+                            echo ' <a class="nav-link" href="?c=ordenes&a=index&vista=store">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-shop"></i></div>
                             Ventas
-                        </a>
-                        <?php if (TIENE_PERMISO(PERMISOS::PUEDE_VISUALIZAR_PRODUCTOS)) {
-                            echo ' ';
+                        </a>';
                         } ?>
 
                         <div class="sb-sidenav-menu-heading">Mantenimiento</div>
